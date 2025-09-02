@@ -3,7 +3,7 @@
   "name": "tailwind-indicator",
   "type": "registry:component",
   "title": "tailwind-indicator",
-  "author": "MaskSysDev <adminsys-components.vercel.app>",
+  "author": "MaskSysDev <https://github.com/MaskSysDev>",
   "description": "A tailwind-indicator component for Next.js apps.",
   "files": [
     {
@@ -13,5 +13,5 @@
       "target": "src/components/dev/tailwind-indicator.tsx"
     }
   ],
-  "docs": "https://adminsys-components.vercel.app/docs/components/tailwind-indicator"
+  "docs": "https://http://localhost:3000/docs/components/tailwind-indicator"
 }

@@ -16,7 +16,7 @@ export const lib: Registry["items"] = [
     name: "utils",
     type: "registry:lib",
     title: "Utility Functions",
-    author: "MaskSysDev <adminsys-components.vercel.app>",
+    author: "<author> <<authorUrl>>",
     dependencies: ["clsx", "tailwind-merge"],
     files: [
       {
