@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tailwind-indicator",
+  "type": "registry:component",
+  "title": "tailwind-indicator",
+  "author": "MaskSysDev <adminsys-components.vercel.app>",
+  "description": "A tailwind-indicator component for Next.js apps.",
+  "files": [
+    {
+      "path": "src/registry/components/dev/tailwind-indicator.tsx",
+      "content": "export function TailwindIndicator() {\n  // if (process.env.NODE_ENV === \"production\") {\n  //   return null\n  // }\n\n  return (\n    <div className=\"fixed bottom-1 left-1 z-50 flex size-6 items-center justify-center rounded-full bg-background p-3 font-mono text-foreground text-xs\">\n      <div className=\"block sm:hidden\">xs</div>\n      <div className=\"hidden sm:block md:hidden\">sm</div>\n      <div className=\"hidden md:block lg:hidden\">md</div>\n      <div className=\"hidden lg:block xl:hidden\">lg</div>\n      <div className=\"hidden xl:block 2xl:hidden\">xl</div>\n      <div className=\"hidden 2xl:block\">2xl</div>\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "src/components/dev/tailwind-indicator.tsx"
+    }
+  ],
+  "docs": "https://adminsys-components.vercel.app/docs/components/tailwind-indicator"
+}

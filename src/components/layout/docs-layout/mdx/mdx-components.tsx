@@ -24,6 +24,8 @@ import type { MDXComponents } from "mdx/types"
 import type { ComponentProps, FC } from "react"
 
 import { DocsCategory } from "@/components/layout/docs-layout/category/docs-category"
+import { ComponentPreview } from "@/components/layout/docs-layout/code/component-preview"
+import { ComponentSource } from "@/components/layout/docs-layout/code/component-source"
 import { GraphView } from "@/components/layout/docs-layout/graph/graph-view"
 import { Wrapper } from "@/components/layout/docs-layout/preview/wrapper"
 
@@ -40,6 +42,8 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     ),
     Banner,
     blockquote: Callout as unknown as FC<ComponentProps<"blockquote">>,
+    ComponentPreview,
+    ComponentSource,
     DocsCategory,
     DynamicCodeBlock,
     ...(icons as unknown as MDXComponents),

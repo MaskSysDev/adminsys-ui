@@ -8,7 +8,16 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!node_modules", "!.next", "!dist", "!build", "!.source"]
+    "includes": [
+      "**",
+      "!node_modules",
+      "!.next",
+      "!dist",
+      "!build",
+      "!.source",
+      "!src/__registry__",
+      "!**/r"
+    ]
   },
   "linter": {
     "enabled": true,

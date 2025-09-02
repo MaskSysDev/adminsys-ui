@@ -1,4 +1,4 @@
 {
   "title": "Documentation",
-  "pages": ["get-started", "fumadocs-ui"]
+  "pages": ["get-started", "fumadocs-ui", "components"]
 }

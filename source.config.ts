@@ -8,6 +8,8 @@ import {
 import { transformerTwoslash } from "fumadocs-twoslash"
 import { createFileSystemTypesCache } from "fumadocs-twoslash/cache-fs"
 
+import { remarkCodeImport } from "@/lib/remark-code-import"
+
 // Você pode customizar os esquemas Zod para frontmatter e `meta.json` aqui
 // veja https://fumadocs.dev/docs/mdx/collections#define-docs
 export const docs = defineDocs({
@@ -22,6 +24,7 @@ export const docs = defineDocs({
 export default defineConfig({
   mdxOptions: {
     // Opções do MDX
+    remarkPlugins: [remarkCodeImport],
     rehypeCodeOptions: {
       langs: ["ts", "js", "html", "tsx", "mdx"],
       themes: {
