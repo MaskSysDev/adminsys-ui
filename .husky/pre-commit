@@ -1,5 +1,9 @@
 echo "🚀 Pre commit Started..."
 
+echo "⌛ Components Registry Build..."
+
+pnpm registry:build
+
 echo "⌛ Typecheck..."
 
 pnpm typecheck

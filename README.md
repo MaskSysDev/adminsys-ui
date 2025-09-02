@@ -1,4 +1,4 @@
-# DocSys Started
+# AdminSys UI
 
 This project is a minimalist starter template for building modern applications using [Next.js 15](https://nextjs.org/), [React 19](https://react.dev/), and [Tailwind CSS 4](https://tailwindcss.com/). It comes pre-configured with best practices, TypeScript, automatic formatting, and linting.
 

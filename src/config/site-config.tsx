@@ -1,5 +1,5 @@
 import { Icons } from "@/components/layout/icons"
-import { Logo } from "@/components/layout/logo/logo-docsys"
+import { Logo } from "@/components/layout/logo/logo-adminsys"
 
 import { env } from "@/config/env"
 import type {
@@ -23,7 +23,7 @@ import { siteConfigSchema } from "@/config/validation/site-config.schema"
  * - Objeto contendo os metadados do site
  */
 const siteMeta: SiteMeta = {
-  name: "DocSys Started",
+  name: "AdminSys UI",
   description:
     "React App with Next.js, Typescript, TailwindCSS, Shadcn, Biome, Husky, Commitlint and more.",
   url: env.NEXT_PUBLIC_APP_URL,
@@ -38,7 +38,7 @@ const siteMeta: SiteMeta = {
     "Husky",
     "Commitlint",
   ],
-  twitterHandle: "@docsys",
+  twitterHandle: "@adminsys",
 }
 
 /**
@@ -103,8 +103,8 @@ const socialLinks: SocialLink[] = [
  * - Objeto contendo informações de contato
  */
 const contactInfo: ContactInfo = {
-  contactEmail: "contato@docsys.com.br",
-  supportEmail: "suporte@docsys.com.br",
+  contactEmail: "contato@adminsys.com.br",
+  supportEmail: "suporte@adminsys.com.br",
 }
 
 /**
@@ -122,7 +122,7 @@ const authorInfo: AuthorInfo = {
   authorUrl: "https://github.com/MaskSysDev",
   creator: "Mask",
   publisher: "MaskSysDev",
-  projectUrl: "https://github.com/MaskSysDev/docsys-started",
+  projectUrl: "https://github.com/MaskSysDev/adminsys-ui",
 }
 
 /**
@@ -184,6 +184,10 @@ export const navbar01 = {
       label: "Documentation",
       href: "/docs/get-started",
     },
+    {
+      label: "Components",
+      href: "/docs/components",
+    },
   ],
 }
 
@@ -198,7 +202,7 @@ export const navbar01 = {
  * - Objeto contendo as propriedades do rodapé.
  */
 export const footer01 = {
-  name: "DocSys Started",
+  name: "AdminSys UI",
   author: "MaskSysDev",
   authorUrl: "https://github.com/MaskSysDev",
   socialLinks: [
@@ -231,9 +235,9 @@ export const footer01 = {
  * - Objeto contendo as propriedades da seção de herói.
  */
 export const hero01 = {
-  title: "DocSys Started Boilerplate",
+  title: "AdminSys UI Boilerplate",
   subTitle: "Template",
-  subTitleColor: "Docs",
+  subTitleColor: "Components",
   description:
     "React App with Next.js, Typescript, TailwindCSS, Shadcn, Biome, Husky, Commitlint and more.",
   size: "90",
@@ -246,7 +250,7 @@ export const hero01 = {
     },
     action02: {
       label: "GitHub",
-      href: "https://github.com/MaskSysDev/docsys-started",
+      href: "https://github.com/MaskSysDev/adminsys-ui",
     },
   },
 }

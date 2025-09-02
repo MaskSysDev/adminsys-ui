@@ -1,0 +1,63 @@
+---
+title: Theme Toggle
+description: A theme-toggle component.
+---
+
+<ComponentPreview
+  name="theme-toggle-demo"
+  openInV0Url="https://adminsys-components.vercel.app/r/theme-toggle.json"
+  code={<ComponentSource name="theme-toggle" />}
+/>
+
+## Installation
+
+<Tabs className="gap-0" defaultValue="cli">
+
+<TabsList>
+  <TabsTriggerShadcnCLI />
+  <TabsTrigger className="cursor-pointer" value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli" className="[&>figure]:mb-0">
+
+```bash
+npx shadcn@latest add https://adminsys-components.vercel.app/r/theme-toggle.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install next-themes lucide-react
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource src="src/lib/utils.ts" />
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="theme-toggle"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { ThemeToggle } from "@/components/layout/toggle/theme-toggle";
+```
+
+```tsx
+<ThemeToggle />
+```

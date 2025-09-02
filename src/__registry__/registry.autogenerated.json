@@ -1,0 +1,94 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "MaskSysDev",
+  "homepage": "https://adminsys-components.vercel.app",
+  "items": [
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utility Functions",
+      "author": "MaskSysDev <adminsys-components.vercel.app>",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "src/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "use-mobile",
+      "type": "registry:hook",
+      "title": "Mobile State Hook",
+      "files": [
+        {
+          "path": "src/hooks/use-mobile.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "tailwind-indicator",
+      "type": "registry:component",
+      "title": "tailwind-indicator",
+      "author": "MaskSysDev <adminsys-components.vercel.app>",
+      "description": "A tailwind-indicator component for Next.js apps.",
+      "files": [
+        {
+          "path": "src/registry/components/dev/tailwind-indicator.tsx",
+          "type": "registry:component",
+          "target": "src/components/dev/tailwind-indicator.tsx"
+        }
+      ],
+      "docs": "https://adminsys-components.vercel.app/docs/components/tailwind-indicator"
+    },
+    {
+      "name": "theme-toggle",
+      "type": "registry:component",
+      "title": "theme-toggle",
+      "author": "MaskSysDev <adminsys-components.vercel.app>",
+      "description": "A theme-toggle component for Next.js apps with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
+      "dependencies": [
+        "next-themes",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/layout/toggle/theme-toggle.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/toggle/theme-toggle.tsx"
+        }
+      ],
+      "docs": "https://adminsys-components.vercel.app/docs/components/theme-toggle"
+    },
+    {
+      "name": "toggle-theme",
+      "type": "registry:component",
+      "title": "toggle-theme",
+      "author": "MaskSysDev <adminsys-components.vercel.app>",
+      "description": "A toggle-theme component for Next.js apps with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
+      "dependencies": [
+        "next-themes",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/utils.json",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/layout/toggle/toggle-theme.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/toggle/toggle-theme.tsx"
+        }
+      ],
+      "docs": "https://adminsys-components.vercel.app/docs/components/toggle-theme"
+    }
+  ]
+}

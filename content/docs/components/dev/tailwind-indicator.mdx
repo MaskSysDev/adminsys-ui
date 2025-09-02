@@ -1,0 +1,51 @@
+---
+title: Tailwind Indicator
+description: A tailwind-indicator component.
+---
+
+<ComponentPreview
+  name="tailwind-indicator-demo"
+  openInV0Url="https://adminsys-components.vercel.app/r/tailwind-indicator.json"
+  code={<ComponentSource name="tailwind-indicator" />}
+/>
+
+## Installation
+
+<Tabs className="gap-0" defaultValue="cli">
+
+<TabsList>
+  <TabsTriggerShadcnCLI />
+  <TabsTrigger className="cursor-pointer" value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli" className="[&>figure]:mb-0">
+
+```bash
+npx shadcn@latest add https://adminsys-components.vercel.app/r/tailwind-indicator.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="tailwind-indicator" />
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { TailwindIndicator } from "@/components/dev/tailwind-indicator"
+```
+
+```tsx
+<TailwindIndicator />
+```

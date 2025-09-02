@@ -17,8 +17,8 @@ export const metadata: Metadata = createMetadata({
 
   // Configuração do título da página
   title: {
-    default: siteConfig.name || "DocSys", // Título padrão da aplicação
-    template: `%s - ${siteConfig.name || "DocSys"}`, // Template para títulos de páginas específicas
+    default: siteConfig.name || "AdminSys", // Título padrão da aplicação
+    template: `%s - ${siteConfig.name || "AdminSys"}`, // Template para títulos de páginas específicas
   },
 
   // Descrição da aplicação para SEO
@@ -110,13 +110,13 @@ export const metadata: Metadata = createMetadata({
   // Configuração do Open Graph para redes sociais
   openGraph: {
     type: "website", // Tipo de conteúdo
-    title: siteConfig.name || "DocSys", // Título para compartilhamento
+    title: siteConfig.name || "AdminSys", // Título para compartilhamento
     locale: siteConfig.locale || "en-US", // Localização do conteúdo
     description:
       siteConfig.description ||
       "React App with Next.js, Typescript, TailwindCSS, Shadcn, Biome, Husky, Commitlint and more.", // Descrição para compartilhamento
-    url: siteConfig.url || "https://docsys-started.vercel.app", // URL da página
-    siteName: siteConfig.name || "DocSys", // Nome do site
+    url: siteConfig.url || "https://adminsys-ui.vercel.app", // URL da página
+    siteName: siteConfig.name || "AdminSys", // Nome do site
     images: [
       // Imagens para compartilhamento em diferentes tamanhos
       {
@@ -124,21 +124,21 @@ export const metadata: Metadata = createMetadata({
           siteConfig.favicon180x180 || "/assets/images/icon/icon-180x180.png", // Imagem 180x180
         width: 180,
         height: 180,
-        alt: `${siteConfig.name || "DocSys"} - Logo`, // Alt text para acessibilidade
+        alt: `${siteConfig.name || "AdminSys"} - Logo`, // Alt text para acessibilidade
       },
       {
         url:
           siteConfig.favicon192x192 || "/assets/images/icon/icon-192x192.png", // Imagem 192x192
         width: 192,
         height: 192,
-        alt: `${siteConfig.name || "DocSys"} - Logo`, // Alt text para acessibilidade
+        alt: `${siteConfig.name || "AdminSys"} - Logo`, // Alt text para acessibilidade
       },
       {
         url:
           siteConfig.favicon512x512 || "/assets/images/icon/icon-512x512.png", // Imagem 512x512
         width: 512,
         height: 512,
-        alt: `${siteConfig.name || "DocSys"} - Logo`, // Alt text para acessibilidade
+        alt: `${siteConfig.name || "AdminSys"} - Logo`, // Alt text para acessibilidade
       },
     ],
   },
@@ -146,7 +146,7 @@ export const metadata: Metadata = createMetadata({
   // Configuração específica para Twitter
   twitter: {
     card: "summary_large_image", // Tipo de card do Twitter
-    title: siteConfig.name || "DocSys", // Título para Twitter
+    title: siteConfig.name || "AdminSys", // Título para Twitter
     description:
       siteConfig.description ||
       "React App with Next.js, Typescript, TailwindCSS, Shadcn, Biome, Husky, Commitlint and more.", // Descrição para Twitter
@@ -154,7 +154,7 @@ export const metadata: Metadata = createMetadata({
       siteConfig.favicon512x512 || "/assets/images/icon/icon-512x512.png", // Imagem para Twitter
     ],
     creator: siteConfig.creator || "Mask", // Criador do conteúdo
-    site: siteConfig.twitterHandle || "@docsys", // Handle do Twitter do site
+    site: siteConfig.twitterHandle || "@adminsys", // Handle do Twitter do site
   },
 })
 

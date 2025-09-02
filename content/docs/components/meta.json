@@ -1,0 +1,7 @@
+{
+  "title": "Components",
+  "icon": "Component",
+  "description": "Component Library",
+  "root": true,
+  "pages": ["index", "---Component Library---", "dev", "layout"]
+}

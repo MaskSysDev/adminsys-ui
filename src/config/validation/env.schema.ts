@@ -5,4 +5,5 @@ export const envSchema = z.object({
     .enum(["development", "test", "production"])
     .default("development"),
   NEXT_PUBLIC_APP_URL: z.url().default("http://localhost:3000"),
+  REGISTRY_URL: z.url().default("http://localhost:3000/r"),
 })

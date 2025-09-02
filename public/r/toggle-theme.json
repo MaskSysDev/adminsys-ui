@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-theme",
+  "type": "registry:component",
+  "title": "toggle-theme",
+  "author": "MaskSysDev <adminsys-components.vercel.app>",
+  "description": "A toggle-theme component for Next.js apps with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
+  "dependencies": [
+    "next-themes",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "http://localhost:3000/r/utils.json",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "src/registry/components/layout/toggle/toggle-theme.tsx",
+      "content": "\"use client\"\n\nimport { MoonIcon, SunIcon } from \"lucide-react\"\nimport { useTheme } from \"next-themes\"\n\nimport { Button } from \"@/components/ui/button\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport function ToggleTheme({ className }: { className?: string }) {\n  const { setTheme, theme } = useTheme()\n\n  return (\n    <Button\n      aria-label=\"Change theme\"\n      className={cn(\n        \"group size-8 cursor-pointer text-muted-foreground data-[state=on]:bg-transparent data-[state=on]:hover:bg-muted\",\n        className\n      )}\n      onClick={() => setTheme(theme === \"light\" ? \"dark\" : \"light\")}\n      size=\"icon\"\n      variant=\"ghost\"\n    >\n      <MoonIcon className=\"hidden dark:block\" size={16} />\n      <SunIcon className=\"block dark:hidden\" size={16} />\n      <span className=\"sr-only\">Change theme</span>\n    </Button>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "src/components/layout/toggle/toggle-theme.tsx"
+    }
+  ],
+  "docs": "https://adminsys-components.vercel.app/docs/components/toggle-theme"
+}
