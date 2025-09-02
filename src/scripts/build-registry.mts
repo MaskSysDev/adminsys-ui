@@ -66,7 +66,7 @@ export const Index: Record<string, any> = {`
     {
       $schema: "https://ui.shadcn.com/schema/registry.json",
       name: "MaskSysDev",
-      homepage: "https://adminsys-ui.vercel.app",
+      homepage: registryConfig.url,
       items: registryComponent.items
         .filter((item) => item.type !== "registry:example")
         .map((item) => {

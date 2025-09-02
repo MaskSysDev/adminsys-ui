@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "MaskSysDev",
-  "homepage": "https://adminsys-ui.vercel.app",
+  "homepage": "http://localhost:3000",
   "items": [
     {
       "name": "utils",
