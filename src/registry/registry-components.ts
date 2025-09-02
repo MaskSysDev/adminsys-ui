@@ -24,7 +24,7 @@ export const components: Registry["items"] = [
         target: "src/components/dev/tailwind-indicator.tsx",
       },
     ],
-    docs: "https://<baseUrl>/docs/components/tailwind-indicator",
+    docs: "https://<baseUrl>/docs/components/dev/tailwind-indicator",
   },
   /**
    * Componente `theme-toggle`:
@@ -46,7 +46,7 @@ export const components: Registry["items"] = [
         target: "src/components/layout/toggle/theme-toggle.tsx",
       },
     ],
-    docs: "https://<baseUrl>/docs/components/theme-toggle",
+    docs: "https://<baseUrl>/docs/components/layouttheme-toggle",
   },
   /**
    * Componente `toggle-theme`:
@@ -68,6 +68,6 @@ export const components: Registry["items"] = [
         target: "src/components/layout/toggle/toggle-theme.tsx",
       },
     ],
-    docs: "https://<baseUrl>/docs/components/toggle-theme",
+    docs: "https://<baseUrl>/docs/components/layout/toggle-theme",
   },
 ]
