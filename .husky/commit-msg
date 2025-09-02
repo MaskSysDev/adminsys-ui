@@ -1,0 +1,5 @@
+echo "🚀 Commit Lint Started..."
+
+pnpm exec commitlint --edit $1
+
+echo "✔️  Commit Lint Done"

@@ -1,0 +1,63 @@
+---
+title: Get Started
+description: A step-by-step guide on how to create and publish new documentation files in this application.
+---
+
+## Create a New File
+
+All documentation files are located in the `src/content/docs` directory.
+
+To create a new document, create a folder inside `src/content/docs` and add a new file with the `.mdx` extension to this folder.
+
+The folder and file names must follow the `kebab-case` pattern (lowercase letters separated by hyphens), without accents or special characters, as they will be used to compose the documentation URL.
+
+For example, you can create a file named `new-document.mdx`.
+
+## Add the Frontmatter
+
+Each document begins with a `frontmatter` section that contains the file's metadata. Copy and paste the block below at the beginning of your `.mdx` file and fill in the values.
+
+```yaml
+---
+title: Document Title
+description: A brief description of what the document is about.
+---
+```
+
+Below are all the properties you can use in the `frontmatter`:
+
+| Property     | Type     | Description                                           |
+|--------------|----------|-------------------------------------------------------|
+| `title`      | `string` | The main title of your post.                          |
+| `description`| `string` | A short summary that will appear in previews.         |
+
+## Write the Content
+
+Below the frontmatter, you can write your document's content using Markdown syntax. Since we are using MDX, you can also import and use React components directly in your text.
+
+### Content Example
+
+```mdx title="src/content/docs/new-folder/new-document.mdx"
+---
+title: Document Title
+description: A brief description of what the document is about.
+---
+
+## A Section Title
+
+This is an example paragraph. You can use **bold**, *italic*, and `inline code`.
+
+![Example Image](/assets/images/screenshot-desktop-dark.png)
+
+### Subsection
+
+- You can create lists.
+- Like this one.
+
+> And you can also use blockquotes to highlight important information.
+
+```
+
+## Publish
+
+After creating the file, adding the frontmatter, and writing the content, your document will be automatically available when the application is run in development mode or after being built for production. No additional publishing steps are necessary.

@@ -1,0 +1,7 @@
+{
+  "title": "Get Started",
+  "description": "A step-by-step guide on how to create and publish new documentation files in this application.",
+  "icon": "FileText",
+  "root": true,
+  "pages": ["index", "markdown", "twoslash"]
+}

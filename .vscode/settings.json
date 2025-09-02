@@ -1,0 +1,162 @@
+{
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.rulers": [80],
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": true,
+    "strings": true
+  },
+  "editor.suggestSelection": "first",
+  "editor.acceptSuggestionOnEnter": "on",
+  "editor.suggest.showMethods": true,
+  "editor.suggest.showFunctions": true,
+  "editor.suggest.showClasses": true,
+  "editor.suggest.showInterfaces": true,
+  "editor.suggest.showStructs": true,
+  "editor.suggest.showEnums": true,
+  "editor.suggest.showEnumsMembers": true,
+  "editor.suggest.showConstructors": true,
+  "editor.suggest.showDeprecated": true,
+  "editor.suggest.showFields": true,
+  "editor.suggest.showFiles": true,
+  "editor.suggest.showFolders": true,
+  "editor.suggest.showColors": true,
+  "editor.suggest.showVariables": true,
+  "editor.suggest.showConstants": true,
+  "editor.suggest.showKeywords": true,
+  "editor.suggest.showWords": true,
+  "editor.suggest.showReferences": true,
+  "editor.suggest.showCustomcolors": true,
+  "editor.suggest.showTypeParameters": true,
+  "editor.suggest.showSnippets": true,
+  "problems.decorations.enabled": true,
+  "problems.showCurrentInStatus": true,
+  "problems.colors.error": "#ff0000",
+  "problems.colors.warning": "#ffa500",
+  "problems.colors.info": "#00ff00",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.associations": {
+    "*.module.ts": "typescript",
+    "*.controller.ts": "typescript",
+    "*.service.ts": "typescript",
+    "*.entity.ts": "typescript",
+    "*.dto.ts": "typescript",
+    "*.guard.ts": "typescript",
+    "*.middleware.ts": "typescript",
+    "*.pipe.ts": "typescript",
+    "*.filter.ts": "typescript",
+    "*.interceptor.ts": "typescript",
+    "*.resolver.ts": "typescript"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+
+  "typescript.suggest.completeFunctionCalls": true,
+  "typescript.suggest.paths": true,
+  "typescript.suggest.autoImports": true,
+  "typescript.suggest.enabled": true,
+  "typescript.validate.enable": true,
+  "typescript.referencesCodeLens.enabled": false,
+  "typescript.referencesCodeLens.showOnAllFunctions": false,
+  "typescript.implementationsCodeLens.enabled": true,
+  "typescript.surveys.enabled": false,
+  "typescript.tsserver.maxTsServerMemory": 3072,
+  "typescript.tsserver.watchOptions": {
+    "watchFile": "useFsEvents",
+    "watchDirectory": "useFsEvents",
+    "fallbackPolling": "dynamicPriorityPolling",
+    "synchronousWatchDirectory": true,
+    "excludeDirectories": ["**/node_modules", "**/dist"],
+    "excludeFiles": []
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.biome": "explicit",
+      "source.organizeImports.biome": "explicit"
+    },
+    "editor.semanticHighlighting.enabled": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.biome": "explicit",
+      "source.organizeImports.biome": "explicit"
+    },
+    "editor.semanticHighlighting.enabled": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
+    "editor.semanticHighlighting.enabled": true
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
+    "editor.semanticHighlighting.enabled": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  },
+  "[css]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  },
+  "[graphql]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  },
+  "files.watcherExclude": {
+    "node_modules/**": true,
+    "dist/**": true,
+    ".git/**": true,
+    ".next/**": true,
+    ".turbo/**": true,
+    "dev-dist/**": true,
+    ".zed/**": true,
+    ".vscode/**": true,
+    "src-tauri/**": true,
+    ".nuxt/**": true,
+    ".expo/**": true,
+    ".wrangler/**": true,
+    ".source/**": true,
+    "apps-example/**": true
+  },
+  "search.exclude": {
+    "node_modules": true,
+    "dist": true,
+    ".git": true,
+    ".next": true,
+    ".turbo": true,
+    "dev-dist": true,
+    ".zed": true,
+    ".vscode": true,
+    "src-tauri": true,
+    ".nuxt": true,
+    ".expo": true,
+    ".wrangler": true,
+    ".source": true,
+    "apps-example": true
+  },
+  "emmet.showExpandedAbbreviation": "never"
+}
