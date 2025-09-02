@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next"
 
+import { source } from "@/lib/source"
+
 import { siteConfig } from "@/config/site-config"
 
 export const revalidate = false
@@ -14,5 +16,30 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 1,
     },
+    {
+      url: url("/docs/get-started"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: url("/docs/fumadocs-ui"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: url("/docs/components"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    ...source.getPages().map((page) => {
+      const { lastModified } = page.data
+
+      return {
+        url: url(page.url),
+        lastModified: lastModified ? new Date(lastModified) : undefined,
+        changeFrequency: "weekly",
+        priority: 0.5,
+      } as MetadataRoute.Sitemap[number]
+    }),
   ]
 }
