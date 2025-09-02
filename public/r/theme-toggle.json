@@ -20,5 +20,5 @@
       "target": "src/components/layout/toggle/theme-toggle.tsx"
     }
   ],
-  "docs": "https://http://localhost:3000/docs/components/theme-toggle"
+  "docs": "https://http://localhost:3000/docs/components/layouttheme-toggle"
 }

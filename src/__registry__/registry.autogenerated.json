@@ -43,7 +43,7 @@
           "target": "src/components/dev/tailwind-indicator.tsx"
         }
       ],
-      "docs": "https://http://localhost:3000/docs/components/tailwind-indicator"
+      "docs": "https://http://localhost:3000/docs/components/dev/tailwind-indicator"
     },
     {
       "name": "theme-toggle",
@@ -65,7 +65,7 @@
           "target": "src/components/layout/toggle/theme-toggle.tsx"
         }
       ],
-      "docs": "https://http://localhost:3000/docs/components/theme-toggle"
+      "docs": "https://http://localhost:3000/docs/components/layouttheme-toggle"
     },
     {
       "name": "toggle-theme",
@@ -88,7 +88,7 @@
           "target": "src/components/layout/toggle/toggle-theme.tsx"
         }
       ],
-      "docs": "https://http://localhost:3000/docs/components/toggle-theme"
+      "docs": "https://http://localhost:3000/docs/components/layout/toggle-theme"
     }
   ]
 }

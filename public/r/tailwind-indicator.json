@@ -13,5 +13,5 @@
       "target": "src/components/dev/tailwind-indicator.tsx"
     }
   ],
-  "docs": "https://http://localhost:3000/docs/components/tailwind-indicator"
+  "docs": "https://http://localhost:3000/docs/components/dev/tailwind-indicator"
 }
