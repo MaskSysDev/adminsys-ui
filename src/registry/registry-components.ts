@@ -46,7 +46,7 @@ export const components: Registry["items"] = [
         target: "src/components/layout/toggle/theme-toggle.tsx",
       },
     ],
-    docs: "https://<baseUrl>/docs/components/layouttheme-toggle",
+    docs: "https://<baseUrl>/docs/components/layout/theme-toggle",
   },
   /**
    * Componente `toggle-theme`:
