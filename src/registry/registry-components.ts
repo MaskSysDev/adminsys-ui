@@ -16,7 +16,7 @@ export const components: Registry["items"] = [
     type: "registry:component",
     description: "A tailwind-indicator component for Next.js apps.",
     title: "tailwind-indicator",
-    author: "MaskSysDev <adminsys-components.vercel.app>",
+    author: "<author> <<authorUrl>>",
     files: [
       {
         path: "components/dev/tailwind-indicator.tsx",
@@ -24,7 +24,7 @@ export const components: Registry["items"] = [
         target: "src/components/dev/tailwind-indicator.tsx",
       },
     ],
-    docs: "https://adminsys-components.vercel.app/docs/components/tailwind-indicator",
+    docs: "https://<baseUrl>/docs/components/tailwind-indicator",
   },
   /**
    * Componente `theme-toggle`:
@@ -36,7 +36,7 @@ export const components: Registry["items"] = [
     description:
       "A theme-toggle component for Next.js apps with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
     title: "theme-toggle",
-    author: "MaskSysDev <adminsys-components.vercel.app>",
+    author: "<author> <<authorUrl>>",
     dependencies: ["next-themes", "lucide-react"],
     registryDependencies: ["<registryBaseUrl>/utils.json"],
     files: [
@@ -46,7 +46,7 @@ export const components: Registry["items"] = [
         target: "src/components/layout/toggle/theme-toggle.tsx",
       },
     ],
-    docs: "https://adminsys-components.vercel.app/docs/components/theme-toggle",
+    docs: "https://<baseUrl>/docs/components/theme-toggle",
   },
   /**
    * Componente `toggle-theme`:
@@ -58,7 +58,7 @@ export const components: Registry["items"] = [
     description:
       "A toggle-theme component for Next.js apps with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
     title: "toggle-theme",
-    author: "MaskSysDev <adminsys-components.vercel.app>",
+    author: "<author> <<authorUrl>>",
     dependencies: ["next-themes", "lucide-react"],
     registryDependencies: ["<registryBaseUrl>/utils.json", "button"],
     files: [
@@ -68,6 +68,6 @@ export const components: Registry["items"] = [
         target: "src/components/layout/toggle/toggle-theme.tsx",
       },
     ],
-    docs: "https://adminsys-components.vercel.app/docs/components/toggle-theme",
+    docs: "https://<baseUrl>/docs/components/toggle-theme",
   },
 ]

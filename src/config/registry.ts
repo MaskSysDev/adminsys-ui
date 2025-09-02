@@ -13,4 +13,13 @@ export const registryConfig = {
    * ou, caso não esteja definida, utiliza `http://localhost:3000/r` como fallback.
    */
   baseUrl: env.REGISTRY_URL || "http://localhost:3000/r",
+  /**
+   * A URL base do registro de componentes.
+   * É utilizada para substituir o placeholder `<baseUrl>` em caminhos de dependência
+   * definidos nos metadados dos componentes. O valor é obtido da variável de ambiente `NEXT_PUBLIC_APP_URL`
+   * ou, caso não esteja definida, utiliza `http://localhost:3000` como fallback.
+   */
+  url: env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
+  author: "MaskSysDev",
+  authorUrl: "https://github.com/MaskSysDev",
 }

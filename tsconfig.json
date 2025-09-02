@@ -15,6 +15,7 @@
     "incremental": true,
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
     "plugins": [
       {
         "name": "next"

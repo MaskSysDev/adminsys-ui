@@ -3,7 +3,7 @@
   "name": "theme-toggle",
   "type": "registry:component",
   "title": "theme-toggle",
-  "author": "MaskSysDev <adminsys-components.vercel.app>",
+  "author": "MaskSysDev <https://github.com/MaskSysDev>",
   "description": "A theme-toggle component for Next.js apps with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
   "dependencies": [
     "next-themes",
@@ -20,5 +20,5 @@
       "target": "src/components/layout/toggle/theme-toggle.tsx"
     }
   ],
-  "docs": "https://adminsys-components.vercel.app/docs/components/theme-toggle"
+  "docs": "https://http://localhost:3000/docs/components/theme-toggle"
 }

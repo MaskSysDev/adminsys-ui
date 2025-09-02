@@ -3,7 +3,7 @@
   "name": "utils",
   "type": "registry:lib",
   "title": "Utility Functions",
-  "author": "MaskSysDev <adminsys-components.vercel.app>",
+  "author": "MaskSysDev <https://github.com/MaskSysDev>",
   "dependencies": [
     "clsx",
     "tailwind-merge"
