@@ -1,0 +1,64 @@
+---
+title: Footer
+description: A Footer component.
+---
+
+## Footer01
+
+<ComponentPreview
+  name="footer-01-demo"
+  openInV0Url="https://adminsys-ui.vercel.app/r/footer-01.json"
+  code={<ComponentSource name="footer-01-demo" />}
+/>
+
+### Installation
+
+<Tabs className="gap-0" defaultValue="cli">
+
+<TabsList>
+  <TabsTriggerShadcnCLI />
+  <TabsTrigger className="cursor-pointer" value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli" className="[&>figure]:mb-0">
+
+```package-install
+npx shadcn@latest add https://adminsys-ui.vercel.app/r/footer-01.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add Component</Step>
+
+```package-install
+npx shadcn@latest add https://adminsys-ui.vercel.app/r/container.json https://adminsys-ui.vercel.app/r/social-icon-link.json
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="footer-01"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+### Usage
+
+<ComponentSource
+  name="footer-01-demo"
+  codeCollapsible
+/>
+
+## Props
+
+### Footer01
+
+<AutoTypeTable path="./src/registry/components/layout/footer/footer-01.tsx" name="Footer01Props" />

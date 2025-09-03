@@ -1,0 +1,52 @@
+---
+title: Icons
+description: A Icons component.
+---
+
+## Icons
+
+<ComponentPreview
+  name="icons-demo"
+  openInV0Url="https://adminsys-ui.vercel.app/r/icons.json"
+  code={<ComponentSource name="icons-demo" />}
+/>
+
+### Installation
+
+<Tabs className="gap-0" defaultValue="cli">
+
+<TabsList>
+  <TabsTriggerShadcnCLI />
+  <TabsTrigger className="cursor-pointer" value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli" className="[&>figure]:mb-0">
+
+```package-install
+npx shadcn@latest add https://adminsys-ui.vercel.app/r/icons.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="icons"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+### Usage
+
+<ComponentSource
+  name="icons-demo"
+  codeCollapsible
+/>

@@ -55,6 +55,67 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/container",
   },
   /**
+   * Componente `footer-01`:
+   * Um componente de footer-01.
+   */
+  {
+    name: "footer-01",
+    type: "registry:component",
+    description: "A footer-01 component.",
+    title: "footer",
+    author: "<author> <<authorUrl>>",
+    dependencies: [],
+    registryDependencies: ["<registryBaseUrl>/utils.json"],
+    files: [
+      {
+        path: "components/layout/footer/footer-01.tsx",
+        type: "registry:component",
+        target: "src/components/layout/footer/footer-01.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/footer#footer-01",
+  },
+  /**
+   * Componente `container`:
+   * Um componente de container.
+   */
+  {
+    name: "icons",
+    type: "registry:component",
+    description: "A icons component.",
+    title: "icons",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/layout/icons/index.tsx",
+        type: "registry:component",
+        target: "src/components/layout/icons/index.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/icons",
+  },
+  /**
+   * Componente `social-icon-link`:
+   * Um componente de social-icon-link.
+   */
+  {
+    name: "social-icon-link",
+    type: "registry:component",
+    description: "A social-icon-link component.",
+    title: "social-icon-link",
+    author: "<author> <<authorUrl>>",
+    dependencies: [],
+    registryDependencies: ["<registryBaseUrl>/utils.json"],
+    files: [
+      {
+        path: "components/layout/social/social-icon-link.tsx",
+        type: "registry:component",
+        target: "src/components/layout/social/social-icon-link.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/social#social-icon-link",
+  },
+  /**
    * Componente `tailwind-indicator`:
    * Um indicador visual para ambientes de desenvolvimento que mostra o breakpoint atual do Tailwind CSS.
    */
