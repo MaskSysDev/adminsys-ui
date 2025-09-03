@@ -1,0 +1,7 @@
+{
+  "title": "Apps",
+  "icon": "AppWindow",
+  "description": "Applications",
+  "root": true,
+  "pages": ["get-started", "---Applications---", "nextjs15-started"]
+}

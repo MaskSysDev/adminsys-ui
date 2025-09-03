@@ -4,7 +4,7 @@
   "type": "registry:component",
   "title": "tailwind-indicator",
   "author": "MaskSysDev <https://github.com/MaskSysDev>",
-  "description": "A tailwind-indicator component for Next.js apps.",
+  "description": "A tailwind-indicator component.",
   "files": [
     {
       "path": "src/registry/components/dev/tailwind-indicator.tsx",

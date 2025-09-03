@@ -1,0 +1,255 @@
+---
+title: Husky Commitlint
+description: See documentation See documentation Husky and commitlint.
+---
+
+## Version Control
+
+<Steps>
+  <Step>
+    Create new Branch(version).
+
+    ```sh
+    git checkout -b 04-husky-commitlint
+    ```
+
+  </Step>
+</Steps>
+
+## Install
+
+<Steps>
+  <Step>
+    ### Dependencies
+
+    DevDependencies
+
+    ```package-install
+    npm install -D husky @commitlint/cli @commitlint/config-conventional
+    ```
+
+  </Step>
+  <Step>
+    ### Husky Init
+
+    ```package-install
+    npm exec husky init
+    ```
+
+  </Step>
+  <Step>
+    ### Commitlint Init
+
+    ```sh
+    echo "export default { extends: ['@commitlint/config-conventional'] };" > commitlint.config.mjs
+    ```
+
+  </Step>
+</Steps>
+
+## Files
+
+<Steps>
+  <Step>
+    ### pre-commit
+
+    ```sh title=".husky/pre-commit"
+    echo "🚀 Pre commit Started..."
+
+    echo "⌛ Typecheck..."
+
+    pnpm typecheck
+
+    echo "⌛ Formatting..."
+
+    # Check for formatting issues
+    if ! pnpm format; then
+      echo "Formatting issues found. Please format your code before committing."
+      exit 1
+    fi
+
+    echo "⌛ Check for lint errors..."
+
+    # Check for linting errors
+    if ! pnpm lint; then
+      echo "Linting errors found. Please fix them before committing."
+      exit 1
+    fi
+
+    echo "⌛ Check for lint errors..."
+
+    # Check for linting errors
+    if ! pnpm check; then
+      echo "Errors were found during verification. Please correct them before committing."
+      exit 1
+    fi
+
+    echo "⌛ App Build..."
+
+    pnpm build
+
+    echo "⌛ Add Stage..."
+
+    git add .
+
+    echo "✔️  Pre commit Done"
+
+    ```
+
+  </Step>
+  <Step>
+    ### commit-msg
+
+    ```sh title=".husky/commit-msg"
+    echo "🚀 Commit Lint Started..."
+
+    pnpm exec commitlint --edit $1
+
+    echo "✔️  Commit Lint Done"
+
+    ```
+
+  </Step>
+  <Step>
+    ### package.json
+
+    ```json title="package.json"
+    {
+      "name": "nextjs15-started",
+      "version": "0.1.0",
+      "type": "module",// [!code ++]
+      "private": true,
+      "scripts": {
+        "dev": "next dev --turbopack",
+        "build": "next build --turbopack",
+        "start": "next start",
+        "preview": "next build && next start",
+        "clean": "rm -rf node_modules && rm -rf .next",
+        "lint": "biome check",
+        "format": "biome format --write",
+        "check": "biome check --write",
+        "typecheck": "tsc --noEmit",
+        "prepare": "husky"
+      },
+      "dependencies": {
+        "next": "15.5.2",
+        "react": "19.1.0",
+        "react-dom": "19.1.0"
+      },
+      "devDependencies": {
+        "@biomejs/biome": "2.2.2",
+        "@commitlint/cli": "19.8.1",
+        "@commitlint/config-conventional": "19.8.1",
+        "@tailwindcss/postcss": "^4.1.12",
+        "@types/node": "^20.19.11",
+        "@types/react": "^19.1.12",
+        "@types/react-dom": "^19.1.9",
+        "husky": "9.1.7",
+        "tailwindcss": "^4.1.12",
+        "typescript": "^5.9.2",
+        "ultracite": "5.2.17"
+      },
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### README
+
+    ````markdown title="README.md"
+    # NextJS 15 Started
+
+    This project is a minimalist starter template for building modern applications using [Next.js 15](https://nextjs.org/), [React 19](https://react.dev/), and [Tailwind CSS 4](https://tailwindcss.com/). It comes pre-configured with best practices, TypeScript, automatic formatting, and linting.
+
+    ## ✨ Features
+
+    - Ready-to-use structure with Next.js 15 (App Router)
+    - TypeScript support
+    - Styling with Tailwind CSS 4
+    - Optimized fonts using `next/font` (Geist and Geist Mono)
+    - Linting with Biome
+    - Git hooks with Husky for pre-commit validation
+    - Conventional commit messages enforced with commitlint
+
+    ## 🚀 Getting Started
+
+    Install the dependencies:
+
+    ```bash
+    pnpm install
+    # or
+    npm install
+    # or
+    yarn install
+    ```
+
+    Start the development server:
+
+    ```bash
+    pnpm dev
+    # or
+    npm run dev
+    # or
+    yarn dev
+    ```
+
+    Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+
+    ## 📁 Project Structure
+
+    - `src/app/`: Application pages and layouts
+    - `src/app/layout.tsx`: Root layout component (applies to all pages)
+    - `src/app/(home)/page.tsx`: Home page component
+    - `src/lib/fonts.ts`: Geist font configuration
+    - `src/styles/globals.css`: Global styles with Tailwind CSS
+
+    ## 🛠️ Useful Scripts
+
+    - `dev`: Starts the development server
+    - `build`: Builds the application for production
+    - `start`: Starts the production server
+    - `preview`: Builds and starts the application (production preview)
+    - `clean`: Removes node_modules and .next folders
+    - `lint`: Runs the linter
+    - `format`: Formats code
+    - `check`: Checks if code is properly formatted without making changes
+    - `typecheck`: Runs TypeScript to check for type errors
+
+    ## ☁️ Deployment
+
+    The easiest way to deploy is using [Vercel](https://vercel.com/), but you can use any Node.js-compatible service.
+
+    ````
+
+  </Step>
+</Steps>
+
+## Version Control
+
+<Steps>
+  <Step>
+    Send all data to stage.
+
+    ```sh
+    git add .
+    ```
+
+  </Step>
+  <Step>
+    Copy data with Commit.
+
+    ```sh
+    git commit -m "chore: 04-husky-commitlint"
+    ```
+
+  </Step>
+  <Step>
+    Send Branch.
+
+    ```sh
+    git push --set-upstream origin 04-husky-commitlint
+    ```
+
+  </Step>
+</Steps>

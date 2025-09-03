@@ -1,0 +1,5 @@
+{
+  "title": "NextJS 15 Started",
+  "defaultOpen": true,
+  "pages": ["installation", "clean-start", "biome", "husky-commitlint"]
+}

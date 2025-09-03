@@ -1,7 +1,0 @@
-{
-  "title": "Fumadocs UI",
-  "description": "The docs framework",
-  "icon": "BookOpenText",
-  "root": true,
-  "pages": ["index", "components"]
-}

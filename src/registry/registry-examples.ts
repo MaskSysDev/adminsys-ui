@@ -9,6 +9,21 @@ import type { Registry } from "shadcn/schema"
  */
 export const examples: Registry["items"] = [
   /**
+   * Exemplo `banner-demo`:
+   * Demonstra o uso do componente `banner`.
+   */
+  {
+    name: "banner-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/banner.json"],
+    files: [
+      {
+        path: "examples/components/layout/banner/banner-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
    * Exemplo `tailwind-indicator-demo`:
    * Demonstra o uso do componente `tailwind-indicator`.
    */
