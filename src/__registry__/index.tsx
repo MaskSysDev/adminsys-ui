@@ -97,6 +97,15 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
+  "not-found": {
+    name: "not-found",
+    description: "A not-found component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/not-found/index.tsx",
+      type: "registry:component",
+    }],
+  },
   "social-icon-link": {
     name: "social-icon-link",
     description: "A social-icon-link component.",
@@ -130,6 +139,15 @@ export const Index: Record<string, any> = {
     type: "registry:component",
     files: [{
       path: "src/registry/components/layout/toggle/toggle-theme.tsx",
+      type: "registry:component",
+    }],
+  },
+  "typography": {
+    name: "typography",
+    description: "A typography component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/typography/index.tsx",
       type: "registry:component",
     }],
   },
@@ -219,6 +237,28 @@ export const Index: Record<string, any> = {
       type: "registry:example",
     }],
     component: React.lazy(() => import("@/registry/examples/components/layout/logo/logo-sitesys-demo.tsx")),
+
+  },
+  "not-found-demo": {
+    name: "not-found-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/not-found/not-found-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/not-found/not-found-demo.tsx")),
+
+  },
+  "typography-demo": {
+    name: "typography-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/typography/typography-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/typography/typography-demo.tsx")),
 
   },
   "social-icon-link-demo": {

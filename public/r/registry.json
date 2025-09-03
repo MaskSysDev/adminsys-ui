@@ -170,6 +170,21 @@
       "docs": "http://localhost:3000/docs/components/layout/logo#logo-sitesys"
     },
     {
+      "name": "not-found",
+      "type": "registry:component",
+      "title": "not-found",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A not-found component.",
+      "files": [
+        {
+          "path": "src/registry/components/layout/not-found/index.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/not-found/index.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/not-found"
+    },
+    {
       "name": "social-icon-link",
       "type": "registry:component",
       "title": "social-icon-link",
@@ -247,6 +262,21 @@
         }
       ],
       "docs": "http://localhost:3000/docs/components/layout/toggle#toggle-theme"
+    },
+    {
+      "name": "typography",
+      "type": "registry:component",
+      "title": "typography",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A typography component.",
+      "files": [
+        {
+          "path": "src/registry/components/layout/typography/index.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/typography/index.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/typography"
     }
   ]
 }

@@ -173,6 +173,25 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/logo#logo-sitesys",
   },
   /**
+   * Componente `not-found`:
+   * Um componente de not-found.
+   */
+  {
+    name: "not-found",
+    type: "registry:component",
+    description: "A not-found component.",
+    title: "not-found",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/layout/not-found/index.tsx",
+        type: "registry:component",
+        target: "src/components/layout/not-found/index.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/not-found",
+  },
+  /**
    * Componente `social-icon-link`:
    * Um componente de social-icon-link.
    */
@@ -255,5 +274,24 @@ export const components: Registry["items"] = [
       },
     ],
     docs: "<baseUrl>/docs/components/layout/toggle#toggle-theme",
+  },
+  /**
+   * Componente `typography`:
+   * Um componente de typography.
+   */
+  {
+    name: "typography",
+    type: "registry:component",
+    description: "A typography component.",
+    title: "typography",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/layout/typography/index.tsx",
+        type: "registry:component",
+        target: "src/components/layout/typography/index.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/typography",
   },
 ]

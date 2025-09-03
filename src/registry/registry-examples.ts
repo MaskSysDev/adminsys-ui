@@ -129,6 +129,36 @@ export const examples: Registry["items"] = [
     ],
   },
   /**
+   * Exemplo `not-found-demo`:
+   * Demonstra o uso do componente `not-found`.
+   */
+  {
+    name: "not-found-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/not-found.json"],
+    files: [
+      {
+        path: "examples/components/layout/not-found/not-found-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
+   * Exemplo `typography-demo`:
+   * Demonstra o uso do componente `typography`.
+   */
+  {
+    name: "typography-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/typography.json"],
+    files: [
+      {
+        path: "examples/components/layout/typography/typography-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
    * Exemplo `social-icon-link-demo`:
    * Demonstra o uso do componente `social-icon-link`.
    */
