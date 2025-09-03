@@ -116,6 +116,63 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/icons",
   },
   /**
+   * Componente `logo-adminsys`:
+   * Um componente de logo-adminsys.
+   */
+  {
+    name: "logo-adminsys",
+    type: "registry:component",
+    description: "A logo-adminsys component.",
+    title: "logo-adminsys",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/layout/logo/logo-adminsys.tsx",
+        type: "registry:component",
+        target: "src/components/layout/logo/logo-adminsys.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/logo#logo-adminsys",
+  },
+  /**
+   * Componente `logo-docsys`:
+   * Um componente de logo-docsys.
+   */
+  {
+    name: "logo-docsys",
+    type: "registry:component",
+    description: "A logo-docsys component.",
+    title: "logo-docsys",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/layout/logo/logo-docsys.tsx",
+        type: "registry:component",
+        target: "src/components/layout/logo/logo-docsys.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/logo#logo-docsys",
+  },
+  /**
+   * Componente `logo-sitesys`:
+   * Um componente de logo-sitesys.
+   */
+  {
+    name: "logo-sitesys",
+    type: "registry:component",
+    description: "A logo-sitesys component.",
+    title: "logo-sitesys",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/layout/logo/logo-sitesys.tsx",
+        type: "registry:component",
+        target: "src/components/layout/logo/logo-sitesys.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/logo#logo-sitesys",
+  },
+  /**
    * Componente `social-icon-link`:
    * Um componente de social-icon-link.
    */

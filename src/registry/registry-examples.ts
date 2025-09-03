@@ -84,6 +84,51 @@ export const examples: Registry["items"] = [
     ],
   },
   /**
+   * Exemplo `logo-adminsys-demo`:
+   * Demonstra o uso do componente `logo-adminsys`.
+   */
+  {
+    name: "logo-adminsys-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/logo-adminsys.json"],
+    files: [
+      {
+        path: "examples/components/layout/logo/logo-adminsys-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
+   * Exemplo `logo-docsys-demo`:
+   * Demonstra o uso do componente `logo-docsys`.
+   */
+  {
+    name: "logo-docsys-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/logo-docsys.json"],
+    files: [
+      {
+        path: "examples/components/layout/logo/logo-docsys-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
+   * Exemplo `logo-sitesys-demo`:
+   * Demonstra o uso do componente `logo-sitesys`.
+   */
+  {
+    name: "logo-sitesys-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/logo-sitesys.json"],
+    files: [
+      {
+        path: "examples/components/layout/logo/logo-sitesys-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
    * Exemplo `social-icon-link-demo`:
    * Demonstra o uso do componente `social-icon-link`.
    */

@@ -125,6 +125,51 @@
       "docs": "http://localhost:3000/docs/components/layout/icons"
     },
     {
+      "name": "logo-adminsys",
+      "type": "registry:component",
+      "title": "logo-adminsys",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A logo-adminsys component.",
+      "files": [
+        {
+          "path": "src/registry/components/layout/logo/logo-adminsys.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/logo/logo-adminsys.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/logo#logo-adminsys"
+    },
+    {
+      "name": "logo-docsys",
+      "type": "registry:component",
+      "title": "logo-docsys",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A logo-docsys component.",
+      "files": [
+        {
+          "path": "src/registry/components/layout/logo/logo-docsys.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/logo/logo-docsys.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/logo#logo-docsys"
+    },
+    {
+      "name": "logo-sitesys",
+      "type": "registry:component",
+      "title": "logo-sitesys",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A logo-sitesys component.",
+      "files": [
+        {
+          "path": "src/registry/components/layout/logo/logo-sitesys.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/logo/logo-sitesys.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/logo#logo-sitesys"
+    },
+    {
       "name": "social-icon-link",
       "type": "registry:component",
       "title": "social-icon-link",

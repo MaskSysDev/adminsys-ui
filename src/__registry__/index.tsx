@@ -70,6 +70,33 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
+  "logo-adminsys": {
+    name: "logo-adminsys",
+    description: "A logo-adminsys component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/logo/logo-adminsys.tsx",
+      type: "registry:component",
+    }],
+  },
+  "logo-docsys": {
+    name: "logo-docsys",
+    description: "A logo-docsys component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/logo/logo-docsys.tsx",
+      type: "registry:component",
+    }],
+  },
+  "logo-sitesys": {
+    name: "logo-sitesys",
+    description: "A logo-sitesys component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/logo/logo-sitesys.tsx",
+      type: "registry:component",
+    }],
+  },
   "social-icon-link": {
     name: "social-icon-link",
     description: "A social-icon-link component.",
@@ -159,6 +186,39 @@ export const Index: Record<string, any> = {
       type: "registry:example",
     }],
     component: React.lazy(() => import("@/registry/examples/components/layout/icons/icons-demo.tsx")),
+
+  },
+  "logo-adminsys-demo": {
+    name: "logo-adminsys-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/logo/logo-adminsys-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/logo/logo-adminsys-demo.tsx")),
+
+  },
+  "logo-docsys-demo": {
+    name: "logo-docsys-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/logo/logo-docsys-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/logo/logo-docsys-demo.tsx")),
+
+  },
+  "logo-sitesys-demo": {
+    name: "logo-sitesys-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/logo/logo-sitesys-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/logo/logo-sitesys-demo.tsx")),
 
   },
   "social-icon-link-demo": {
