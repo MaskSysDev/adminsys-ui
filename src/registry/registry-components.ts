@@ -76,6 +76,27 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/footer#footer-01",
   },
   /**
+   * Componente `hero-01`:
+   * Um componente de hero-01.
+   */
+  {
+    name: "hero-01",
+    type: "registry:component",
+    description: "A hero-01 component.",
+    title: "hero",
+    author: "<author> <<authorUrl>>",
+    dependencies: [],
+    registryDependencies: ["<registryBaseUrl>/utils.json"],
+    files: [
+      {
+        path: "components/layout/hero/hero-01.tsx",
+        type: "registry:component",
+        target: "src/components/layout/hero/hero-01.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/hero#hero-01",
+  },
+  /**
    * Componente `container`:
    * Um componente de container.
    */
@@ -93,6 +114,102 @@ export const components: Registry["items"] = [
       },
     ],
     docs: "<baseUrl>/docs/components/layout/icons",
+  },
+  /**
+   * Componente `logo-adminsys`:
+   * Um componente de logo-adminsys.
+   */
+  {
+    name: "logo-adminsys",
+    type: "registry:component",
+    description: "A logo-adminsys component.",
+    title: "logo-adminsys",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/layout/logo/logo-adminsys.tsx",
+        type: "registry:component",
+        target: "src/components/layout/logo/logo-adminsys.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/logo#logo-adminsys",
+  },
+  /**
+   * Componente `logo-docsys`:
+   * Um componente de logo-docsys.
+   */
+  {
+    name: "logo-docsys",
+    type: "registry:component",
+    description: "A logo-docsys component.",
+    title: "logo-docsys",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/layout/logo/logo-docsys.tsx",
+        type: "registry:component",
+        target: "src/components/layout/logo/logo-docsys.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/logo#logo-docsys",
+  },
+  /**
+   * Componente `logo-sitesys`:
+   * Um componente de logo-sitesys.
+   */
+  {
+    name: "logo-sitesys",
+    type: "registry:component",
+    description: "A logo-sitesys component.",
+    title: "logo-sitesys",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/layout/logo/logo-sitesys.tsx",
+        type: "registry:component",
+        target: "src/components/layout/logo/logo-sitesys.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/logo#logo-sitesys",
+  },
+  /**
+   * Componente `not-found`:
+   * Um componente de not-found.
+   */
+  {
+    name: "not-found",
+    type: "registry:component",
+    description: "A not-found component.",
+    title: "not-found",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/layout/not-found/index.tsx",
+        type: "registry:component",
+        target: "src/components/layout/not-found/index.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/not-found",
+  },
+  /**
+   * Componente `theme-provider`:
+   * Um componente de theme-provider.
+   */
+  {
+    name: "theme-provider",
+    type: "registry:component",
+    description: "A theme-provider component.",
+    title: "theme-provider",
+    author: "<author> <<authorUrl>>",
+    dependencies: ["next-themes"],
+    files: [
+      {
+        path: "components/layout/provider/theme-provider.tsx",
+        type: "registry:component",
+        target: "src/components/layout/provider/theme-provider.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/provider#theme-provider",
   },
   /**
    * Componente `social-icon-link`:
@@ -177,5 +294,24 @@ export const components: Registry["items"] = [
       },
     ],
     docs: "<baseUrl>/docs/components/layout/toggle#toggle-theme",
+  },
+  /**
+   * Componente `typography`:
+   * Um componente de typography.
+   */
+  {
+    name: "typography",
+    type: "registry:component",
+    description: "A typography component.",
+    title: "typography",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/layout/typography/index.tsx",
+        type: "registry:component",
+        target: "src/components/layout/typography/index.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/typography",
   },
 ]

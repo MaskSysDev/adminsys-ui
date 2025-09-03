@@ -91,6 +91,25 @@
       "docs": "http://localhost:3000/docs/components/layout/footer#footer-01"
     },
     {
+      "name": "hero-01",
+      "type": "registry:component",
+      "title": "hero",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A hero-01 component.",
+      "dependencies": [],
+      "registryDependencies": [
+        "http://localhost:3000/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/layout/hero/hero-01.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/hero/hero-01.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/hero#hero-01"
+    },
+    {
       "name": "icons",
       "type": "registry:component",
       "title": "icons",
@@ -104,6 +123,84 @@
         }
       ],
       "docs": "http://localhost:3000/docs/components/layout/icons"
+    },
+    {
+      "name": "logo-adminsys",
+      "type": "registry:component",
+      "title": "logo-adminsys",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A logo-adminsys component.",
+      "files": [
+        {
+          "path": "src/registry/components/layout/logo/logo-adminsys.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/logo/logo-adminsys.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/logo#logo-adminsys"
+    },
+    {
+      "name": "logo-docsys",
+      "type": "registry:component",
+      "title": "logo-docsys",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A logo-docsys component.",
+      "files": [
+        {
+          "path": "src/registry/components/layout/logo/logo-docsys.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/logo/logo-docsys.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/logo#logo-docsys"
+    },
+    {
+      "name": "logo-sitesys",
+      "type": "registry:component",
+      "title": "logo-sitesys",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A logo-sitesys component.",
+      "files": [
+        {
+          "path": "src/registry/components/layout/logo/logo-sitesys.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/logo/logo-sitesys.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/logo#logo-sitesys"
+    },
+    {
+      "name": "not-found",
+      "type": "registry:component",
+      "title": "not-found",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A not-found component.",
+      "files": [
+        {
+          "path": "src/registry/components/layout/not-found/index.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/not-found/index.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/not-found"
+    },
+    {
+      "name": "theme-provider",
+      "type": "registry:component",
+      "title": "theme-provider",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A theme-provider component.",
+      "dependencies": [
+        "next-themes"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/layout/provider/theme-provider.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/provider/theme-provider.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/provider#theme-provider"
     },
     {
       "name": "social-icon-link",
@@ -183,6 +280,21 @@
         }
       ],
       "docs": "http://localhost:3000/docs/components/layout/toggle#toggle-theme"
+    },
+    {
+      "name": "typography",
+      "type": "registry:component",
+      "title": "typography",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A typography component.",
+      "files": [
+        {
+          "path": "src/registry/components/layout/typography/index.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/typography/index.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/typography"
     }
   ]
 }

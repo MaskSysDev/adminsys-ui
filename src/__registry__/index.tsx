@@ -52,12 +52,66 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
+  "hero-01": {
+    name: "hero-01",
+    description: "A hero-01 component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/hero/hero-01.tsx",
+      type: "registry:component",
+    }],
+  },
   "icons": {
     name: "icons",
     description: "A icons component.",
     type: "registry:component",
     files: [{
       path: "src/registry/components/layout/icons/index.tsx",
+      type: "registry:component",
+    }],
+  },
+  "logo-adminsys": {
+    name: "logo-adminsys",
+    description: "A logo-adminsys component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/logo/logo-adminsys.tsx",
+      type: "registry:component",
+    }],
+  },
+  "logo-docsys": {
+    name: "logo-docsys",
+    description: "A logo-docsys component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/logo/logo-docsys.tsx",
+      type: "registry:component",
+    }],
+  },
+  "logo-sitesys": {
+    name: "logo-sitesys",
+    description: "A logo-sitesys component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/logo/logo-sitesys.tsx",
+      type: "registry:component",
+    }],
+  },
+  "not-found": {
+    name: "not-found",
+    description: "A not-found component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/not-found/index.tsx",
+      type: "registry:component",
+    }],
+  },
+  "theme-provider": {
+    name: "theme-provider",
+    description: "A theme-provider component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/provider/theme-provider.tsx",
       type: "registry:component",
     }],
   },
@@ -97,6 +151,15 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
+  "typography": {
+    name: "typography",
+    description: "A typography component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/typography/index.tsx",
+      type: "registry:component",
+    }],
+  },
   "banner-demo": {
     name: "banner-demo",
     description: "",
@@ -130,6 +193,17 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import("@/registry/examples/components/layout/footer/footer-01-demo.tsx")),
 
   },
+  "hero-01-demo": {
+    name: "hero-01-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/hero/hero-01-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/hero/hero-01-demo.tsx")),
+
+  },
   "icons-demo": {
     name: "icons-demo",
     description: "",
@@ -139,6 +213,61 @@ export const Index: Record<string, any> = {
       type: "registry:example",
     }],
     component: React.lazy(() => import("@/registry/examples/components/layout/icons/icons-demo.tsx")),
+
+  },
+  "logo-adminsys-demo": {
+    name: "logo-adminsys-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/logo/logo-adminsys-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/logo/logo-adminsys-demo.tsx")),
+
+  },
+  "logo-docsys-demo": {
+    name: "logo-docsys-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/logo/logo-docsys-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/logo/logo-docsys-demo.tsx")),
+
+  },
+  "logo-sitesys-demo": {
+    name: "logo-sitesys-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/logo/logo-sitesys-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/logo/logo-sitesys-demo.tsx")),
+
+  },
+  "not-found-demo": {
+    name: "not-found-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/not-found/not-found-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/not-found/not-found-demo.tsx")),
+
+  },
+  "typography-demo": {
+    name: "typography-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/typography/typography-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/typography/typography-demo.tsx")),
 
   },
   "social-icon-link-demo": {

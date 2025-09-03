@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "typography",
+  "type": "registry:component",
+  "title": "typography",
+  "author": "MaskSysDev <https://github.com/MaskSysDev>",
+  "description": "A typography component.",
+  "files": [
+    {
+      "path": "src/registry/components/layout/typography/index.tsx",
+      "content": "import type { ReactNode } from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport type TypographyProps = {\n  children: ReactNode\n  className?: string\n}\n\nfunction TypographyH1({ children, className }: TypographyProps) {\n  return (\n    <h1\n      className={cn(\n        \"scroll-m-20 text-balance text-center font-extrabold text-4xl tracking-tight\",\n        className\n      )}\n    >\n      {children}\n    </h1>\n  )\n}\n\nfunction TypographyH2({ children, className }: TypographyProps) {\n  return (\n    <h2\n      className={cn(\n        \"scroll-m-20 border-b pb-2 font-semibold text-3xl tracking-tight first:mt-0\",\n        className\n      )}\n    >\n      {children}\n    </h2>\n  )\n}\n\nfunction TypographyH3({ children, className }: TypographyProps) {\n  return (\n    <h3\n      className={cn(\n        \"scroll-m-20 font-semibold text-2xl tracking-tight\",\n        className\n      )}\n    >\n      {children}\n    </h3>\n  )\n}\n\nfunction TypographyH4({ children, className }: TypographyProps) {\n  return (\n    <h4\n      className={cn(\n        \"scroll-m-20 font-semibold text-xl tracking-tight\",\n        className\n      )}\n    >\n      {children}\n    </h4>\n  )\n}\n\nfunction TypographyP({ children, className }: TypographyProps) {\n  return (\n    <p className={cn(\"leading-7 [&:not(:first-child)]:mt-6\", className)}>\n      {children}\n    </p>\n  )\n}\n\nfunction TypographyBlockquote({ children, className }: TypographyProps) {\n  return (\n    <blockquote className={cn(\"mt-6 border-l-2 pl-6 italic\", className)}>\n      {children}\n    </blockquote>\n  )\n}\n\nfunction TypographyInlineCode({ children, className }: TypographyProps) {\n  return (\n    <code\n      className={cn(\n        \"relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono font-semibold text-sm\",\n        className\n      )}\n    >\n      {children}\n    </code>\n  )\n}\n\nfunction TypographyLead({ children, className }: TypographyProps) {\n  return (\n    <p className={cn(\"text-muted-foreground text-xl\", className)}>{children}</p>\n  )\n}\n\nfunction TypographyLarge({ children, className }: TypographyProps) {\n  return (\n    <div className={cn(\"font-semibold text-lg\", className)}>{children}</div>\n  )\n}\n\nfunction TypographySmall({ children, className }: TypographyProps) {\n  return (\n    <small className={cn(\"font-medium text-sm leading-none\", className)}>\n      {children}\n    </small>\n  )\n}\n\nfunction TypographyMuted({ children, className }: TypographyProps) {\n  return (\n    <p className={cn(\"text-muted-foreground text-sm\", className)}>{children}</p>\n  )\n}\n\nexport const Typography = {\n  H1: TypographyH1,\n  H2: TypographyH2,\n  H3: TypographyH3,\n  H4: TypographyH4,\n  P: TypographyP,\n  Blockquote: TypographyBlockquote,\n  InlineCode: TypographyInlineCode,\n  Lead: TypographyLead,\n  Large: TypographyLarge,\n  Small: TypographySmall,\n  Muted: TypographyMuted,\n}\n",
+      "type": "registry:component",
+      "target": "src/components/layout/typography/index.tsx"
+    }
+  ],
+  "docs": "http://localhost:3000/docs/components/layout/typography"
+}

@@ -54,6 +54,21 @@ export const examples: Registry["items"] = [
     ],
   },
   /**
+   * Exemplo `hero-01-demo`:
+   * Demonstra o uso do componente `hero-01`.
+   */
+  {
+    name: "hero-01-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/hero-01.json"],
+    files: [
+      {
+        path: "examples/components/layout/hero/hero-01-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
    * Exemplo `icons-demo`:
    * Demonstra o uso do componente `icons`.
    */
@@ -64,6 +79,81 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "examples/components/layout/icons/icons-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
+   * Exemplo `logo-adminsys-demo`:
+   * Demonstra o uso do componente `logo-adminsys`.
+   */
+  {
+    name: "logo-adminsys-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/logo-adminsys.json"],
+    files: [
+      {
+        path: "examples/components/layout/logo/logo-adminsys-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
+   * Exemplo `logo-docsys-demo`:
+   * Demonstra o uso do componente `logo-docsys`.
+   */
+  {
+    name: "logo-docsys-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/logo-docsys.json"],
+    files: [
+      {
+        path: "examples/components/layout/logo/logo-docsys-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
+   * Exemplo `logo-sitesys-demo`:
+   * Demonstra o uso do componente `logo-sitesys`.
+   */
+  {
+    name: "logo-sitesys-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/logo-sitesys.json"],
+    files: [
+      {
+        path: "examples/components/layout/logo/logo-sitesys-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
+   * Exemplo `not-found-demo`:
+   * Demonstra o uso do componente `not-found`.
+   */
+  {
+    name: "not-found-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/not-found.json"],
+    files: [
+      {
+        path: "examples/components/layout/not-found/not-found-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
+   * Exemplo `typography-demo`:
+   * Demonstra o uso do componente `typography`.
+   */
+  {
+    name: "typography-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/typography.json"],
+    files: [
+      {
+        path: "examples/components/layout/typography/typography-demo.tsx",
         type: "registry:example",
       },
     ],
