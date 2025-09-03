@@ -1,0 +1,85 @@
+---
+title: Provider
+description: A Provider component.
+---
+
+## Theme Provider
+
+### Installation
+
+<Tabs className="gap-0" defaultValue="cli">
+
+<TabsList>
+  <TabsTriggerShadcnCLI />
+  <TabsTrigger className="cursor-pointer" value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli" className="[&>figure]:mb-0">
+
+```package-install
+npx shadcn@latest add https://adminsys-ui.vercel.app/r/theme-provider.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```package-install
+npm install next-themes
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="theme-provider"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+### Usage
+
+Add the` ThemeProvider` to your root layout and add the `suppressHydrationWarning` prop to the `html` tag.
+
+```tsx
+import { ThemeProvider } from "@/components/theme-provider"// [!code highlight]
+
+export default function RootLayout({ children }: RootLayoutProps) {
+  return (
+    <html
+      lang="en"
+      suppressHydrationWarning// [!code highlight]
+    >
+      <body>
+        // [!code highlight]
+        <ThemeProvider
+          // [!code highlight]
+          attribute="class"
+          // [!code highlight]
+          defaultTheme="system"
+          // [!code highlight]
+          enableSystem
+          // [!code highlight]
+          disableTransitionOnChange
+        >
+          {children}
+          // [!code highlight]
+        </ThemeProvider>
+      </body>
+    </html>
+  )
+}
+```
+
+## Props
+
+### ThemeProvider
+
+<AutoTypeTable path="./src/registry/components/layout/provider/theme-provider.tsx" name="ThemeProviderProps" />

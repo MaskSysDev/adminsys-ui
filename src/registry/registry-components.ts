@@ -192,6 +192,26 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/not-found",
   },
   /**
+   * Componente `theme-provider`:
+   * Um componente de theme-provider.
+   */
+  {
+    name: "theme-provider",
+    type: "registry:component",
+    description: "A theme-provider component.",
+    title: "theme-provider",
+    author: "<author> <<authorUrl>>",
+    dependencies: ["next-themes"],
+    files: [
+      {
+        path: "components/layout/provider/theme-provider.tsx",
+        type: "registry:component",
+        target: "src/components/layout/provider/theme-provider.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/provider#theme-provider",
+  },
+  /**
    * Componente `social-icon-link`:
    * Um componente de social-icon-link.
    */

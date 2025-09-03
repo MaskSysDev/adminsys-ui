@@ -106,6 +106,15 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
+  "theme-provider": {
+    name: "theme-provider",
+    description: "A theme-provider component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/provider/theme-provider.tsx",
+      type: "registry:component",
+    }],
+  },
   "social-icon-link": {
     name: "social-icon-link",
     description: "A social-icon-link component.",
