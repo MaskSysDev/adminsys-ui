@@ -76,6 +76,27 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/footer#footer-01",
   },
   /**
+   * Componente `hero-01`:
+   * Um componente de hero-01.
+   */
+  {
+    name: "hero-01",
+    type: "registry:component",
+    description: "A hero-01 component.",
+    title: "hero",
+    author: "<author> <<authorUrl>>",
+    dependencies: [],
+    registryDependencies: ["<registryBaseUrl>/utils.json"],
+    files: [
+      {
+        path: "components/layout/hero/hero-01.tsx",
+        type: "registry:component",
+        target: "src/components/layout/hero/hero-01.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/hero#hero-01",
+  },
+  /**
    * Componente `container`:
    * Um componente de container.
    */

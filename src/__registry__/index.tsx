@@ -52,6 +52,15 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
+  "hero-01": {
+    name: "hero-01",
+    description: "A hero-01 component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/hero/hero-01.tsx",
+      type: "registry:component",
+    }],
+  },
   "icons": {
     name: "icons",
     description: "A icons component.",
@@ -128,6 +137,17 @@ export const Index: Record<string, any> = {
       type: "registry:example",
     }],
     component: React.lazy(() => import("@/registry/examples/components/layout/footer/footer-01-demo.tsx")),
+
+  },
+  "hero-01-demo": {
+    name: "hero-01-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/hero/hero-01-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/hero/hero-01-demo.tsx")),
 
   },
   "icons-demo": {

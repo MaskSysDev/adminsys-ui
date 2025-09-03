@@ -91,6 +91,25 @@
       "docs": "http://localhost:3000/docs/components/layout/footer#footer-01"
     },
     {
+      "name": "hero-01",
+      "type": "registry:component",
+      "title": "hero",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A hero-01 component.",
+      "dependencies": [],
+      "registryDependencies": [
+        "http://localhost:3000/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/layout/hero/hero-01.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/hero/hero-01.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/hero#hero-01"
+    },
+    {
       "name": "icons",
       "type": "registry:component",
       "title": "icons",

@@ -54,6 +54,21 @@ export const examples: Registry["items"] = [
     ],
   },
   /**
+   * Exemplo `hero-01-demo`:
+   * Demonstra o uso do componente `hero-01`.
+   */
+  {
+    name: "hero-01-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/hero-01.json"],
+    files: [
+      {
+        path: "examples/components/layout/hero/hero-01-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
    * Exemplo `icons-demo`:
    * Demonstra o uso do componente `icons`.
    */

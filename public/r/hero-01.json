@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-01",
+  "type": "registry:component",
+  "title": "hero",
+  "author": "MaskSysDev <https://github.com/MaskSysDev>",
+  "description": "A hero-01 component.",
+  "dependencies": [],
+  "registryDependencies": [
+    "http://localhost:3000/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/components/layout/hero/hero-01.tsx",
+      "content": "import {\n  Banner,\n  BannerActions,\n  BannerBadge,\n  BannerDescription,\n  BannerTitle,\n} from \"@/registry/components/layout/banner\"\n\nexport type Hero01Props = {\n  title?: string\n  subTitle?: string\n  subTitleColor?: string\n  description?: string\n  backgroundImage?: string\n  backgroundFixed?: boolean\n  gradientTop?: boolean\n  gradientBottom?: boolean\n  gradientTopClassName?: string\n  gradientBottomClassName?: string\n  size?: string\n  action01?: {\n    label?: string\n    href?: string\n  }\n  action02?: {\n    label?: string\n    href?: string\n  }\n}\n\nexport function Hero01({ ...props }: Hero01Props) {\n  return (\n    <Banner\n      backgroundFixed={props.backgroundFixed}\n      backgroundImage={props.backgroundImage}\n      gradientBottom={props.gradientBottom}\n      gradientBottomClassName={props.gradientBottomClassName}\n      gradientTop={props.gradientTop}\n      gradientTopClassName={props.gradientTopClassName}\n      size={props.size}\n    >\n      <BannerBadge\n        subTitle={props.subTitle}\n        subTitleColor={props.subTitleColor}\n      />\n      <BannerTitle>{props.title}</BannerTitle>\n      <BannerDescription>{props.description}</BannerDescription>\n      <BannerActions action01={props.action01} action02={props.action02} />\n    </Banner>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "src/components/layout/hero/hero-01.tsx"
+    }
+  ],
+  "docs": "http://localhost:3000/docs/components/layout/hero#hero-01"
+}
