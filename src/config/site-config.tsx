@@ -182,7 +182,7 @@ export const navbar01 = {
     },
     {
       label: "Documentation",
-      href: "/docs/get-started",
+      href: "/docs/apps/get-started",
     },
     {
       label: "Components",
@@ -246,7 +246,7 @@ export const hero01 = {
   actions: {
     action01: {
       label: "Get Started",
-      href: "/docs/get-started",
+      href: "/docs/apps/get-started",
     },
     action02: {
       label: "GitHub",
