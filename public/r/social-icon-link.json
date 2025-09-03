@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "social-icon-link",
+  "type": "registry:component",
+  "title": "social-icon-link",
+  "author": "MaskSysDev <https://github.com/MaskSysDev>",
+  "description": "A social-icon-link component.",
+  "dependencies": [],
+  "registryDependencies": [
+    "http://localhost:3000/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/components/layout/social/social-icon-link.tsx",
+      "content": "import type { JSX, SVGProps } from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport type SocialIconLinkProps = {\n  label: string\n  href: string\n  icon: (props: SVGProps<SVGSVGElement>) => JSX.Element\n}\n\nexport function SocialIconLink({\n  href,\n  icon: Icon,\n  label,\n  ...props\n}: SocialIconLinkProps & React.ComponentProps<\"a\">) {\n  return (\n    <a\n      {...props}\n      aria-label={label}\n      className={cn(\n        \"group h-10 w-max items-center justify-center rounded-md py-2\",\n        \"font-semibold text-sm transition ease-in-out\",\n        \"focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0\",\n        \"disabled:pointer-events-none disabled:opacity-50\",\n        \"data-[active]:bg-accent/50 data-[state=open]:bg-accent/50\",\n        \"text-muted-foreground hover:text-accent-foreground focus-visible:text-accent-foreground\",\n        \"hover:bg-transparent\"\n      )}\n      href={href}\n      rel=\"noopener noreferrer\"\n      target=\"_blank\"\n    >\n      <Icon />\n    </a>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "src/components/layout/social/social-icon-link.tsx"
+    }
+  ],
+  "docs": "http://localhost:3000/docs/components/layout/social#social-icon-link"
+}

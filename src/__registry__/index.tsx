@@ -34,6 +34,42 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
+  "container": {
+    name: "container",
+    description: "A container component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/container/index.tsx",
+      type: "registry:component",
+    }],
+  },
+  "footer-01": {
+    name: "footer-01",
+    description: "A footer-01 component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/footer/footer-01.tsx",
+      type: "registry:component",
+    }],
+  },
+  "icons": {
+    name: "icons",
+    description: "A icons component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/icons/index.tsx",
+      type: "registry:component",
+    }],
+  },
+  "social-icon-link": {
+    name: "social-icon-link",
+    description: "A social-icon-link component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/social/social-icon-link.tsx",
+      type: "registry:component",
+    }],
+  },
   "tailwind-indicator": {
     name: "tailwind-indicator",
     description: "A tailwind-indicator component.",
@@ -70,6 +106,50 @@ export const Index: Record<string, any> = {
       type: "registry:example",
     }],
     component: React.lazy(() => import("@/registry/examples/components/layout/banner/banner-demo.tsx")),
+
+  },
+  "container-demo": {
+    name: "container-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/container/container-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/container/container-demo.tsx")),
+
+  },
+  "footer-01-demo": {
+    name: "footer-01-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/footer/footer-01-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/footer/footer-01-demo.tsx")),
+
+  },
+  "icons-demo": {
+    name: "icons-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/icons/icons-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/icons/icons-demo.tsx")),
+
+  },
+  "social-icon-link-demo": {
+    name: "social-icon-link-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/social/social-icon-link-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/social/social-icon-link-demo.tsx")),
 
   },
   "tailwind-indicator-demo": {

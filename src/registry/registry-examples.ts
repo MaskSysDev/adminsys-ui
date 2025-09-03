@@ -24,6 +24,66 @@ export const examples: Registry["items"] = [
     ],
   },
   /**
+   * Exemplo `banner-demo`:
+   * Demonstra o uso do componente `banner`.
+   */
+  {
+    name: "container-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/container.json"],
+    files: [
+      {
+        path: "examples/components/layout/container/container-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
+   * Exemplo `footer-01-demo`:
+   * Demonstra o uso do componente `footer-01`.
+   */
+  {
+    name: "footer-01-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/footer-01.json"],
+    files: [
+      {
+        path: "examples/components/layout/footer/footer-01-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
+   * Exemplo `icons-demo`:
+   * Demonstra o uso do componente `icons`.
+   */
+  {
+    name: "icons-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/icons.json"],
+    files: [
+      {
+        path: "examples/components/layout/icons/icons-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
+   * Exemplo `social-icon-link-demo`:
+   * Demonstra o uso do componente `social-icon-link`.
+   */
+  {
+    name: "social-icon-link-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/social-icon-link.json"],
+    files: [
+      {
+        path: "examples/components/layout/social/social-icon-link-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
    * Exemplo `tailwind-indicator-demo`:
    * Demonstra o uso do componente `tailwind-indicator`.
    */
