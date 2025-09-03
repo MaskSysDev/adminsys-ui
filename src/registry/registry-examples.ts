@@ -24,6 +24,21 @@ export const examples: Registry["items"] = [
     ],
   },
   /**
+   * Exemplo `banner-demo`:
+   * Demonstra o uso do componente `banner`.
+   */
+  {
+    name: "container-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/container.json"],
+    files: [
+      {
+        path: "examples/components/layout/container/container-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
    * Exemplo `tailwind-indicator-demo`:
    * Demonstra o uso do componente `tailwind-indicator`.
    */

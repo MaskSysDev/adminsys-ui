@@ -34,6 +34,27 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/banner",
   },
   /**
+   * Componente `container`:
+   * Um componente de container.
+   */
+  {
+    name: "container",
+    type: "registry:component",
+    description: "A container component.",
+    title: "container",
+    author: "<author> <<authorUrl>>",
+    dependencies: [],
+    registryDependencies: ["<registryBaseUrl>/utils.json"],
+    files: [
+      {
+        path: "components/layout/container/index.tsx",
+        type: "registry:component",
+        target: "src/components/layout/container/index.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/container",
+  },
+  /**
    * Componente `tailwind-indicator`:
    * Um indicador visual para ambientes de desenvolvimento que mostra o breakpoint atual do Tailwind CSS.
    */
