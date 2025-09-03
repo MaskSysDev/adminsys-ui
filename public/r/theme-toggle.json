@@ -4,7 +4,7 @@
   "type": "registry:component",
   "title": "theme-toggle",
   "author": "MaskSysDev <https://github.com/MaskSysDev>",
-  "description": "A theme-toggle component for Next.js apps with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
+  "description": "A theme-toggle component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
   "dependencies": [
     "next-themes",
     "lucide-react"
@@ -20,5 +20,5 @@
       "target": "src/components/layout/toggle/theme-toggle.tsx"
     }
   ],
-  "docs": "http://localhost:3000/docs/components/layout/theme-toggle"
+  "docs": "http://localhost:3000/docs/components/layout/toggle#toggle-theme"
 }

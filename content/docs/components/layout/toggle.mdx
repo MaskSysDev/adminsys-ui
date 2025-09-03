@@ -1,0 +1,132 @@
+---
+title: Toggle
+description: A Toggle component.
+---
+
+## Toggle Theme
+
+<ComponentPreview
+  name="toggle-theme-demo"
+  openInV0Url="https://adminsys-ui.vercel.app/r/toggle-theme.json"
+  code={<ComponentSource name="toggle-theme" />}
+/>
+
+### Installation
+
+<Tabs className="gap-0" defaultValue="cli">
+
+<TabsList>
+  <TabsTriggerShadcnCLI />
+  <TabsTrigger className="cursor-pointer" value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli" className="[&>figure]:mb-0">
+
+```package-install
+npx shadcn@latest add https://adminsys-ui.vercel.app/r/toggle-theme.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```package-install
+npm install next-themes lucide-react
+```
+
+<Step>Add Component</Step>
+
+```package-install
+npx shadcn@latest add button
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource src="src/lib/utils.ts" />
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="toggle-theme"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+### Usage
+
+```tsx
+import { ToggleTheme } from "@/components/layout/toggle/toggle-theme"
+```
+
+```tsx
+<ToggleTheme />
+```
+
+## Theme Toggle
+
+<ComponentPreview
+  name="theme-toggle-demo"
+  openInV0Url="https://adminsys-ui.vercel.app/r/theme-toggle.json"
+  code={<ComponentSource name="theme-toggle" />}
+/>
+
+### Installation
+
+<Tabs className="gap-0" defaultValue="cli">
+
+<TabsList>
+  <TabsTriggerShadcnCLI />
+  <TabsTrigger className="cursor-pointer" value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli" className="[&>figure]:mb-0">
+
+```package-install
+npx shadcn@latest add https://adminsys-ui.vercel.app/r/theme-toggle.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```package-install
+npm install next-themes lucide-react
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource src="src/lib/utils.ts" />
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="theme-toggle"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+### Usage
+
+```tsx
+import { ThemeToggle } from "@/components/layout/toggle/theme-toggle";
+```
+
+```tsx
+<ThemeToggle />
+```

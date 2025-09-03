@@ -25,9 +25,18 @@ export const Index: Record<string, any> = {
       type: "registry:hook",
     }],
   },
+  "banner": {
+    name: "banner",
+    description: "A banner component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/banner/index.tsx",
+      type: "registry:component",
+    }],
+  },
   "tailwind-indicator": {
     name: "tailwind-indicator",
-    description: "A tailwind-indicator component for Next.js apps.",
+    description: "A tailwind-indicator component.",
     type: "registry:component",
     files: [{
       path: "src/registry/components/dev/tailwind-indicator.tsx",
@@ -36,7 +45,7 @@ export const Index: Record<string, any> = {
   },
   "theme-toggle": {
     name: "theme-toggle",
-    description: "A theme-toggle component for Next.js apps with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
+    description: "A theme-toggle component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
     type: "registry:component",
     files: [{
       path: "src/registry/components/layout/toggle/theme-toggle.tsx",
@@ -45,12 +54,23 @@ export const Index: Record<string, any> = {
   },
   "toggle-theme": {
     name: "toggle-theme",
-    description: "A toggle-theme component for Next.js apps with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
+    description: "A toggle-theme component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
     type: "registry:component",
     files: [{
       path: "src/registry/components/layout/toggle/toggle-theme.tsx",
       type: "registry:component",
     }],
+  },
+  "banner-demo": {
+    name: "banner-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/banner/banner-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/banner/banner-demo.tsx")),
+
   },
   "tailwind-indicator-demo": {
     name: "tailwind-indicator-demo",

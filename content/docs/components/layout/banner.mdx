@@ -1,0 +1,80 @@
+---
+title: Banner
+description: A Banner component.
+---
+
+## Banner
+
+<ComponentPreview
+  name="banner-demo"
+  openInV0Url="https://adminsys-ui.vercel.app/r/banner.json"
+  code={<ComponentSource name="banner-demo" />}
+/>
+
+### Installation
+
+<Tabs className="gap-0" defaultValue="cli">
+
+<TabsList>
+  <TabsTriggerShadcnCLI />
+  <TabsTrigger className="cursor-pointer" value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli" className="[&>figure]:mb-0">
+
+```package-install
+npx shadcn@latest add https://adminsys-ui.vercel.app/r/banner.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add Component</Step>
+
+```package-install
+npx shadcn@latest add badge button https://adminsys-ui.vercel.app/r/container.json
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="banner"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+### Usage
+
+<ComponentSource
+  name="banner-demo"
+  codeCollapsible
+/>
+
+## Props
+
+### Banner
+
+<AutoTypeTable path="./src/registry/components/layout/banner/index.tsx" name="BannerProps" />
+
+### BannerBadge
+
+<AutoTypeTable path="./src/registry/components/layout/banner/index.tsx" name="BannerBadgeProps" />
+
+### BannerTitle
+
+<AutoTypeTable path="./src/registry/components/layout/banner/index.tsx" name="BannerTitleProps" />
+
+### BannerDescription
+
+<AutoTypeTable path="./src/registry/components/layout/banner/index.tsx" name="BannerDescriptionProps" />
+
+### BannerActions
+
+<AutoTypeTable path="./src/registry/components/layout/banner/index.tsx" name="BannerActionsProps" />

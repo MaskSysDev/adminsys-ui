@@ -8,13 +8,39 @@ import type { Registry } from "shadcn/schema"
  */
 export const components: Registry["items"] = [
   /**
+   * Componente `banner`:
+   * Um componente de banner.
+   */
+  {
+    name: "banner",
+    type: "registry:component",
+    description: "A banner component.",
+    title: "banner",
+    author: "<author> <<authorUrl>>",
+    dependencies: [],
+    registryDependencies: [
+      "badge",
+      "button",
+      "<registryBaseUrl>/container.json",
+      "<registryBaseUrl>/utils.json",
+    ],
+    files: [
+      {
+        path: "components/layout/banner/index.tsx",
+        type: "registry:component",
+        target: "src/components/layout/banner/index.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/banner",
+  },
+  /**
    * Componente `tailwind-indicator`:
    * Um indicador visual para ambientes de desenvolvimento que mostra o breakpoint atual do Tailwind CSS.
    */
   {
     name: "tailwind-indicator",
     type: "registry:component",
-    description: "A tailwind-indicator component for Next.js apps.",
+    description: "A tailwind-indicator component.",
     title: "tailwind-indicator",
     author: "<author> <<authorUrl>>",
     files: [
@@ -34,7 +60,7 @@ export const components: Registry["items"] = [
     name: "theme-toggle",
     type: "registry:component",
     description:
-      "A theme-toggle component for Next.js apps with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
+      "A theme-toggle component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
     title: "theme-toggle",
     author: "<author> <<authorUrl>>",
     dependencies: ["next-themes", "lucide-react"],
@@ -46,7 +72,7 @@ export const components: Registry["items"] = [
         target: "src/components/layout/toggle/theme-toggle.tsx",
       },
     ],
-    docs: "<baseUrl>/docs/components/layout/theme-toggle",
+    docs: "<baseUrl>/docs/components/layout/toggle#toggle-theme",
   },
   /**
    * Componente `toggle-theme`:
@@ -56,7 +82,7 @@ export const components: Registry["items"] = [
     name: "toggle-theme",
     type: "registry:component",
     description:
-      "A toggle-theme component for Next.js apps with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
+      "A toggle-theme component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
     title: "toggle-theme",
     author: "<author> <<authorUrl>>",
     dependencies: ["next-themes", "lucide-react"],
@@ -68,6 +94,6 @@ export const components: Registry["items"] = [
         target: "src/components/layout/toggle/toggle-theme.tsx",
       },
     ],
-    docs: "<baseUrl>/docs/components/layout/toggle-theme",
+    docs: "<baseUrl>/docs/components/layout/toggle#toggle-theme",
   },
 ]
