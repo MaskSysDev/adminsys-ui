@@ -9,6 +9,64 @@ import type { Registry } from "shadcn/schema"
  */
 export const examples: Registry["items"] = [
   /**
+   * Exemplo `sitesys-demo`:
+   * Demonstra o uso do componente `sitesys`.
+   */
+  {
+    name: "sitesys",
+    type: "registry:example",
+    dependencies: ["zod"],
+    registryDependencies: [
+      "<registryBaseUrl>/site-layout.json",
+      "<registryBaseUrl>/logo-sitesys.json",
+    ],
+    envVars: {
+      NEXT_PUBLIC_APP_URL: "http://localhost:3000",
+    },
+    files: [
+      {
+        path: "examples/sitesys/app/layout.tsx",
+        type: "registry:example",
+        target: "src/app/layout.tsx",
+      },
+      {
+        path: "examples/sitesys/app/(home)/layout.tsx",
+        type: "registry:example",
+        target: "src/app/(home)/layout.tsx",
+      },
+      {
+        path: "examples/sitesys/app/(home)/page.tsx",
+        type: "registry:example",
+        target: "src/app/(home)/page.tsx",
+      },
+      {
+        path: "examples/sitesys/config/types/index.ts",
+        type: "registry:example",
+        target: "src/config/types/index.ts",
+      },
+      {
+        path: "examples/sitesys/config/validation/env.schema.ts",
+        type: "registry:example",
+        target: "src/config/validation/env.schema.ts",
+      },
+      {
+        path: "examples/sitesys/config/validation/site-config.schema.ts",
+        type: "registry:example",
+        target: "src/config/validation/site-config.schema.ts",
+      },
+      {
+        path: "examples/sitesys/config/env.ts",
+        type: "registry:example",
+        target: "src/config/env.ts",
+      },
+      {
+        path: "examples/sitesys/config/site-config.tsx",
+        type: "registry:example",
+        target: "src/config/site-config.tsx",
+      },
+    ],
+  },
+  /**
    * Exemplo `banner-demo`:
    * Demonstra o uso do componente `banner`.
    */
@@ -24,8 +82,8 @@ export const examples: Registry["items"] = [
     ],
   },
   /**
-   * Exemplo `banner-demo`:
-   * Demonstra o uso do componente `banner`.
+   * Exemplo `container-demo`:
+   * Demonstra o uso do componente `container`.
    */
   {
     name: "container-demo",
@@ -129,8 +187,8 @@ export const examples: Registry["items"] = [
     ],
   },
   /**
-   * Exemplo `logo-sitesys-demo`:
-   * Demonstra o uso do componente `logo-sitesys`.
+   * Exemplo `navbar-01-demo`:
+   * Demonstra o uso do componente `navbar-01`.
    */
   {
     name: "navbar-01-demo",

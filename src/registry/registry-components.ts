@@ -264,6 +264,13 @@ export const components: Registry["items"] = [
     title: "site-layout",
     author: "<author> <<authorUrl>>",
     dependencies: ["next-themes"],
+    registryDependencies: [
+      "sidebar",
+      "sonner",
+      "<registryBaseUrl>/tailwind-indicator.json",
+      "<registryBaseUrl>/navbar-01.json",
+      "<registryBaseUrl>/footer-01.json",
+    ],
     files: [
       {
         path: "components/layout/site-layout/index.tsx",
