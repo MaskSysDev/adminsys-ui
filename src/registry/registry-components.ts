@@ -8,6 +8,64 @@ import type { Registry } from "shadcn/schema"
  */
 export const components: Registry["items"] = [
   /**
+   * Exemplo `sitesys-demo`:
+   * Demonstra o uso do componente `sitesys`.
+   */
+  {
+    name: "sitesys",
+    type: "registry:block",
+    dependencies: ["zod"],
+    registryDependencies: [
+      "<registryBaseUrl>/site-layout.json",
+      "<registryBaseUrl>/logo-sitesys.json",
+    ],
+    envVars: {
+      NEXT_PUBLIC_APP_URL: "http://localhost:3000",
+    },
+    files: [
+      {
+        path: "examples/sitesys/app/layout.tsx",
+        type: "registry:file",
+        target: "src/app/layout.tsx",
+      },
+      {
+        path: "examples/sitesys/app/(home)/layout.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/layout.tsx",
+      },
+      {
+        path: "examples/sitesys/app/(home)/page.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/page.tsx",
+      },
+      {
+        path: "examples/sitesys/config/types/index.ts",
+        type: "registry:file",
+        target: "src/config/types/index.ts",
+      },
+      {
+        path: "examples/sitesys/config/validation/env.schema.ts",
+        type: "registry:file",
+        target: "src/config/validation/env.schema.ts",
+      },
+      {
+        path: "examples/sitesys/config/validation/site-config.schema.ts",
+        type: "registry:file",
+        target: "src/config/validation/site-config.schema.ts",
+      },
+      {
+        path: "examples/sitesys/config/env.ts",
+        type: "registry:file",
+        target: "src/config/env.ts",
+      },
+      {
+        path: "examples/sitesys/config/site-config.tsx",
+        type: "registry:file",
+        target: "src/config/site-config.tsx",
+      },
+    ],
+  },
+  /**
    * Componente `banner`:
    * Um componente de banner.
    */

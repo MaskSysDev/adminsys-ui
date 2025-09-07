@@ -31,6 +31,62 @@
       ]
     },
     {
+      "name": "sitesys",
+      "type": "registry:block",
+      "dependencies": [
+        "zod"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/site-layout.json",
+        "http://localhost:3000/r/logo-sitesys.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/examples/sitesys/app/layout.tsx",
+          "type": "registry:file",
+          "target": "src/app/layout.tsx"
+        },
+        {
+          "path": "src/registry/examples/sitesys/app/(home)/layout.tsx",
+          "type": "registry:file",
+          "target": "src/app/(home)/layout.tsx"
+        },
+        {
+          "path": "src/registry/examples/sitesys/app/(home)/page.tsx",
+          "type": "registry:file",
+          "target": "src/app/(home)/page.tsx"
+        },
+        {
+          "path": "src/registry/examples/sitesys/config/types/index.ts",
+          "type": "registry:file",
+          "target": "src/config/types/index.ts"
+        },
+        {
+          "path": "src/registry/examples/sitesys/config/validation/env.schema.ts",
+          "type": "registry:file",
+          "target": "src/config/validation/env.schema.ts"
+        },
+        {
+          "path": "src/registry/examples/sitesys/config/validation/site-config.schema.ts",
+          "type": "registry:file",
+          "target": "src/config/validation/site-config.schema.ts"
+        },
+        {
+          "path": "src/registry/examples/sitesys/config/env.ts",
+          "type": "registry:file",
+          "target": "src/config/env.ts"
+        },
+        {
+          "path": "src/registry/examples/sitesys/config/site-config.tsx",
+          "type": "registry:file",
+          "target": "src/config/site-config.tsx"
+        }
+      ],
+      "envVars": {
+        "NEXT_PUBLIC_APP_URL": "http://localhost:3000"
+      }
+    },
+    {
       "name": "banner",
       "type": "registry:component",
       "title": "banner",
