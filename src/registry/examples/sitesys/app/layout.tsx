@@ -1,4 +1,4 @@
-import type { Viewport } from "next"
+import type { Metadata, Viewport } from "next"
 
 import { ThemeProvider } from "@/components/layout/provider/theme-provider"
 
@@ -9,9 +9,9 @@ import { siteConfig } from "@/config/site-config"
 
 import "@/styles/globals.css"
 
-/* import { createMetadata } from "@/lib/metadata" */
+import { createMetadata } from "@/registry/lib/metadata"
 
-/* export const metadata: Metadata = createMetadata({
+export const metadata: Metadata = createMetadata({
   // URL base para geração de links absolutos em Open Graph e Twitter
   metadataBase: new URL(siteConfig.url || "http://localhost:3000"),
 
@@ -156,7 +156,7 @@ import "@/styles/globals.css"
     creator: siteConfig.creator || "Mask", // Criador do conteúdo
     site: siteConfig.twitterHandle || "@sitesys", // Handle do Twitter do site
   },
-}) */
+})
 
 export const viewport: Viewport = {
   // Configuração de largura e altura do viewport

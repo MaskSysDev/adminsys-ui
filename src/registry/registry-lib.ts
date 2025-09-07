@@ -25,4 +25,20 @@ export const lib: Registry["items"] = [
       },
     ],
   },
+  /**
+   * Biblioteca `metadata`:
+   * Contém funções para gerar os metadados.
+   */
+  {
+    name: "metadata",
+    type: "registry:lib",
+    title: "Metadata Functions",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "lib/metadata.ts",
+        type: "registry:lib",
+      },
+    ],
+  },
 ]

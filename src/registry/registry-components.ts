@@ -17,7 +17,9 @@ export const components: Registry["items"] = [
     dependencies: ["zod"],
     registryDependencies: [
       "<registryBaseUrl>/site-layout.json",
+      "<registryBaseUrl>/hero-01.json",
       "<registryBaseUrl>/logo-sitesys.json",
+      "<registryBaseUrl>/metadata.json",
     ],
     envVars: {
       NEXT_PUBLIC_APP_URL: "http://localhost:3000",
