@@ -129,6 +129,21 @@ export const examples: Registry["items"] = [
     ],
   },
   /**
+   * Exemplo `logo-sitesys-demo`:
+   * Demonstra o uso do componente `logo-sitesys`.
+   */
+  {
+    name: "navbar-01-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/navbar-01.json"],
+    files: [
+      {
+        path: "examples/components/layout/navbar/navbar-01-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
    * Exemplo `not-found-demo`:
    * Demonstra o uso do componente `not-found`.
    */

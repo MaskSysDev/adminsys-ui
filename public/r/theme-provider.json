@@ -8,6 +8,13 @@
   "dependencies": [
     "next-themes"
   ],
+  "registryDependencies": [
+    "sidebar",
+    "sonner",
+    "http://localhost:3000/r/tailwind-indicator.json",
+    "http://localhost:3000/r/footer-01.json",
+    "http://localhost:3000/r/navbar-01.json"
+  ],
   "files": [
     {
       "path": "src/registry/components/layout/provider/theme-provider.tsx",

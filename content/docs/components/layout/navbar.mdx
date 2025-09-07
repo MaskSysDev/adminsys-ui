@@ -1,0 +1,68 @@
+---
+title: Navbar
+description: A Navbar component.
+---
+
+## Navbar 01
+
+<ComponentPreview
+  name="navbar-01-demo"
+  openInV0Url="https://adminsys-ui.vercel.app/r/navbar-01.json"
+  code={<ComponentSource name="navbar-01" />}
+/>
+
+### Installation
+
+<Tabs className="gap-0" defaultValue="cli">
+
+<TabsList>
+  <TabsTriggerShadcnCLI />
+  <TabsTrigger className="cursor-pointer" value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli" className="[&>figure]:mb-0">
+
+```package-install
+npx shadcn@latest add https://adminsys-ui.vercel.app/r/navbar-01.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add Component</Step>
+
+```package-install
+npx shadcn@latest add button sidebar navigation-menu https://adminsys-ui.vercel.app/r/container.json
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource src="src/lib/utils.ts" />
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="navbar-01"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+### Usage
+
+<ComponentSource
+  name="navbar-01-demo"
+  codeCollapsible
+/>
+
+## Props
+
+### Navbar01
+
+<AutoTypeTable path="./src/registry/components/layout/navbar/navbar-01.tsx" name="Navbar01Props" />
