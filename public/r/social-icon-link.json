@@ -5,10 +5,6 @@
   "title": "social-icon-link",
   "author": "MaskSysDev <https://github.com/MaskSysDev>",
   "description": "A social-icon-link component.",
-  "dependencies": [],
-  "registryDependencies": [
-    "http://localhost:3000/r/utils.json"
-  ],
   "files": [
     {
       "path": "src/registry/components/layout/social/social-icon-link.tsx",

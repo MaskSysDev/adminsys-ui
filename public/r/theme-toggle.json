@@ -6,11 +6,7 @@
   "author": "MaskSysDev <https://github.com/MaskSysDev>",
   "description": "A theme-toggle component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
   "dependencies": [
-    "next-themes",
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "http://localhost:3000/r/utils.json"
+    "next-themes"
   ],
   "files": [
     {
