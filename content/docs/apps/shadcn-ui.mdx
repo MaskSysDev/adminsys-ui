@@ -1,0 +1,507 @@
+---
+title: Shadcn/ui
+description: Description Shadcn/ui.
+---
+
+# Shadcn/ui
+
+Shadcn/ui beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.
+
+## Version Control
+
+<Steps>
+  <Step>
+    Create new Branch(version).
+
+    ```sh
+    git checkout -b 05-shadcn-ui
+    ```
+
+  </Step>
+</Steps>
+
+#### Install
+
+<Steps>
+  <Step>
+    ### Dependencies
+
+    - Dependencies
+
+    ```package-install
+    npx shadcn@latest init
+    ```
+
+    ```sh
+    √ Which color would you like to use as the base color? » Neutral
+    ```
+
+  </Step>
+</Steps>
+
+## Files
+
+<Steps>
+  <Step>
+    ### Utils
+
+    ```ts title="src/lib/utils.ts"
+    import { clsx, type ClassValue } from "clsx"
+    import { twMerge } from "tailwind-merge"
+
+    export function cn(...inputs: ClassValue[]) {
+      return twMerge(clsx(inputs))
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### Styles
+
+    ```css title="src/styles/globals.css"
+    @import "tailwindcss";
+    @import "tw-animate-css";
+
+    @custom-variant dark (&:is(.dark *));
+
+    @theme inline {
+      --radius-sm: calc(var(--radius) - 4px);
+      --radius-md: calc(var(--radius) - 2px);
+      --radius-lg: var(--radius);
+      --radius-xl: calc(var(--radius) + 4px);
+      --color-background: var(--background);
+      --color-foreground: var(--foreground);
+      --color-card: var(--card);
+      --color-card-foreground: var(--card-foreground);
+      --color-popover: var(--popover);
+      --color-popover-foreground: var(--popover-foreground);
+      --color-primary: var(--primary);
+      --color-primary-foreground: var(--primary-foreground);
+      --color-secondary: var(--secondary);
+      --color-secondary-foreground: var(--secondary-foreground);
+      --color-muted: var(--muted);
+      --color-muted-foreground: var(--muted-foreground);
+      --color-accent: var(--accent);
+      --color-accent-foreground: var(--accent-foreground);
+      --color-destructive: var(--destructive);
+      --color-border: var(--border);
+      --color-input: var(--input);
+      --color-ring: var(--ring);
+      --color-chart-1: var(--chart-1);
+      --color-chart-2: var(--chart-2);
+      --color-chart-3: var(--chart-3);
+      --color-chart-4: var(--chart-4);
+      --color-chart-5: var(--chart-5);
+      --color-sidebar: var(--sidebar);
+      --color-sidebar-foreground: var(--sidebar-foreground);
+      --color-sidebar-primary: var(--sidebar-primary);
+      --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+      --color-sidebar-accent: var(--sidebar-accent);
+      --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+      --color-sidebar-border: var(--sidebar-border);
+      --color-sidebar-ring: var(--sidebar-ring);
+
+      /* Fonts */
+      --font-sans: var(--font-geist-sans);
+      --font-mono: var(--font-geist-mono);
+    }
+
+    :root {
+      --radius: 0.625rem;
+      --background: oklch(1 0 0);
+      --foreground: oklch(0.145 0 0);
+      --card: oklch(1 0 0);
+      --card-foreground: oklch(0.145 0 0);
+      --popover: oklch(1 0 0);
+      --popover-foreground: oklch(0.145 0 0);
+      --primary: oklch(54.6% 0.245 262.881);
+      --primary-foreground: oklch(0.985 0 0);
+      --secondary: oklch(0.97 0 0);
+      --secondary-foreground: oklch(0.205 0 0);
+      --muted: oklch(0.97 0 0);
+      --muted-foreground: oklch(0.556 0 0);
+      --accent: oklch(0.97 0 0);
+      --accent-foreground: oklch(0.205 0 0);
+      --destructive: oklch(0.577 0.245 27.325);
+      --border: oklch(0.922 0 0);
+      --input: oklch(0.922 0 0);
+      --ring: oklch(0.708 0 0);
+      --chart-1: oklch(0.646 0.222 41.116);
+      --chart-2: oklch(0.6 0.118 184.704);
+      --chart-3: oklch(0.398 0.07 227.392);
+      --chart-4: oklch(0.828 0.189 84.429);
+      --chart-5: oklch(0.769 0.188 70.08);
+      --sidebar: oklch(0.985 0 0);
+      --sidebar-foreground: oklch(0.145 0 0);
+      --sidebar-primary: oklch(54.6% 0.245 262.881);
+      --sidebar-primary-foreground: oklch(0.985 0 0);
+      --sidebar-accent: oklch(0.97 0 0);
+      --sidebar-accent-foreground: oklch(0.205 0 0);
+      --sidebar-border: oklch(0.922 0 0);
+      --sidebar-ring: oklch(0.708 0 0);
+    }
+
+    .dark {
+      --background: oklch(0.145 0 0);
+      --foreground: oklch(0.985 0 0);
+      --card: oklch(0.205 0 0);
+      --card-foreground: oklch(0.985 0 0);
+      --popover: oklch(0.205 0 0);
+      --popover-foreground: oklch(0.985 0 0);
+      --primary: oklch(54.6% 0.245 262.881);
+      --primary-foreground: oklch(0.985 0 0);
+      --secondary: oklch(0.269 0 0);
+      --secondary-foreground: oklch(0.985 0 0);
+      --muted: oklch(0.269 0 0);
+      --muted-foreground: oklch(0.708 0 0);
+      --accent: oklch(0.269 0 0);
+      --accent-foreground: oklch(0.985 0 0);
+      --destructive: oklch(0.704 0.191 22.216);
+      --border: oklch(1 0 0 / 10%);
+      --input: oklch(1 0 0 / 15%);
+      --ring: oklch(0.556 0 0);
+      --chart-1: oklch(0.488 0.243 264.376);
+      --chart-2: oklch(0.696 0.17 162.48);
+      --chart-3: oklch(0.769 0.188 70.08);
+      --chart-4: oklch(0.627 0.265 303.9);
+      --chart-5: oklch(0.645 0.246 16.439);
+      --sidebar: oklch(0.205 0 0);
+      --sidebar-foreground: oklch(0.985 0 0);
+      --sidebar-primary: oklch(54.6% 0.245 262.881);
+      --sidebar-primary-foreground: oklch(0.985 0 0);
+      --sidebar-accent: oklch(0.269 0 0);
+      --sidebar-accent-foreground: oklch(0.985 0 0);
+      --sidebar-border: oklch(1 0 0 / 10%);
+      --sidebar-ring: oklch(0.556 0 0);
+    }
+
+    @layer base {
+      * {
+        @apply border-border outline-ring/50;
+      }
+      body {
+        @apply bg-background text-foreground;
+      }
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### Components Schema
+
+    ```json title="components.json"
+    {
+      "$schema": "https://ui.shadcn.com/schema.json",
+      "style": "new-york",
+      "rsc": true,
+      "tsx": true,
+      "tailwind": {
+        "config": "",
+        "css": "src/styles/globals.css",
+        "baseColor": "neutral",
+        "cssVariables": true,
+        "prefix": ""
+      },
+      "aliases": {
+        "components": "@/components",
+        "utils": "@/lib/utils",
+        "ui": "@/components/ui",
+        "lib": "@/lib",
+        "hooks": "@/hooks"
+      },
+      "iconLibrary": "lucide"
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### Update package.json
+
+    ```json title="package.json"
+    {
+      "name": "sitesys-started",
+      "version": "0.1.0",
+      "type": "module",
+      "private": true,
+      "scripts": {
+        "dev": "next dev --turbopack",
+        "build": "next build --turbopack",
+        "start": "next start",
+        "preview": "next build && next start",
+        "clean": "rm -rf node_modules && rm -rf .next",
+        "lint": "biome check",
+        "format": "biome format --write",
+        "check": "biome check --write",
+        "typecheck": "tsc --noEmit",
+        "ui:add": "pnpm dlx shadcn@latest add",// [!code ++]
+        "prepare": "husky"
+      },
+      "dependencies": {
+        "class-variance-authority": "0.7.1",
+        "clsx": "2.1.1",
+        "lucide-react": "0.542.0",
+        "next": "15.5.2",
+        "react": "19.1.0",
+        "react-dom": "19.1.0",
+        "tailwind-merge": "3.3.1"
+      },
+      "devDependencies": {
+        "@biomejs/biome": "2.2.2",
+        "@commitlint/cli": "19.8.1",
+        "@commitlint/config-conventional": "19.8.1",
+        "@tailwindcss/postcss": "^4.1.12",
+        "@types/node": "^20.19.11",
+        "@types/react": "^19.1.12",
+        "@types/react-dom": "^19.1.9",
+        "husky": "9.1.7",
+        "tailwindcss": "^4.1.12",
+        "tw-animate-css": "1.3.7",
+        "typescript": "^5.9.2",
+        "ultracite": "5.2.17"
+      }
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### Update Layout
+
+    ```tsx title="src/app/layout.tsx"
+    import type { Metadata } from "next"
+
+    import { geistMono, geistSans } from "@/lib/fonts"
+    import { cn } from "@/lib/utils"// [!code ++]
+
+    import "@/styles/globals.css"
+
+    export const metadata: Metadata = {
+      title: "NextJS 15 Started",
+      description: "Generated by create next app",
+    }
+
+    export default function RootLayout({
+      children,
+    }: Readonly<{
+      children: React.ReactNode
+    }>) {
+      return (
+        <html
+          className="scroll-smooth"
+          data-scroll-behavior="smooth"
+          dir="ltr"
+          lang="en"
+        >
+          <body
+            className={cn(// [!code ++]
+              geistSans.variable,// [!code ++]
+              geistMono.variable,// [!code ++]
+              "font-sans antialiased"// [!code ++]
+            )}// [!code ++]
+          >
+            {children}
+          </body>
+        </html>
+      )
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    Run Format.
+
+    ```sh
+    pnpm format
+    ```
+
+  </Step>
+  <Step>
+    Run Lint.
+
+    ```sh
+    pnpm lint
+    ```
+
+  </Step>
+  <Step>
+    Run Check.
+
+    ```sh
+    pnpm check
+    ```
+
+  </Step>
+  <Step>
+    Run Dev.
+
+    ```sh
+    pnpm dev
+    ```
+
+  </Step>
+</Steps>
+
+## Next Themes (optional)
+
+An abstraction for themes in your React app.
+
+<Steps>
+  <Step>
+    ##### Install Dependencies
+
+    DevDependencies
+
+    ```package-install
+    npm install next-themes
+    ```
+
+  </Step>
+  <Step>
+    ### Add Components
+
+    - [ThemeProvider](../../components/layout/provider.mdx#themeprovider)
+
+    ```sh
+    pnpm ui:add https://adminsys-components.vercel.app/r/theme-provider.json
+    ```
+
+    - [ToggleTheme](../../components/layout/toggle.mdx#toggletheme)
+
+    ```sh
+    pnpm ui:add https://adminsys-components.vercel.app/r/toggle-theme.json
+    ```
+
+    Command to migrate to the new radix-ui package. This command will replace all @radix-ui/react-* imports with radix-ui.
+
+    ```package-install
+    npx shadcn@latest migrate radix
+    ```
+
+  </Step>
+  <Step>
+    ### Update Layout
+
+    ```tsx title="src/app/layout.tsx"
+    import type { Metadata } from "next"
+
+    import { ThemeProvider } from "@/components/layout/provider/theme-provider"// [!code ++]
+
+    import { geistMono, geistSans } from "@/lib/fonts"
+    import { cn } from "@/lib/utils"
+
+    import "@/styles/globals.css"
+
+    export const metadata: Metadata = {
+      title: "NextJS 15 Started",
+      description: "Generated by create next app",
+    }
+
+    export default function RootLayout({
+      children,
+    }: Readonly<{
+      children: React.ReactNode
+    }>) {
+      return (
+        <html
+          className="scroll-smooth"
+          data-scroll-behavior="smooth"
+          dir="ltr"
+          lang="en"
+          suppressHydrationWarning// [!code ++]
+        >
+          <body
+            className={cn(
+              geistSans.variable,
+              geistMono.variable,
+              "font-sans antialiased"
+            )}
+          >
+            // [!code ++]
+            <ThemeProvider
+              // [!code ++]
+              attribute="class"
+              // [!code ++]
+              defaultTheme="system"
+              // [!code ++]
+              enableSystem
+              // [!code ++]
+              disableTransitionOnChange
+              // [!code ++]
+            >
+              {children}
+              // [!code ++]
+            </ThemeProvider>
+          </body>
+        </html>
+      )
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    Run Format.
+
+    ```sh
+    pnpm format
+    ```
+
+  </Step>
+  <Step>
+    Run Lint.
+
+    ```sh
+    pnpm lint
+    ```
+
+  </Step>
+  <Step>
+    Run Check.
+
+    ```sh
+    pnpm check
+    ```
+
+  </Step>
+  <Step>
+    Run Dev.
+
+    ```sh
+    pnpm dev
+    ```
+
+  </Step>
+</Steps>
+
+## Version Control
+
+<Steps>
+  <Step>
+    Send all data to stage.
+
+    ```sh
+    git add .
+    ```
+
+  </Step>
+  <Step>
+    Copy data with Commit.
+
+    ```sh
+    git commit -m "feat: 05-shadcn-ui"
+    ```
+
+  </Step>
+  <Step>
+    Send Branch.
+
+    ```sh
+    git push --set-upstream origin 05-shadcn-ui
+    ```
+
+  </Step>
+</Steps>
