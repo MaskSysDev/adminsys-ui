@@ -173,6 +173,51 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/logo#logo-sitesys",
   },
   /**
+   * Componente `navbar-01`:
+   * Um componente de navbar-01.
+   */
+  {
+    name: "navbar-01",
+    type: "registry:component",
+    description: "A navbar-01 component.",
+    title: "navbar-01",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: [
+      "button",
+      "sidebar",
+      "navigation-menu",
+      "<registryBaseUrl>/container.json",
+    ],
+    files: [
+      {
+        path: "components/layout/navbar/inc/nav-main.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/inc/nav-main.tsx",
+      },
+      {
+        path: "components/layout/navbar/inc/nav-mobile.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/inc/nav-mobile.tsx",
+      },
+      {
+        path: "components/layout/navbar/inc/nav-system.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/inc/nav-system.tsx",
+      },
+      {
+        path: "components/layout/navbar/types/index.ts",
+        type: "registry:component",
+        target: "src/components/layout/navbar/types/index.ts",
+      },
+      {
+        path: "components/layout/navbar/navbar-01.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/navbar-01.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/logo#navbar-01",
+  },
+  /**
    * Componente `not-found`:
    * Um componente de not-found.
    */
@@ -202,6 +247,13 @@ export const components: Registry["items"] = [
     title: "theme-provider",
     author: "<author> <<authorUrl>>",
     dependencies: ["next-themes"],
+    registryDependencies: [
+      "sidebar",
+      "sonner",
+      "<registryBaseUrl>/tailwind-indicator.json",
+      "<registryBaseUrl>/footer-01.json",
+      "<registryBaseUrl>/navbar-01.json",
+    ],
     files: [
       {
         path: "components/layout/provider/theme-provider.tsx",
@@ -210,6 +262,26 @@ export const components: Registry["items"] = [
       },
     ],
     docs: "<baseUrl>/docs/components/layout/provider#theme-provider",
+  },
+  /**
+   * Componente `site-layout`:
+   * Um componente de site-layout.
+   */
+  {
+    name: "site-layout",
+    type: "registry:component",
+    description: "A site-layout component.",
+    title: "site-layout",
+    author: "<author> <<authorUrl>>",
+    dependencies: ["next-themes"],
+    files: [
+      {
+        path: "components/layout/site-layout/index.tsx",
+        type: "registry:component",
+        target: "src/components/layout/site-layout/index.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/site-layout",
   },
   /**
    * Componente `social-icon-link`:

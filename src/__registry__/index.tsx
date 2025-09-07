@@ -97,6 +97,27 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
+  "navbar-01": {
+    name: "navbar-01",
+    description: "A navbar-01 component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/navbar/inc/nav-main.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/layout/navbar/inc/nav-mobile.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/layout/navbar/inc/nav-system.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/layout/navbar/types/index.ts",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/layout/navbar/navbar-01.tsx",
+      type: "registry:component",
+    }],
+  },
   "not-found": {
     name: "not-found",
     description: "A not-found component.",
@@ -112,6 +133,15 @@ export const Index: Record<string, any> = {
     type: "registry:component",
     files: [{
       path: "src/registry/components/layout/provider/theme-provider.tsx",
+      type: "registry:component",
+    }],
+  },
+  "site-layout": {
+    name: "site-layout",
+    description: "A site-layout component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/site-layout/index.tsx",
       type: "registry:component",
     }],
   },
@@ -246,6 +276,17 @@ export const Index: Record<string, any> = {
       type: "registry:example",
     }],
     component: React.lazy(() => import("@/registry/examples/components/layout/logo/logo-sitesys-demo.tsx")),
+
+  },
+  "navbar-01-demo": {
+    name: "navbar-01-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/navbar/navbar-01-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/navbar/navbar-01-demo.tsx")),
 
   },
   "not-found-demo": {
