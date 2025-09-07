@@ -51,6 +51,7 @@
       "registryDependencies": [
         "http://localhost:3000/r/site-layout.json",
         "http://localhost:3000/r/hero-01.json",
+        "http://localhost:3000/r/icons.json",
         "http://localhost:3000/r/logo-sitesys.json",
         "http://localhost:3000/r/metadata.json"
       ],
@@ -59,6 +60,11 @@
           "path": "src/registry/examples/sitesys/app/layout.tsx",
           "type": "registry:file",
           "target": "src/app/layout.tsx"
+        },
+        {
+          "path": "src/registry/examples/sitesys/app/sitemap.ts",
+          "type": "registry:file",
+          "target": "src/app/sitemap.ts"
         },
         {
           "path": "src/registry/examples/sitesys/app/(home)/layout.tsx",

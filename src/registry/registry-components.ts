@@ -18,6 +18,7 @@ export const components: Registry["items"] = [
     registryDependencies: [
       "<registryBaseUrl>/site-layout.json",
       "<registryBaseUrl>/hero-01.json",
+      "<registryBaseUrl>/icons.json",
       "<registryBaseUrl>/logo-sitesys.json",
       "<registryBaseUrl>/metadata.json",
     ],
@@ -29,6 +30,11 @@ export const components: Registry["items"] = [
         path: "examples/sitesys/app/layout.tsx",
         type: "registry:file",
         target: "src/app/layout.tsx",
+      },
+      {
+        path: "examples/sitesys/app/sitemap.ts",
+        type: "registry:file",
+        target: "src/app/sitemap.ts",
       },
       {
         path: "examples/sitesys/app/(home)/layout.tsx",

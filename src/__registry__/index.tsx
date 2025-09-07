@@ -42,6 +42,9 @@ export const Index: Record<string, any> = {
       path: "src/registry/examples/sitesys/app/layout.tsx",
       type: "registry:file",
     },{
+      path: "src/registry/examples/sitesys/app/sitemap.ts",
+      type: "registry:file",
+    },{
       path: "src/registry/examples/sitesys/app/(home)/layout.tsx",
       type: "registry:file",
     },{
