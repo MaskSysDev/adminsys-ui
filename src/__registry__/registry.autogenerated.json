@@ -20,6 +20,18 @@
       ]
     },
     {
+      "name": "metadata",
+      "type": "registry:lib",
+      "title": "Metadata Functions",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "files": [
+        {
+          "path": "src/registry/lib/metadata.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
       "name": "use-mobile",
       "type": "registry:hook",
       "title": "Mobile State Hook",
@@ -38,7 +50,9 @@
       ],
       "registryDependencies": [
         "http://localhost:3000/r/site-layout.json",
-        "http://localhost:3000/r/logo-sitesys.json"
+        "http://localhost:3000/r/hero-01.json",
+        "http://localhost:3000/r/logo-sitesys.json",
+        "http://localhost:3000/r/metadata.json"
       ],
       "files": [
         {

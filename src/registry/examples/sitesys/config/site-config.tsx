@@ -194,7 +194,7 @@ export const navbar01 = {
  * - Objeto contendo as propriedades do rodapé.
  */
 export const footer01 = {
-  name: "SiteSys Started",
+  title: "SiteSys Started",
   author: "MaskSysDev",
   authorUrl: "https://github.com/MaskSysDev",
   socialLinks: [

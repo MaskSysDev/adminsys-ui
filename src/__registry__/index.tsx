@@ -16,6 +16,15 @@ export const Index: Record<string, any> = {
       type: "registry:lib",
     }],
   },
+  "metadata": {
+    name: "metadata",
+    description: "",
+    type: "registry:lib",
+    files: [{
+      path: "src/registry/lib/metadata.ts",
+      type: "registry:lib",
+    }],
+  },
   "use-mobile": {
     name: "use-mobile",
     description: "",
