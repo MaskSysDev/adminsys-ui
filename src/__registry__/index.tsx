@@ -190,6 +190,38 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
+  "sitesys": {
+    name: "sitesys",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/sitesys/app/layout.tsx",
+      type: "registry:example",
+    },{
+      path: "src/registry/examples/sitesys/app/(home)/layout.tsx",
+      type: "registry:example",
+    },{
+      path: "src/registry/examples/sitesys/app/(home)/page.tsx",
+      type: "registry:example",
+    },{
+      path: "src/registry/examples/sitesys/config/types/index.ts",
+      type: "registry:example",
+    },{
+      path: "src/registry/examples/sitesys/config/validation/env.schema.ts",
+      type: "registry:example",
+    },{
+      path: "src/registry/examples/sitesys/config/validation/site-config.schema.ts",
+      type: "registry:example",
+    },{
+      path: "src/registry/examples/sitesys/config/env.ts",
+      type: "registry:example",
+    },{
+      path: "src/registry/examples/sitesys/config/site-config.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/sitesys/app/layout.tsx")),
+
+  },
   "banner-demo": {
     name: "banner-demo",
     description: "",
