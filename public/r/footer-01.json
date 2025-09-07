@@ -5,9 +5,9 @@
   "title": "footer",
   "author": "MaskSysDev <https://github.com/MaskSysDev>",
   "description": "A footer-01 component.",
-  "dependencies": [],
   "registryDependencies": [
-    "http://localhost:3000/r/utils.json"
+    "http://localhost:3000/r/container.json",
+    "http://localhost:3000/r/social-icon-link.json"
   ],
   "files": [
     {

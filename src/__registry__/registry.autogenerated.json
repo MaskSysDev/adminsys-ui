@@ -36,12 +36,10 @@
       "title": "banner",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A banner component.",
-      "dependencies": [],
       "registryDependencies": [
         "badge",
         "button",
-        "http://localhost:3000/r/container.json",
-        "http://localhost:3000/r/utils.json"
+        "http://localhost:3000/r/container.json"
       ],
       "files": [
         {
@@ -58,10 +56,6 @@
       "title": "container",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A container component.",
-      "dependencies": [],
-      "registryDependencies": [
-        "http://localhost:3000/r/utils.json"
-      ],
       "files": [
         {
           "path": "src/registry/components/layout/container/index.tsx",
@@ -77,9 +71,9 @@
       "title": "footer",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A footer-01 component.",
-      "dependencies": [],
       "registryDependencies": [
-        "http://localhost:3000/r/utils.json"
+        "http://localhost:3000/r/container.json",
+        "http://localhost:3000/r/social-icon-link.json"
       ],
       "files": [
         {
@@ -96,9 +90,8 @@
       "title": "hero",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A hero-01 component.",
-      "dependencies": [],
       "registryDependencies": [
-        "http://localhost:3000/r/utils.json"
+        "http://localhost:3000/r/banner.json"
       ],
       "files": [
         {
@@ -234,13 +227,6 @@
       "dependencies": [
         "next-themes"
       ],
-      "registryDependencies": [
-        "sidebar",
-        "sonner",
-        "http://localhost:3000/r/tailwind-indicator.json",
-        "http://localhost:3000/r/footer-01.json",
-        "http://localhost:3000/r/navbar-01.json"
-      ],
       "files": [
         {
           "path": "src/registry/components/layout/provider/theme-provider.tsx",
@@ -274,10 +260,6 @@
       "title": "social-icon-link",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A social-icon-link component.",
-      "dependencies": [],
-      "registryDependencies": [
-        "http://localhost:3000/r/utils.json"
-      ],
       "files": [
         {
           "path": "src/registry/components/layout/social/social-icon-link.tsx",
@@ -309,11 +291,7 @@
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A theme-toggle component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
       "dependencies": [
-        "next-themes",
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "http://localhost:3000/r/utils.json"
+        "next-themes"
       ],
       "files": [
         {
@@ -331,11 +309,9 @@
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A toggle-theme component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
       "dependencies": [
-        "next-themes",
-        "lucide-react"
+        "next-themes"
       ],
       "registryDependencies": [
-        "http://localhost:3000/r/utils.json",
         "button"
       ],
       "files": [

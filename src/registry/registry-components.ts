@@ -17,12 +17,10 @@ export const components: Registry["items"] = [
     description: "A banner component.",
     title: "banner",
     author: "<author> <<authorUrl>>",
-    dependencies: [],
     registryDependencies: [
       "badge",
       "button",
       "<registryBaseUrl>/container.json",
-      "<registryBaseUrl>/utils.json",
     ],
     files: [
       {
@@ -43,8 +41,6 @@ export const components: Registry["items"] = [
     description: "A container component.",
     title: "container",
     author: "<author> <<authorUrl>>",
-    dependencies: [],
-    registryDependencies: ["<registryBaseUrl>/utils.json"],
     files: [
       {
         path: "components/layout/container/index.tsx",
@@ -64,8 +60,10 @@ export const components: Registry["items"] = [
     description: "A footer-01 component.",
     title: "footer",
     author: "<author> <<authorUrl>>",
-    dependencies: [],
-    registryDependencies: ["<registryBaseUrl>/utils.json"],
+    registryDependencies: [
+      "<registryBaseUrl>/container.json",
+      "<registryBaseUrl>/social-icon-link.json",
+    ],
     files: [
       {
         path: "components/layout/footer/footer-01.tsx",
@@ -85,8 +83,7 @@ export const components: Registry["items"] = [
     description: "A hero-01 component.",
     title: "hero",
     author: "<author> <<authorUrl>>",
-    dependencies: [],
-    registryDependencies: ["<registryBaseUrl>/utils.json"],
+    registryDependencies: ["<registryBaseUrl>/banner.json"],
     files: [
       {
         path: "components/layout/hero/hero-01.tsx",
@@ -97,8 +94,8 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/hero#hero-01",
   },
   /**
-   * Componente `container`:
-   * Um componente de container.
+   * Componente `icons`:
+   * Um componente de icons.
    */
   {
     name: "icons",
@@ -247,13 +244,6 @@ export const components: Registry["items"] = [
     title: "theme-provider",
     author: "<author> <<authorUrl>>",
     dependencies: ["next-themes"],
-    registryDependencies: [
-      "sidebar",
-      "sonner",
-      "<registryBaseUrl>/tailwind-indicator.json",
-      "<registryBaseUrl>/footer-01.json",
-      "<registryBaseUrl>/navbar-01.json",
-    ],
     files: [
       {
         path: "components/layout/provider/theme-provider.tsx",
@@ -293,8 +283,6 @@ export const components: Registry["items"] = [
     description: "A social-icon-link component.",
     title: "social-icon-link",
     author: "<author> <<authorUrl>>",
-    dependencies: [],
-    registryDependencies: ["<registryBaseUrl>/utils.json"],
     files: [
       {
         path: "components/layout/social/social-icon-link.tsx",
@@ -334,8 +322,7 @@ export const components: Registry["items"] = [
       "A theme-toggle component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
     title: "theme-toggle",
     author: "<author> <<authorUrl>>",
-    dependencies: ["next-themes", "lucide-react"],
-    registryDependencies: ["<registryBaseUrl>/utils.json"],
+    dependencies: ["next-themes"],
     files: [
       {
         path: "components/layout/toggle/theme-toggle.tsx",
@@ -356,8 +343,8 @@ export const components: Registry["items"] = [
       "A toggle-theme component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
     title: "toggle-theme",
     author: "<author> <<authorUrl>>",
-    dependencies: ["next-themes", "lucide-react"],
-    registryDependencies: ["<registryBaseUrl>/utils.json", "button"],
+    dependencies: ["next-themes"],
+    registryDependencies: ["button"],
     files: [
       {
         path: "components/layout/toggle/toggle-theme.tsx",

@@ -5,12 +5,10 @@
   "title": "banner",
   "author": "MaskSysDev <https://github.com/MaskSysDev>",
   "description": "A banner component.",
-  "dependencies": [],
   "registryDependencies": [
     "badge",
     "button",
-    "http://localhost:3000/r/container.json",
-    "http://localhost:3000/r/utils.json"
+    "http://localhost:3000/r/container.json"
   ],
   "files": [
     {

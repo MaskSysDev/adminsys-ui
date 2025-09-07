@@ -5,10 +5,6 @@
   "title": "container",
   "author": "MaskSysDev <https://github.com/MaskSysDev>",
   "description": "A container component.",
-  "dependencies": [],
-  "registryDependencies": [
-    "http://localhost:3000/r/utils.json"
-  ],
   "files": [
     {
       "path": "src/registry/components/layout/container/index.tsx",
