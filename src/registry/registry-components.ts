@@ -17,6 +17,7 @@ export const components: Registry["items"] = [
     dependencies: ["zod"],
     registryDependencies: [
       "<registryBaseUrl>/admin-layout.json",
+      "<registryBaseUrl>/typography.json",
       "<registryBaseUrl>/site-layout.json",
       "<registryBaseUrl>/hero-01.json",
       "<registryBaseUrl>/icons.json",
@@ -31,6 +32,11 @@ export const components: Registry["items"] = [
         path: "examples/adminsys/app/layout.tsx",
         type: "registry:file",
         target: "src/app/layout.tsx",
+      },
+      {
+        path: "examples/adminsys/app/not-found.tsx",
+        type: "registry:file",
+        target: "src/app/not-found.tsx",
       },
       {
         path: "examples/adminsys/app/sitemap.ts",
