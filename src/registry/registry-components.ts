@@ -707,6 +707,33 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/provider#theme-provider",
   },
   /**
+   * Componente `auth-layout`:
+   * Um componente de auth-layout.
+   */
+  {
+    name: "auth-layout",
+    type: "registry:component",
+    description: "A auth-layout component.",
+    title: "auth-layout",
+    author: "<author> <<authorUrl>>",
+    dependencies: ["next-themes"],
+    registryDependencies: [
+      "sidebar",
+      "sonner",
+      "<registryBaseUrl>/tailwind-indicator.json",
+      "<registryBaseUrl>/navbar-auth-01.json",
+      "<registryBaseUrl>/footer-01.json",
+    ],
+    files: [
+      {
+        path: "components/layout/auth-layout/index.tsx",
+        type: "registry:component",
+        target: "src/components/layout/auth-layout/index.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/auth-layout",
+  },
+  /**
    * Componente `site-layout`:
    * Um componente de site-layout.
    */

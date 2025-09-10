@@ -663,6 +663,31 @@
       "docs": "http://localhost:3000/docs/components/layout/provider#theme-provider"
     },
     {
+      "name": "auth-layout",
+      "type": "registry:component",
+      "title": "auth-layout",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A auth-layout component.",
+      "dependencies": [
+        "next-themes"
+      ],
+      "registryDependencies": [
+        "sidebar",
+        "sonner",
+        "http://localhost:3000/r/tailwind-indicator.json",
+        "http://localhost:3000/r/navbar-auth-01.json",
+        "http://localhost:3000/r/footer-01.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/layout/auth-layout/index.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/auth-layout/index.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/auth-layout"
+    },
+    {
       "name": "site-layout",
       "type": "registry:component",
       "title": "site-layout",

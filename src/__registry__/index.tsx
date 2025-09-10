@@ -355,6 +355,15 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
+  "auth-layout": {
+    name: "auth-layout",
+    description: "A auth-layout component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/auth-layout/index.tsx",
+      type: "registry:component",
+    }],
+  },
   "site-layout": {
     name: "site-layout",
     description: "A site-layout component.",
