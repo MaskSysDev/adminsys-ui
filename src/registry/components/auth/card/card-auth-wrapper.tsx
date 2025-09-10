@@ -23,7 +23,7 @@ import { SocialLogin } from "@/registry/components/auth/form/social-login"
  * Define a estrutura e comportamento do card de autenticação,
  * incluindo cabeçalho, descrição e opções de exibição.
  */
-type CardWrapperProps = {
+export type CardWrapperProps = {
   children: React.ReactNode
   headerLabel?: string
   headerDescription?: string

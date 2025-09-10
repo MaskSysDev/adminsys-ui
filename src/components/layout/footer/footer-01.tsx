@@ -63,7 +63,7 @@ export type Footer01Props = {
   footer: {
     author: string
     authorUrl: string
-    name: string
+    title: string
     socialLinks?: SocialIconLinkProps[]
   }
 }
@@ -78,7 +78,7 @@ export function Footer01({ footer }: Footer01Props) {
         <p className="text-center text-sm sm:text-left">
           &copy;2025{" "}
           <AuthorLink className="text-foreground" href="/">
-            {footer.name}
+            {footer.title}
           </AuthorLink>{" "}
           by <AuthorLink href={footer.authorUrl}>{footer.author}</AuthorLink>
         </p>

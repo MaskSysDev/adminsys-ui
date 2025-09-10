@@ -1,0 +1,17 @@
+import type { Metadata } from "next"
+
+import { Container } from "@/components/layout/container"
+import { Typography } from "@/components/layout/typography"
+
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description: "Description Terms of Service.",
+}
+
+export default function Page() {
+  return (
+    <Container className="flex items-center justify-center py-24 md:py-32">
+      <Typography.H1>Terms of Service</Typography.H1>
+    </Container>
+  )
+}

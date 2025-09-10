@@ -3,13 +3,13 @@ import { User } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 
-type CardUserProfileType = {
+export type CardUserProfileProps = {
   name: string
   email: string
   image: string
 }
 
-export function CardUserProfile({ name, email, image }: CardUserProfileType) {
+export function CardUserProfile({ name, email, image }: CardUserProfileProps) {
   return (
     <Card className="w-full rounded-lg border-0 bg-muted/20">
       <CardHeader className="p-0">

@@ -12,6 +12,123 @@ export const components: Registry["items"] = [
    * Demonstra o uso do componente `adminsys`.
    */
   {
+    name: "adminsys-auth",
+    type: "registry:block",
+    dependencies: ["zod"],
+    registryDependencies: [
+      "switch",
+      "<registryBaseUrl>/adminsys.json",
+      "<registryBaseUrl>/form-auth.json",
+      "<registryBaseUrl>/auth-layout.json",
+    ],
+    files: [
+      {
+        path: "examples/adminsys-auth/app/(home)/layout.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/layout.tsx",
+      },
+      {
+        path: "examples/adminsys-auth/app/(home)/auth/error/page.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/auth/error/page.tsx",
+      },
+      {
+        path: "examples/adminsys-auth/app/(home)/auth/forgot-password/page.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/auth/forgot-password/page.tsx",
+      },
+      {
+        path: "components/auth/form/forgot-password-form.tsx",
+        type: "registry:component",
+        target: "src/components/auth/form/forgot-password-form.tsx",
+      },
+      {
+        path: "validations/auth/forgot-password.schema.ts",
+        type: "registry:component",
+        target: "src/validations/auth/forgot-password.schema.ts",
+      },
+      {
+        path: "examples/adminsys-auth/app/(home)/auth/new-verification/page.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/auth/new-verification/page.tsx",
+      },
+      {
+        path: "components/auth/form/new-verification-form.tsx",
+        type: "registry:component",
+        target: "src/components/auth/form/new-verification-form.tsx",
+      },
+      {
+        path: "examples/adminsys-auth/app/(home)/auth/reset-password/page.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/auth/reset-password/page.tsx",
+      },
+      {
+        path: "components/auth/form/reset-password-form.tsx",
+        type: "registry:component",
+        target: "src/components/auth/form/reset-password-form.tsx",
+      },
+      {
+        path: "validations/auth/reset-password.schema.ts",
+        type: "registry:component",
+        target: "src/validations/auth/reset-password.schema.ts",
+      },
+      {
+        path: "examples/adminsys-auth/app/(home)/auth/sign-in/page.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/auth/sign-in/page.tsx",
+      },
+      {
+        path: "examples/adminsys-auth/app/(home)/auth/sign-up/page.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/auth/sign-up/page.tsx",
+      },
+      {
+        path: "examples/adminsys-auth/app/(home)/privacy-policy/page.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/privacy-policy/page.tsx",
+      },
+      {
+        path: "examples/adminsys-auth/app/(home)/terms-of-service/page.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/terms-of-service/page.tsx",
+      },
+      {
+        path: "examples/adminsys-auth/app/(home)/settings/layout.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/settings/layout.tsx",
+      },
+      {
+        path: "examples/adminsys-auth/app/(home)/settings/account/page.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/settings/account/page.tsx",
+      },
+      {
+        path: "components/auth/form/account-form.tsx",
+        type: "registry:component",
+        target: "src/components/auth/form/account-form.tsx",
+      },
+      {
+        path: "validations/auth/account.schema.ts",
+        type: "registry:component",
+        target: "src/validations/auth/account.schema.ts",
+      },
+      {
+        path: "examples/adminsys-auth/app/(home)/settings/profile/page.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/settings/profile/page.tsx",
+      },
+      {
+        path: "components/auth/card/card-user-profile.tsx",
+        type: "registry:component",
+        target: "src/components/auth/card/card-user-profile.tsx",
+      },
+    ],
+  },
+  /**
+   * Exemplo `adminsys-demo`:
+   * Demonstra o uso do componente `adminsys`.
+   */
+  {
     name: "adminsys",
     type: "registry:block",
     dependencies: ["zod"],
@@ -203,6 +320,8 @@ export const components: Registry["items"] = [
       "scroll-area",
       "tabs",
       "sonner",
+      "<registryBaseUrl>/alert-error.json",
+      "<registryBaseUrl>/alert-success.json",
       "<registryBaseUrl>/icons.json",
       "<registryBaseUrl>/sanitize.json",
     ],

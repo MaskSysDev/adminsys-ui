@@ -43,6 +43,72 @@ export const Index: Record<string, any> = {
       type: "registry:hook",
     }],
   },
+  "adminsys-auth": {
+    name: "adminsys-auth",
+    description: "",
+    type: "registry:block",
+    files: [{
+      path: "src/registry/examples/adminsys-auth/app/(home)/layout.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys-auth/app/(home)/auth/error/page.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys-auth/app/(home)/auth/forgot-password/page.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/components/auth/form/forgot-password-form.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/validations/auth/forgot-password.schema.ts",
+      type: "registry:component",
+    },{
+      path: "src/registry/examples/adminsys-auth/app/(home)/auth/new-verification/page.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/components/auth/form/new-verification-form.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/examples/adminsys-auth/app/(home)/auth/reset-password/page.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/components/auth/form/reset-password-form.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/validations/auth/reset-password.schema.ts",
+      type: "registry:component",
+    },{
+      path: "src/registry/examples/adminsys-auth/app/(home)/auth/sign-in/page.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys-auth/app/(home)/auth/sign-up/page.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys-auth/app/(home)/privacy-policy/page.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys-auth/app/(home)/terms-of-service/page.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys-auth/app/(home)/settings/layout.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys-auth/app/(home)/settings/account/page.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/components/auth/form/account-form.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/validations/auth/account.schema.ts",
+      type: "registry:component",
+    },{
+      path: "src/registry/examples/adminsys-auth/app/(home)/settings/profile/page.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/components/auth/card/card-user-profile.tsx",
+      type: "registry:component",
+    }],
+  },
   "adminsys": {
     name: "adminsys",
     description: "",

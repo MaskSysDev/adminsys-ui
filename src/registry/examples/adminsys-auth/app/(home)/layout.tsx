@@ -1,5 +1,5 @@
 import { footer01, navbar01 } from "@/config/site-config"
-import { SiteLayout } from "@/registry/components/layout/site-layout"
+import { AuthLayout } from "@/registry/components/layout/auth-layout"
 
 export default function HomeLayout({
   children,
@@ -7,8 +7,8 @@ export default function HomeLayout({
   children: React.ReactNode
 }>) {
   return (
-    <SiteLayout footer={footer01} navbar={navbar01}>
+    <AuthLayout footer={footer01} navbar={navbar01}>
       {children}
-    </SiteLayout>
+    </AuthLayout>
   )
 }

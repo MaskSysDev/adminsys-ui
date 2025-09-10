@@ -1,6 +1,5 @@
-import { SiteLayout } from "@/components/layout/site-layout"
-
 import { footer01, navbar01 } from "@/config/site-config"
+import { SiteLayout } from "@/registry/components/layout/site-layout"
 
 export default function HomeLayout({
   children,

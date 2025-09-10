@@ -32,7 +32,7 @@ import { LoadingSpinner } from "@/registry/components/layout/loading/loading-spi
 import {
   type AccountFormValues,
   accountSchema,
-} from "@/validations/auth/account"
+} from "@/validations/auth/account.schema"
 
 /**
  * Estado do formulário de conta
