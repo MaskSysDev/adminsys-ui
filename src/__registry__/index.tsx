@@ -169,6 +169,42 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
+  "alert-error": {
+    name: "alert-error",
+    description: "A alert-error component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/alert/alert-error.tsx",
+      type: "registry:component",
+    }],
+  },
+  "alert-info": {
+    name: "alert-info",
+    description: "A alert-info component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/alert/alert-info.tsx",
+      type: "registry:component",
+    }],
+  },
+  "alert-success": {
+    name: "alert-success",
+    description: "A alert-success component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/alert/alert-success.tsx",
+      type: "registry:component",
+    }],
+  },
+  "alert-warn": {
+    name: "alert-warn",
+    description: "A alert-warn component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/alert/alert-warn.tsx",
+      type: "registry:component",
+    }],
+  },
   "banner": {
     name: "banner",
     description: "A banner component.",
@@ -211,6 +247,15 @@ export const Index: Record<string, any> = {
     type: "registry:component",
     files: [{
       path: "src/registry/components/layout/icons/index.tsx",
+      type: "registry:component",
+    }],
+  },
+  "loading-spinner": {
+    name: "loading-spinner",
+    description: "A loading-spinner component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/loading/loading-spinner.tsx",
       type: "registry:component",
     }],
   },
@@ -356,6 +401,50 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import("@/registry/examples/components/layout/navbar/admin-navbar-demo.tsx")),
 
   },
+  "alert-error-demo": {
+    name: "alert-error-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/alert/alert-error-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/alert/alert-error-demo.tsx")),
+
+  },
+  "alert-info-demo": {
+    name: "alert-info-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/alert/alert-info-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/alert/alert-info-demo.tsx")),
+
+  },
+  "alert-success-demo": {
+    name: "alert-success-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/alert/alert-success-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/alert/alert-success-demo.tsx")),
+
+  },
+  "alert-warn-demo": {
+    name: "alert-warn-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/alert/alert-warn-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/alert/alert-warn-demo.tsx")),
+
+  },
   "banner-demo": {
     name: "banner-demo",
     description: "",
@@ -409,6 +498,17 @@ export const Index: Record<string, any> = {
       type: "registry:example",
     }],
     component: React.lazy(() => import("@/registry/examples/components/layout/icons/icons-demo.tsx")),
+
+  },
+  "loading-spinner-demo": {
+    name: "loading-spinner-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/loading/loading-spinner-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/loading/loading-spinner-demo.tsx")),
 
   },
   "logo-adminsys-demo": {

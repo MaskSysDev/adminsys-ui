@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "loading-spinner",
+  "type": "registry:component",
+  "title": "loading-spinner",
+  "author": "MaskSysDev <https://github.com/MaskSysDev>",
+  "description": "A loading-spinner component.",
+  "files": [
+    {
+      "path": "src/registry/components/layout/loading/loading-spinner.tsx",
+      "content": "import { cn } from \"@/lib/utils\"\n\nexport type LoadingSpinnerProps = {\n  className?: string\n}\n\nexport function LoadingSpinner({ className }: LoadingSpinnerProps) {\n  return (\n    <span\n      className={cn(\n        \"absolute inline-block size-6 min-w-max animate-spin rounded-full border-[3px] border-current border-t-transparent text-muted-foreground\",\n        className\n      )}\n    >\n      <span className=\"sr-only\">Loading...</span>\n    </span>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "src/components/layout/loading/loading-spinner.tsx"
+    }
+  ],
+  "docs": "http://localhost:3000/docs/components/layout/loading#loading-spinner"
+}
