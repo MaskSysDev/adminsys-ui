@@ -242,7 +242,8 @@
         "scroll-area",
         "tabs",
         "sonner",
-        "http://localhost:3000/r/icons.json"
+        "http://localhost:3000/r/icons.json",
+        "http://localhost:3000/r/sanitize.json"
       ],
       "files": [
         {
@@ -266,9 +267,24 @@
           "target": "src/components/auth/form/sign-in-form.tsx"
         },
         {
+          "path": "src/registry/validations/auth/auth-base.schema.ts",
+          "type": "registry:component",
+          "target": "src/validations/auth/auth-base.schema.ts"
+        },
+        {
+          "path": "src/registry/validations/auth/sign-in.schema.ts",
+          "type": "registry:component",
+          "target": "src/validations/auth/sign-in.schema.ts"
+        },
+        {
           "path": "src/registry/components/auth/form/sign-up-form.tsx",
           "type": "registry:component",
           "target": "src/components/auth/form/sign-up-form.tsx"
+        },
+        {
+          "path": "src/registry/validations/auth/sign-up.schema.ts",
+          "type": "registry:component",
+          "target": "src/validations/auth/sign-up.schema.ts"
         },
         {
           "path": "src/registry/components/auth/form/form-auth.tsx",

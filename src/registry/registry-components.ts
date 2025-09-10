@@ -204,6 +204,7 @@ export const components: Registry["items"] = [
       "tabs",
       "sonner",
       "<registryBaseUrl>/icons.json",
+      "<registryBaseUrl>/sanitize.json",
     ],
     files: [
       {
@@ -227,9 +228,24 @@ export const components: Registry["items"] = [
         target: "src/components/auth/form/sign-in-form.tsx",
       },
       {
+        path: "validations/auth/auth-base.schema.ts",
+        type: "registry:component",
+        target: "src/validations/auth/auth-base.schema.ts",
+      },
+      {
+        path: "validations/auth/sign-in.schema.ts",
+        type: "registry:component",
+        target: "src/validations/auth/sign-in.schema.ts",
+      },
+      {
         path: "components/auth/form/sign-up-form.tsx",
         type: "registry:component",
         target: "src/components/auth/form/sign-up-form.tsx",
+      },
+      {
+        path: "validations/auth/sign-up.schema.ts",
+        type: "registry:component",
+        target: "src/validations/auth/sign-up.schema.ts",
       },
       {
         path: "components/auth/form/form-auth.tsx",

@@ -150,7 +150,16 @@ export const Index: Record<string, any> = {
       path: "src/registry/components/auth/form/sign-in-form.tsx",
       type: "registry:component",
     },{
+      path: "src/registry/validations/auth/auth-base.schema.ts",
+      type: "registry:component",
+    },{
+      path: "src/registry/validations/auth/sign-in.schema.ts",
+      type: "registry:component",
+    },{
       path: "src/registry/components/auth/form/sign-up-form.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/validations/auth/sign-up.schema.ts",
       type: "registry:component",
     },{
       path: "src/registry/components/auth/form/form-auth.tsx",
