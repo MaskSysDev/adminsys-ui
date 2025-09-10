@@ -1,5 +1,4 @@
 import { Icons } from "@/components/layout/icons"
-import { Logo } from "@/components/layout/logo/logo-adminsys"
 
 import { env } from "@/config/env"
 import type {
@@ -11,6 +10,7 @@ import type {
   SocialLink,
 } from "@/config/types"
 import { siteConfigSchema } from "@/config/validation/site-config.schema"
+import { Logo } from "@/registry/components/layout/logo/logo-adminsys"
 
 /**
  * Metadados principais do site
@@ -23,7 +23,7 @@ import { siteConfigSchema } from "@/config/validation/site-config.schema"
  * - Objeto contendo os metadados do site
  */
 const siteMeta: SiteMeta = {
-  name: "AdminSys UI",
+  name: "AdminSys Started",
   description:
     "React App with Next.js, Typescript, TailwindCSS, Shadcn, Biome, Husky, Commitlint and more.",
   url: env.NEXT_PUBLIC_APP_URL,
@@ -122,7 +122,7 @@ const authorInfo: AuthorInfo = {
   authorUrl: "https://github.com/MaskSysDev",
   creator: "Mask",
   publisher: "MaskSysDev",
-  projectUrl: "https://github.com/MaskSysDev/adminsys-ui",
+  projectUrl: "https://github.com/MaskSysDev/adminsys-started",
 }
 
 /**
@@ -181,14 +181,6 @@ export const navbar01 = {
       href: "/#features",
     },
     {
-      label: "Documentation",
-      href: "/docs/apps/get-started",
-    },
-    {
-      label: "Components",
-      href: "/docs/components",
-    },
-    {
       label: "Dashboard",
       href: "/admin/dashboard",
     },
@@ -206,7 +198,7 @@ export const navbar01 = {
  * - Objeto contendo as propriedades do rodapé.
  */
 export const footer01 = {
-  name: "AdminSys UI",
+  title: "AdminSys Started",
   author: "MaskSysDev",
   authorUrl: "https://github.com/MaskSysDev",
   socialLinks: [
@@ -239,9 +231,9 @@ export const footer01 = {
  * - Objeto contendo as propriedades da seção de herói.
  */
 export const hero01 = {
-  title: "AdminSys UI Boilerplate",
+  title: "AdminSys Started Boilerplate",
   subTitle: "Template",
-  subTitleColor: "Components",
+  subTitleColor: "Admin",
   description:
     "React App with Next.js, Typescript, TailwindCSS, Shadcn, Biome, Husky, Commitlint and more.",
   size: "90",
@@ -250,11 +242,11 @@ export const hero01 = {
   actions: {
     action01: {
       label: "Get Started",
-      href: "/docs/apps/get-started",
+      href: "/admin/dashboard",
     },
     action02: {
       label: "GitHub",
-      href: "https://github.com/MaskSysDev/adminsys-ui",
+      href: "https://github.com/MaskSysDev/adminsys-started",
     },
   },
 }

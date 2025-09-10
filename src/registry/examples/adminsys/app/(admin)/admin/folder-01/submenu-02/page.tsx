@@ -1,0 +1,11 @@
+import { Container } from "@/components/layout/container"
+import { Typography } from "@/components/layout/typography"
+
+export default function Page() {
+  return (
+    <Container size="2xl">
+      <Typography.H1 className="mb-4 text-start">Submenu 02</Typography.H1>
+      <Typography.Lead>Submenu 02 Page.</Typography.Lead>
+    </Container>
+  )
+}

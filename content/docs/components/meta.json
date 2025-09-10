@@ -3,5 +3,5 @@
   "icon": "Component",
   "description": "Component Library",
   "root": true,
-  "pages": ["index", "---Component Library---", "dev", "layout"]
+  "pages": ["index", "---Component Library---", "auth", "dev", "layout"]
 }

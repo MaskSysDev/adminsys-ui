@@ -34,6 +34,51 @@ export const Index: Record<string, any> = {
       type: "registry:hook",
     }],
   },
+  "adminsys": {
+    name: "adminsys",
+    description: "",
+    type: "registry:block",
+    files: [{
+      path: "src/registry/examples/adminsys/app/layout.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys/app/sitemap.ts",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys/app/(home)/layout.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys/app/(home)/page.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys/config/types/index.ts",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys/config/validation/env.schema.ts",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys/config/validation/site-config.schema.ts",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys/config/env.ts",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys/config/site-config.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys/app/(admin)/admin/layout.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys/app/(admin)/admin/dashboard/page.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys/app/(admin)/admin/folder-01/submenu-01/page.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys/app/(admin)/admin/folder-01/submenu-02/page.tsx",
+      type: "registry:file",
+    }],
+  },
   "sitesys": {
     name: "sitesys",
     description: "",
@@ -65,6 +110,60 @@ export const Index: Record<string, any> = {
     },{
       path: "src/registry/examples/sitesys/config/site-config.tsx",
       type: "registry:file",
+    }],
+  },
+  "dropdown-user": {
+    name: "dropdown-user",
+    description: "A dropdown-user component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/auth/dropdown/dropdown-user.tsx",
+      type: "registry:component",
+    }],
+  },
+  "admin-navbar": {
+    name: "admin-navbar",
+    description: "A admin-navbar component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/navbar/admin-navbar.tsx",
+      type: "registry:component",
+    }],
+  },
+  "admin-sidebar": {
+    name: "admin-sidebar",
+    description: "A admin-sidebar component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/sidebar/inc/part/sidebar-menu-folder.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/layout/sidebar/inc/part/sidebar-menu-link.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/layout/sidebar/inc/part/sidebar-submenu-link.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/layout/sidebar/inc/sidebar-nav-main.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/layout/sidebar/inc/sidebar-nav-secondary.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/layout/sidebar/inc/sidebar-nav-user.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/layout/sidebar/admin-sidebar.tsx",
+      type: "registry:component",
+    }],
+  },
+  "admin-layout": {
+    name: "admin-layout",
+    description: "A admin-layout component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/admin-layout/index.tsx",
+      type: "registry:component",
     }],
   },
   "banner": {
@@ -231,6 +330,28 @@ export const Index: Record<string, any> = {
       path: "src/registry/components/layout/typography/index.tsx",
       type: "registry:component",
     }],
+  },
+  "dropdown-user-demo": {
+    name: "dropdown-user-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/auth/dropdown/dropdown-user-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/auth/dropdown/dropdown-user-demo.tsx")),
+
+  },
+  "admin-navbar-demo": {
+    name: "admin-navbar-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/navbar/admin-navbar-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/navbar/admin-navbar-demo.tsx")),
+
   },
   "banner-demo": {
     name: "banner-demo",

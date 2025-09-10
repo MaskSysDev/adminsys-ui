@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "admin-layout",
+  "type": "registry:component",
+  "title": "admin-layout",
+  "author": "MaskSysDev <https://github.com/MaskSysDev>",
+  "description": "A admin-layout component.",
+  "registryDependencies": [
+    "sidebar",
+    "sonner",
+    "http://localhost:3000/r/tailwind-indicator.json",
+    "http://localhost:3000/r/admin-navbar.json",
+    "http://localhost:3000/r/admin-sidebar.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/components/layout/admin-layout/index.tsx",
+      "content": "import type { ReactNode } from \"react\"\n\nimport { TailwindIndicator } from \"@/components/dev/tailwind-indicator\"\nimport { AdminNavbar } from \"@/components/layout/navbar/admin-navbar\"\nimport { AdminSidebar } from \"@/components/layout/sidebar/admin-sidebar\"\nimport { SidebarInset, SidebarProvider } from \"@/components/ui/sidebar\"\nimport { Toaster } from \"@/components/ui/sonner\"\n\nexport type AdminLayoutProps = {\n  children: ReactNode\n}\n\nexport function AdminLayout({ children }: Readonly<AdminLayoutProps>) {\n  return (\n    <SidebarProvider>\n      <AdminSidebar />\n      <SidebarInset>\n        <div className=\"flex min-h-screen w-full flex-col\">\n          <header id=\"header\">\n            <AdminNavbar />\n          </header>\n\n          <main className=\"flex-1\">{children}</main>\n        </div>\n        <Toaster />\n        <TailwindIndicator />\n      </SidebarInset>\n    </SidebarProvider>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "src/components/layout/admin-layout/index.tsx"
+    }
+  ],
+  "docs": "http://localhost:3000/docs/components/layout/admin-layout"
+}

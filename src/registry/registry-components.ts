@@ -12,6 +12,92 @@ export const components: Registry["items"] = [
    * Demonstra o uso do componente `sitesys`.
    */
   {
+    name: "adminsys",
+    type: "registry:block",
+    dependencies: ["zod"],
+    registryDependencies: [
+      "<registryBaseUrl>/site-layout.json",
+      "<registryBaseUrl>/hero-01.json",
+      "<registryBaseUrl>/icons.json",
+      "<registryBaseUrl>/logo-adminsys.json",
+      "<registryBaseUrl>/metadata.json",
+    ],
+    envVars: {
+      NEXT_PUBLIC_APP_URL: "http://localhost:3000",
+    },
+    files: [
+      {
+        path: "examples/adminsys/app/layout.tsx",
+        type: "registry:file",
+        target: "src/app/layout.tsx",
+      },
+      {
+        path: "examples/adminsys/app/sitemap.ts",
+        type: "registry:file",
+        target: "src/app/sitemap.ts",
+      },
+      {
+        path: "examples/adminsys/app/(home)/layout.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/layout.tsx",
+      },
+      {
+        path: "examples/adminsys/app/(home)/page.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/page.tsx",
+      },
+      {
+        path: "examples/adminsys/config/types/index.ts",
+        type: "registry:file",
+        target: "src/config/types/index.ts",
+      },
+      {
+        path: "examples/adminsys/config/validation/env.schema.ts",
+        type: "registry:file",
+        target: "src/config/validation/env.schema.ts",
+      },
+      {
+        path: "examples/adminsys/config/validation/site-config.schema.ts",
+        type: "registry:file",
+        target: "src/config/validation/site-config.schema.ts",
+      },
+      {
+        path: "examples/adminsys/config/env.ts",
+        type: "registry:file",
+        target: "src/config/env.ts",
+      },
+      {
+        path: "examples/adminsys/config/site-config.tsx",
+        type: "registry:file",
+        target: "src/config/site-config.tsx",
+      },
+      {
+        path: "examples/adminsys/app/(admin)/admin/layout.tsx",
+        type: "registry:file",
+        target: "src/app/(admin)/admin/layout.tsx",
+      },
+      {
+        path: "examples/adminsys/app/(admin)/admin/dashboard/page.tsx",
+        type: "registry:file",
+        target: "src/app/(admin)/admin/dashboard/page.tsx",
+      },
+      {
+        path: "examples/adminsys/app/(admin)/admin/folder-01/submenu-01/page.tsx",
+        type: "registry:file",
+        target: "src/app/(admin)/admin/folder-01/submenu-01/page.tsx",
+      },
+      {
+        path: "examples/adminsys/app/(admin)/admin/folder-01/submenu-02/page.tsx",
+        type: "registry:file",
+        target: "src/app/(admin)/admin/folder-01/submenu-02/page.tsx",
+      },
+    ],
+  },
+  /**
+   * Exemplo `sitesys-demo`:
+   * Demonstra o uso do componente `sitesys`.
+   */
+  {
     name: "sitesys",
     type: "registry:block",
     dependencies: ["zod"],
@@ -72,6 +158,135 @@ export const components: Registry["items"] = [
         target: "src/config/site-config.tsx",
       },
     ],
+  },
+  /**
+   * Componente `dropdown-user`:
+   * Um componente de dropdown-user.
+   */
+  {
+    name: "dropdown-user",
+    type: "registry:component",
+    description: "A dropdown-user component.",
+    title: "dropdown-user",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/auth/dropdown/dropdown-user.tsx",
+        type: "registry:component",
+        target: "src/components/auth/dropdown/dropdown-user.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/auth/dropdown#dropdown-user",
+  },
+  /**
+   * Componente `admin-navbar`:
+   * Um componente de admin-navbar.
+   */
+  {
+    name: "admin-navbar",
+    type: "registry:component",
+    description: "A admin-navbar component.",
+    title: "admin-navbar",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: [
+      "sidebar",
+      "<registryBaseUrl>/container.json",
+      "<registryBaseUrl>/dropdown-user.json",
+      "<registryBaseUrl>/toggle-theme.json",
+    ],
+    files: [
+      {
+        path: "components/layout/navbar/admin-navbar.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/admin-navbar.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/navbar#admin-navbar",
+  },
+  /**
+   * Componente `admin-sidebar`:
+   * Um componente de admin-sidebar.
+   */
+  {
+    name: "admin-sidebar",
+    type: "registry:component",
+    description: "A admin-sidebar component.",
+    title: "admin-sidebar",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: [
+      "avatar",
+      "dropdown-menu",
+      "sidebar",
+      "scroll-area",
+      "collapsible",
+      "<registryBaseUrl>/logo-adminsys.json",
+    ],
+    files: [
+      {
+        path: "components/layout/sidebar/inc/part/sidebar-menu-folder.tsx",
+        type: "registry:component",
+        target:
+          "src/components/layout/sidebar/inc/part/sidebar-menu-folder.tsx",
+      },
+      {
+        path: "components/layout/sidebar/inc/part/sidebar-menu-link.tsx",
+        type: "registry:component",
+        target: "src/components/layout/sidebar/inc/part/sidebar-menu-link.tsx",
+      },
+      {
+        path: "components/layout/sidebar/inc/part/sidebar-submenu-link.tsx",
+        type: "registry:component",
+        target:
+          "src/components/layout/sidebar/inc/part/sidebar-submenu-link.tsx",
+      },
+      {
+        path: "components/layout/sidebar/inc/sidebar-nav-main.tsx",
+        type: "registry:component",
+        target: "src/components/layout/sidebar/inc/sidebar-nav-main.tsx",
+      },
+      {
+        path: "components/layout/sidebar/inc/sidebar-nav-secondary.tsx",
+        type: "registry:component",
+        target: "src/components/layout/sidebar/inc/sidebar-nav-secondary.tsx",
+      },
+      {
+        path: "components/layout/sidebar/inc/sidebar-nav-user.tsx",
+        type: "registry:component",
+        target: "src/components/layout/sidebar/inc/sidebar-nav-user.tsx",
+      },
+      {
+        path: "components/layout/sidebar/admin-sidebar.tsx",
+        type: "registry:component",
+        target: "src/components/layout/sidebar/admin-sidebar.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/sidebar#admin-sidebar",
+  },
+  /**
+   * Componente `admin-layout`:
+   * Um componente de admin-layout.
+   */
+  {
+    name: "admin-layout",
+    type: "registry:component",
+    description: "A admin-layout component.",
+    title: "admin-layout",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: [
+      "sidebar",
+      "sonner",
+      "<registryBaseUrl>/tailwind-indicator.json",
+      "<registryBaseUrl>/admin-navbar.json",
+      "<registryBaseUrl>/admin-sidebar.json",
+    ],
+    files: [
+      {
+        path: "components/layout/admin-layout/index.tsx",
+        type: "registry:component",
+        target: "src/components/layout/admin-layout/index.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/admin-layout",
   },
   /**
    * Componente `banner`:
