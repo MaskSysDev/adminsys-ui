@@ -144,6 +144,21 @@ export const examples: Registry["items"] = [
     ],
   },
   /**
+   * Exemplo `password-input-demo`:
+   * Demonstra o uso do componente `password-input`.
+   */
+  {
+    name: "password-input-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/password-input.json"],
+    files: [
+      {
+        path: "examples/components/layout/form/password-input-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
    * Exemplo `hero-01-demo`:
    * Demonstra o uso do componente `hero-01`.
    */

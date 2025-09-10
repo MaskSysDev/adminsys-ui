@@ -427,7 +427,7 @@ export const components: Registry["items"] = [
     name: "footer-01",
     type: "registry:component",
     description: "A footer-01 component.",
-    title: "footer",
+    title: "footer-01",
     author: "<author> <<authorUrl>>",
     registryDependencies: [
       "<registryBaseUrl>/container.json",
@@ -441,6 +441,26 @@ export const components: Registry["items"] = [
       },
     ],
     docs: "<baseUrl>/docs/components/layout/footer#footer-01",
+  },
+  /**
+   * Componente `password-input`:
+   * Um componente de password-input.
+   */
+  {
+    name: "password-input",
+    type: "registry:component",
+    description: "A password-input component.",
+    title: "password-input",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: ["button", "input"],
+    files: [
+      {
+        path: "components/layout/form/password-input/index.tsx",
+        type: "registry:component",
+        target: "src/components/layout/form/password-input/index.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/form#password-input",
   },
   /**
    * Componente `hero-01`:

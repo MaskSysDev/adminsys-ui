@@ -419,7 +419,7 @@
     {
       "name": "footer-01",
       "type": "registry:component",
-      "title": "footer",
+      "title": "footer-01",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A footer-01 component.",
       "registryDependencies": [
@@ -434,6 +434,25 @@
         }
       ],
       "docs": "http://localhost:3000/docs/components/layout/footer#footer-01"
+    },
+    {
+      "name": "password-input",
+      "type": "registry:component",
+      "title": "password-input",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A password-input component.",
+      "registryDependencies": [
+        "button",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/layout/form/password-input/index.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/form/password-input/index.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/form#password-input"
     },
     {
       "name": "hero-01",
