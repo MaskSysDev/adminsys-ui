@@ -27,7 +27,7 @@
     },
     {
       "path": "src/registry/examples/sitesys/app/(home)/layout.tsx",
-      "content": "import { SiteLayout } from \"@/components/layout/site-layout\"\n\nimport { footer01, navbar01 } from \"@/config/site-config\"\n\nexport default function HomeLayout({\n  children,\n}: Readonly<{\n  children: React.ReactNode\n}>) {\n  return (\n    <SiteLayout footer={footer01} navbar={navbar01}>\n      {children}\n    </SiteLayout>\n  )\n}\n",
+      "content": "import { footer01, navbar01 } from \"@/config/site-config\"\nimport { SiteLayout } from \"@/registry/components/layout/site-layout\"\n\nexport default function HomeLayout({\n  children,\n}: Readonly<{\n  children: React.ReactNode\n}>) {\n  return (\n    <SiteLayout footer={footer01} navbar={navbar01}>\n      {children}\n    </SiteLayout>\n  )\n}\n",
       "type": "registry:file",
       "target": "src/app/(home)/layout.tsx"
     },

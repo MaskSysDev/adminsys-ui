@@ -9,6 +9,21 @@ import type { Registry } from "shadcn/schema"
  */
 export const examples: Registry["items"] = [
   /**
+   * Exemplo `form-auth-demo`:
+   * Demonstra o uso do componente `form-auth`.
+   */
+  {
+    name: "form-auth-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/form-auth.json"],
+    files: [
+      {
+        path: "examples/components/auth/form/form-auth-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
    * Exemplo `dropdown-user-demo`:
    * Demonstra o uso do componente `dropdown-user`.
    */
@@ -34,6 +49,66 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "examples/components/layout/navbar/admin-navbar-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
+   * Exemplo `alert-error-demo`:
+   * Demonstra o uso do componente `alert-error`.
+   */
+  {
+    name: "alert-error-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/alert-error.json"],
+    files: [
+      {
+        path: "examples/components/layout/alert/alert-error-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
+   * Exemplo `alert-info-demo`:
+   * Demonstra o uso do componente `alert-info`.
+   */
+  {
+    name: "alert-info-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/alert-info.json"],
+    files: [
+      {
+        path: "examples/components/layout/alert/alert-info-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
+   * Exemplo `alert-success-demo`:
+   * Demonstra o uso do componente `alert-success`.
+   */
+  {
+    name: "alert-success-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/alert-success.json"],
+    files: [
+      {
+        path: "examples/components/layout/alert/alert-success-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
+   * Exemplo `alert-warn-demo`:
+   * Demonstra o uso do componente `alert-warn`.
+   */
+  {
+    name: "alert-warn-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/alert-warn.json"],
+    files: [
+      {
+        path: "examples/components/layout/alert/alert-warn-demo.tsx",
         type: "registry:example",
       },
     ],
@@ -84,6 +159,21 @@ export const examples: Registry["items"] = [
     ],
   },
   /**
+   * Exemplo `password-input-demo`:
+   * Demonstra o uso do componente `password-input`.
+   */
+  {
+    name: "password-input-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/password-input.json"],
+    files: [
+      {
+        path: "examples/components/layout/form/password-input-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
    * Exemplo `hero-01-demo`:
    * Demonstra o uso do componente `hero-01`.
    */
@@ -109,6 +199,21 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "examples/components/layout/icons/icons-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
+   * Exemplo `loading-spinner-demo`:
+   * Demonstra o uso do componente `loading-spinner`.
+   */
+  {
+    name: "loading-spinner-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/loading-spinner.json"],
+    files: [
+      {
+        path: "examples/components/layout/loading/loading-spinner-demo.tsx",
         type: "registry:example",
       },
     ],
@@ -169,6 +274,21 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "examples/components/layout/navbar/navbar-01-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
+   * Exemplo `navbar-auth-01-demo`:
+   * Demonstra o uso do componente `navbar-auth-01`.
+   */
+  {
+    name: "navbar-auth-01-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/navbar-auth-01.json"],
+    files: [
+      {
+        path: "examples/components/layout/navbar/navbar-auth-01-demo.tsx",
         type: "registry:example",
       },
     ],

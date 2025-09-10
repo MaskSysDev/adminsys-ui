@@ -38,10 +38,6 @@ npx shadcn@latest add https://adminsys-ui.vercel.app/r/navbar-01.json
 npx shadcn@latest add button sidebar navigation-menu https://adminsys-ui.vercel.app/r/container.json
 ```
 
-<Step>Add a cn helper</Step>
-
-<ComponentSource src="src/lib/utils.ts" />
-
 <Step>Copy and paste the following code into your project</Step>
 
 <ComponentSource
@@ -120,3 +116,63 @@ npx shadcn@latest add sidebar https://adminsys-ui.vercel.app/r/container.json ht
   name="admin-navbar-demo"
   codeCollapsible
 />
+
+## Navbar Auth 01
+
+<ComponentPreview
+  name="navbar-auth-01-demo"
+  openInV0Url="https://adminsys-ui.vercel.app/r/navbar-auth-01.json"
+  code={<ComponentSource name="navbar-auth-01" />}
+/>
+
+### Installation
+
+<Tabs className="gap-0" defaultValue="cli">
+
+<TabsList>
+  <TabsTriggerShadcnCLI />
+  <TabsTrigger className="cursor-pointer" value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli" className="[&>figure]:mb-0">
+
+```package-install
+npx shadcn@latest add https://adminsys-ui.vercel.app/r/navbar-auth-01.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add Component</Step>
+
+```package-install
+npx shadcn@latest add button sidebar navigation-menu https://adminsys-ui.vercel.app/r/container.json
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="navbar-auth-01"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+### Usage
+
+<ComponentSource
+  name="navbar-auth-01-demo"
+  codeCollapsible
+/>
+
+## Props
+
+### NavbarAuth01
+
+<AutoTypeTable path="./src/registry/components/layout/navbar/navbar-auth-01.tsx" name="NavbarAuth01Props" />

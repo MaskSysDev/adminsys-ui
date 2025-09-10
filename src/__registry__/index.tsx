@@ -25,6 +25,15 @@ export const Index: Record<string, any> = {
       type: "registry:lib",
     }],
   },
+  "sanitize": {
+    name: "sanitize",
+    description: "",
+    type: "registry:lib",
+    files: [{
+      path: "src/registry/src/utils/sanitize.ts",
+      type: "registry:lib",
+    }],
+  },
   "use-mobile": {
     name: "use-mobile",
     description: "",
@@ -32,6 +41,72 @@ export const Index: Record<string, any> = {
     files: [{
       path: "src/registry/src/hooks/use-mobile.ts",
       type: "registry:hook",
+    }],
+  },
+  "adminsys-auth": {
+    name: "adminsys-auth",
+    description: "",
+    type: "registry:block",
+    files: [{
+      path: "src/registry/examples/adminsys-auth/app/(home)/layout.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys-auth/app/(home)/auth/error/page.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys-auth/app/(home)/auth/forgot-password/page.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/components/auth/form/forgot-password-form.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/validations/auth/forgot-password.schema.ts",
+      type: "registry:component",
+    },{
+      path: "src/registry/examples/adminsys-auth/app/(home)/auth/new-verification/page.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/components/auth/form/new-verification-form.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/examples/adminsys-auth/app/(home)/auth/reset-password/page.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/components/auth/form/reset-password-form.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/validations/auth/reset-password.schema.ts",
+      type: "registry:component",
+    },{
+      path: "src/registry/examples/adminsys-auth/app/(home)/auth/sign-in/page.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys-auth/app/(home)/auth/sign-up/page.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys-auth/app/(home)/privacy-policy/page.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys-auth/app/(home)/terms-of-service/page.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys-auth/app/(home)/settings/layout.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/examples/adminsys-auth/app/(home)/settings/account/page.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/components/auth/form/account-form.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/validations/auth/account.schema.ts",
+      type: "registry:component",
+    },{
+      path: "src/registry/examples/adminsys-auth/app/(home)/settings/profile/page.tsx",
+      type: "registry:file",
+    },{
+      path: "src/registry/components/auth/card/card-user-profile.tsx",
+      type: "registry:component",
     }],
   },
   "adminsys": {
@@ -124,6 +199,39 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
+  "form-auth": {
+    name: "form-auth",
+    description: "A form-auth component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/auth/card/card-auth-wrapper.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/auth/dialog/terms-and-policy-dialog.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/auth/form/social-login.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/auth/form/sign-in-form.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/validations/auth/auth-base.schema.ts",
+      type: "registry:component",
+    },{
+      path: "src/registry/validations/auth/sign-in.schema.ts",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/auth/form/sign-up-form.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/validations/auth/sign-up.schema.ts",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/auth/form/form-auth.tsx",
+      type: "registry:component",
+    }],
+  },
   "admin-navbar": {
     name: "admin-navbar",
     description: "A admin-navbar component.",
@@ -169,6 +277,42 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
+  "alert-error": {
+    name: "alert-error",
+    description: "A alert-error component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/alert/alert-error.tsx",
+      type: "registry:component",
+    }],
+  },
+  "alert-info": {
+    name: "alert-info",
+    description: "A alert-info component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/alert/alert-info.tsx",
+      type: "registry:component",
+    }],
+  },
+  "alert-success": {
+    name: "alert-success",
+    description: "A alert-success component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/alert/alert-success.tsx",
+      type: "registry:component",
+    }],
+  },
+  "alert-warn": {
+    name: "alert-warn",
+    description: "A alert-warn component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/alert/alert-warn.tsx",
+      type: "registry:component",
+    }],
+  },
   "banner": {
     name: "banner",
     description: "A banner component.",
@@ -196,6 +340,15 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
+  "password-input": {
+    name: "password-input",
+    description: "A password-input component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/form/password-input/index.tsx",
+      type: "registry:component",
+    }],
+  },
   "hero-01": {
     name: "hero-01",
     description: "A hero-01 component.",
@@ -211,6 +364,15 @@ export const Index: Record<string, any> = {
     type: "registry:component",
     files: [{
       path: "src/registry/components/layout/icons/index.tsx",
+      type: "registry:component",
+    }],
+  },
+  "loading-spinner": {
+    name: "loading-spinner",
+    description: "A loading-spinner component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/loading/loading-spinner.tsx",
       type: "registry:component",
     }],
   },
@@ -262,6 +424,27 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
+  "navbar-auth-01": {
+    name: "navbar-auth-01",
+    description: "A navbar-auth-01 component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/navbar/inc/nav-main-auth.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/layout/navbar/inc/nav-mobile-auth.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/layout/navbar/inc/nav-system.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/layout/navbar/types/index.ts",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/layout/navbar/navbar-auth-01.tsx",
+      type: "registry:component",
+    }],
+  },
   "not-found": {
     name: "not-found",
     description: "A not-found component.",
@@ -277,6 +460,15 @@ export const Index: Record<string, any> = {
     type: "registry:component",
     files: [{
       path: "src/registry/components/layout/provider/theme-provider.tsx",
+      type: "registry:component",
+    }],
+  },
+  "auth-layout": {
+    name: "auth-layout",
+    description: "A auth-layout component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/auth-layout/index.tsx",
       type: "registry:component",
     }],
   },
@@ -334,6 +526,17 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
+  "form-auth-demo": {
+    name: "form-auth-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/auth/form/form-auth-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/auth/form/form-auth-demo.tsx")),
+
+  },
   "dropdown-user-demo": {
     name: "dropdown-user-demo",
     description: "",
@@ -354,6 +557,50 @@ export const Index: Record<string, any> = {
       type: "registry:example",
     }],
     component: React.lazy(() => import("@/registry/examples/components/layout/navbar/admin-navbar-demo.tsx")),
+
+  },
+  "alert-error-demo": {
+    name: "alert-error-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/alert/alert-error-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/alert/alert-error-demo.tsx")),
+
+  },
+  "alert-info-demo": {
+    name: "alert-info-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/alert/alert-info-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/alert/alert-info-demo.tsx")),
+
+  },
+  "alert-success-demo": {
+    name: "alert-success-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/alert/alert-success-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/alert/alert-success-demo.tsx")),
+
+  },
+  "alert-warn-demo": {
+    name: "alert-warn-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/alert/alert-warn-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/alert/alert-warn-demo.tsx")),
 
   },
   "banner-demo": {
@@ -389,6 +636,17 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import("@/registry/examples/components/layout/footer/footer-01-demo.tsx")),
 
   },
+  "password-input-demo": {
+    name: "password-input-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/form/password-input-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/form/password-input-demo.tsx")),
+
+  },
   "hero-01-demo": {
     name: "hero-01-demo",
     description: "",
@@ -409,6 +667,17 @@ export const Index: Record<string, any> = {
       type: "registry:example",
     }],
     component: React.lazy(() => import("@/registry/examples/components/layout/icons/icons-demo.tsx")),
+
+  },
+  "loading-spinner-demo": {
+    name: "loading-spinner-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/loading/loading-spinner-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/loading/loading-spinner-demo.tsx")),
 
   },
   "logo-adminsys-demo": {
@@ -453,6 +722,17 @@ export const Index: Record<string, any> = {
       type: "registry:example",
     }],
     component: React.lazy(() => import("@/registry/examples/components/layout/navbar/navbar-01-demo.tsx")),
+
+  },
+  "navbar-auth-01-demo": {
+    name: "navbar-auth-01-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/navbar/navbar-auth-01-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/navbar/navbar-auth-01-demo.tsx")),
 
   },
   "not-found-demo": {

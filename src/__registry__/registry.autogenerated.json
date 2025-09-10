@@ -32,6 +32,22 @@
       ]
     },
     {
+      "name": "sanitize",
+      "type": "registry:lib",
+      "title": "Sanitize Functions",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "dependencies": [
+        "zod"
+      ],
+      "files": [
+        {
+          "path": "src/utils/sanitize.ts",
+          "type": "registry:lib",
+          "target": "src/utils/sanitize.ts"
+        }
+      ]
+    },
+    {
       "name": "use-mobile",
       "type": "registry:hook",
       "title": "Mobile State Hook",
@@ -39,6 +55,121 @@
         {
           "path": "src/hooks/use-mobile.ts",
           "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "adminsys-auth",
+      "type": "registry:block",
+      "dependencies": [
+        "zod"
+      ],
+      "registryDependencies": [
+        "switch",
+        "http://localhost:3000/r/adminsys.json",
+        "http://localhost:3000/r/form-auth.json",
+        "http://localhost:3000/r/auth-layout.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/examples/adminsys-auth/app/(home)/layout.tsx",
+          "type": "registry:file",
+          "target": "src/app/(home)/layout.tsx"
+        },
+        {
+          "path": "src/registry/examples/adminsys-auth/app/(home)/auth/error/page.tsx",
+          "type": "registry:file",
+          "target": "src/app/(home)/auth/error/page.tsx"
+        },
+        {
+          "path": "src/registry/examples/adminsys-auth/app/(home)/auth/forgot-password/page.tsx",
+          "type": "registry:file",
+          "target": "src/app/(home)/auth/forgot-password/page.tsx"
+        },
+        {
+          "path": "src/registry/components/auth/form/forgot-password-form.tsx",
+          "type": "registry:component",
+          "target": "src/components/auth/form/forgot-password-form.tsx"
+        },
+        {
+          "path": "src/registry/validations/auth/forgot-password.schema.ts",
+          "type": "registry:component",
+          "target": "src/validations/auth/forgot-password.schema.ts"
+        },
+        {
+          "path": "src/registry/examples/adminsys-auth/app/(home)/auth/new-verification/page.tsx",
+          "type": "registry:file",
+          "target": "src/app/(home)/auth/new-verification/page.tsx"
+        },
+        {
+          "path": "src/registry/components/auth/form/new-verification-form.tsx",
+          "type": "registry:component",
+          "target": "src/components/auth/form/new-verification-form.tsx"
+        },
+        {
+          "path": "src/registry/examples/adminsys-auth/app/(home)/auth/reset-password/page.tsx",
+          "type": "registry:file",
+          "target": "src/app/(home)/auth/reset-password/page.tsx"
+        },
+        {
+          "path": "src/registry/components/auth/form/reset-password-form.tsx",
+          "type": "registry:component",
+          "target": "src/components/auth/form/reset-password-form.tsx"
+        },
+        {
+          "path": "src/registry/validations/auth/reset-password.schema.ts",
+          "type": "registry:component",
+          "target": "src/validations/auth/reset-password.schema.ts"
+        },
+        {
+          "path": "src/registry/examples/adminsys-auth/app/(home)/auth/sign-in/page.tsx",
+          "type": "registry:file",
+          "target": "src/app/(home)/auth/sign-in/page.tsx"
+        },
+        {
+          "path": "src/registry/examples/adminsys-auth/app/(home)/auth/sign-up/page.tsx",
+          "type": "registry:file",
+          "target": "src/app/(home)/auth/sign-up/page.tsx"
+        },
+        {
+          "path": "src/registry/examples/adminsys-auth/app/(home)/privacy-policy/page.tsx",
+          "type": "registry:file",
+          "target": "src/app/(home)/privacy-policy/page.tsx"
+        },
+        {
+          "path": "src/registry/examples/adminsys-auth/app/(home)/terms-of-service/page.tsx",
+          "type": "registry:file",
+          "target": "src/app/(home)/terms-of-service/page.tsx"
+        },
+        {
+          "path": "src/registry/examples/adminsys-auth/app/(home)/settings/layout.tsx",
+          "type": "registry:file",
+          "target": "src/app/(home)/settings/layout.tsx"
+        },
+        {
+          "path": "src/registry/examples/adminsys-auth/app/(home)/settings/account/page.tsx",
+          "type": "registry:file",
+          "target": "src/app/(home)/settings/account/page.tsx"
+        },
+        {
+          "path": "src/registry/components/auth/form/account-form.tsx",
+          "type": "registry:component",
+          "target": "src/components/auth/form/account-form.tsx"
+        },
+        {
+          "path": "src/registry/validations/auth/account.schema.ts",
+          "type": "registry:component",
+          "target": "src/validations/auth/account.schema.ts"
+        },
+        {
+          "path": "src/registry/examples/adminsys-auth/app/(home)/settings/profile/page.tsx",
+          "type": "registry:file",
+          "target": "src/app/(home)/settings/profile/page.tsx"
+        },
+        {
+          "path": "src/registry/components/auth/card/card-user-profile.tsx",
+          "type": "registry:component",
+          "target": "src/components/auth/card/card-user-profile.tsx"
         }
       ]
     },
@@ -214,6 +345,73 @@
       "docs": "http://localhost:3000/docs/components/auth/dropdown#dropdown-user"
     },
     {
+      "name": "form-auth",
+      "type": "registry:component",
+      "title": "form-auth",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A form-auth component.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "dialog",
+        "scroll-area",
+        "tabs",
+        "sonner",
+        "http://localhost:3000/r/alert-error.json",
+        "http://localhost:3000/r/alert-success.json",
+        "http://localhost:3000/r/icons.json",
+        "http://localhost:3000/r/sanitize.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/auth/card/card-auth-wrapper.tsx",
+          "type": "registry:component",
+          "target": "src/components/auth/card/card-auth-wrapper.tsx"
+        },
+        {
+          "path": "src/registry/components/auth/dialog/terms-and-policy-dialog.tsx",
+          "type": "registry:component",
+          "target": "src/components/auth/dialog/terms-and-policy-dialog.tsx"
+        },
+        {
+          "path": "src/registry/components/auth/form/social-login.tsx",
+          "type": "registry:component",
+          "target": "src/components/auth/form/social-login.tsx"
+        },
+        {
+          "path": "src/registry/components/auth/form/sign-in-form.tsx",
+          "type": "registry:component",
+          "target": "src/components/auth/form/sign-in-form.tsx"
+        },
+        {
+          "path": "src/registry/validations/auth/auth-base.schema.ts",
+          "type": "registry:component",
+          "target": "src/validations/auth/auth-base.schema.ts"
+        },
+        {
+          "path": "src/registry/validations/auth/sign-in.schema.ts",
+          "type": "registry:component",
+          "target": "src/validations/auth/sign-in.schema.ts"
+        },
+        {
+          "path": "src/registry/components/auth/form/sign-up-form.tsx",
+          "type": "registry:component",
+          "target": "src/components/auth/form/sign-up-form.tsx"
+        },
+        {
+          "path": "src/registry/validations/auth/sign-up.schema.ts",
+          "type": "registry:component",
+          "target": "src/validations/auth/sign-up.schema.ts"
+        },
+        {
+          "path": "src/registry/components/auth/form/form-auth.tsx",
+          "type": "registry:component",
+          "target": "src/components/auth/form/form-auth.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/auth/form#form-auth"
+    },
+    {
       "name": "admin-navbar",
       "type": "registry:component",
       "title": "admin-navbar",
@@ -310,6 +508,78 @@
       "docs": "http://localhost:3000/docs/components/layout/admin-layout"
     },
     {
+      "name": "alert-error",
+      "type": "registry:component",
+      "title": "alert-error",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A alert-error component.",
+      "registryDependencies": [
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/layout/alert/alert-error.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/alert/alert-error.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/alert#alert-error"
+    },
+    {
+      "name": "alert-info",
+      "type": "registry:component",
+      "title": "alert-info",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A alert-info component.",
+      "registryDependencies": [
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/layout/alert/alert-info.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/alert/alert-info.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/alert#alert-info"
+    },
+    {
+      "name": "alert-success",
+      "type": "registry:component",
+      "title": "alert-success",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A alert-success component.",
+      "registryDependencies": [
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/layout/alert/alert-success.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/alert/alert-success.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/alert#alert-success"
+    },
+    {
+      "name": "alert-warn",
+      "type": "registry:component",
+      "title": "alert-warn",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A alert-warn component.",
+      "registryDependencies": [
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/layout/alert/alert-warn.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/alert/alert-warn.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/alert#alert-warn"
+    },
+    {
       "name": "banner",
       "type": "registry:component",
       "title": "banner",
@@ -347,7 +617,7 @@
     {
       "name": "footer-01",
       "type": "registry:component",
-      "title": "footer",
+      "title": "footer-01",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A footer-01 component.",
       "registryDependencies": [
@@ -362,6 +632,25 @@
         }
       ],
       "docs": "http://localhost:3000/docs/components/layout/footer#footer-01"
+    },
+    {
+      "name": "password-input",
+      "type": "registry:component",
+      "title": "password-input",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A password-input component.",
+      "registryDependencies": [
+        "button",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/layout/form/password-input/index.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/form/password-input/index.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/form#password-input"
     },
     {
       "name": "hero-01",
@@ -395,6 +684,21 @@
         }
       ],
       "docs": "http://localhost:3000/docs/components/layout/icons"
+    },
+    {
+      "name": "loading-spinner",
+      "type": "registry:component",
+      "title": "loading-spinner",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A loading-spinner component.",
+      "files": [
+        {
+          "path": "src/registry/components/layout/loading/loading-spinner.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/loading/loading-spinner.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/loading#loading-spinner"
     },
     {
       "name": "logo-adminsys",
@@ -483,6 +787,47 @@
       "docs": "http://localhost:3000/docs/components/layout/logo#navbar-01"
     },
     {
+      "name": "navbar-auth-01",
+      "type": "registry:component",
+      "title": "navbar-auth-01",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A navbar-auth-01 component.",
+      "registryDependencies": [
+        "button",
+        "sidebar",
+        "navigation-menu",
+        "http://localhost:3000/r/container.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/layout/navbar/inc/nav-main-auth.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/inc/nav-main-auth.tsx"
+        },
+        {
+          "path": "src/registry/components/layout/navbar/inc/nav-mobile-auth.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/inc/nav-mobile-auth.tsx"
+        },
+        {
+          "path": "src/registry/components/layout/navbar/inc/nav-system.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/inc/nav-system.tsx"
+        },
+        {
+          "path": "src/registry/components/layout/navbar/types/index.ts",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/types/index.ts"
+        },
+        {
+          "path": "src/registry/components/layout/navbar/navbar-auth-01.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/navbar-auth-01.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/logo#navbar-auth-01"
+    },
+    {
       "name": "not-found",
       "type": "registry:component",
       "title": "not-found",
@@ -514,6 +859,31 @@
         }
       ],
       "docs": "http://localhost:3000/docs/components/layout/provider#theme-provider"
+    },
+    {
+      "name": "auth-layout",
+      "type": "registry:component",
+      "title": "auth-layout",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A auth-layout component.",
+      "dependencies": [
+        "next-themes"
+      ],
+      "registryDependencies": [
+        "sidebar",
+        "sonner",
+        "http://localhost:3000/r/tailwind-indicator.json",
+        "http://localhost:3000/r/navbar-auth-01.json",
+        "http://localhost:3000/r/footer-01.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/layout/auth-layout/index.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/auth-layout/index.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/auth-layout"
     },
     {
       "name": "site-layout",

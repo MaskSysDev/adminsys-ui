@@ -1,6 +1,7 @@
 "use client"
 
 import { LogOut, User2Icon } from "lucide-react"
+import Link from "next/link"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
@@ -63,11 +64,17 @@ export function DropdownUser({ name, email, image }: DropdownUserProps) {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem className="cursor-pointer transition-colors">
-            Profile
+          <DropdownMenuItem
+            asChild
+            className="cursor-pointer transition-colors"
+          >
+            <Link href={"/settings/profile"}>Profile</Link>
           </DropdownMenuItem>
-          <DropdownMenuItem className="cursor-pointer transition-colors">
-            Account
+          <DropdownMenuItem
+            asChild
+            className="cursor-pointer transition-colors"
+          >
+            <Link href={"/settings/account"}>Account</Link>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />

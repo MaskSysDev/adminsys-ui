@@ -1,0 +1,58 @@
+---
+title: Form
+description: A Form component.
+---
+
+## Form Auth
+
+<ComponentPreview
+  name="form-auth-demo"
+  openInV0Url="https://adminsys-ui.vercel.app/r/form-auth.json"
+  code={<ComponentSource name="form-auth-demo" />}
+/>
+
+### Installation
+
+<Tabs className="gap-0" defaultValue="cli">
+
+<TabsList>
+  <TabsTriggerShadcnCLI />
+  <TabsTrigger className="cursor-pointer" value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli" className="[&>figure]:mb-0">
+
+```package-install
+npx shadcn@latest add https://adminsys-ui.vercel.app/r/form-auth.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="form-auth"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+### Usage
+
+<ComponentSource
+  name="form-auth-demo"
+  codeCollapsible
+/>
+
+## Props
+
+### Form Auth
+
+<AutoTypeTable path="./src/registry/components/auth/form/form-auth.tsx" name="FormAuthProps" />

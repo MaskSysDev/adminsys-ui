@@ -12,6 +12,123 @@ export const components: Registry["items"] = [
    * Demonstra o uso do componente `adminsys`.
    */
   {
+    name: "adminsys-auth",
+    type: "registry:block",
+    dependencies: ["zod"],
+    registryDependencies: [
+      "switch",
+      "<registryBaseUrl>/adminsys.json",
+      "<registryBaseUrl>/form-auth.json",
+      "<registryBaseUrl>/auth-layout.json",
+    ],
+    files: [
+      {
+        path: "examples/adminsys-auth/app/(home)/layout.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/layout.tsx",
+      },
+      {
+        path: "examples/adminsys-auth/app/(home)/auth/error/page.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/auth/error/page.tsx",
+      },
+      {
+        path: "examples/adminsys-auth/app/(home)/auth/forgot-password/page.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/auth/forgot-password/page.tsx",
+      },
+      {
+        path: "components/auth/form/forgot-password-form.tsx",
+        type: "registry:component",
+        target: "src/components/auth/form/forgot-password-form.tsx",
+      },
+      {
+        path: "validations/auth/forgot-password.schema.ts",
+        type: "registry:component",
+        target: "src/validations/auth/forgot-password.schema.ts",
+      },
+      {
+        path: "examples/adminsys-auth/app/(home)/auth/new-verification/page.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/auth/new-verification/page.tsx",
+      },
+      {
+        path: "components/auth/form/new-verification-form.tsx",
+        type: "registry:component",
+        target: "src/components/auth/form/new-verification-form.tsx",
+      },
+      {
+        path: "examples/adminsys-auth/app/(home)/auth/reset-password/page.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/auth/reset-password/page.tsx",
+      },
+      {
+        path: "components/auth/form/reset-password-form.tsx",
+        type: "registry:component",
+        target: "src/components/auth/form/reset-password-form.tsx",
+      },
+      {
+        path: "validations/auth/reset-password.schema.ts",
+        type: "registry:component",
+        target: "src/validations/auth/reset-password.schema.ts",
+      },
+      {
+        path: "examples/adminsys-auth/app/(home)/auth/sign-in/page.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/auth/sign-in/page.tsx",
+      },
+      {
+        path: "examples/adminsys-auth/app/(home)/auth/sign-up/page.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/auth/sign-up/page.tsx",
+      },
+      {
+        path: "examples/adminsys-auth/app/(home)/privacy-policy/page.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/privacy-policy/page.tsx",
+      },
+      {
+        path: "examples/adminsys-auth/app/(home)/terms-of-service/page.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/terms-of-service/page.tsx",
+      },
+      {
+        path: "examples/adminsys-auth/app/(home)/settings/layout.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/settings/layout.tsx",
+      },
+      {
+        path: "examples/adminsys-auth/app/(home)/settings/account/page.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/settings/account/page.tsx",
+      },
+      {
+        path: "components/auth/form/account-form.tsx",
+        type: "registry:component",
+        target: "src/components/auth/form/account-form.tsx",
+      },
+      {
+        path: "validations/auth/account.schema.ts",
+        type: "registry:component",
+        target: "src/validations/auth/account.schema.ts",
+      },
+      {
+        path: "examples/adminsys-auth/app/(home)/settings/profile/page.tsx",
+        type: "registry:file",
+        target: "src/app/(home)/settings/profile/page.tsx",
+      },
+      {
+        path: "components/auth/card/card-user-profile.tsx",
+        type: "registry:component",
+        target: "src/components/auth/card/card-user-profile.tsx",
+      },
+    ],
+  },
+  /**
+   * Exemplo `adminsys-demo`:
+   * Demonstra o uso do componente `adminsys`.
+   */
+  {
     name: "adminsys",
     type: "registry:block",
     dependencies: ["zod"],
@@ -187,6 +304,77 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/auth/dropdown#dropdown-user",
   },
   /**
+   * Componente `form-auth`:
+   * Um componente de form-auth.
+   */
+  {
+    name: "form-auth",
+    type: "registry:component",
+    description: "A form-auth component.",
+    title: "form-auth",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: [
+      "button",
+      "card",
+      "dialog",
+      "scroll-area",
+      "tabs",
+      "sonner",
+      "<registryBaseUrl>/alert-error.json",
+      "<registryBaseUrl>/alert-success.json",
+      "<registryBaseUrl>/icons.json",
+      "<registryBaseUrl>/sanitize.json",
+    ],
+    files: [
+      {
+        path: "components/auth/card/card-auth-wrapper.tsx",
+        type: "registry:component",
+        target: "src/components/auth/card/card-auth-wrapper.tsx",
+      },
+      {
+        path: "components/auth/dialog/terms-and-policy-dialog.tsx",
+        type: "registry:component",
+        target: "src/components/auth/dialog/terms-and-policy-dialog.tsx",
+      },
+      {
+        path: "components/auth/form/social-login.tsx",
+        type: "registry:component",
+        target: "src/components/auth/form/social-login.tsx",
+      },
+      {
+        path: "components/auth/form/sign-in-form.tsx",
+        type: "registry:component",
+        target: "src/components/auth/form/sign-in-form.tsx",
+      },
+      {
+        path: "validations/auth/auth-base.schema.ts",
+        type: "registry:component",
+        target: "src/validations/auth/auth-base.schema.ts",
+      },
+      {
+        path: "validations/auth/sign-in.schema.ts",
+        type: "registry:component",
+        target: "src/validations/auth/sign-in.schema.ts",
+      },
+      {
+        path: "components/auth/form/sign-up-form.tsx",
+        type: "registry:component",
+        target: "src/components/auth/form/sign-up-form.tsx",
+      },
+      {
+        path: "validations/auth/sign-up.schema.ts",
+        type: "registry:component",
+        target: "src/validations/auth/sign-up.schema.ts",
+      },
+      {
+        path: "components/auth/form/form-auth.tsx",
+        type: "registry:component",
+        target: "src/components/auth/form/form-auth.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/auth/form#form-auth",
+  },
+  /**
    * Componente `admin-navbar`:
    * Um componente de admin-navbar.
    */
@@ -297,6 +485,86 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/admin-layout",
   },
   /**
+   * Componente `alert-error`:
+   * Um componente de alert-error.
+   */
+  {
+    name: "alert-error",
+    type: "registry:component",
+    description: "A alert-error component.",
+    title: "alert-error",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: ["alert"],
+    files: [
+      {
+        path: "components/layout/alert/alert-error.tsx",
+        type: "registry:component",
+        target: "src/components/layout/alert/alert-error.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/alert#alert-error",
+  },
+  /**
+   * Componente `alert-info`:
+   * Um componente de alert-info.
+   */
+  {
+    name: "alert-info",
+    type: "registry:component",
+    description: "A alert-info component.",
+    title: "alert-info",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: ["alert"],
+    files: [
+      {
+        path: "components/layout/alert/alert-info.tsx",
+        type: "registry:component",
+        target: "src/components/layout/alert/alert-info.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/alert#alert-info",
+  },
+  /**
+   * Componente `alert-success`:
+   * Um componente de alert-success.
+   */
+  {
+    name: "alert-success",
+    type: "registry:component",
+    description: "A alert-success component.",
+    title: "alert-success",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: ["alert"],
+    files: [
+      {
+        path: "components/layout/alert/alert-success.tsx",
+        type: "registry:component",
+        target: "src/components/layout/alert/alert-success.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/alert#alert-success",
+  },
+  /**
+   * Componente `alert-warn`:
+   * Um componente de alert-warn.
+   */
+  {
+    name: "alert-warn",
+    type: "registry:component",
+    description: "A alert-warn component.",
+    title: "alert-warn",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: ["alert"],
+    files: [
+      {
+        path: "components/layout/alert/alert-warn.tsx",
+        type: "registry:component",
+        target: "src/components/layout/alert/alert-warn.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/alert#alert-warn",
+  },
+  /**
    * Componente `banner`:
    * Um componente de banner.
    */
@@ -347,7 +615,7 @@ export const components: Registry["items"] = [
     name: "footer-01",
     type: "registry:component",
     description: "A footer-01 component.",
-    title: "footer",
+    title: "footer-01",
     author: "<author> <<authorUrl>>",
     registryDependencies: [
       "<registryBaseUrl>/container.json",
@@ -361,6 +629,26 @@ export const components: Registry["items"] = [
       },
     ],
     docs: "<baseUrl>/docs/components/layout/footer#footer-01",
+  },
+  /**
+   * Componente `password-input`:
+   * Um componente de password-input.
+   */
+  {
+    name: "password-input",
+    type: "registry:component",
+    description: "A password-input component.",
+    title: "password-input",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: ["button", "input"],
+    files: [
+      {
+        path: "components/layout/form/password-input/index.tsx",
+        type: "registry:component",
+        target: "src/components/layout/form/password-input/index.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/form#password-input",
   },
   /**
    * Componente `hero-01`:
@@ -400,6 +688,25 @@ export const components: Registry["items"] = [
       },
     ],
     docs: "<baseUrl>/docs/components/layout/icons",
+  },
+  /**
+   * Componente `loading-spinner`:
+   * Um componente de loading-spinner.
+   */
+  {
+    name: "loading-spinner",
+    type: "registry:component",
+    description: "A loading-spinner component.",
+    title: "loading-spinner",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/layout/loading/loading-spinner.tsx",
+        type: "registry:component",
+        target: "src/components/layout/loading/loading-spinner.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/loading#loading-spinner",
   },
   /**
    * Componente `logo-adminsys`:
@@ -504,6 +811,51 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/logo#navbar-01",
   },
   /**
+   * Componente `navbar-auth-01`:
+   * Um componente de navbar-auth-01.
+   */
+  {
+    name: "navbar-auth-01",
+    type: "registry:component",
+    description: "A navbar-auth-01 component.",
+    title: "navbar-auth-01",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: [
+      "button",
+      "sidebar",
+      "navigation-menu",
+      "<registryBaseUrl>/container.json",
+    ],
+    files: [
+      {
+        path: "components/layout/navbar/inc/nav-main-auth.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/inc/nav-main-auth.tsx",
+      },
+      {
+        path: "components/layout/navbar/inc/nav-mobile-auth.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/inc/nav-mobile-auth.tsx",
+      },
+      {
+        path: "components/layout/navbar/inc/nav-system.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/inc/nav-system.tsx",
+      },
+      {
+        path: "components/layout/navbar/types/index.ts",
+        type: "registry:component",
+        target: "src/components/layout/navbar/types/index.ts",
+      },
+      {
+        path: "components/layout/navbar/navbar-auth-01.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/navbar-auth-01.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/logo#navbar-auth-01",
+  },
+  /**
    * Componente `not-found`:
    * Um componente de not-found.
    */
@@ -541,6 +893,33 @@ export const components: Registry["items"] = [
       },
     ],
     docs: "<baseUrl>/docs/components/layout/provider#theme-provider",
+  },
+  /**
+   * Componente `auth-layout`:
+   * Um componente de auth-layout.
+   */
+  {
+    name: "auth-layout",
+    type: "registry:component",
+    description: "A auth-layout component.",
+    title: "auth-layout",
+    author: "<author> <<authorUrl>>",
+    dependencies: ["next-themes"],
+    registryDependencies: [
+      "sidebar",
+      "sonner",
+      "<registryBaseUrl>/tailwind-indicator.json",
+      "<registryBaseUrl>/navbar-auth-01.json",
+      "<registryBaseUrl>/footer-01.json",
+    ],
+    files: [
+      {
+        path: "components/layout/auth-layout/index.tsx",
+        type: "registry:component",
+        target: "src/components/layout/auth-layout/index.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/auth-layout",
   },
   /**
    * Componente `site-layout`:

@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "footer-01",
   "type": "registry:component",
-  "title": "footer",
+  "title": "footer-01",
   "author": "MaskSysDev <https://github.com/MaskSysDev>",
   "description": "A footer-01 component.",
   "registryDependencies": [
