@@ -6,6 +6,7 @@
     "zod"
   ],
   "registryDependencies": [
+    "http://localhost:3000/r/admin-layout.json",
     "http://localhost:3000/r/site-layout.json",
     "http://localhost:3000/r/hero-01.json",
     "http://localhost:3000/r/icons.json",
