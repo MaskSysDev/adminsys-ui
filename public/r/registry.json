@@ -43,6 +43,90 @@
       ]
     },
     {
+      "name": "adminsys",
+      "type": "registry:block",
+      "dependencies": [
+        "zod"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/site-layout.json",
+        "http://localhost:3000/r/hero-01.json",
+        "http://localhost:3000/r/icons.json",
+        "http://localhost:3000/r/logo-adminsys.json",
+        "http://localhost:3000/r/metadata.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/examples/adminsys/app/layout.tsx",
+          "type": "registry:file",
+          "target": "src/app/layout.tsx"
+        },
+        {
+          "path": "src/registry/examples/adminsys/app/sitemap.ts",
+          "type": "registry:file",
+          "target": "src/app/sitemap.ts"
+        },
+        {
+          "path": "src/registry/examples/adminsys/app/(home)/layout.tsx",
+          "type": "registry:file",
+          "target": "src/app/(home)/layout.tsx"
+        },
+        {
+          "path": "src/registry/examples/adminsys/app/(home)/page.tsx",
+          "type": "registry:file",
+          "target": "src/app/(home)/page.tsx"
+        },
+        {
+          "path": "src/registry/examples/adminsys/config/types/index.ts",
+          "type": "registry:file",
+          "target": "src/config/types/index.ts"
+        },
+        {
+          "path": "src/registry/examples/adminsys/config/validation/env.schema.ts",
+          "type": "registry:file",
+          "target": "src/config/validation/env.schema.ts"
+        },
+        {
+          "path": "src/registry/examples/adminsys/config/validation/site-config.schema.ts",
+          "type": "registry:file",
+          "target": "src/config/validation/site-config.schema.ts"
+        },
+        {
+          "path": "src/registry/examples/adminsys/config/env.ts",
+          "type": "registry:file",
+          "target": "src/config/env.ts"
+        },
+        {
+          "path": "src/registry/examples/adminsys/config/site-config.tsx",
+          "type": "registry:file",
+          "target": "src/config/site-config.tsx"
+        },
+        {
+          "path": "src/registry/examples/adminsys/app/(admin)/admin/layout.tsx",
+          "type": "registry:file",
+          "target": "src/app/(admin)/admin/layout.tsx"
+        },
+        {
+          "path": "src/registry/examples/adminsys/app/(admin)/admin/dashboard/page.tsx",
+          "type": "registry:file",
+          "target": "src/app/(admin)/admin/dashboard/page.tsx"
+        },
+        {
+          "path": "src/registry/examples/adminsys/app/(admin)/admin/folder-01/submenu-01/page.tsx",
+          "type": "registry:file",
+          "target": "src/app/(admin)/admin/folder-01/submenu-01/page.tsx"
+        },
+        {
+          "path": "src/registry/examples/adminsys/app/(admin)/admin/folder-01/submenu-02/page.tsx",
+          "type": "registry:file",
+          "target": "src/app/(admin)/admin/folder-01/submenu-02/page.tsx"
+        }
+      ],
+      "envVars": {
+        "NEXT_PUBLIC_APP_URL": "http://localhost:3000"
+      }
+    },
+    {
       "name": "sitesys",
       "type": "registry:block",
       "dependencies": [
@@ -105,6 +189,117 @@
       "envVars": {
         "NEXT_PUBLIC_APP_URL": "http://localhost:3000"
       }
+    },
+    {
+      "name": "dropdown-user",
+      "type": "registry:component",
+      "title": "dropdown-user",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A dropdown-user component.",
+      "files": [
+        {
+          "path": "src/registry/components/auth/dropdown/dropdown-user.tsx",
+          "type": "registry:component",
+          "target": "src/components/auth/dropdown/dropdown-user.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/auth/dropdown#dropdown-user"
+    },
+    {
+      "name": "admin-navbar",
+      "type": "registry:component",
+      "title": "admin-navbar",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A admin-navbar component.",
+      "registryDependencies": [
+        "sidebar",
+        "http://localhost:3000/r/container.json",
+        "http://localhost:3000/r/dropdown-user.json",
+        "http://localhost:3000/r/toggle-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/layout/navbar/admin-navbar.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/admin-navbar.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/navbar#admin-navbar"
+    },
+    {
+      "name": "admin-sidebar",
+      "type": "registry:component",
+      "title": "admin-sidebar",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A admin-sidebar component.",
+      "registryDependencies": [
+        "avatar",
+        "dropdown-menu",
+        "sidebar",
+        "scroll-area",
+        "collapsible",
+        "http://localhost:3000/r/logo-adminsys.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/layout/sidebar/inc/part/sidebar-menu-folder.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/sidebar/inc/part/sidebar-menu-folder.tsx"
+        },
+        {
+          "path": "src/registry/components/layout/sidebar/inc/part/sidebar-menu-link.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/sidebar/inc/part/sidebar-menu-link.tsx"
+        },
+        {
+          "path": "src/registry/components/layout/sidebar/inc/part/sidebar-submenu-link.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/sidebar/inc/part/sidebar-submenu-link.tsx"
+        },
+        {
+          "path": "src/registry/components/layout/sidebar/inc/sidebar-nav-main.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/sidebar/inc/sidebar-nav-main.tsx"
+        },
+        {
+          "path": "src/registry/components/layout/sidebar/inc/sidebar-nav-secondary.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/sidebar/inc/sidebar-nav-secondary.tsx"
+        },
+        {
+          "path": "src/registry/components/layout/sidebar/inc/sidebar-nav-user.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/sidebar/inc/sidebar-nav-user.tsx"
+        },
+        {
+          "path": "src/registry/components/layout/sidebar/admin-sidebar.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/sidebar/admin-sidebar.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/sidebar#admin-sidebar"
+    },
+    {
+      "name": "admin-layout",
+      "type": "registry:component",
+      "title": "admin-layout",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A admin-layout component.",
+      "registryDependencies": [
+        "sidebar",
+        "sonner",
+        "http://localhost:3000/r/tailwind-indicator.json",
+        "http://localhost:3000/r/admin-navbar.json",
+        "http://localhost:3000/r/admin-sidebar.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/layout/admin-layout/index.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/admin-layout/index.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/admin-layout"
     },
     {
       "name": "banner",

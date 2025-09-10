@@ -9,6 +9,36 @@ import type { Registry } from "shadcn/schema"
  */
 export const examples: Registry["items"] = [
   /**
+   * Exemplo `dropdown-user-demo`:
+   * Demonstra o uso do componente `dropdown-user`.
+   */
+  {
+    name: "dropdown-user-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/dropdown-user.json"],
+    files: [
+      {
+        path: "examples/components/auth/dropdown/dropdown-user-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
+   * Exemplo `admin-navbar-demo`:
+   * Demonstra o uso do componente `admin-navbar`.
+   */
+  {
+    name: "admin-navbar-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/admin-navbar.json"],
+    files: [
+      {
+        path: "examples/components/layout/navbar/admin-navbar-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
    * Exemplo `banner-demo`:
    * Demonstra o uso do componente `banner`.
    */

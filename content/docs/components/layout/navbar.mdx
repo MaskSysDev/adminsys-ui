@@ -66,3 +66,57 @@ npx shadcn@latest add button sidebar navigation-menu https://adminsys-ui.vercel.
 ### Navbar01
 
 <AutoTypeTable path="./src/registry/components/layout/navbar/navbar-01.tsx" name="Navbar01Props" />
+
+## Admin Navbar
+
+<ComponentPreview
+  name="admin-navbar-demo"
+  openInV0Url="https://adminsys-ui.vercel.app/r/admin-navbar.json"
+  code={<ComponentSource name="admin-navbar" />}
+/>
+
+### Installation
+
+<Tabs className="gap-0" defaultValue="cli">
+
+<TabsList>
+  <TabsTriggerShadcnCLI />
+  <TabsTrigger className="cursor-pointer" value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli" className="[&>figure]:mb-0">
+
+```package-install
+npx shadcn@latest add https://adminsys-ui.vercel.app/r/admin-navbar.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add Component</Step>
+
+```package-install
+npx shadcn@latest add sidebar https://adminsys-ui.vercel.app/r/container.json https://adminsys-ui.vercel.app/r/dropdown-user.json https://adminsys-ui.vercel.app/r/toggle-theme.json
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="admin-navbar"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+### Usage
+
+<ComponentSource
+  name="admin-navbar-demo"
+  codeCollapsible
+/>

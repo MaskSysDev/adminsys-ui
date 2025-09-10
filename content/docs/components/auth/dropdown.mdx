@@ -1,0 +1,64 @@
+---
+title: Dropdown
+description: A Dropdown component.
+---
+
+## Dropdown User
+
+<ComponentPreview
+  name="dropdown-user-demo"
+  openInV0Url="https://adminsys-ui.vercel.app/r/dropdown-user.json"
+  code={<ComponentSource name="dropdown-user-demo" />}
+/>
+
+### Installation
+
+<Tabs className="gap-0" defaultValue="cli">
+
+<TabsList>
+  <TabsTriggerShadcnCLI />
+  <TabsTrigger className="cursor-pointer" value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli" className="[&>figure]:mb-0">
+
+```package-install
+npx shadcn@latest add https://adminsys-ui.vercel.app/r/dropdown-user.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add Component</Step>
+
+```package-install
+npx shadcn@latest add avatar button dropdown-menu
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="dropdown-user"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+### Usage
+
+<ComponentSource
+  name="dropdown-user-demo"
+  codeCollapsible
+/>
+
+## Props
+
+### Dropdown User
+
+<AutoTypeTable path="./src/registry/components/auth/dropdown/dropdown-user.tsx" name="DropdownUserProps" />
