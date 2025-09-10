@@ -9,6 +9,21 @@ import type { Registry } from "shadcn/schema"
  */
 export const examples: Registry["items"] = [
   /**
+   * Exemplo `form-auth-demo`:
+   * Demonstra o uso do componente `form-auth`.
+   */
+  {
+    name: "form-auth-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/form-auth.json"],
+    files: [
+      {
+        path: "examples/components/auth/form/form-auth-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
    * Exemplo `dropdown-user-demo`:
    * Demonstra o uso do componente `dropdown-user`.
    */

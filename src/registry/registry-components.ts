@@ -187,6 +187,59 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/auth/dropdown#dropdown-user",
   },
   /**
+   * Componente `form-auth`:
+   * Um componente de form-auth.
+   */
+  {
+    name: "form-auth",
+    type: "registry:component",
+    description: "A form-auth component.",
+    title: "form-auth",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: [
+      "button",
+      "card",
+      "dialog",
+      "scroll-area",
+      "tabs",
+      "sonner",
+      "<registryBaseUrl>/icons.json",
+    ],
+    files: [
+      {
+        path: "components/auth/card/card-auth-wrapper.tsx",
+        type: "registry:component",
+        target: "src/components/auth/card/card-auth-wrapper.tsx",
+      },
+      {
+        path: "components/auth/dialog/terms-and-policy-dialog.tsx",
+        type: "registry:component",
+        target: "src/components/auth/dialog/terms-and-policy-dialog.tsx",
+      },
+      {
+        path: "components/auth/form/social-login.tsx",
+        type: "registry:component",
+        target: "src/components/auth/form/social-login.tsx",
+      },
+      {
+        path: "components/auth/form/sign-in-form.tsx",
+        type: "registry:component",
+        target: "src/components/auth/form/sign-in-form.tsx",
+      },
+      {
+        path: "components/auth/form/sign-up-form.tsx",
+        type: "registry:component",
+        target: "src/components/auth/form/sign-up-form.tsx",
+      },
+      {
+        path: "components/auth/form/form-auth.tsx",
+        type: "registry:component",
+        target: "src/components/auth/form/form-auth.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/auth/form#form-auth",
+  },
+  /**
    * Componente `admin-navbar`:
    * Um componente de admin-navbar.
    */

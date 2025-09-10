@@ -41,4 +41,22 @@ export const lib: Registry["items"] = [
       },
     ],
   },
+  /**
+   * Biblioteca `sanitize`:
+   * Contém funções utilitárias para sanitizar os dados.
+   */
+  {
+    name: "sanitize",
+    type: "registry:lib",
+    title: "Sanitize Functions",
+    author: "<author> <<authorUrl>>",
+    dependencies: ["zod"],
+    files: [
+      {
+        path: "src/utils/sanitize.ts",
+        type: "registry:lib",
+        target: "src/utils/sanitize.ts",
+      },
+    ],
+  },
 ]

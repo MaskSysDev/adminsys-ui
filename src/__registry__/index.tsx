@@ -25,6 +25,15 @@ export const Index: Record<string, any> = {
       type: "registry:lib",
     }],
   },
+  "sanitize": {
+    name: "sanitize",
+    description: "",
+    type: "registry:lib",
+    files: [{
+      path: "src/registry/src/utils/sanitize.ts",
+      type: "registry:lib",
+    }],
+  },
   "use-mobile": {
     name: "use-mobile",
     description: "",
@@ -121,6 +130,30 @@ export const Index: Record<string, any> = {
     type: "registry:component",
     files: [{
       path: "src/registry/components/auth/dropdown/dropdown-user.tsx",
+      type: "registry:component",
+    }],
+  },
+  "form-auth": {
+    name: "form-auth",
+    description: "A form-auth component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/auth/card/card-auth-wrapper.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/auth/dialog/terms-and-policy-dialog.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/auth/form/social-login.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/auth/form/sign-in-form.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/auth/form/sign-up-form.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/auth/form/form-auth.tsx",
       type: "registry:component",
     }],
   },
@@ -417,6 +450,17 @@ export const Index: Record<string, any> = {
       path: "src/registry/components/layout/typography/index.tsx",
       type: "registry:component",
     }],
+  },
+  "form-auth-demo": {
+    name: "form-auth-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/auth/form/form-auth-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/auth/form/form-auth-demo.tsx")),
+
   },
   "dropdown-user-demo": {
     name: "dropdown-user-demo",

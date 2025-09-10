@@ -32,6 +32,22 @@
       ]
     },
     {
+      "name": "sanitize",
+      "type": "registry:lib",
+      "title": "Sanitize Functions",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "dependencies": [
+        "zod"
+      ],
+      "files": [
+        {
+          "path": "src/utils/sanitize.ts",
+          "type": "registry:lib",
+          "target": "src/utils/sanitize.ts"
+        }
+      ]
+    },
+    {
       "name": "use-mobile",
       "type": "registry:hook",
       "title": "Mobile State Hook",
@@ -212,6 +228,55 @@
         }
       ],
       "docs": "http://localhost:3000/docs/components/auth/dropdown#dropdown-user"
+    },
+    {
+      "name": "form-auth",
+      "type": "registry:component",
+      "title": "form-auth",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A form-auth component.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "dialog",
+        "scroll-area",
+        "tabs",
+        "sonner",
+        "http://localhost:3000/r/icons.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/auth/card/card-auth-wrapper.tsx",
+          "type": "registry:component",
+          "target": "src/components/auth/card/card-auth-wrapper.tsx"
+        },
+        {
+          "path": "src/registry/components/auth/dialog/terms-and-policy-dialog.tsx",
+          "type": "registry:component",
+          "target": "src/components/auth/dialog/terms-and-policy-dialog.tsx"
+        },
+        {
+          "path": "src/registry/components/auth/form/social-login.tsx",
+          "type": "registry:component",
+          "target": "src/components/auth/form/social-login.tsx"
+        },
+        {
+          "path": "src/registry/components/auth/form/sign-in-form.tsx",
+          "type": "registry:component",
+          "target": "src/components/auth/form/sign-in-form.tsx"
+        },
+        {
+          "path": "src/registry/components/auth/form/sign-up-form.tsx",
+          "type": "registry:component",
+          "target": "src/components/auth/form/sign-up-form.tsx"
+        },
+        {
+          "path": "src/registry/components/auth/form/form-auth.tsx",
+          "type": "registry:component",
+          "target": "src/components/auth/form/form-auth.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/auth/form#form-auth"
     },
     {
       "name": "admin-navbar",
