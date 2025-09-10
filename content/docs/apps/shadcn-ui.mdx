@@ -204,6 +204,7 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
         "cssVariables": true,
         "prefix": ""
       },
+      "iconLibrary": "lucide",
       "aliases": {
         "components": "@/components",
         "utils": "@/lib/utils",
@@ -211,7 +212,9 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
         "lib": "@/lib",
         "hooks": "@/hooks"
       },
-      "iconLibrary": "lucide"
+      "registries": {
+        "@adminsys": "https://adminsys-ui.vercel.app/r/{name}.json"// [!code ++]
+      }
     }
 
     ```
