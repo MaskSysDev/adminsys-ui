@@ -316,6 +316,27 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
+  "navbar-auth-01": {
+    name: "navbar-auth-01",
+    description: "A navbar-auth-01 component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/layout/navbar/inc/nav-main-auth.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/layout/navbar/inc/nav-mobile-auth.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/layout/navbar/inc/nav-system.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/layout/navbar/types/index.ts",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/layout/navbar/navbar-auth-01.tsx",
+      type: "registry:component",
+    }],
+  },
   "not-found": {
     name: "not-found",
     description: "A not-found component.",
@@ -573,6 +594,17 @@ export const Index: Record<string, any> = {
       type: "registry:example",
     }],
     component: React.lazy(() => import("@/registry/examples/components/layout/navbar/navbar-01-demo.tsx")),
+
+  },
+  "navbar-auth-01-demo": {
+    name: "navbar-auth-01-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/layout/navbar/navbar-auth-01-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/layout/navbar/navbar-auth-01-demo.tsx")),
 
   },
   "not-found-demo": {

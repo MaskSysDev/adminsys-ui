@@ -264,6 +264,21 @@ export const examples: Registry["items"] = [
     ],
   },
   /**
+   * Exemplo `navbar-auth-01-demo`:
+   * Demonstra o uso do componente `navbar-auth-01`.
+   */
+  {
+    name: "navbar-auth-01-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/navbar-auth-01.json"],
+    files: [
+      {
+        path: "examples/components/layout/navbar/navbar-auth-01-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
    * Exemplo `not-found-demo`:
    * Demonstra o uso do componente `not-found`.
    */

@@ -623,6 +623,51 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/logo#navbar-01",
   },
   /**
+   * Componente `navbar-auth-01`:
+   * Um componente de navbar-auth-01.
+   */
+  {
+    name: "navbar-auth-01",
+    type: "registry:component",
+    description: "A navbar-auth-01 component.",
+    title: "navbar-auth-01",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: [
+      "button",
+      "sidebar",
+      "navigation-menu",
+      "<registryBaseUrl>/container.json",
+    ],
+    files: [
+      {
+        path: "components/layout/navbar/inc/nav-main-auth.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/inc/nav-main-auth.tsx",
+      },
+      {
+        path: "components/layout/navbar/inc/nav-mobile-auth.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/inc/nav-mobile-auth.tsx",
+      },
+      {
+        path: "components/layout/navbar/inc/nav-system.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/inc/nav-system.tsx",
+      },
+      {
+        path: "components/layout/navbar/types/index.ts",
+        type: "registry:component",
+        target: "src/components/layout/navbar/types/index.ts",
+      },
+      {
+        path: "components/layout/navbar/navbar-auth-01.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/navbar-auth-01.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/logo#navbar-auth-01",
+  },
+  /**
    * Componente `not-found`:
    * Um componente de not-found.
    */

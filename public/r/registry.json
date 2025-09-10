@@ -589,6 +589,47 @@
       "docs": "http://localhost:3000/docs/components/layout/logo#navbar-01"
     },
     {
+      "name": "navbar-auth-01",
+      "type": "registry:component",
+      "title": "navbar-auth-01",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A navbar-auth-01 component.",
+      "registryDependencies": [
+        "button",
+        "sidebar",
+        "navigation-menu",
+        "http://localhost:3000/r/container.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/layout/navbar/inc/nav-main-auth.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/inc/nav-main-auth.tsx"
+        },
+        {
+          "path": "src/registry/components/layout/navbar/inc/nav-mobile-auth.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/inc/nav-mobile-auth.tsx"
+        },
+        {
+          "path": "src/registry/components/layout/navbar/inc/nav-system.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/inc/nav-system.tsx"
+        },
+        {
+          "path": "src/registry/components/layout/navbar/types/index.ts",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/types/index.ts"
+        },
+        {
+          "path": "src/registry/components/layout/navbar/navbar-auth-01.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/navbar-auth-01.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/logo#navbar-auth-01"
+    },
+    {
       "name": "not-found",
       "type": "registry:component",
       "title": "not-found",
