@@ -18,6 +18,7 @@ export const components: Registry["items"] = [
     registryDependencies: [
       "<registryBaseUrl>/admin-layout.json",
       "<registryBaseUrl>/typography.json",
+      "<registryBaseUrl>/not-found.json",
       "<registryBaseUrl>/site-layout.json",
       "<registryBaseUrl>/hero-01.json",
       "<registryBaseUrl>/icons.json",
