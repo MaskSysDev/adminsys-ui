@@ -65,6 +65,7 @@
         "zod"
       ],
       "registryDependencies": [
+        "alert-dialog",
         "switch",
         "http://localhost:3000/r/adminsys.json",
         "http://localhost:3000/r/form-auth.json",
@@ -155,6 +156,16 @@
           "path": "src/registry/components/auth/form/account-form.tsx",
           "type": "registry:component",
           "target": "src/components/auth/form/account-form.tsx"
+        },
+        {
+          "path": "src/registry/components/auth/form/account-image-form.tsx",
+          "type": "registry:component",
+          "target": "src/components/auth/form/account-image-form.tsx"
+        },
+        {
+          "path": "src/registry/components/auth/form/delete-account-form.tsx",
+          "type": "registry:component",
+          "target": "src/components/auth/form/delete-account-form.tsx"
         },
         {
           "path": "src/registry/validations/auth/account.schema.ts",
@@ -354,12 +365,15 @@
         "button",
         "card",
         "dialog",
+        "form",
         "scroll-area",
         "tabs",
         "sonner",
         "http://localhost:3000/r/alert-error.json",
         "http://localhost:3000/r/alert-success.json",
         "http://localhost:3000/r/icons.json",
+        "http://localhost:3000/r/loading-spinner.json",
+        "http://localhost:3000/r/password-input.json",
         "http://localhost:3000/r/sanitize.json"
       ],
       "files": [

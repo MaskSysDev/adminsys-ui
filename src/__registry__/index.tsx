@@ -99,6 +99,12 @@ export const Index: Record<string, any> = {
       path: "src/registry/components/auth/form/account-form.tsx",
       type: "registry:component",
     },{
+      path: "src/registry/components/auth/form/account-image-form.tsx",
+      type: "registry:component",
+    },{
+      path: "src/registry/components/auth/form/delete-account-form.tsx",
+      type: "registry:component",
+    },{
       path: "src/registry/validations/auth/account.schema.ts",
       type: "registry:component",
     },{

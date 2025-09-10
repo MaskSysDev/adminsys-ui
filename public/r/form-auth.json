@@ -9,12 +9,15 @@
     "button",
     "card",
     "dialog",
+    "form",
     "scroll-area",
     "tabs",
     "sonner",
     "http://localhost:3000/r/alert-error.json",
     "http://localhost:3000/r/alert-success.json",
     "http://localhost:3000/r/icons.json",
+    "http://localhost:3000/r/loading-spinner.json",
+    "http://localhost:3000/r/password-input.json",
     "http://localhost:3000/r/sanitize.json"
   ],
   "files": [
