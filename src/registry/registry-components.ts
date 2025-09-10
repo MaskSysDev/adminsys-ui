@@ -8,14 +8,15 @@ import type { Registry } from "shadcn/schema"
  */
 export const components: Registry["items"] = [
   /**
-   * Exemplo `sitesys-demo`:
-   * Demonstra o uso do componente `sitesys`.
+   * Exemplo `adminsys-demo`:
+   * Demonstra o uso do componente `adminsys`.
    */
   {
     name: "adminsys",
     type: "registry:block",
     dependencies: ["zod"],
     registryDependencies: [
+      "<registryBaseUrl>/admin-layout.json",
       "<registryBaseUrl>/site-layout.json",
       "<registryBaseUrl>/hero-01.json",
       "<registryBaseUrl>/icons.json",
