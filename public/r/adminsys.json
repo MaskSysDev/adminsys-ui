@@ -8,6 +8,7 @@
   "registryDependencies": [
     "http://localhost:3000/r/admin-layout.json",
     "http://localhost:3000/r/typography.json",
+    "http://localhost:3000/r/not-found.json",
     "http://localhost:3000/r/site-layout.json",
     "http://localhost:3000/r/hero-01.json",
     "http://localhost:3000/r/icons.json",
@@ -23,7 +24,7 @@
     },
     {
       "path": "src/registry/examples/adminsys/app/not-found.tsx",
-      "content": "import type { Metadata } from \"next\"\n\nimport { NotFound } from \"@/components/layout/not-found\"\n\nexport const metadata: Metadata = {\n  title: \"404: Page not found\",\n  description: \"The page you are looking for could not be found.\",\n  robots: { index: false, follow: false },\n}\n\nexport default function NotFoundPage() {\n  return (\n    <NotFound\n      description=\"The page you are looking for could not be found.\"\n      labelGoBack=\"Back\"\n      title=\"This page does not exist\"\n    />\n  )\n}\n",
+      "content": "import type { Metadata } from \"next\"\n\nimport { NotFound } from \"@/registry/components/layout/not-found\"\n\nexport const metadata: Metadata = {\n  title: \"404: Page not found\",\n  description: \"The page you are looking for could not be found.\",\n  robots: { index: false, follow: false },\n}\n\nexport default function NotFoundPage() {\n  return (\n    <NotFound\n      description=\"The page you are looking for could not be found.\"\n      labelGoBack=\"Back\"\n      title=\"This page does not exist\"\n    />\n  )\n}\n",
       "type": "registry:file",
       "target": "src/app/not-found.tsx"
     },
