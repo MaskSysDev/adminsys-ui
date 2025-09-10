@@ -16,6 +16,7 @@ export const components: Registry["items"] = [
     type: "registry:block",
     dependencies: ["zod"],
     registryDependencies: [
+      "alert-dialog",
       "switch",
       "<registryBaseUrl>/adminsys.json",
       "<registryBaseUrl>/form-auth.json",
@@ -106,6 +107,16 @@ export const components: Registry["items"] = [
         path: "components/auth/form/account-form.tsx",
         type: "registry:component",
         target: "src/components/auth/form/account-form.tsx",
+      },
+      {
+        path: "components/auth/form/account-image-form.tsx",
+        type: "registry:component",
+        target: "src/components/auth/form/account-image-form.tsx",
+      },
+      {
+        path: "components/auth/form/delete-account-form.tsx",
+        type: "registry:component",
+        target: "src/components/auth/form/delete-account-form.tsx",
       },
       {
         path: "validations/auth/account.schema.ts",
@@ -317,12 +328,15 @@ export const components: Registry["items"] = [
       "button",
       "card",
       "dialog",
+      "form",
       "scroll-area",
       "tabs",
       "sonner",
       "<registryBaseUrl>/alert-error.json",
       "<registryBaseUrl>/alert-success.json",
       "<registryBaseUrl>/icons.json",
+      "<registryBaseUrl>/loading-spinner.json",
+      "<registryBaseUrl>/password-input.json",
       "<registryBaseUrl>/sanitize.json",
     ],
     files: [
