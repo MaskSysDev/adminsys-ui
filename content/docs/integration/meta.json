@@ -3,5 +3,11 @@
   "description": "Services Integration",
   "icon": "Blocks",
   "root": true,
-  "pages": ["index", "---DB and ORM---", "drizzle-and-postgresql"]
+  "pages": [
+    "index",
+    "---DB and ORM---",
+    "drizzle-and-postgresql",
+    "---Authentication---",
+    "better-auth"
+  ]
 }

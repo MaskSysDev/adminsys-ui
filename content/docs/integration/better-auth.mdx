@@ -1,0 +1,755 @@
+---
+title: Better Auth
+description: Better Auth
+---
+
+## Better Auth
+
+<Steps>
+  <Step>
+    ### Dependencies
+
+    ```package-install
+    npm install better-auth
+    ```
+
+  </Step>
+</Steps>
+
+## Files
+
+<Steps>
+  <Step>
+    ### auth.ts
+
+    ```ts title="src/lib/auth.ts"
+    import { betterAuth } from "better-auth"
+    import { drizzleAdapter } from "better-auth/adapters/drizzle"
+    import { nextCookies } from "better-auth/next-js"
+    import { admin } from "better-auth/plugins"
+
+    import { resend } from "@/lib/email"
+
+    import { env } from "@/config/env"
+    import { db } from "@/db"
+    import { authSchema } from "@/db/schema/auth.schema"
+    import PasswordResetEmail from "@/emails/password-reset-email"
+    import VerificationEmail from "@/emails/verification-email"
+
+    export const auth = betterAuth({
+      appName: "nextjs15-started",
+      database: drizzleAdapter(db, {
+        provider: "pg",
+        usePlural: true,
+        schema: { ...authSchema },
+      }),
+      plugins: [admin(), nextCookies()],
+      user: {
+        additionalFields: {
+          lastName: {
+            type: "string",
+          },
+        },
+      },
+      emailAndPassword: {
+        enabled: true,
+        minPasswordLength: 8,
+        maxPasswordLength: 100,
+        autoSignIn: true,
+        requireEmailVerification: true,
+        sendResetPassword: async ({ user, url }) => {
+          await resend.emails.send({
+            from: "Acme <onboarding@resend.dev>",
+            to: ["delivered@resend.dev"],
+            subject: "Reset Password",
+            react: PasswordResetEmail({
+              name: user.name,
+              resetUrl: url,
+              requestTime: new Date().toLocaleString(),
+            }),
+          })
+        },
+      },
+      emailVerification: {
+        sendVerificationEmail: async ({ user, url }) => {
+          await resend.emails.send({
+            from: "Acme <onboarding@resend.dev>",
+            to: ["delivered@resend.dev"],
+            subject: "Verification Email",
+            react: VerificationEmail({
+              name: user.name,
+              verificationUrl: url,
+            }),
+          })
+        },
+        sendOnSignUp: true,
+        expiresIn: 3600, // 1 hour
+      },
+      socialProviders: {
+        google: {
+          prompt: "select_account",
+          clientId: env.GOOGLE_CLIENT_ID as string,
+          clientSecret: env.GOOGLE_CLIENT_SECRET as string,
+        },
+      },
+      account: {
+        encryptOAuthTokens: true,
+        accountLinking: {
+          enabled: true,
+        },
+      },
+      session: {
+        // biome-ignore lint/style/noMagicNumbers: Magic number detected. Extract it to a constant with a meaningful name.
+        expiresIn: 60 * 60 * 24 * 7, // 7 days
+        updateAge: 60 * 60 * 24, // 1 day (every 1 day the session expiration is updated)
+        cookieCache: {
+          enabled: true, // Enable caching session in cookie (default: `false`)
+          maxAge: 300, // 5 minutes
+        },
+      },
+      rateLimit: {
+        enabled: true,
+        window: 10,
+        max: 100,
+        customRules: {
+          "/admin/dashboard": {
+            window: 10,
+            max: 100,
+          },
+        },
+        storage: "memory",
+        modelName: "rateLimit",
+      },
+      advanced: {
+        ipAddress: {
+          ipAddressHeaders: ["x-client-ip", "x-forwarded-for"],
+          disableIpTracking: true,
+        },
+        useSecureCookies: true,
+        disableCSRFCheck: false,
+        // crossSubDomainCookies: {
+        //   enabled: true,
+        //   additionalCookies: ["custom_cookie"],
+        //   domain: "example.com"
+        // },
+        // cookies: {
+        //   session_token: {
+        //     name: "custom_session_token",
+        //     attributes: {
+        //       httpOnly: true,
+        //       secure: true
+        //     }
+        //   }
+        // },
+        defaultCookieAttributes: {
+          httpOnly: true,
+          secure: true,
+        },
+        cookiePrefix: "adminsys",
+        database: {
+          // If your DB is using auto-incrementing IDs, set this to true.
+          useNumberId: false,
+          defaultFindManyLimit: 100,
+        },
+      },
+      logger: {
+        disabled: false,
+        level: "error",
+        log: (level, message, ...args) => {
+          // Custom logging implementation
+          // biome-ignore lint/suspicious/noConsole: Don't use console.
+          console.log(`[${level}] ${message}`, ...args)
+        },
+      },
+      onAPIError: {
+        throw: true,
+        onError: (error, _ctx) => {
+          // Custom error handling
+          // biome-ignore lint/suspicious/noConsole: Don't use console.
+          console.error("Auth error:", error)
+        },
+        errorURL: "/auth/error",
+      },
+      telemetry: {
+        enabled: false,
+      },
+    })
+
+    ```
+
+  </Step>
+  <Step>
+    ### auth-client.ts
+
+    ```ts title="src/lib/auth-client.ts"
+    import { adminClient, inferAdditionalFields } from "better-auth/client/plugins"
+    import { createAuthClient } from "better-auth/react"
+
+    import type { auth } from "@/lib/auth"
+
+    import { env } from "@/config/env"
+
+    export const authClient = createAuthClient({
+      baseURL: env.NEXT_PUBLIC_APP_URL,
+      plugins: [adminClient(), inferAdditionalFields<typeof auth>()],
+    })
+
+    ```
+
+  </Step>
+  <Step>
+    ### email.ts
+
+    ```ts title="src/lib/email.ts"
+    import { Resend } from "resend"
+
+    import { env } from "@/config/env"
+
+    export const resend = new Resend(env.RESEND_API_KEY)
+
+    ```
+
+  </Step>
+  <Step>
+    ### password-reset-email.tsx
+
+    ```ts title="src/emails/password-reset-email.tsx"
+    import {
+      Body,
+      Button,
+      Container,
+      Head,
+      Heading,
+      Html,
+      Link,
+      Preview,
+      Section,
+      Tailwind,
+      Text,
+    } from "@react-email/components"
+
+    type PasswordResetEmailProps = {
+      name: string
+      resetUrl: string
+      requestTime: string
+    }
+
+    const PasswordResetEmail = ({ name, resetUrl }: PasswordResetEmailProps) => {
+      return (
+        <Html dir="ltr" lang="en">
+          <Head />
+          <Preview>Reset your password - Action required</Preview>
+          <Tailwind>
+            <Body className="bg-gray-100 py-[40px] font-sans">
+              <Container className="mx-auto max-w-[580px] rounded-[8px] bg-white p-[40px] shadow-sm">
+                {/* Header */}
+                <Section className="mb-[32px] text-center">
+                  <Heading className="m-0 mb-[8px] font-bold text-[24px] text-gray-900">
+                    Password Reset Request
+                  </Heading>
+                  <Text className="m-0 text-[16px] text-gray-600">
+                    We received a request to reset your password
+                  </Text>
+                </Section>
+
+                {/* Main Content */}
+                <Section className="mb-[32px]">
+                  <Text className="m-0 mb-[16px] text-[16px] text-gray-700">
+                    Hello {name},
+                  </Text>
+                  <Text className="m-0 mb-[24px] text-[16px] text-gray-700">
+                    Someone requested a password reset for your account. If this was
+                    you, click the button below to reset your password. If you
+                    didn't make this request, you can safely ignore this email.
+                  </Text>
+
+                  {/* Reset Button */}
+                  <Section className="mb-[24px] text-center">
+                    <Button
+                      className="box-border inline-block rounded-[6px] bg-blue-600 px-[32px] py-[12px] font-medium text-[16px] text-white no-underline"
+                      href={resetUrl}
+                    >
+                      Reset Password
+                    </Button>
+                  </Section>
+
+                  <Text className="m-0 mb-[16px] text-[14px] text-gray-600">
+                    Or copy and paste this link into your browser:
+                  </Text>
+                  <Text className="m-0 mb-[24px] break-all text-[14px] text-blue-600">
+                    <Link className="text-blue-600 underline" href={resetUrl}>
+                      {resetUrl}
+                    </Link>
+                  </Text>
+
+                  <Text className="m-0 mb-[16px] text-[14px] text-gray-600">
+                    <strong>Important:</strong> This link will expire in 24 hours
+                    for security reasons.
+                  </Text>
+                </Section>
+
+                {/* Security Notice */}
+                <Section className="mb-[32px] border-yellow-400 border-l-4 bg-yellow-50 p-[16px]">
+                  <Text className="m-0 mb-[8px] font-medium text-[14px] text-yellow-800">
+                    Security Notice
+                  </Text>
+                  <Text className="m-0 text-[14px] text-yellow-700">
+                    If you didn't request this password reset, please ignore this
+                    email or contact our support team if you have concerns about
+                    your account security.
+                  </Text>
+                </Section>
+
+                {/* Footer */}
+                <Section className="border-gray-200 border-t pt-[24px]">
+                  <Text className="m-0 mb-[8px] text-[12px] text-gray-500">
+                    This email was sent to masksysdev@gmail.com
+                  </Text>
+                  <Text className="m-0 mb-[8px] text-[12px] text-gray-500">
+                    123 Security Street, Safe City, SC 12345
+                  </Text>
+                  <Text className="m-0 text-[12px] text-gray-500">
+                    © 2024 Your Company Name. All rights reserved. |
+                    <Link className="ml-[4px] text-gray-500 underline" href="#">
+                      Unsubscribe
+                    </Link>
+                  </Text>
+                </Section>
+              </Container>
+            </Body>
+          </Tailwind>
+        </Html>
+      )
+    }
+
+    export default PasswordResetEmail
+
+    ```
+
+  </Step>
+  <Step>
+    ### verification-email.tsx
+
+    ```ts title="src/emails/verification-email.tsx"
+    import {
+      Body,
+      Button,
+      Container,
+      Head,
+      Heading,
+      Html,
+      Link,
+      Preview,
+      Section,
+      Tailwind,
+      Text,
+    } from "@react-email/components"
+
+    import { siteConfig } from "@/config/site-config"
+
+    type VerificationEmailProps = {
+      name: string
+      verificationUrl: string
+    }
+
+    const VerificationEmail = ({
+      name,
+      verificationUrl,
+    }: VerificationEmailProps) => {
+      return (
+        <Html dir="ltr" lang={siteConfig.locale || "en-US"}>
+          <Head />
+          <Preview>
+            Verify your email address to complete your account setup
+          </Preview>
+          <Tailwind>
+            <Body className="bg-gray-100 py-[40px] font-sans">
+              <Container className="mx-auto max-w-[600px] rounded-[8px] bg-white p-[40px] shadow-sm">
+                {/* Header */}
+                <Section className="mb-[32px] text-center">
+                  <Heading className="m-0 mb-[8px] font-bold text-[28px] text-gray-900">
+                    Verify Your Email Address
+                  </Heading>
+                  <Text className="m-0 text-[16px] text-gray-600">
+                    Welcome to {siteConfig.name}! Please verify your email to get
+                    started.
+                  </Text>
+                </Section>
+
+                {/* Main Content */}
+                <Section className="mb-[32px]">
+                  <Text className="mb-[16px] text-[16px] text-gray-700 leading-[24px]">
+                    Hi there,
+                  </Text>
+                  <Text className="mb-[16px] text-[16px] text-gray-700 leading-[24px]">
+                    Thanks for signing up with {siteConfig.name}! To complete your
+                    account setup and start using our services, please verify your
+                    email address by clicking the button below.
+                  </Text>
+                  <Text className="mb-[24px] text-[16px] text-gray-700 leading-[24px]">
+                    Email to verify: <strong>{name}</strong>
+                  </Text>
+                </Section>
+
+                {/* Verification Button */}
+                <Section className="mb-[32px] text-center">
+                  <Button
+                    className="box-border inline-block rounded-[6px] bg-blue-600 px-[32px] py-[12px] font-semibold text-[16px] text-white no-underline"
+                    href={verificationUrl}
+                  >
+                    Verify Email Address
+                  </Button>
+                </Section>
+
+                {/* Alternative Link */}
+                <Section className="mb-[32px]">
+                  <Text className="mb-[8px] text-[14px] text-gray-600 leading-[20px]">
+                    If the button doesn't work, you can also copy and paste this
+                    link into your browser:
+                  </Text>
+                  <Text className="break-all text-[14px] text-blue-600">
+                    <Link
+                      className="text-blue-600 underline"
+                      href={verificationUrl}
+                    >
+                      {verificationUrl}
+                    </Link>
+                  </Text>
+                </Section>
+
+                {/* Security Notice */}
+                <Section className="mb-[24px] border-gray-200 border-t pt-[24px]">
+                  <Text className="mb-[8px] text-[14px] text-gray-600 leading-[20px]">
+                    <strong>Security Notice:</strong>
+                  </Text>
+                  <Text className="mb-[8px] text-[14px] text-gray-600 leading-[20px]">
+                    This verification link will expire in 24 hours for security
+                    reasons. If you didn't create an account with {siteConfig.name},
+                    please ignore this email.
+                  </Text>
+                </Section>
+
+                {/* Footer */}
+                <Section className="border-gray-200 border-t pt-[24px] text-center">
+                  <Text className="m-0 mb-[8px] text-[12px] text-gray-500 leading-[16px]">
+                    © 2024 {siteConfig.name}. All rights reserved.
+                  </Text>
+                  <Text className="m-0 mb-[8px] text-[12px] text-gray-500 leading-[16px]">
+                    123 Business Street, Suite 100, City, State 12345
+                  </Text>
+                  <Text className="m-0 text-[12px] text-gray-500 leading-[16px]">
+                    <Link className="text-gray-500 underline" href="#">
+                      Unsubscribe
+                    </Link>
+                    {" | "}
+                    <Link className="text-gray-500 underline" href="#">
+                      Privacy Policy
+                    </Link>
+                    {" | "}
+                    <Link className="text-gray-500 underline" href="#">
+                      Contact Support
+                    </Link>
+                  </Text>
+                </Section>
+              </Container>
+            </Body>
+          </Tailwind>
+        </Html>
+      )
+    }
+
+    export default VerificationEmail
+
+    ```
+
+  </Step>
+  <Step>
+    ### Schema
+
+    ```ts title="src/db/schema/auth.schema.ts"
+    import { boolean, pgTable, text, timestamp } from "drizzle-orm/pg-core"
+
+    export const users = pgTable("users", {
+      id: text("id").primaryKey(),
+      name: text("name").notNull(),
+      lastName: text("last_name"),
+      email: text("email").notNull().unique(),
+      emailVerified: boolean("email_verified").default(false).notNull(),
+      image: text("image"),
+      createdAt: timestamp("created_at").defaultNow().notNull(),
+      updatedAt: timestamp("updated_at")
+        .defaultNow()
+        .$onUpdate(() => /* @__PURE__ */ new Date())
+        .notNull(),
+      role: text("role"),
+      banned: boolean("banned").default(false),
+      banReason: text("ban_reason"),
+      banExpires: timestamp("ban_expires"),
+    })
+
+    export const sessions = pgTable("sessions", {
+      id: text("id").primaryKey(),
+      expiresAt: timestamp("expires_at").notNull(),
+      token: text("token").notNull().unique(),
+      createdAt: timestamp("created_at").defaultNow().notNull(),
+      updatedAt: timestamp("updated_at")
+        .$onUpdate(() => /* @__PURE__ */ new Date())
+        .notNull(),
+      ipAddress: text("ip_address"),
+      userAgent: text("user_agent"),
+      userId: text("user_id")
+        .notNull()
+        .references(() => users.id, { onDelete: "cascade" }),
+      impersonatedBy: text("impersonated_by"),
+    })
+
+    export const accounts = pgTable("accounts", {
+      id: text("id").primaryKey(),
+      accountId: text("account_id").notNull(),
+      providerId: text("provider_id").notNull(),
+      userId: text("user_id")
+        .notNull()
+        .references(() => users.id, { onDelete: "cascade" }),
+      accessToken: text("access_token"),
+      refreshToken: text("refresh_token"),
+      idToken: text("id_token"),
+      accessTokenExpiresAt: timestamp("access_token_expires_at"),
+      refreshTokenExpiresAt: timestamp("refresh_token_expires_at"),
+      scope: text("scope"),
+      password: text("password"),
+      createdAt: timestamp("created_at").defaultNow().notNull(),
+      updatedAt: timestamp("updated_at")
+        .$onUpdate(() => /* @__PURE__ */ new Date())
+        .notNull(),
+    })
+
+    export const verifications = pgTable("verifications", {
+      id: text("id").primaryKey(),
+      identifier: text("identifier").notNull(),
+      value: text("value").notNull(),
+      expiresAt: timestamp("expires_at").notNull(),
+      createdAt: timestamp("created_at").defaultNow().notNull(),
+      updatedAt: timestamp("updated_at")
+        .defaultNow()
+        .$onUpdate(() => /* @__PURE__ */ new Date())
+        .notNull(),
+    })
+
+    export const authSchema = { users, sessions, accounts, verifications }
+
+    ```
+
+  </Step>
+  <Step>
+    ### Env Schema
+
+    ```ts title="src/config/validation/env.schema.ts"
+    import { z } from "zod"
+
+    export const envSchema = z.object({
+      NODE_ENV: z
+        .enum(["development", "test", "production"])
+        .default("development"),
+      NEXT_PUBLIC_APP_URL: z.url().default("http://localhost:3000"),
+      DATABASE_URL: z
+        .url()
+        .default(
+          "postgresql://user:password@localhost:5432/mydatabase?sslmode=require"
+        ),
+      RESEND_API_KEY: z.string().optional(),// [!code ++]
+      BETTER_AUTH_URL: z.url().default("http://localhost:3000"),// [!code ++]
+      BETTER_AUTH_SECRET: z.string().optional(),// [!code ++]
+      GOOGLE_CLIENT_ID: z.string().optional(),// [!code ++]
+      GOOGLE_CLIENT_SECRET: z.string().optional(),// [!code ++]
+    })
+
+    ```
+
+  </Step>
+  <Step>
+    ### Config Env
+
+    ```ts title="src/config/env.ts"
+    import { envSchema } from "@/config/validation/env.schema"
+
+    export const env = envSchema.parse({
+      NODE_ENV: process.env.NODE_ENV,
+      NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+      DATABASE_URL: process.env.DATABASE_URL,
+      RESEND_API_KEY: process.env.RESEND_API_KEY,// [!code ++]
+      BETTER_AUTH_URL: process.env.BETTER_AUTH_URL,// [!code ++]
+      BETTER_AUTH_SECRET: process.env.BETTER_AUTH_SECRET,// [!code ++]
+      GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,// [!code ++]
+      GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,// [!code ++]
+    })
+
+    ```
+
+  </Step>
+  <Step>
+    ### Server
+
+    ```ts title="src/server/auth.ts"
+    "use server"
+
+    import { APIError } from "better-auth"
+    import { headers } from "next/headers"
+    import { redirect } from "next/navigation"
+
+    import { auth } from "@/lib/auth"
+
+    import type { SignInFormValues } from "@/validations/auth/sign-in.schema"
+    import type { SignUpFormValues } from "@/validations/auth/sign-up.schema"
+
+    export const signInUser = async ({ email, password }: SignInFormValues) => {
+      try {
+        await auth.api.signInEmail({
+          body: {
+            email,
+            password,
+          },
+        })
+
+        return { success: true, message: "Signed in successfully" }
+      } catch (error) {
+        if (error instanceof APIError) {
+          switch (error.status) {
+            case "UNPROCESSABLE_ENTITY":
+              return { success: false, message: "User already exists." }
+
+            case "UNAUTHORIZED":
+              return { success: false, message: "Invalid email or password." }
+
+            case "BAD_REQUEST":
+              return { success: false, message: "Invalid email." }
+
+            case "FORBIDDEN":
+              return {
+                success: false,
+                message: "Please check your email for verification.",
+              }
+
+            default:
+              return { success: false, message: "Something went wrong." }
+          }
+        }
+
+        const e = error as Error
+
+        return { success: false, message: e.message || "Failed to sign in" }
+      }
+    }
+
+    export const signUpUser = async ({
+      name,
+      lastName,
+      email,
+      password,
+    }: SignUpFormValues) => {
+      try {
+        await auth.api.signUpEmail({
+          body: {
+            name,
+            lastName,
+            email,
+            password,
+          },
+        })
+
+        return { success: true, message: "Signed in successfully" }
+      } catch (error) {
+        const e = error as Error
+
+        return { success: false, message: e.message || "Failed to sign up" }
+      }
+    }
+
+    export const getCurrentUser = async () => {
+      const session = await auth.api.getSession({
+        headers: await headers(),
+      })
+
+      if (!session) {
+        redirect("/auth/sign-in")
+      }
+
+      return session.user
+    }
+
+    export const getCurrentSession = async () => {
+      const session = await auth.api.getSession({
+        headers: await headers(),
+      })
+
+      if (!session) {
+        redirect("/auth/sign-in")
+      }
+
+      return session
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### Api Auth
+
+    ```ts title="src/api/auth/[...all]/route.ts"
+    import { toNextJsHandler } from "better-auth/next-js"
+
+    import { auth } from "@/lib/auth"
+
+    export const { GET, POST } = toNextJsHandler(auth.handler)
+
+    ```
+
+  </Step>
+  <Step>
+    ### Middleware
+
+    ```ts title="src/middleware.ts"
+    import { getSessionCookie } from "better-auth/cookies"
+    import { type NextRequest, NextResponse } from "next/server"
+
+    // biome-ignore lint/suspicious/useAwait: This async function lacks an await expression.
+    export async function middleware(request: NextRequest) {
+      const sessionCookie = getSessionCookie(request, {
+        cookiePrefix: "adminsys",
+      })
+
+      if (!sessionCookie) {
+        return NextResponse.redirect(new URL("/auth/sign-in", request.url))
+      }
+
+      return NextResponse.next()
+    }
+
+    export const config = {
+      matcher: ["/admin/:path*", "/settings/:path*"],
+    }
+
+    ```
+
+  </Step>
+</Steps>
+
+## Run
+
+<Steps>
+  <Step>
+    Run DB Generate.
+
+    ```sh
+    pnpm db:generate
+    ```
+
+  </Step>
+  <Step>
+    Run DB Migrate.
+
+    ```sh
+    pnpm db:migrate
+    ```
+
+  </Step>
+</Steps>
