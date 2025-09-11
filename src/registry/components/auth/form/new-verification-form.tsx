@@ -1,6 +1,6 @@
 "use client"
 
-import { useSearchParams } from "next/navigation"
+// import { useSearchParams } from "next/navigation"
 import { useCallback, useEffect, useState } from "react"
 import { toast } from "sonner"
 
@@ -49,8 +49,8 @@ export const NewVerificationForm = () => {
    * Extrai o token de verificação da query string
    * para processamento.
    */
-  const searchParams = useSearchParams()
-  const token = searchParams.get("token")
+  // const searchParams = useSearchParams()
+  // const token = searchParams.get("token")
 
   /**
    * Atualiza o estado do formulário
@@ -89,12 +89,12 @@ export const NewVerificationForm = () => {
       })
 
       // Valida presença do token
-      if (!token) {
-        const errorMsg = "Token de verificação não encontrado"
-        updateFormState({ errorMessage: errorMsg })
+      // if (!token) {
+      //   const errorMsg = "Token de verificação não encontrado"
+      //   updateFormState({ errorMessage: errorMsg })
 
-        return
-      }
+      //   return
+      // }
 
       // TODO: Envia token para verificação
       // biome-ignore lint/style/noMagicNumbers: Magic number detected. Extract it to a constant with a meaningful name.
@@ -122,7 +122,7 @@ export const NewVerificationForm = () => {
       updateFormState({ isLoading: false })
     }
   }, [
-    token,
+    // token,
     formState.successMessage,
     formState.errorMessage, // Finaliza o processo independente do resultado
   ])

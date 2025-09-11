@@ -1,0 +1,122 @@
+---
+title: Drizzle and Postgresql
+description: Drizzle and Postgresql
+---
+
+## Drizzle
+
+<Steps>
+  <Step>
+    ### Dependencies
+
+    ```package-install
+    npm install drizzle-orm pg drizzle-zod
+    ```
+
+  </Step>
+  <Step>
+    ### DevDependencies
+
+    ```package-install
+    npm install -D drizzle-kit @types/pg
+    ```
+
+  </Step>
+</Steps>
+
+## Files
+
+<Steps>
+  <Step>
+    ### DB
+
+    ```ts title="src/db/index.ts"
+    import { drizzle } from "drizzle-orm/node-postgres"
+    import { Pool } from "pg"
+
+    import { env } from "@/config/env"
+
+    const pool = new Pool({
+      connectionString: env.DATABASE_URL,
+      ssl: true,
+    })
+
+    export const db = drizzle(pool)
+
+    ```
+
+  </Step>
+  <Step>
+    ### Schema
+
+    ```ts title="src/db/schema/user.schema.ts"
+    import { pgTable, text, timestamp } from "drizzle-orm/pg-core"
+
+    export const users = pgTable("users", {
+      id: text("id").primaryKey(),
+      name: text("name").notNull(),
+      lastName: text("lastName"),
+      email: text("email").notNull().unique(),
+      createdAt: timestamp("created_at").defaultNow().notNull(),
+      updatedAt: timestamp("updated_at")
+        .defaultNow()
+        .$onUpdate(() => new Date())
+        .notNull(),
+    })
+
+    ```
+
+  </Step>
+  <Step>
+    ### Env Schema
+
+    ```ts title="src/config/validation/env.schema.ts"
+    import { z } from "zod"
+
+    export const envSchema = z.object({
+      NODE_ENV: z
+        .enum(["development", "test", "production"])
+        .default("development"),
+      NEXT_PUBLIC_APP_URL: z.url().default("http://localhost:3000"),
+      // [!code ++]
+      DATABASE_URL: z
+        .url()// [!code ++]
+        // [!code ++]
+        .default(
+          "postgresql://user:password@localhost:5432/mydatabase?sslmode=require"// [!code ++]
+        ),// [!code ++]
+    })
+
+    ```
+
+  </Step>
+  <Step>
+    ### Config Env
+
+    ```ts title="src/config/env.ts"
+    import { envSchema } from "@/config/validation/env.schema"
+
+    export const env = envSchema.parse({
+      NODE_ENV: process.env.NODE_ENV,
+      NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+      DATABASE_URL: process.env.DATABASE_URL,// [!code ++]
+    })
+
+    ```
+
+  </Step>
+  <Step>
+    ### Env
+
+    ```txt title=".env"
+    ## PUBLIC URL
+    NEXT_PUBLIC_APP_URL="http://localhost:3000"
+
+    ## DATABASE // [!code ++]
+    // [!code ++]
+    DATABASE_URL="postgresql://user:password@localhost:5432/mydatabase?sslmode=require"
+
+    ```
+
+  </Step>
+</Steps>
