@@ -1,0 +1,100 @@
+---
+title: Winston
+description:  Este logger é estritamente para uso no lado do servidor. Não deve ser importado ou utilizado em componentes do lado do cliente.
+---
+
+## Winston
+
+<Steps>
+  <Step>
+    ### Dependencies
+
+    ```package-install
+    npm install winston
+    ```
+
+  </Step>
+</Steps>
+
+## Files
+
+<Steps>
+  <Step>
+    ### Logger
+
+    ```ts title="src/lib/logger.ts"
+    import winston from "winston"
+
+    // Este logger é estritamente para uso no lado do servidor.
+    // Não deve ser importado ou utilizado em componentes do lado do cliente.
+    const { combine, timestamp, printf, colorize, json, errors } = winston.format
+
+    const isDevelopment = process.env.NODE_ENV === "development"
+
+    // Formato customizado para desenvolvimento, com cores e mais legível
+    const devFormat = combine(
+      colorize(),
+      timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
+      errors({ stack: true }),
+      printf(({ level, message, timestamp: ts, stack, ...meta }) => {
+        let logMessage = `${ts} ${level}: ${message}`
+        if (stack) {
+          logMessage += `\n${stack}`
+        }
+        // Incluir metadados se existirem
+        if (Object.keys(meta).length) {
+          logMessage += `\nMetadata: ${JSON.stringify(meta, null, 2)}`
+        }
+        return logMessage
+      })
+    )
+
+    // Formato para produção (JSON)
+    const prodFormat = combine(timestamp(), errors({ stack: true }), json())
+
+    const logger = winston.createLogger({
+      level: isDevelopment ? "debug" : "info",
+      format: isDevelopment ? devFormat : prodFormat,
+      transports: [
+        // Em desenvolvimento, sempre logar no console.
+        // Em produção, logar no console também (plataformas como Vercel coletam logs do console).
+        new winston.transports.Console(),
+
+        // Adicionalmente, logar todos os erros em um arquivo separado.
+        new winston.transports.File({
+          filename: "logs/error.log",
+          level: "error",
+        }),
+        // Opcional: logar tudo em um arquivo combinado.
+        // new winston.transports.File({ filename: 'logs/combined.log' }),
+      ],
+    })
+
+    export logger
+
+    ```
+
+  </Step>
+  <Step>
+    ### .gitignore
+
+    ```txt title=".gitignore"
+    # Log files
+    logs/
+
+    ```
+
+  </Step>
+</Steps>
+
+## Usage
+
+```ts
+import { logger } from "@/lib/logger"
+
+logger.info("Mensagem informativa")
+logger.error("Mensagem de erro", { errorObject })
+logger.debug("Mensagem de debug")
+logger.warn("Mensagem de aviso")
+logger.verbose("Mensagem detalhada")
+```
