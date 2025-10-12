@@ -1,0 +1,117 @@
+---
+title: Date
+description: Utilitários para manipulação e formatação de datas.
+---
+
+## Date
+
+<Steps>
+  <Step>
+    ### Dependencies
+
+    - Dependencies
+
+    ```package-install
+    npm install date-fns
+    ```
+
+  </Step>
+  <Step>
+    ### Files
+
+    ```ts title="src/utils/date.ts"
+    import { format, formatDistanceToNow, parseISO } from "date-fns"
+    import { ptBR } from "date-fns/locale/pt-BR"
+
+    /**
+     * Converte uma string de data ISO em um objeto Date.
+     * Retorna `null` se a string for inválida ou vazia.
+     *
+     * @param dateString A string de data no formato ISO (ex: '2023-01-01T12:00:00Z').
+     * @returns Um objeto Date ou `null`.
+     */
+    export function parseDateString(
+      dateString: string | null | undefined
+    ): Date | null {
+      if (!dateString) {
+        return null
+      }
+      const parsed = parseISO(dateString)
+      return Number.isNaN(parsed.getTime()) ? null : parsed
+    }
+
+    /**
+     * Formata um objeto Date ou string de data para um formato específico.
+     * Retorna uma string vazia se a data for inválida ou nula.
+     *
+     * @param date A data a ser formatada (Date, string, null ou undefined).
+     * @param formatStr O formato desejado (padrão: 'dd/MM/yyyy').
+     * @returns A data formatada como string.
+     */
+    export function formatDate(
+      date: Date | string | null | undefined,
+      formatStr = "dd/MM/yyyy"
+    ): string {
+      if (!date) {
+        return ""
+      }
+      const dateObj = typeof date === "string" ? parseISO(date) : date
+      return Number.isNaN(dateObj.getTime()) ? "" : format(dateObj, formatStr)
+    }
+
+    /**
+     * Formata um objeto Date ou string de data para o formato 'dd/MM/yyyy HH:mm:ss'.
+     * Retorna uma string vazia se a data for inválida ou nula.
+     *
+     * @param date A data a ser formatada.
+     * @returns A data e hora formatadas como string.
+     */
+    export function formatDateTime(date: Date | string | null | undefined): string {
+      return formatDate(date, "dd/MM/yyyy HH:mm:ss")
+    }
+
+    /**
+     * Formata um objeto Date ou string de data para o formato 'dd/MM/yyyy'.
+     * Retorna uma string vazia se a data for inválida ou nula.
+     *
+     * @param date A data a ser formatada.
+     * @returns A data formatada como string.
+     */
+    export function formatDateOnly(date: Date | string | null | undefined): string {
+      return formatDate(date, "dd/MM/yyyy")
+    }
+
+    /**
+     * Formata um objeto Date ou string de data para um formato "tempo atrás" (ex: "há 2 meses", "há 5 minutos").
+     * Retorna uma string vazia se a data for inválida ou nula.
+     *
+     * @param date A data a ser formatada.
+     * @returns A data formatada como "tempo atrás" em português.
+     */
+    export function formatTimeAgo(date: Date | string | null | undefined): string {
+      if (!date) {
+        return ""
+      }
+      const dateObj = typeof date === "string" ? parseISO(date) : date
+      if (Number.isNaN(dateObj.getTime())) {
+        return ""
+      }
+      return `há ${formatDistanceToNow(dateObj, { addSuffix: false, locale: ptBR })}`
+    }
+
+    ```
+
+  </Step>
+</Steps>
+
+## Usage
+
+```ts
+import { formatDate, formatDateTime, formatTimeAgo } from "@/utils/date"
+
+const dateStr = "2023-01-01T12:00:00Z"
+console.log(formatDate(dateStr)) // "01/01/2023"
+console.log(formatDateTime(dateStr)) // "01/01/2023 12:00:00"
+console.log(formatTimeAgo(dateStr)) // "há X meses" (dependendo da data atual)
+
+```

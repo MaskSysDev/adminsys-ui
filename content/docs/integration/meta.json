@@ -7,7 +7,9 @@
     "index",
     "---DB and ORM---",
     "drizzle-and-postgresql",
-    "---Logger---",
-    "winston"
+    "---Library---",
+    "lib",
+    "---Utils---",
+    "utils"
   ]
 }

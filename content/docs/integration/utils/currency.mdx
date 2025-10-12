@@ -1,0 +1,44 @@
+---
+title: Currency
+description: Utilitários para formatação e manipulação de valores monetários.
+---
+
+## Currency
+
+<Steps>
+  <Step>
+    ### Files
+
+    ```ts title="src/utils/currency.ts"
+    /**
+     * Constante que define o número de centavos por unidade monetária.
+     * Utilizado para converter valores entre centavos e a unidade monetária principal (ex: Reais).
+     */
+    export const CENTS_PER_UNIT = 100
+
+    /**
+     * Formata um valor em centavos para uma string de moeda no formato brasileiro (BRL).
+     * @param valueInCents O valor em centavos a ser formatado.
+     * @returns Uma string representando o valor formatado como moeda (ex: "R$ 10,00").
+     */
+    export function formatCurrency(valueInCents: number): string {
+      const valueInReais = valueInCents / CENTS_PER_UNIT
+      return new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      }).format(valueInReais)
+    }
+
+    ```
+
+  </Step>
+</Steps>
+
+## Usage
+
+```ts
+import { formatCurrency } from "@/utils/currency"
+
+const price = 12345 // valor em centavos
+console.log(formatCurrency(price)) // "R$ 123,45"
+```
