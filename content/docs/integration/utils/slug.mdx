@@ -1,0 +1,42 @@
+---
+title: Slug
+description: Utilitários para manipulação de slugs em URLs.
+---
+
+## Slug
+
+<Steps>
+  <Step>
+    ### Files
+
+    ```ts title="src/utils/slug.ts"
+    /**
+     * Converte uma string em um formato de "slug" amigável para URLs.
+     * Remove espaços, caracteres especiais e converte para minúsculas.
+     * @param text A string a ser convertida em slug.
+     * @returns A string formatada como slug.
+     */
+    export function slugify(text: string): string {
+      return text
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, "-") // Substitui espaços por -
+        .replace(/[^\w-]+/g, "") // Remove caracteres inválidos
+        .replace(/--+/g, "-") // Substitui múltiplos - por um único -
+    }
+
+    ```
+
+  </Step>
+</Steps>
+
+## Usage
+
+```ts
+import { slugify } from "@/utils/slug"
+
+const title = "Exemplo de Título para Slug!"
+const slug = slugify(title) // "exemplo-de-titulo-para-slug"
+console.log(slug)
+```
