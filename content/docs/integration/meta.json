@@ -7,7 +7,7 @@
     "index",
     "---DB and ORM---",
     "drizzle-and-postgresql",
-    "---Authentication---",
-    "better-auth"
+    "---Logger---",
+    "winston"
   ]
 }

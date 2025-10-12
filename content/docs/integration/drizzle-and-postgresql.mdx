@@ -10,7 +10,7 @@ description: Drizzle and Postgresql
     ### Dependencies
 
     ```package-install
-    npm install drizzle-orm pg drizzle-zod
+    npm install drizzle-orm pg drizzle-zod zod
     ```
 
   </Step>
@@ -27,46 +27,6 @@ description: Drizzle and Postgresql
 ## Files
 
 <Steps>
-  <Step>
-    ### DB
-
-    ```ts title="src/db/index.ts"
-    import { drizzle } from "drizzle-orm/node-postgres"
-    import { Pool } from "pg"
-
-    import { env } from "@/config/env"
-
-    const pool = new Pool({
-      connectionString: env.DATABASE_URL,
-      ssl: true,
-    })
-
-    export const db = drizzle(pool)
-
-    ```
-
-  </Step>
-  <Step>
-    ### Schema
-
-    ```ts title="src/db/schema/user.schema.ts"
-    import { pgTable, text, timestamp } from "drizzle-orm/pg-core"
-
-    export const users = pgTable("users", {
-      id: text("id").primaryKey(),
-      name: text("name").notNull(),
-      lastName: text("lastName"),
-      email: text("email").notNull().unique(),
-      createdAt: timestamp("created_at").defaultNow().notNull(),
-      updatedAt: timestamp("updated_at")
-        .defaultNow()
-        .$onUpdate(() => new Date())
-        .notNull(),
-    })
-
-    ```
-
-  </Step>
   <Step>
     ### Env Schema
 
@@ -120,11 +80,165 @@ description: Drizzle and Postgresql
 
   </Step>
   <Step>
-    ### .gitignore
+    ### Drizzle Config
 
-    ```txt title=".gitignore"
-    # drizzle
-    migrations
+    ```ts title="drizzle.config.ts"
+    import { defineConfig } from "drizzle-kit"
+
+    import { env } from "@/config/env"
+
+    export default defineConfig({
+      schema: "./src/db/schema/**",
+      out: "./src/db/migrations",
+      dialect: "postgresql",
+      dbCredentials: {
+        url: env.DATABASE_URL,
+      },
+      verbose: true,
+      strict: true,
+      casing: "snake_case",
+    })
+
+    ```
+  </Step>
+  <Step>
+    ### Columns Helpers
+
+    ```ts title="src/db/schema/columns.helpers.ts"
+    import { sql } from "drizzle-orm"
+    import { timestamp, uuid } from "drizzle-orm/pg-core"
+
+    export const uuidV7 = {
+      id: uuid("id").primaryKey().default(sql`uuid_generate_v7()`).defaultRandom(),
+    }
+
+    export const timestamps = {
+      createdAt: timestamp("created_at").defaultNow().notNull(),
+      updatedAt: timestamp("updated_at")
+        .defaultNow()
+        .$onUpdate(() => new Date())
+        .notNull(),
+      deletedAt: timestamp("deleted_at"),
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### Schema
+
+    ```ts title="src/db/schema/data-samples.ts"
+    import { index, pgTable, text } from "drizzle-orm/pg-core"
+
+    import { timestamps, uuidV7 } from "@/db/schema/columns.helpers"
+
+    export const dataSamples = pgTable(
+      "data_samples",
+      {
+        id: uuidV7.id,
+        name: text("name").notNull().unique(),
+        description: text("description"),
+        ...timestamps,
+      },
+      (table) => [index("data_samples_name_idx").on(table.name)]
+    )
+
+    ```
+
+  </Step>
+  <Step>
+    ### Schema Index
+
+    ```ts title="src/db/schema/index.ts"
+    import { dataSamples } from "@/db/schema/data-samples"
+
+    export const schema = {
+      dataSamples,
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### DB
+
+    ```ts title="src/db/index.ts"
+    import { drizzle } from "drizzle-orm/node-postgres"
+    import { Pool } from "pg"
+
+    import { env } from "@/config/env"
+    import { schema } from "@/db/schema"
+
+    const pool = new Pool({
+      connectionString: env.DATABASE_URL,
+      ssl: true,
+    })
+
+    export const db = drizzle(pool, {
+      schema,
+      casing: "snake_case",
+    })
+
+    ```
+
+  </Step>
+  <Step>
+    ### Update package.json
+
+    ```json title="package.json"
+    {
+      "name": "nextjs15-started",
+      "version": "0.1.0",
+      "type": "module",
+      "private": true,
+      "scripts": {
+        "dev": "next dev --turbopack",
+        "build": "next build --turbopack",
+        "start": "next start",
+        "preview": "next build && next start",
+        "clean": "rm -rf node_modules && rm -rf .next",
+        "lint": "biome check",
+        "format": "biome format --write",
+        "check": "biome check --write",
+        "typecheck": "tsc --noEmit",
+        "ui:add": "pnpm dlx shadcn@latest add",
+        "db:generate": "drizzle-kit generate",// [!code ++]
+        "db:migrate": "drizzle-kit migrate",// [!code ++]
+        "db:studio": "drizzle-kit studio",// [!code ++]
+        "prepare": "husky"
+      },
+      "dependencies": {
+        "class-variance-authority": "0.7.1",
+        "clsx": "2.1.1",
+        "drizzle-orm": "0.44.6",
+        "drizzle-zod": "0.8.3",
+        "lucide-react": "0.545.0",
+        "next": "15.5.4",
+        "next-themes": "0.4.6",
+        "pg": "8.16.3",
+        "radix-ui": "latest",
+        "react": "19.1.0",
+        "react-dom": "19.1.0",
+        "tailwind-merge": "3.3.1",
+        "zod": "4.1.12"
+      },
+      "devDependencies": {
+        "@biomejs/biome": "2.2.5",
+        "@commitlint/cli": "20.1.0",
+        "@commitlint/config-conventional": "20.0.0",
+        "@tailwindcss/postcss": "^4.1.14",
+        "@types/node": "^20.19.21",
+        "@types/pg": "8.15.5",
+        "@types/react": "^19.2.2",
+        "@types/react-dom": "^19.2.1",
+        "drizzle-kit": "0.31.5",
+        "husky": "9.1.7",
+        "tailwindcss": "^4.1.14",
+        "tw-animate-css": "1.4.0",
+        "typescript": "^5.9.3",
+        "ultracite": "5.6.2"
+      }
+    }
 
     ```
 
@@ -147,6 +261,130 @@ description: Drizzle and Postgresql
 
     ```sh
     pnpm db:migrate
+    ```
+
+  </Step>
+</Steps>
+
+## Seed (Optional)
+
+<Steps>
+  <Step>
+    ### DevDependencies
+
+    ```package-install
+    npm install -D drizzle-seed tsx
+    ```
+
+  </Step>
+  <Step>
+    ### Seed File
+
+    ```ts title="src/db/seed.ts"
+    /** biome-ignore-all lint/suspicious/noConsole: Don't use console. */
+    import { reset, seed } from "drizzle-seed"
+
+    import { db } from "@/db"
+    import { schema } from "@/db/schema"
+    import { dataSamples } from "@/db/schema/data-samples"
+
+    async function main() {
+      await reset(db, schema)
+
+      await seed(db, { dataSamples }).refine((f) => ({
+        dataSamples: {
+          columns: {
+            name: f.jobTitle(),
+            description: f.loremIpsum({ sentencesCount: 2 }),
+          },
+          count: 20,
+        },
+      }))
+    }
+
+    main()
+      .then(() => {
+        console.log("Seed completed")
+        process.exit(0)
+      })
+      .catch((e) => {
+        console.error("Seed failed", e)
+        process.exit(1)
+      })
+      .finally(() => {
+        process.exit(0)
+      })
+
+    ```
+
+  </Step>
+  <Step>
+    ### Update package.json
+
+    ```json title="package.json"
+    {
+      "name": "nextjs15-started",
+      "version": "0.1.0",
+      "type": "module",
+      "private": true,
+      "scripts": {
+        "dev": "next dev --turbopack",
+        "build": "next build --turbopack",
+        "start": "next start",
+        "preview": "next build && next start",
+        "clean": "rm -rf node_modules && rm -rf .next",
+        "lint": "biome check",
+        "format": "biome format --write",
+        "check": "biome check --write",
+        "typecheck": "tsc --noEmit",
+        "ui:add": "pnpm dlx shadcn@latest add",
+        "db:generate": "drizzle-kit generate",
+        "db:migrate": "drizzle-kit migrate",
+        "db:studio": "drizzle-kit studio",
+        "db:seed": "tsx --env-file=.env src/db/seed.ts",// [!code ++]
+        "prepare": "husky"
+      },
+      "dependencies": {
+        "class-variance-authority": "0.7.1",
+        "clsx": "2.1.1",
+        "drizzle-orm": "0.44.6",
+        "drizzle-zod": "0.8.3",
+        "lucide-react": "0.545.0",
+        "next": "15.5.4",
+        "next-themes": "0.4.6",
+        "pg": "8.16.3",
+        "radix-ui": "latest",
+        "react": "19.1.0",
+        "react-dom": "19.1.0",
+        "tailwind-merge": "3.3.1",
+        "zod": "4.1.12"
+      },
+      "devDependencies": {
+        "@biomejs/biome": "2.2.5",
+        "@commitlint/cli": "20.1.0",
+        "@commitlint/config-conventional": "20.0.0",
+        "@tailwindcss/postcss": "^4.1.14",
+        "@types/node": "^20.19.21",
+        "@types/pg": "8.15.5",
+        "@types/react": "^19.2.2",
+        "@types/react-dom": "^19.2.1",
+        "drizzle-kit": "0.31.5",
+        "husky": "9.1.7",
+        "tailwindcss": "^4.1.14",
+        "tw-animate-css": "1.4.0",
+        "typescript": "^5.9.3",
+        "ultracite": "5.6.2"
+      }
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### Run Seed
+
+    ```sh
+    pnpm db:seed
     ```
 
   </Step>

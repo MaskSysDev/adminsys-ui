@@ -753,3 +753,1662 @@ description: Better Auth
 
   </Step>
 </Steps>
+
+## Form
+
+<Steps>
+  <Step>
+    ### sign-up-form.tsx
+
+    ```ts title="src/components/auth/form/sign-up-form.tsx"
+    "use client"
+
+    import { zodResolver } from "@hookform/resolvers/zod"
+    import Link from "next/link"
+    import { useRouter } from "next/navigation"
+    import { useEffect, useState } from "react"
+    import { useForm } from "react-hook-form"
+    import { toast } from "sonner"
+
+    import { AlertError } from "@/components/layout/alert/alert-error"
+    import { AlertSuccess } from "@/components/layout/alert/alert-success"
+    import { PasswordInput } from "@/components/layout/form/password-input"
+    import { LoadingSpinner } from "@/components/layout/loading/loading-spinner"
+    import { Button } from "@/components/ui/button"
+    import {
+      Form,
+      FormControl,
+      FormField,
+      FormItem,
+      FormLabel,
+      FormMessage,
+    } from "@/components/ui/form"
+    import { Input } from "@/components/ui/input"
+
+    import { authClient } from "@/lib/auth-client"
+    import { sanitizeData } from "@/utils/sanitize"
+
+    import { signUpUser } from "@/server/auth"
+    import {
+      type SignUpFormValues,
+      signUpSchema,
+    } from "@/validations/auth/sign-up.schema"
+
+    /**
+     * Estado do formulário de registro
+     *
+     * Centraliza o controle de UI e feedback do formulário:
+     * - Loading durante requisições
+     * - Mensagens de erro/sucesso
+     */
+    type FormState = {
+      isLoading: boolean
+      errorMessage: string | null
+      successMessage: string | null
+    }
+
+    /**
+     * Formulário de registro
+     *
+     * Implementa o fluxo completo de cadastro com:
+     * - Validação de campos
+     * - Feedback visual
+     * - Tratamento de erros
+     * - Redirecionamento após sucesso
+     */
+    export function SignUpForm() {
+      const router = useRouter()
+      const { data: session } = authClient.useSession()
+
+      useEffect(() => {
+        if (session) {
+          // If user is signed in, redirect to the dashboard
+          router.push("/admin/dashboard")
+        }
+      }, [
+        session, // If user is signed in, redirect to the dashboard
+        router.push,
+      ])
+
+      /**
+       * Estado inicial do formulário
+       *
+       * Controla o estado de loading e mensagens
+       * de feedback durante o processo.
+       */
+      const [formState, setFormState] = useState<FormState>({
+        isLoading: false,
+        errorMessage: null,
+        successMessage: null,
+      })
+
+      /**
+       * Configuração do formulário
+       *
+       * Define valores iniciais e regras de validação
+       * usando o schema Zod para type-safety.
+       */
+      const form = useForm<SignUpFormValues>({
+        resolver: zodResolver(signUpSchema),
+        defaultValues: {
+          name: "",
+          lastName: "",
+          email: "",
+          password: "",
+        },
+      })
+
+      /**
+       * Atualiza o estado do formulário
+       *
+       * Preserva o estado anterior e aplica apenas as
+       * mudanças necessárias de forma segura.
+       */
+      const updateFormState = (updates: Partial<FormState>) => {
+        setFormState((prev) => ({ ...prev, ...updates }))
+      }
+
+      /**
+       * Processa o envio do formulário
+       *
+       * Gerencia o fluxo completo de cadastro:
+       * - Validação dos dados
+       * - Sanitização
+       * - Envio à API
+       * - Tratamento da resposta
+       * - Feedback ao usuário
+       * - Logs para auditoria
+       */
+      async function onSubmit(data: SignUpFormValues) {
+        try {
+          // Inicia o processo e limpa feedback anterior
+          updateFormState({
+            isLoading: true,
+            errorMessage: null,
+            successMessage: null,
+          })
+
+          // Sanitiza dados para prevenir injeção
+          const sanitizedData = sanitizeData(data, signUpSchema)
+
+          // Envia dados para cadastro
+          const result = await signUpUser(sanitizedData)
+
+          // Processa erro de cadastro
+          if (!result.success) {
+            const errorMsg = result.message || "Erro ao realizar cadastro"
+            updateFormState({ errorMessage: errorMsg })
+            return
+          }
+
+          // Processa cadastro bem-sucedido
+          const successMsg = `Conta criada com sucesso para ${sanitizedData.name} (${sanitizedData.email}). Please check your email for verification. ${result.message}`
+          updateFormState({ successMessage: successMsg })
+
+          // Exibe feedback visual
+          toast.success("Cadastro Realizado", {
+            description: `Bem-vindo(a), ${sanitizedData.name}! ${successMsg}`,
+            classNames: {
+              success: "!bg-green-200 !text-green-600 dark:!bg-green-950",
+              description: "!text-muted-foreground",
+            },
+          })
+
+          // Limpa o formulário após sucesso
+          form.reset()
+        } catch (error) {
+          // Trata erros inesperados
+          const errorMsg =
+            error instanceof Error ? error.message : "Erro ao realizar cadastro"
+          updateFormState({ errorMessage: errorMsg })
+        } finally {
+          // Finaliza o processo independente do resultado
+          updateFormState({ isLoading: false })
+        }
+      }
+
+      return (
+        <div className="space-y-4">
+          <Form {...form}>
+            <form
+              className="space-y-4"
+              onSubmit={(e) => {
+                form.handleSubmit(onSubmit)(e)
+              }}
+            >
+              {/** Campo de nome - validação e sanitização */}
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Nome</FormLabel>
+                    <FormControl>
+                      <Input
+                        disabled={formState.isLoading}
+                        placeholder="Seu nome"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/** Campo de sobrenome - validação e sanitização */}
+              <FormField
+                control={form.control}
+                name="lastName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Sobrenome</FormLabel>
+                    <FormControl>
+                      <Input
+                        disabled={formState.isLoading}
+                        placeholder="Seu sobrenome"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/** Campo de email - validação e sanitização */}
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input
+                        disabled={formState.isLoading}
+                        placeholder="seu@email.com"
+                        type="email"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/** Campo de senha - entrada segura com validação */}
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Senha</FormLabel>
+                    <FormControl>
+                      <PasswordInput
+                        disabled={formState.isLoading}
+                        placeholder="••••••••"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/** Feedback visual - mensagens de erro/sucesso */}
+              {formState.errorMessage && (
+                <AlertError title={formState.errorMessage} />
+              )}
+              {formState.successMessage && (
+                <AlertSuccess title={formState.successMessage} />
+              )}
+
+              {/** Botão de ação - controle do fluxo de cadastro */}
+              <Button
+                className="w-full cursor-pointer"
+                disabled={formState.isLoading}
+                type="submit"
+              >
+                {formState.isLoading ? (
+                  <LoadingSpinner className="size-4" />
+                ) : (
+                  "Criar Conta"
+                )}
+              </Button>
+            </form>
+          </Form>
+
+          {/** Navegação - links para fluxos alternativos */}
+          <div className="flex flex-col space-y-4">
+            <div className="text-center text-muted-foreground text-sm">
+              Já tem uma conta?{" "}
+              <Link className="text-primary hover:underline" href="/auth/sign-in">
+                Faça login.
+              </Link>
+            </div>
+          </div>
+        </div>
+      )
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### sign-in-form.tsx
+
+    ```ts title="src/components/auth/form/sign-in-form.tsx"
+    "use client"
+
+    import { zodResolver } from "@hookform/resolvers/zod"
+    import Link from "next/link"
+    import { useRouter } from "next/navigation"
+    import { useEffect, useState } from "react"
+    import { useForm } from "react-hook-form"
+    import { toast } from "sonner"
+
+    import { AlertError } from "@/components/layout/alert/alert-error"
+    import { AlertSuccess } from "@/components/layout/alert/alert-success"
+    import { PasswordInput } from "@/components/layout/form/password-input"
+    import { LoadingSpinner } from "@/components/layout/loading/loading-spinner"
+    import { Button, buttonVariants } from "@/components/ui/button"
+    import {
+      Form,
+      FormControl,
+      FormField,
+      FormItem,
+      FormLabel,
+      FormMessage,
+    } from "@/components/ui/form"
+    import { Input } from "@/components/ui/input"
+
+    import { cn } from "@/lib/utils"
+    import { sanitizeData } from "@/utils/sanitize"
+
+    import { signInUser } from "@/server/auth"
+    import {
+      type SignInFormValues,
+      signInSchema,
+    } from "@/validations/auth/sign-in.schema"
+    import { authClient } from "@/lib/auth-client"
+
+    /**
+     * Estado do formulário de login
+     *
+     * Centraliza o controle de UI e feedback do formulário:
+     * - Loading durante requisições
+     * - Mensagens de erro/sucesso
+     * - Estado do 2FA
+     */
+    type FormState = {
+      isLoading: boolean
+      errorMessage: string | null
+      successMessage: string | null
+      showTwoFactor: boolean
+    }
+
+    /**
+     * Formulário de autenticação
+     *
+     * Implementa o fluxo completo de login com:
+     * - Validação de campos
+     * - Suporte a 2FA
+     * - Feedback visual
+     * - Tratamento de erros
+     * - Redirecionamento após sucesso
+     */
+    export function SignInForm() {
+      const router = useRouter()
+      const { data: session } = authClient.useSession()
+
+      useEffect(() => {
+        if (session) {
+          // If user is signed in, redirect to the dashboard
+          router.push("/admin/dashboard")
+        }
+      }, [
+        session, // If user is signed in, redirect to the dashboard
+        router.push,
+      ])
+
+      /**
+       * Estado inicial do formulário
+       *
+       * Controla o estado de loading, mensagens de feedback
+       * e exibição do campo de 2FA quando necessário.
+       */
+      const [formState, setFormState] = useState<FormState>({
+        isLoading: false,
+        errorMessage: null,
+        successMessage: null,
+        showTwoFactor: false,
+      })
+
+      /**
+       * Configuração do formulário
+       *
+       * Define valores iniciais e regras de validação
+       * usando o schema Zod para type-safety.
+       */
+      const form = useForm<SignInFormValues>({
+        resolver: zodResolver(signInSchema),
+        defaultValues: {
+          email: "",
+          password: "",
+          code: "",
+        },
+      })
+
+      /**
+       * Atualiza o estado do formulário
+       *
+       * Preserva o estado anterior e aplica apenas as
+       * mudanças necessárias de forma segura.
+       */
+      const updateFormState = (updates: Partial<FormState>) => {
+        setFormState((prev) => ({ ...prev, ...updates }))
+      }
+
+      /**
+       * Processa o envio do formulário
+       *
+       * Gerencia o fluxo completo de autenticação:
+       * - Validação dos dados
+       * - Sanitização
+       * - Envio à API
+       * - Tratamento da resposta
+       * - Feedback ao usuário
+       * - Logs para auditoria
+       * - Redirecionamento após sucesso
+       */
+      async function onSubmit(data: SignInFormValues) {
+        try {
+          // Inicia o processo e limpa feedback anterior
+          updateFormState({
+            isLoading: true,
+            errorMessage: null,
+            successMessage: null,
+          })
+
+          // Sanitiza dados para prevenir injeção
+          const sanitizedData = sanitizeData(data, signInSchema)
+
+          // Envia dados para autenticação
+          const result = await signInUser(sanitizedData)
+
+          if (!result.success) {
+            // Processa erro de autenticação
+            const errorMsg = result.message || "Erro ao realizar login"
+            updateFormState({ errorMessage: errorMsg })
+            return
+          }
+
+          // Processa login bem-sucedido
+          const successMsg = `Login realizado com sucesso para ${data.email}. ${result.message}`
+          updateFormState({ successMessage: successMsg })
+
+          // Exibe feedback visual
+          toast.success("Login Realizado", {
+            description: "Bem-vindo(a) de volta!",
+            classNames: {
+              success: "!bg-green-200 !text-green-600 dark:!bg-green-950",
+              description: "!text-muted-foreground",
+            },
+          })
+
+          // Limpa o formulário após sucesso
+          form.reset()
+
+          // Redireciona para o dashboard
+          router.push("/admin/dashboard")
+        } catch (error) {
+          // Trata erros inesperados
+          const errorMsg =
+            error instanceof Error ? error.message : "Erro ao realizar login"
+          updateFormState({ errorMessage: errorMsg })
+        } finally {
+          // Finaliza o processo independente do resultado
+          updateFormState({ isLoading: false })
+        }
+      }
+
+      return (
+        <div className="space-y-4">
+          <Form {...form}>
+            <form
+              className="space-y-4"
+              onSubmit={(e) => {
+                form.handleSubmit(onSubmit)(e)
+              }}
+            >
+              {formState.showTwoFactor ? (
+                /* Campo de código 2FA - validação e processamento */
+                <FormField
+                  control={form.control}
+                  name="code"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Código de Autenticação</FormLabel>
+                      <FormControl>
+                        <Input
+                          disabled={formState.isLoading}
+                          placeholder="Digite o código de 6 dígitos"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              ) : (
+                <>
+                  {/* Campo de email - validação e sanitização */}
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input
+                            disabled={formState.isLoading}
+                            placeholder="seu@email.com"
+                            type="email"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  {/* Campo de senha - entrada segura com validação */}
+                  <FormField
+                    control={form.control}
+                    name="password"
+                    render={({ field }) => (
+                      <FormItem>
+                        <div className="flex items-center">
+                          <FormLabel>Senha</FormLabel>
+                          <Link
+                            className={cn(
+                              buttonVariants({
+                                variant: "link",
+                                size: "sm",
+                                className: "ml-auto h-auto p-0 font-normal",
+                              })
+                            )}
+                            href="/auth/forgot-password"
+                          >
+                            Esqueceu a senha?
+                          </Link>
+                        </div>
+                        <FormControl>
+                          <PasswordInput
+                            disabled={formState.isLoading}
+                            placeholder="••••••••"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </>
+              )}
+
+              {/* Feedback visual - mensagens de erro/sucesso */}
+              {formState.errorMessage && (
+                <AlertError title={formState.errorMessage} />
+              )}
+              {formState.successMessage && (
+                <AlertSuccess title={formState.successMessage} />
+              )}
+
+              {/* Botão de ação - controle do fluxo de autenticação */}
+              <Button
+                className="w-full cursor-pointer"
+                disabled={formState.isLoading}
+                type="submit"
+              >
+                {(() => {
+                  if (formState.isLoading) {
+                    return <LoadingSpinner className="size-4" />
+                  }
+                  if (formState.showTwoFactor) {
+                    return "Confirmar"
+                  }
+                  return "Entrar"
+                })()}
+              </Button>
+            </form>
+          </Form>
+
+          {/* Navegação - links para fluxos alternativos */}
+          <div className="flex flex-col space-y-4">
+            <div className="text-center text-muted-foreground text-sm">
+              Não tem uma conta?{" "}
+              <Link className="text-primary hover:underline" href="/auth/sign-up">
+                Crie uma conta.
+              </Link>
+            </div>
+          </div>
+        </div>
+      )
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### social-login.tsx
+
+    ```ts title="src/components/auth/form/social-login.tsx"
+    "use client"
+
+    import { toast } from "sonner"
+
+    import { Icons } from "@/components/layout/icons"
+    import { Button } from "@/components/ui/button"
+
+    import { authClient } from "@/lib/auth-client"
+
+    /**
+     * Componente de login social
+     *
+     * Implementa o fluxo de autenticação via provedores
+     * sociais (Google e GitHub) com:
+     * - Feedback visual
+     * - Tratamento de erros
+     * - Logs para auditoria
+     */
+    export const SocialLogin = () => {
+      /**
+       * Processa o login social
+       *
+       * Gerencia o fluxo de autenticação:
+       * - Validação do provedor
+       * - Feedback ao usuário
+       * - Logs para auditoria
+       */
+      const handleSocialLogin = async (provider: "google" | "github") => {
+        try {
+          // Integração com provedores
+          await authClient.signIn.social({
+            provider,
+            callbackURL: "/admin/dashboard",
+          })
+
+          toast.success("Login Realizado", {
+            description: `Autenticado via ${provider}`,
+            classNames: {
+              success: "!bg-green-200 !text-green-600 dark:!bg-green-950",
+              description: "!text-muted-foreground",
+            },
+          })
+        } catch (error) {
+          // Trata erros inesperados
+          const errorMsg =
+            error instanceof Error ? error.message : "Erro ao realizar login social"
+
+          // Exibe feedback visual do erro
+          toast.error("Erro no Login", {
+            description: errorMsg,
+            classNames: {
+              error: "!bg-red-200 !text-red-600 dark:!bg-red-950",
+              description: "!text-muted-foreground",
+            },
+          })
+        }
+      }
+
+      return (
+        <div className="grid w-full grid-cols-2 items-center gap-x-2">
+          <Button
+            className="w-full cursor-pointer bg-background"
+            onClick={() => {
+              handleSocialLogin("google")
+            }}
+            size="lg"
+            variant="outline"
+          >
+            <Icons.google className="size-5" />
+          </Button>
+          <Button
+            className="w-full cursor-pointer bg-background"
+            onClick={() => {
+              handleSocialLogin("github")
+            }}
+            size="lg"
+            variant="outline"
+          >
+            <Icons.gitHub className="size-5" />
+          </Button>
+        </div>
+      )
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### forgot-password-form.tsx
+
+    ```ts title="src/components/auth/form/forgot-password-form.tsx"
+    "use client"
+
+    import { zodResolver } from "@hookform/resolvers/zod"
+    import { useRouter } from "next/navigation"
+    import { useEffect, useState } from "react"
+    import { useForm } from "react-hook-form"
+    import { toast } from "sonner"
+
+    import { AlertError } from "@/components/layout/alert/alert-error"
+    import { AlertSuccess } from "@/components/layout/alert/alert-success"
+    import { LoadingSpinner } from "@/components/layout/loading/loading-spinner"
+    import { Button } from "@/components/ui/button"
+    import {
+      Form,
+      FormControl,
+      FormField,
+      FormItem,
+      FormLabel,
+      FormMessage,
+    } from "@/components/ui/form"
+    import { Input } from "@/components/ui/input"
+
+    import { authClient } from "@/lib/auth-client"
+    import { sanitizeData } from "@/utils/sanitize"
+
+    import {
+      type ForgotPasswordFormValues,
+      forgotPasswordSchema,
+    } from "@/validations/auth/forgot-password.schema"
+
+    /**
+     * Estado do formulário de recuperação de senha
+     *
+     * Centraliza o controle de UI e feedback do formulário:
+     * - Loading durante requisições
+     * - Mensagens de erro/sucesso
+     */
+    type FormState = {
+      isLoading: boolean
+      errorMessage: string | null
+      successMessage: string | null
+    }
+
+    /**
+     * Formulário de recuperação de senha
+     *
+     * Implementa o fluxo completo de recuperação com:
+     * - Validação de campos
+     * - Feedback visual
+     * - Tratamento de erros
+     * - Logs para auditoria
+     */
+    export function ForgotPasswordForm() {
+      const router = useRouter()
+      const { data: session } = authClient.useSession()
+
+      useEffect(() => {
+        if (session) {
+          // If user is signed in, redirect to the dashboard
+          router.push("/admin/dashboard")
+        }
+      }, [
+        session, // If user is signed in, redirect to the dashboard
+        router.push,
+      ])
+
+      /**
+       * Estado inicial do formulário
+       *
+       * Controla o estado de loading e mensagens
+       * de feedback durante o processo.
+       */
+      const [formState, setFormState] = useState<FormState>({
+        isLoading: false,
+        errorMessage: null,
+        successMessage: null,
+      })
+
+      /**
+       * Configuração do formulário
+       *
+       * Define valores iniciais e regras de validação
+       * usando o schema Zod para type-safety.
+       */
+      const form = useForm<ForgotPasswordFormValues>({
+        resolver: zodResolver(forgotPasswordSchema),
+        defaultValues: {
+          email: "",
+        },
+      })
+
+      /**
+       * Atualiza o estado do formulário
+       *
+       * Preserva o estado anterior e aplica apenas as
+       * mudanças necessárias de forma segura.
+       */
+      const updateFormState = (updates: Partial<FormState>) => {
+        setFormState((prev) => ({ ...prev, ...updates }))
+      }
+
+      /**
+       * Processa o envio do formulário
+       *
+       * Gerencia o fluxo completo de recuperação:
+       * - Validação dos dados
+       * - Sanitização
+       * - Envio à API
+       * - Tratamento da resposta
+       * - Feedback ao usuário
+       * - Logs para auditoria
+       */
+      async function onSubmit(data: ForgotPasswordFormValues) {
+        try {
+          // Inicia o processo e limpa feedback anterior
+          updateFormState({
+            isLoading: true,
+            errorMessage: null,
+            successMessage: null,
+          })
+
+          // Sanitiza dados para prevenir injeção
+          const sanitizedData = sanitizeData(data, forgotPasswordSchema)
+
+          // Envia dados para recuperação
+          const result = await authClient.forgetPassword({
+            email: sanitizedData.email,
+            redirectTo: "/auth/reset-password",
+          })
+
+          if (result.error) {
+            // Processa erro de recuperação
+            const errorMsg =
+              result.error || "Erro ao processar recuperação de senha"
+            updateFormState({ errorMessage: errorMsg.message })
+
+            return
+          }
+
+          // Processa recuperação bem-sucedida
+          const successMsg = `Email de recuperação enviado para ${sanitizedData.email}.`
+          updateFormState({ successMessage: successMsg })
+
+          // Exibe feedback visual
+          toast.success("Email Enviado", {
+            description: "Verifique sua caixa de entrada para redefinir sua senha",
+            classNames: {
+              success: "!bg-green-200 !text-green-600 dark:!bg-green-950",
+              description: "!text-muted-foreground",
+            },
+          })
+
+          // Limpa o formulário após sucesso
+          form.reset()
+        } catch (error) {
+          // Trata erros inesperados
+          const errorMsg =
+            error instanceof Error
+              ? error.message
+              : "Erro ao processar recuperação de senha"
+          updateFormState({ errorMessage: errorMsg })
+        } finally {
+          // Finaliza o processo independente do resultado
+          updateFormState({ isLoading: false })
+        }
+      }
+
+      return (
+        <Form {...form}>
+          <form
+            className="space-y-6"
+            onSubmit={(e) => {
+              form.handleSubmit(onSubmit)(e)
+            }}
+          >
+            {/* Campo de email - validação e sanitização */}
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      disabled={formState.isLoading}
+                      placeholder="seu@email.com"
+                      type="email"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* Feedback visual - mensagens de erro/sucesso */}
+            {formState.errorMessage && (
+              <AlertError title={formState.errorMessage} />
+            )}
+            {formState.successMessage && (
+              <AlertSuccess title={formState.successMessage} />
+            )}
+
+            {/* Botão de ação - controle do fluxo de recuperação */}
+            <Button
+              className="w-full cursor-pointer"
+              disabled={formState.isLoading}
+              type="submit"
+            >
+              {formState.isLoading ? (
+                <LoadingSpinner className="size-4" />
+              ) : (
+                "Enviar email de recuperação"
+              )}
+            </Button>
+          </form>
+        </Form>
+      )
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### reset-password-form.tsx
+
+    ```ts title="src/components/auth/form/reset-password-form.tsx"
+    "use client"
+
+    import { zodResolver } from "@hookform/resolvers/zod"
+    import { useRouter } from "next/navigation"
+    import { useEffect, useState } from "react"
+    import { useForm } from "react-hook-form"
+    import { toast } from "sonner"
+
+    import { AlertError } from "@/components/layout/alert/alert-error"
+    import { AlertSuccess } from "@/components/layout/alert/alert-success"
+    import { PasswordInput } from "@/components/layout/form/password-input"
+    import { LoadingSpinner } from "@/components/layout/loading/loading-spinner"
+    import { Button } from "@/components/ui/button"
+    import {
+      Form,
+      FormControl,
+      FormField,
+      FormItem,
+      FormLabel,
+      FormMessage,
+    } from "@/components/ui/form"
+
+    import { authClient } from "@/lib/auth-client"
+    import { sanitizeData } from "@/utils/sanitize"
+
+    import {
+      type ResetPasswordFormValues,
+      resetPasswordSchema,
+    } from "@/validations/auth/reset-password.schema"
+
+    /**
+     * Estado do formulário de redefinição de senha
+     *
+     * Centraliza o controle de UI e feedback do formulário:
+     * - Loading durante requisições
+     * - Mensagens de erro/sucesso
+     * - Validação do token
+     */
+    type FormState = {
+      isLoading: boolean
+      errorMessage: string | null
+      successMessage: string | null
+      isValidToken: boolean
+    }
+
+    /**
+     * Formulário de redefinição de senha
+     *
+     * Implementa o fluxo completo de redefinição com:
+     * - Validação de campos
+     * - Validação do token
+     * - Feedback visual
+     * - Tratamento de erros
+     * - Logs para auditoria
+     */
+    export function ResetPasswordForm() {
+      const router = useRouter()
+      const { data: session } = authClient.useSession()
+
+      useEffect(() => {
+        if (session) {
+          // If user is signed in, redirect to the dashboard
+          router.push("/admin/dashboard")
+        }
+      }, [
+        session, // If user is signed in, redirect to the dashboard
+        router.push,
+      ])
+
+      /**
+       * Estado inicial do formulário
+       *
+       * Controla o estado de loading, mensagens
+       * de feedback e validação do token.
+       */
+      const [formState, setFormState] = useState<FormState>({
+        isLoading: false,
+        errorMessage: null,
+        successMessage: null,
+        isValidToken: false,
+      })
+
+      /**
+       * Configuração do formulário
+       *
+       * Define valores iniciais e regras de validação
+       * usando o schema Zod para type-safety.
+       */
+      const form = useForm<ResetPasswordFormValues>({
+        resolver: zodResolver(resetPasswordSchema),
+        defaultValues: {
+          password: "",
+          confirmPassword: "",
+          token: "",
+        },
+      })
+
+      /**
+       * Valida o token na montagem do componente
+       *
+       * Verifica se o token existe e é válido
+       * antes de permitir a redefinição.
+       */
+
+      // biome-ignore lint/correctness/useExhaustiveDependencies: This hook does not specify its dependency on updateFormState.
+      useEffect(() => {
+        const validateToken = async () => {
+          const token = new URLSearchParams(window.location.search).get("token")
+
+          if (!token) {
+            updateFormState({
+              errorMessage: "Link de recuperação inválido",
+              isValidToken: false,
+            })
+            return
+          }
+
+          try {
+            // TODO: Validação do token
+            const isValid = token
+
+            // biome-ignore lint/style/noMagicNumbers: Magic number detected. Extract it to a constant with a meaningful name.
+            await new Promise((resolve) => setTimeout(resolve, 1000))
+
+            if (!isValid) {
+              updateFormState({
+                errorMessage: "Link de recuperação expirado ou inválido",
+                isValidToken: false,
+              })
+              return
+            }
+
+            // Atualiza o token no formulário
+            form.setValue("token", token)
+            updateFormState({ isValidToken: true })
+          } catch (error) {
+            // biome-ignore lint/suspicious/noConsole: Don't use console.
+            console.error("🚀 ~ validateToken ~ error:", error)
+
+            updateFormState({
+              errorMessage: "Erro ao validar link de recuperação",
+              isValidToken: false,
+            })
+          }
+        }
+
+        validateToken()
+      }, [form])
+
+      /**
+       * Atualiza o estado do formulário
+       *
+       * Preserva o estado anterior e aplica apenas as
+       * mudanças necessárias de forma segura.
+       */
+      const updateFormState = (updates: Partial<FormState>) => {
+        setFormState((prev) => ({ ...prev, ...updates }))
+      }
+
+      /**
+       * Processa o envio do formulário
+       *
+       * Gerencia o fluxo completo de redefinição:
+       * - Validação dos dados
+       * - Sanitização
+       * - Envio à API
+       * - Tratamento da resposta
+       * - Feedback ao usuário
+       * - Logs para auditoria
+       */
+      async function onSubmit(data: ResetPasswordFormValues) {
+        try {
+          // Verifica se o token é válido antes de prosseguir
+          if (!formState.isValidToken) {
+            updateFormState({
+              errorMessage: "Link de recuperação inválido ou expirado",
+            })
+            return
+          }
+
+          // Inicia o processo e limpa feedback anterior
+          updateFormState({
+            isLoading: true,
+            errorMessage: null,
+            successMessage: null,
+          })
+
+          const token = new URLSearchParams(window.location.search).get("token")
+
+          // Sanitiza dados para prevenir injeção
+          const sanitizedData = sanitizeData(data, resetPasswordSchema)
+
+          if (sanitizedData.password !== sanitizedData.confirmPassword) {
+            // Exibe feedback visual
+            toast.error("Password do not match", {
+              classNames: {
+                success: "!bg-red-200 !text-red-600 dark:!bg-red-950",
+                description: "!text-muted-foreground",
+              },
+            })
+            return
+          }
+
+          // Envia dados para redefinição
+          const result = await authClient.resetPassword({
+            newPassword: sanitizedData.password,
+            token: token ?? "",
+          })
+
+          // Processa erro de redefinição
+          if (result.error) {
+            const errorMsg =
+              result.error || "Erro ao processar redefinição de senha"
+            updateFormState({ errorMessage: errorMsg.message })
+            return
+          }
+
+          // Processa redefinição bem-sucedida
+          const successMsg = "Senha redefinida com sucesso!"
+          updateFormState({ successMessage: successMsg })
+
+          // Exibe feedback visual
+          toast.success("Senha Redefinida", {
+            description: "Sua senha foi atualizada com sucesso",
+            classNames: {
+              success: "!bg-green-200 !text-green-600 dark:!bg-green-950",
+              description: "!text-muted-foreground",
+            },
+          })
+
+          // Limpa o formulário após sucesso
+          form.reset()
+
+          // Redireciona para login após 2 segundos
+          router.push("/auth/sign-in")
+        } catch (error) {
+          // Trata erros inesperados
+          const errorMsg =
+            error instanceof Error
+              ? error.message
+              : "Erro ao processar redefinição de senha"
+          updateFormState({ errorMessage: errorMsg })
+        } finally {
+          // Finaliza o processo independente do resultado
+          updateFormState({ isLoading: false })
+        }
+      }
+
+      if (!formState.isValidToken) {
+        // Se o token for inválido, exibe apenas a mensagem de erro
+        return (
+          <div className="space-y-4">
+            <AlertError
+              title={formState.errorMessage || "Link de recuperação inválido"}
+            />
+            <Button
+              className="w-full cursor-pointer"
+              onClick={() => router.push("/auth/forgot-password")}
+              variant="outline"
+            >
+              Solicitar novo link
+            </Button>
+          </div>
+        )
+      }
+
+      return (
+        <Form {...form}>
+          <form
+            className="space-y-6"
+            onSubmit={(e) => {
+              form.handleSubmit(onSubmit)(e)
+            }}
+          >
+            {/* Campo de senha - entrada segura com validação */}
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Nova Senha</FormLabel>
+                  <FormControl>
+                    <PasswordInput
+                      {...field}
+                      disabled={formState.isLoading}
+                      placeholder="••••••••"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* Campo de confirmação de senha */}
+            <FormField
+              control={form.control}
+              name="confirmPassword"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Confirmar Nova Senha</FormLabel>
+                  <FormControl>
+                    <PasswordInput
+                      {...field}
+                      disabled={formState.isLoading}
+                      placeholder="••••••••"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* Feedback visual - mensagens de erro/sucesso */}
+            {formState.errorMessage && (
+              <AlertError title={formState.errorMessage} />
+            )}
+            {formState.successMessage && (
+              <AlertSuccess title={formState.successMessage} />
+            )}
+
+            {/* Botão de ação - controle do fluxo de redefinição */}
+            <Button
+              className="w-full cursor-pointer"
+              disabled={formState.isLoading}
+              type="submit"
+            >
+              {formState.isLoading ? (
+                <LoadingSpinner className="size-4" />
+              ) : (
+                "Redefinir Senha"
+              )}
+            </Button>
+          </form>
+        </Form>
+      )
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### social-login.tsx
+
+    ```ts title="src/components/auth/form/social-login.tsx"
+
+    ```
+
+  </Step>
+</Steps>
+
+## Layout
+
+<Steps>
+  <Step>
+    ### dropdown-user.tsx
+
+    ```ts title="src/components/auth/dropdown/dropdown-user.tsx"
+    "use client"
+
+    import { LogOut, User2Icon } from "lucide-react"
+    import Link from "next/link"
+    import { useRouter } from "next/navigation"
+
+    import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+    import { Button } from "@/components/ui/button"
+    import {
+      DropdownMenu,
+      DropdownMenuContent,
+      DropdownMenuGroup,
+      DropdownMenuItem,
+      DropdownMenuLabel,
+      DropdownMenuSeparator,
+      DropdownMenuTrigger,
+    } from "@/components/ui/dropdown-menu"
+
+    import { authClient } from "@/lib/auth-client"
+
+    export type DropdownUserProps = {
+      name: string
+      email: string
+      image?: string
+    }
+
+    export function DropdownUser({ name, email, image }: DropdownUserProps) {
+      const router = useRouter()
+
+      const handleLogout = async () => {
+        await authClient.signOut({
+          fetchOptions: {
+            onSuccess: () => {
+              router.replace("/")
+            },
+          },
+        })
+      }
+
+      return (
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button
+              className="cursor-pointer rounded-full"
+              size="icon"
+              variant="secondary"
+            >
+              <Avatar className="h-8 w-8 rounded-full">
+                {image && (
+                  <AvatarImage
+                    alt={name}
+                    className="aspect-square size-full"
+                    src={image}
+                  />
+                )}
+                <AvatarFallback className="rounded-full">
+                  <User2Icon />
+                </AvatarFallback>
+              </Avatar>
+              <span className="sr-only">User Menu</span>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-48">
+            <DropdownMenuLabel className="p-0 font-normal">
+              <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+                <Avatar className="h-8 w-8 rounded-lg">
+                  {image && <AvatarImage alt={name} src={image} />}
+                  <AvatarFallback className="rounded-lg">
+                    <User2Icon />
+                  </AvatarFallback>
+                </Avatar>
+                <div className="grid flex-1 text-left text-sm leading-tight">
+                  <span className="line-clamp-1 truncate font-medium">{name}</span>
+                  <span className="line-clamp-1 truncate text-muted-foreground text-xs">
+                    {email}
+                  </span>
+                </div>
+              </div>
+            </DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuGroup>
+              <DropdownMenuItem
+                asChild
+                className="cursor-pointer transition-colors"
+              >
+                <Link href={"/settings/profile"}>Profile</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                asChild
+                className="cursor-pointer transition-colors"
+              >
+                <Link href={"/settings/account"}>Account</Link>
+              </DropdownMenuItem>
+            </DropdownMenuGroup>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem
+              className="cursor-pointer transition-colors"
+              onClick={handleLogout}
+            >
+              <LogOut />
+              Log out
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      )
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### nav-main-auth.tsx
+
+    ```ts title="src/components/layout/navbar/inc/nav-main-auth.tsx"
+    "use client"
+
+    import Link from "next/link"
+    import { usePathname } from "next/navigation"
+
+    import { DropdownUser } from "@/components/auth/dropdown/dropdown-user"
+    import type { NavItemType } from "@/components/layout/navbar/types"
+    import { Button } from "@/components/ui/button"
+    import {
+      NavigationMenu,
+      NavigationMenuItem,
+      NavigationMenuLink,
+      NavigationMenuList,
+      navigationMenuTriggerStyle,
+    } from "@/components/ui/navigation-menu"
+
+    import { authClient } from "@/lib/auth-client"
+    import { cn } from "@/lib/utils"
+
+    function NavItem({ label = "label", href = "#" }: NavItemType) {
+      const pathname = usePathname()
+
+      return (
+        <NavigationMenuItem>
+          <NavigationMenuLink
+            asChild
+            className={navigationMenuTriggerStyle({
+              className: cn(
+                "h-8 bg-transparent px-3 text-base text-muted-foreground hover:bg-transparent hover:text-foreground focus:bg-transparent focus:text-foreground",
+                pathname === href ? "text-primary" : null
+              ),
+            })}
+          >
+            <Link href={href}>{label}</Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+      )
+    }
+
+    type NavMainAuthProps = {
+      position?: string
+      items: NavItemType[]
+      className?: string
+    }
+
+    export function NavMainAuth({ position, items, className }: NavMainAuthProps) {
+      const { data: session } = authClient.useSession()
+
+      if (items.length === null) {
+        return null
+      }
+
+      return (
+        <div
+          className={cn(
+            "hidden w-full items-center justify-start md:flex",
+            {
+              "justify-start": position === "start" || position === "left",
+              "justify-center": position === "center",
+              "justify-end": position === "end" || position === "right",
+            },
+            className
+          )}
+        >
+          <NavigationMenu viewport={false}>
+            <NavigationMenuList>
+              {items.map((item) => (
+                <NavItem href={item.href} key={item.href} label={item.label} />
+              ))}
+              {session ? (
+                <DropdownUser
+                  email={session.user.email}
+                  image={session.user.image ?? ""}
+                  name={session.user.name}
+                />
+              ) : (
+                <>
+                  <Button asChild size="sm">
+                    <Link href={"/auth/sign-in"}>Sign in</Link>
+                  </Button>
+                  <Button asChild size="sm" variant="outline">
+                    <Link href={"/auth/sign-up"}>Sign up</Link>
+                  </Button>
+                </>
+              )}
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
+      )
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### admin-navbar.tsx
+
+    ```ts title="src/components/layout/navbar/admin-navbar.tsx"
+    import { DropdownUser } from "@/components/auth/dropdown/dropdown-user"
+    import { Container } from "@/components/layout/container"
+    import { ToggleTheme } from "@/components/layout/toggle/toggle-theme"
+    import { SidebarTrigger } from "@/components/ui/sidebar"
+
+    import { getCurrentUser } from "@/server/auth"
+
+    export async function AdminNavbar() {
+      const user = await getCurrentUser()
+
+      return (
+        <div className="sticky top-0 flex h-16 w-full shrink-0 items-center gap-2 border-b bg-background">
+          <Container className="flex items-center gap-2" size="2xl">
+            <SidebarTrigger className="-ml-1.5 size-8 cursor-pointer text-muted-foreground" />
+
+            <div className="ml-auto flex w-auto items-center gap-2">
+              <ToggleTheme />
+              <DropdownUser
+                email={user.email}
+                image={user.image ?? ""}
+                name={user.name}
+              />
+            </div>
+          </Container>
+        </div>
+      )
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### sidebar-nav-user.tsx
+
+    ```ts title="src/components/layout/sidebar/inc/sidebar-nav-user.tsx"
+    "use client"
+
+    import { ChevronsUpDown, LogOut, User2Icon } from "lucide-react"
+    import Link from "next/link"
+    import { useRouter } from "next/navigation"
+
+    import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+    import {
+      DropdownMenu,
+      DropdownMenuContent,
+      DropdownMenuGroup,
+      DropdownMenuItem,
+      DropdownMenuLabel,
+      DropdownMenuSeparator,
+      DropdownMenuTrigger,
+    } from "@/components/ui/dropdown-menu"
+    import {
+      SidebarMenu,
+      SidebarMenuButton,
+      SidebarMenuItem,
+      useSidebar,
+    } from "@/components/ui/sidebar"
+
+    import { authClient } from "@/lib/auth-client"
+
+    type SidebarNavUserType = {
+      name: string
+      email: string
+      image?: string
+    }
+
+    export function SidebarNavUser({ name, email, image }: SidebarNavUserType) {
+      const { isMobile } = useSidebar()
+
+      const router = useRouter()
+
+      const handleLogout = async () => {
+        await authClient.signOut({
+          fetchOptions: {
+            onSuccess: () => {
+              router.replace("/")
+            },
+          },
+        })
+      }
+
+      return (
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <SidebarMenuButton
+                  className="cursor-pointer text-muted-foreground transition-colors hover:bg-sidebar-accent/40 data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+                  size="lg"
+                >
+                  <Avatar className="h-8 w-8 rounded-lg">
+                    {image && <AvatarImage alt={name} src={image} />}
+                    <AvatarFallback className="rounded-lg">
+                      <User2Icon />
+                    </AvatarFallback>
+                  </Avatar>
+                  <div className="grid flex-1 text-left text-sm leading-tights">
+                    <span className="line-clamp-1 truncate font-medium">
+                      {name}
+                    </span>
+                    <span className="line-clamp-1 truncate text-xs">{email}</span>
+                  </div>
+                  <ChevronsUpDown className="ml-auto size-4" />
+                </SidebarMenuButton>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
+                align="end"
+                className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
+                side={isMobile ? "bottom" : "right"}
+                sideOffset={4}
+              >
+                <DropdownMenuLabel className="p-0 font-normal">
+                  <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+                    <Avatar className="h-8 w-8 rounded-lg">
+                      {image && <AvatarImage alt={name} src={image} />}
+                      <AvatarFallback className="rounded-lg">
+                        <User2Icon />
+                      </AvatarFallback>
+                    </Avatar>
+                    <div className="grid flex-1 text-left text-sm leading-tight">
+                      <span className="line-clamp-1 truncate font-medium">
+                        {name}
+                      </span>
+                      <span className="line-clamp-1 truncate text-muted-foreground text-xs">
+                        {email}
+                      </span>
+                    </div>
+                  </div>
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuGroup>
+                  <DropdownMenuItem
+                    asChild
+                    className="cursor-pointer transition-colors"
+                  >
+                    <Link href="/settings/profile">Profile</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    asChild
+                    className="cursor-pointer transition-colors"
+                  >
+                    <Link href="/settings/account">Account</Link>
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem
+                  className="cursor-pointer transition-colors"
+                  onClick={handleLogout}
+                >
+                  <LogOut />
+                  Log out
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      )
+    }
+
+    ```
+
+  </Step>
+</Steps>
