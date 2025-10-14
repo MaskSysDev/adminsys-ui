@@ -1,4 +1,4 @@
-import { AlertError } from "@/registry/components/layout/alert/alert-error"
+import { AlertError } from "@/registry/components/shared/alert/alert-error"
 
 export default function AlertErrorDemo() {
   return (

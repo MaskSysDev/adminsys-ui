@@ -1,4 +1,4 @@
-import { AlertSuccess } from "@/registry/components/layout/alert/alert-success"
+import { AlertSuccess } from "@/registry/components/shared/alert/alert-success"
 
 export default function AlertSuccessDemo() {
   return (

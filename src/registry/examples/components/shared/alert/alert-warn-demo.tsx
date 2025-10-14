@@ -1,4 +1,4 @@
-import { AlertWarn } from "@/registry/components/layout/alert/alert-warn"
+import { AlertWarn } from "@/registry/components/shared/alert/alert-warn"
 
 export default function AlertWarnDemo() {
   return (

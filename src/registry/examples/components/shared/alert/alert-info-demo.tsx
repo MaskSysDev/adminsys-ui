@@ -1,4 +1,4 @@
-import { AlertInfo } from "@/registry/components/layout/alert/alert-info"
+import { AlertInfo } from "@/registry/components/shared/alert/alert-info"
 
 export default function AlertInfoDemo() {
   return (

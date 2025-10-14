@@ -53,70 +53,6 @@ export const examples: Registry["items"] = [
       },
     ],
   },
-  /**
-   * Exemplo `alert-error-demo`:
-   * Demonstra o uso do componente `alert-error`.
-   */
-  {
-    name: "alert-error-demo",
-    type: "registry:example",
-    registryDependencies: ["<registryBaseUrl>/alert-error.json"],
-    files: [
-      {
-        path: "examples/components/layout/alert/alert-error-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  /**
-   * Exemplo `alert-info-demo`:
-   * Demonstra o uso do componente `alert-info`.
-   */
-  {
-    name: "alert-info-demo",
-    type: "registry:example",
-    registryDependencies: ["<registryBaseUrl>/alert-info.json"],
-    files: [
-      {
-        path: "examples/components/layout/alert/alert-info-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  /**
-   * Exemplo `alert-success-demo`:
-   * Demonstra o uso do componente `alert-success`.
-   */
-  {
-    name: "alert-success-demo",
-    type: "registry:example",
-    registryDependencies: ["<registryBaseUrl>/alert-success.json"],
-    files: [
-      {
-        path: "examples/components/layout/alert/alert-success-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  /**
-   * Exemplo `alert-warn-demo`:
-   * Demonstra o uso do componente `alert-warn`.
-   */
-  {
-    name: "alert-warn-demo",
-    type: "registry:example",
-    registryDependencies: ["<registryBaseUrl>/alert-warn.json"],
-    files: [
-      {
-        path: "examples/components/layout/alert/alert-warn-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  /**
-   * Exemplo `banner-demo`:
-   * Demonstra o uso do componente `banner`.
-   */
   {
     name: "banner-demo",
     type: "registry:example",
@@ -379,6 +315,53 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "examples/components/layout/toggle/toggle-theme-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  /**
+   * Examples Components Shared
+   */
+  {
+    name: "alert-error-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/alert-error.json"],
+    files: [
+      {
+        path: "examples/components/shared/alert/alert-error-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "alert-info-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/alert-info.json"],
+    files: [
+      {
+        path: "examples/components/shared/alert/alert-info-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "alert-success-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/alert-success.json"],
+    files: [
+      {
+        path: "examples/components/shared/alert/alert-success-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "alert-warn-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/alert-warn.json"],
+    files: [
+      {
+        path: "examples/components/shared/alert/alert-warn-demo.tsx",
         type: "registry:example",
       },
     ],

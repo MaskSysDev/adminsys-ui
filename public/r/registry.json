@@ -522,78 +522,6 @@
       "docs": "http://localhost:3000/docs/components/layout/admin-layout"
     },
     {
-      "name": "alert-error",
-      "type": "registry:component",
-      "title": "alert-error",
-      "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A alert-error component.",
-      "registryDependencies": [
-        "alert"
-      ],
-      "files": [
-        {
-          "path": "src/registry/components/layout/alert/alert-error.tsx",
-          "type": "registry:component",
-          "target": "src/components/layout/alert/alert-error.tsx"
-        }
-      ],
-      "docs": "http://localhost:3000/docs/components/layout/alert#alert-error"
-    },
-    {
-      "name": "alert-info",
-      "type": "registry:component",
-      "title": "alert-info",
-      "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A alert-info component.",
-      "registryDependencies": [
-        "alert"
-      ],
-      "files": [
-        {
-          "path": "src/registry/components/layout/alert/alert-info.tsx",
-          "type": "registry:component",
-          "target": "src/components/layout/alert/alert-info.tsx"
-        }
-      ],
-      "docs": "http://localhost:3000/docs/components/layout/alert#alert-info"
-    },
-    {
-      "name": "alert-success",
-      "type": "registry:component",
-      "title": "alert-success",
-      "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A alert-success component.",
-      "registryDependencies": [
-        "alert"
-      ],
-      "files": [
-        {
-          "path": "src/registry/components/layout/alert/alert-success.tsx",
-          "type": "registry:component",
-          "target": "src/components/layout/alert/alert-success.tsx"
-        }
-      ],
-      "docs": "http://localhost:3000/docs/components/layout/alert#alert-success"
-    },
-    {
-      "name": "alert-warn",
-      "type": "registry:component",
-      "title": "alert-warn",
-      "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A alert-warn component.",
-      "registryDependencies": [
-        "alert"
-      ],
-      "files": [
-        {
-          "path": "src/registry/components/layout/alert/alert-warn.tsx",
-          "type": "registry:component",
-          "target": "src/components/layout/alert/alert-warn.tsx"
-        }
-      ],
-      "docs": "http://localhost:3000/docs/components/layout/alert#alert-warn"
-    },
-    {
       "name": "banner",
       "type": "registry:component",
       "title": "banner",
@@ -1007,6 +935,78 @@
         }
       ],
       "docs": "http://localhost:3000/docs/components/layout/typography"
+    },
+    {
+      "name": "alert-error",
+      "type": "registry:component",
+      "title": "alert-error",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A alert-error component.",
+      "registryDependencies": [
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/shared/alert/alert-error.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/alert/alert-error.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/alert#alert-error"
+    },
+    {
+      "name": "alert-info",
+      "type": "registry:component",
+      "title": "alert-info",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A alert-info component.",
+      "registryDependencies": [
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/shared/alert/alert-info.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/alert/alert-info.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/alert#alert-info"
+    },
+    {
+      "name": "alert-success",
+      "type": "registry:component",
+      "title": "alert-success",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A alert-success component.",
+      "registryDependencies": [
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/shared/alert/alert-success.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/alert/alert-success.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/alert#alert-success"
+    },
+    {
+      "name": "alert-warn",
+      "type": "registry:component",
+      "title": "alert-warn",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A alert-warn component.",
+      "registryDependencies": [
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/shared/alert/alert-warn.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/alert/alert-warn.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/alert#alert-warn"
     }
   ]
 }

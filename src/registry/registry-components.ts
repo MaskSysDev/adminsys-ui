@@ -499,86 +499,6 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/admin-layout",
   },
   /**
-   * Componente `alert-error`:
-   * Um componente de alert-error.
-   */
-  {
-    name: "alert-error",
-    type: "registry:component",
-    description: "A alert-error component.",
-    title: "alert-error",
-    author: "<author> <<authorUrl>>",
-    registryDependencies: ["alert"],
-    files: [
-      {
-        path: "components/layout/alert/alert-error.tsx",
-        type: "registry:component",
-        target: "src/components/layout/alert/alert-error.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/alert#alert-error",
-  },
-  /**
-   * Componente `alert-info`:
-   * Um componente de alert-info.
-   */
-  {
-    name: "alert-info",
-    type: "registry:component",
-    description: "A alert-info component.",
-    title: "alert-info",
-    author: "<author> <<authorUrl>>",
-    registryDependencies: ["alert"],
-    files: [
-      {
-        path: "components/layout/alert/alert-info.tsx",
-        type: "registry:component",
-        target: "src/components/layout/alert/alert-info.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/alert#alert-info",
-  },
-  /**
-   * Componente `alert-success`:
-   * Um componente de alert-success.
-   */
-  {
-    name: "alert-success",
-    type: "registry:component",
-    description: "A alert-success component.",
-    title: "alert-success",
-    author: "<author> <<authorUrl>>",
-    registryDependencies: ["alert"],
-    files: [
-      {
-        path: "components/layout/alert/alert-success.tsx",
-        type: "registry:component",
-        target: "src/components/layout/alert/alert-success.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/alert#alert-success",
-  },
-  /**
-   * Componente `alert-warn`:
-   * Um componente de alert-warn.
-   */
-  {
-    name: "alert-warn",
-    type: "registry:component",
-    description: "A alert-warn component.",
-    title: "alert-warn",
-    author: "<author> <<authorUrl>>",
-    registryDependencies: ["alert"],
-    files: [
-      {
-        path: "components/layout/alert/alert-warn.tsx",
-        type: "registry:component",
-        target: "src/components/layout/alert/alert-warn.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/alert#alert-warn",
-  },
-  /**
    * Componente `banner`:
    * Um componente de banner.
    */
@@ -1061,5 +981,72 @@ export const components: Registry["items"] = [
       },
     ],
     docs: "<baseUrl>/docs/components/layout/typography",
+  },
+  /**
+   * Components Shared
+   */
+  {
+    name: "alert-error",
+    type: "registry:component",
+    description: "A alert-error component.",
+    title: "alert-error",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: ["alert"],
+    files: [
+      {
+        path: "components/shared/alert/alert-error.tsx",
+        type: "registry:component",
+        target: "src/components/shared/alert/alert-error.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/shared/alert#alert-error",
+  },
+  {
+    name: "alert-info",
+    type: "registry:component",
+    description: "A alert-info component.",
+    title: "alert-info",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: ["alert"],
+    files: [
+      {
+        path: "components/shared/alert/alert-info.tsx",
+        type: "registry:component",
+        target: "src/components/shared/alert/alert-info.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/shared/alert#alert-info",
+  },
+  {
+    name: "alert-success",
+    type: "registry:component",
+    description: "A alert-success component.",
+    title: "alert-success",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: ["alert"],
+    files: [
+      {
+        path: "components/shared/alert/alert-success.tsx",
+        type: "registry:component",
+        target: "src/components/shared/alert/alert-success.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/shared/alert#alert-success",
+  },
+  {
+    name: "alert-warn",
+    type: "registry:component",
+    description: "A alert-warn component.",
+    title: "alert-warn",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: ["alert"],
+    files: [
+      {
+        path: "components/shared/alert/alert-warn.tsx",
+        type: "registry:component",
+        target: "src/components/shared/alert/alert-warn.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/shared/alert#alert-warn",
   },
 ]
