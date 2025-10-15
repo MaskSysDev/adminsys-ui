@@ -50,6 +50,17 @@ export const Index: Record<string, any> = {
       },
     ],
   },
+  "use-data-table": {
+    name: "use-data-table",
+    description: "",
+    type: "registry:hook",
+    files: [
+      {
+        path: "src/registry/hooks/use-data-table.ts",
+        type: "registry:hook",
+      },
+    ],
+  },
   "adminsys-auth": {
     name: "adminsys-auth",
     description: "",

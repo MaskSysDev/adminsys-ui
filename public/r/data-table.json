@@ -17,7 +17,8 @@
     "table",
     "http://localhost:3000/r/delete-confirmation-dialog.json",
     "http://localhost:3000/r/details-dialog.json",
-    "http://localhost:3000/r/form-dialog.json"
+    "http://localhost:3000/r/form-dialog.json",
+    "http://localhost:3000/r/use-data-table.json"
   ],
   "files": [
     {

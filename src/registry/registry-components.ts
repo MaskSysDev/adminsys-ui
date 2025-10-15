@@ -835,6 +835,7 @@ export const components: Registry["items"] = [
       "<registryBaseUrl>/delete-confirmation-dialog.json",
       "<registryBaseUrl>/details-dialog.json",
       "<registryBaseUrl>/form-dialog.json",
+      "<registryBaseUrl>/use-data-table.json",
     ],
     files: [
       {

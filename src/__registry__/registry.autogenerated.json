@@ -54,6 +54,19 @@
       ]
     },
     {
+      "name": "use-data-table",
+      "type": "registry:hook",
+      "title": "Mobile State Hook",
+      "dependencies": ["@tanstack/react-table", "use-debounce"],
+      "files": [
+        {
+          "path": "src/registry/hooks/use-data-table.ts",
+          "type": "registry:hook",
+          "target": "src/hooks/use-data-table.ts"
+        }
+      ]
+    },
+    {
       "name": "adminsys-auth",
       "type": "registry:block",
       "dependencies": ["zod"],
@@ -805,7 +818,8 @@
         "table",
         "http://localhost:3000/r/delete-confirmation-dialog.json",
         "http://localhost:3000/r/details-dialog.json",
-        "http://localhost:3000/r/form-dialog.json"
+        "http://localhost:3000/r/form-dialog.json",
+        "http://localhost:3000/r/use-data-table.json"
       ],
       "files": [
         {

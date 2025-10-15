@@ -23,4 +23,17 @@ export const hook: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "use-data-table",
+    type: "registry:hook",
+    title: "Mobile State Hook",
+    dependencies: ["@tanstack/react-table", "use-debounce"],
+    files: [
+      {
+        path: "hooks/use-data-table.ts",
+        type: "registry:hook",
+        target: "src/hooks/use-data-table.ts",
+      },
+    ],
+  },
 ]
