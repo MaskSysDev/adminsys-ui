@@ -2,11 +2,11 @@ import type { ReactNode } from "react"
 
 import { cn } from "@/lib/utils"
 
-import { Container } from "@/registry/components/layout/container"
+import { Container } from "@/registry/components/shared/container"
 import {
   SocialIconLink,
   type SocialIconLinkProps,
-} from "@/registry/components/layout/social/social-icon-link"
+} from "@/registry/components/shared/social/social-icon-link"
 
 type Footer01Props = {
   title: string

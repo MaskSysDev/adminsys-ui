@@ -1,9 +1,8 @@
 import type { Metadata } from "next"
 
-import { Container } from "@/components/layout/container"
-
 import { CardAuthWrapper } from "@/registry/components/auth/card/card-auth-wrapper"
 import { NewVerificationForm } from "@/registry/components/auth/form/new-verification-form"
+import { Container } from "@/registry/components/shared/container"
 
 export const metadata: Metadata = {
   title: "NewVerification",

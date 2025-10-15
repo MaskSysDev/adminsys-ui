@@ -4,9 +4,7 @@
   "type": "registry:lib",
   "title": "Sanitize Functions",
   "author": "MaskSysDev <https://github.com/MaskSysDev>",
-  "dependencies": [
-    "zod"
-  ],
+  "dependencies": ["zod"],
   "files": [
     {
       "path": "src/utils/sanitize.ts",

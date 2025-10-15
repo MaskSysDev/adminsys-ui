@@ -2,10 +2,10 @@ import { TriangleAlertIcon } from "lucide-react"
 import type { Metadata } from "next"
 import Link from "next/link"
 
-import { Container } from "@/components/layout/container"
 import { Button } from "@/components/ui/button"
 
 import { CardAuthWrapper } from "@/registry/components/auth/card/card-auth-wrapper"
+import { Container } from "@/registry/components/shared/container"
 
 export const metadata: Metadata = {
   title: "AuthError",

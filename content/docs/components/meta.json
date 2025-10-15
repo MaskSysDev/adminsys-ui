@@ -3,5 +3,14 @@
   "icon": "Component",
   "description": "Component Library",
   "root": true,
-  "pages": ["index", "---Component Library---", "auth", "dev", "layout"]
+  "pages": [
+    "index",
+    "--- Registry Components ---",
+    "registry",
+    "---Component Library---",
+    "auth",
+    "dev",
+    "layout",
+    "shared"
+  ]
 }

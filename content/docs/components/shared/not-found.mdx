@@ -1,0 +1,62 @@
+---
+title: Not Found
+description: A Not Found component.
+---
+
+## Not Found
+
+<ComponentPreview
+  name="not-found-demo"
+  openInV0Url="https://adminsys-ui.vercel.app/r/not-found.json"
+  code={<ComponentSource name="not-found-demo" />}
+/>
+
+### Installation
+
+<Tabs className="gap-0" defaultValue="cli">
+
+<TabsList>
+  <TabsTriggerShadcnCLI />
+  <TabsTrigger className="cursor-pointer" value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli" className="[&>figure]:mb-0">
+
+```package-install
+npx shadcn@latest add https://adminsys-ui.vercel.app/r/not-found.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add Component</Step>
+
+```package-install
+npx shadcn@latest add button https://adminsys-ui.vercel.app/r/container.json https://adminsys-ui.vercel.app/r/typography.json
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="not-found"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+### Usage
+
+<ComponentSource
+  name="not-found-demo"
+  codeCollapsible
+/>
+
+### Props
+
+<AutoTypeTable path="./src/registry/components/shared/not-found/index.tsx" name="NotFoundProps" />

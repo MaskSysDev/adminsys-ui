@@ -4,10 +4,6 @@ import { X } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
-import type {
-  Navbar01Type,
-  NavItemType,
-} from "@/components/layout/navbar/types"
 import { Button } from "@/components/ui/button"
 import {
   Sidebar,
@@ -25,7 +21,9 @@ import {
 
 import { cn } from "@/lib/utils"
 
-function NavMobileItem({ label = "label", href = "#" }: NavItemType) {
+import type { Navbar, NavItem } from "@/registry/components/layout/navbar/types"
+
+function NavMobileItem({ label = "label", href = "#" }: NavItem) {
   const pathname = usePathname()
   const { setOpenMobile } = useSidebar()
 
@@ -47,9 +45,7 @@ function NavMobileItem({ label = "label", href = "#" }: NavItemType) {
   )
 }
 
-interface NavMobileProps
-  extends React.ComponentProps<typeof Sidebar>,
-    Navbar01Type {}
+interface NavMobileProps extends React.ComponentProps<typeof Sidebar>, Navbar {}
 
 export function NavMobile({
   label,

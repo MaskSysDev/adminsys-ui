@@ -14,7 +14,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
-import { LoadingSpinner } from "@/registry/components/layout/loading/loading-spinner"
+import { LoadingSpinner } from "@/registry/components/shared/loading/loading-spinner"
 
 /**
  * Estado do formulário de imagem de conta

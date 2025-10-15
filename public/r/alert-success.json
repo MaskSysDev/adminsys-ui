@@ -5,16 +5,14 @@
   "title": "alert-success",
   "author": "MaskSysDev <https://github.com/MaskSysDev>",
   "description": "A alert-success component.",
-  "registryDependencies": [
-    "alert"
-  ],
+  "registryDependencies": ["alert"],
   "files": [
     {
-      "path": "src/registry/components/layout/alert/alert-success.tsx",
+      "path": "src/registry/components/shared/alert/alert-success.tsx",
       "content": "import { Check } from \"lucide-react\"\n\nimport { Alert, AlertDescription, AlertTitle } from \"@/components/ui/alert\"\n\nexport type AlertSuccessProps = {\n  title: string\n  description?: string\n}\n\nexport function AlertSuccess({ title, description }: AlertSuccessProps) {\n  return (\n    <Alert\n      className=\"border-0 bg-green-200 text-green-600 dark:bg-green-950\"\n      variant=\"default\"\n    >\n      <AlertTitle className=\"flex items-center gap-2\">\n        <Check className=\"size-6\" />\n        {title}\n      </AlertTitle>\n      {description && (\n        <AlertDescription className=\"text-muted-foreground\">\n          {description}\n        </AlertDescription>\n      )}\n    </Alert>\n  )\n}\n",
       "type": "registry:component",
-      "target": "src/components/layout/alert/alert-success.tsx"
+      "target": "src/components/shared/alert/alert-success.tsx"
     }
   ],
-  "docs": "http://localhost:3000/docs/components/layout/alert#alert-success"
+  "docs": "http://localhost:3000/docs/components/shared/alert#alert-success"
 }

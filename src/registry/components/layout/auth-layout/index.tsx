@@ -1,19 +1,19 @@
 import type { ReactNode } from "react"
 
-import { TailwindIndicator } from "@/components/dev/tailwind-indicator"
-import type { NavbarAuth01Type } from "@/components/layout/navbar/types"
 import { SidebarProvider } from "@/components/ui/sidebar"
 import { Toaster } from "@/components/ui/sonner"
 
+import { TailwindIndicator } from "@/registry/components/dev/tailwind-indicator"
 import {
   Footer01,
   type Footer01Props,
 } from "@/registry/components/layout/footer/footer-01"
 import { NavMobileAuth } from "@/registry/components/layout/navbar/inc/nav-mobile-auth"
 import { NavbarAuth01 } from "@/registry/components/layout/navbar/navbar-auth-01"
+import type { Navbar } from "@/registry/components/layout/navbar/types"
 
 export type AuthLayoutProps = {
-  navbar?: NavbarAuth01Type
+  navbar?: Navbar
   footer?: Footer01Props
   children: ReactNode
 }

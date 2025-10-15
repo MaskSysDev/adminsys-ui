@@ -5,13 +5,14 @@
   "title": "loading-spinner",
   "author": "MaskSysDev <https://github.com/MaskSysDev>",
   "description": "A loading-spinner component.",
+  "registryDependencies": ["spinner"],
   "files": [
     {
-      "path": "src/registry/components/layout/loading/loading-spinner.tsx",
-      "content": "import { cn } from \"@/lib/utils\"\n\nexport type LoadingSpinnerProps = {\n  className?: string\n}\n\nexport function LoadingSpinner({ className }: LoadingSpinnerProps) {\n  return (\n    <span\n      className={cn(\n        \"absolute inline-block size-6 min-w-max animate-spin rounded-full border-[3px] border-current border-t-transparent text-muted-foreground\",\n        className\n      )}\n    >\n      <span className=\"sr-only\">Loading...</span>\n    </span>\n  )\n}\n",
+      "path": "src/registry/components/shared/loading/loading-spinner.tsx",
+      "content": "import { Spinner } from \"@/components/ui/spinner\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport type LoadingSpinnerProps = {\n  className?: string\n}\n\nexport function LoadingSpinner({ className }: LoadingSpinnerProps) {\n  return (\n    <span\n      className={cn(\n        \"absolute inline-block min-w-max text-muted-foreground\",\n        className\n      )}\n    >\n      <Spinner className=\"size-6\" />\n      <span className=\"sr-only\">Loading...</span>\n    </span>\n  )\n}\n",
       "type": "registry:component",
-      "target": "src/components/layout/loading/loading-spinner.tsx"
+      "target": "src/components/shared/loading/loading-spinner.tsx"
     }
   ],
-  "docs": "http://localhost:3000/docs/components/layout/loading#loading-spinner"
+  "docs": "http://localhost:3000/docs/components/shared/loading#loading-spinner"
 }

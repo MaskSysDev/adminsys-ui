@@ -4,7 +4,6 @@ import { ChevronLeft } from "lucide-react"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 
-import { SidebarSubmenuLink } from "@/components/layout/sidebar/inc/part/sidebar-submenu-link"
 import {
   Collapsible,
   CollapsibleContent,
@@ -18,6 +17,8 @@ import {
 } from "@/components/ui/sidebar"
 
 import { cn } from "@/lib/utils"
+
+import { SidebarSubmenuLink } from "@/registry/components/layout/sidebar/inc/part/sidebar-submenu-link"
 
 type SidebarMenuFolderType = {
   item: {

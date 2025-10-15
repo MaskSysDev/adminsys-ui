@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation"
 import type React from "react"
 import { useState } from "react"
 
-import { Container } from "@/components/layout/container"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
@@ -19,6 +18,8 @@ import {
 } from "@/components/ui/sheet"
 
 import { cn } from "@/lib/utils"
+
+import { Container } from "@/registry/components/shared/container"
 
 const userSettingsSidebar = {
   items: [

@@ -57,10 +57,11 @@ import {
   LargeSearchToggle,
   SearchToggle,
 } from "@/components/layout/docs-layout/toggle/search-toggle"
-import { ThemeToggle } from "@/components/layout/toggle/theme-toggle"
 import { buttonVariants } from "@/components/ui/button"
 
 import { cn } from "@/lib/utils"
+
+import { ThemeToggle } from "@/registry/components/shared/toggle/theme-toggle"
 
 export interface DocsLayoutProps extends BaseLayoutProps {
   tree: PageTree.Root

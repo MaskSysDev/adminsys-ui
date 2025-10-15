@@ -8,10 +8,7 @@
       "type": "registry:lib",
       "title": "Utility Functions",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "dependencies": [
-        "clsx",
-        "tailwind-merge"
-      ],
+      "dependencies": ["clsx", "tailwind-merge"],
       "files": [
         {
           "path": "src/lib/utils.ts",
@@ -36,9 +33,7 @@
       "type": "registry:lib",
       "title": "Sanitize Functions",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "dependencies": [
-        "zod"
-      ],
+      "dependencies": ["zod"],
       "files": [
         {
           "path": "src/utils/sanitize.ts",
@@ -59,11 +54,22 @@
       ]
     },
     {
+      "name": "use-data-table",
+      "type": "registry:hook",
+      "title": "Mobile State Hook",
+      "dependencies": ["@tanstack/react-table", "use-debounce"],
+      "files": [
+        {
+          "path": "src/registry/hooks/use-data-table.ts",
+          "type": "registry:hook",
+          "target": "src/hooks/use-data-table.ts"
+        }
+      ]
+    },
+    {
       "name": "adminsys-auth",
       "type": "registry:block",
-      "dependencies": [
-        "zod"
-      ],
+      "dependencies": ["zod"],
       "registryDependencies": [
         "alert-dialog",
         "switch",
@@ -187,9 +193,7 @@
     {
       "name": "adminsys",
       "type": "registry:block",
-      "dependencies": [
-        "zod"
-      ],
+      "dependencies": ["zod"],
       "registryDependencies": [
         "http://localhost:3000/r/admin-layout.json",
         "http://localhost:3000/r/typography.json",
@@ -279,9 +283,7 @@
     {
       "name": "sitesys",
       "type": "registry:block",
-      "dependencies": [
-        "zod"
-      ],
+      "dependencies": ["zod"],
       "registryDependencies": [
         "http://localhost:3000/r/site-layout.json",
         "http://localhost:3000/r/hero-01.json",
@@ -426,27 +428,6 @@
       "docs": "http://localhost:3000/docs/components/auth/form#form-auth"
     },
     {
-      "name": "admin-navbar",
-      "type": "registry:component",
-      "title": "admin-navbar",
-      "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A admin-navbar component.",
-      "registryDependencies": [
-        "sidebar",
-        "http://localhost:3000/r/container.json",
-        "http://localhost:3000/r/dropdown-user.json",
-        "http://localhost:3000/r/toggle-theme.json"
-      ],
-      "files": [
-        {
-          "path": "src/registry/components/layout/navbar/admin-navbar.tsx",
-          "type": "registry:component",
-          "target": "src/components/layout/navbar/admin-navbar.tsx"
-        }
-      ],
-      "docs": "http://localhost:3000/docs/components/layout/navbar#admin-navbar"
-    },
-    {
       "name": "admin-sidebar",
       "type": "registry:component",
       "title": "admin-sidebar",
@@ -500,6 +481,44 @@
       "docs": "http://localhost:3000/docs/components/layout/sidebar#admin-sidebar"
     },
     {
+      "name": "site-layout",
+      "type": "registry:component",
+      "title": "site-layout",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A site-layout component.",
+      "dependencies": ["next-themes"],
+      "registryDependencies": [
+        "sidebar",
+        "sonner",
+        "http://localhost:3000/r/tailwind-indicator.json",
+        "http://localhost:3000/r/navbar-01.json",
+        "http://localhost:3000/r/footer-01.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/layout/site-layout/index.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/site-layout/index.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/site-layout"
+    },
+    {
+      "name": "tailwind-indicator",
+      "type": "registry:component",
+      "title": "tailwind-indicator",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A tailwind-indicator component.",
+      "files": [
+        {
+          "path": "src/registry/components/dev/tailwind-indicator.tsx",
+          "type": "registry:component",
+          "target": "src/components/dev/tailwind-indicator.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/dev/tailwind-indicator"
+    },
+    {
       "name": "admin-layout",
       "type": "registry:component",
       "title": "admin-layout",
@@ -522,76 +541,27 @@
       "docs": "http://localhost:3000/docs/components/layout/admin-layout"
     },
     {
-      "name": "alert-error",
+      "name": "auth-layout",
       "type": "registry:component",
-      "title": "alert-error",
+      "title": "auth-layout",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A alert-error component.",
+      "description": "A auth-layout component.",
+      "dependencies": ["next-themes"],
       "registryDependencies": [
-        "alert"
+        "sidebar",
+        "sonner",
+        "http://localhost:3000/r/tailwind-indicator.json",
+        "http://localhost:3000/r/navbar-auth-01.json",
+        "http://localhost:3000/r/footer-01.json"
       ],
       "files": [
         {
-          "path": "src/registry/components/layout/alert/alert-error.tsx",
+          "path": "src/registry/components/layout/auth-layout/index.tsx",
           "type": "registry:component",
-          "target": "src/components/layout/alert/alert-error.tsx"
+          "target": "src/components/layout/auth-layout/index.tsx"
         }
       ],
-      "docs": "http://localhost:3000/docs/components/layout/alert#alert-error"
-    },
-    {
-      "name": "alert-info",
-      "type": "registry:component",
-      "title": "alert-info",
-      "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A alert-info component.",
-      "registryDependencies": [
-        "alert"
-      ],
-      "files": [
-        {
-          "path": "src/registry/components/layout/alert/alert-info.tsx",
-          "type": "registry:component",
-          "target": "src/components/layout/alert/alert-info.tsx"
-        }
-      ],
-      "docs": "http://localhost:3000/docs/components/layout/alert#alert-info"
-    },
-    {
-      "name": "alert-success",
-      "type": "registry:component",
-      "title": "alert-success",
-      "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A alert-success component.",
-      "registryDependencies": [
-        "alert"
-      ],
-      "files": [
-        {
-          "path": "src/registry/components/layout/alert/alert-success.tsx",
-          "type": "registry:component",
-          "target": "src/components/layout/alert/alert-success.tsx"
-        }
-      ],
-      "docs": "http://localhost:3000/docs/components/layout/alert#alert-success"
-    },
-    {
-      "name": "alert-warn",
-      "type": "registry:component",
-      "title": "alert-warn",
-      "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A alert-warn component.",
-      "registryDependencies": [
-        "alert"
-      ],
-      "files": [
-        {
-          "path": "src/registry/components/layout/alert/alert-warn.tsx",
-          "type": "registry:component",
-          "target": "src/components/layout/alert/alert-warn.tsx"
-        }
-      ],
-      "docs": "http://localhost:3000/docs/components/layout/alert#alert-warn"
+      "docs": "http://localhost:3000/docs/components/layout/auth-layout"
     },
     {
       "name": "banner",
@@ -614,21 +584,6 @@
       "docs": "http://localhost:3000/docs/components/layout/banner"
     },
     {
-      "name": "container",
-      "type": "registry:component",
-      "title": "container",
-      "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A container component.",
-      "files": [
-        {
-          "path": "src/registry/components/layout/container/index.tsx",
-          "type": "registry:component",
-          "target": "src/components/layout/container/index.tsx"
-        }
-      ],
-      "docs": "http://localhost:3000/docs/components/layout/container"
-    },
-    {
       "name": "footer-01",
       "type": "registry:component",
       "title": "footer-01",
@@ -648,33 +603,12 @@
       "docs": "http://localhost:3000/docs/components/layout/footer#footer-01"
     },
     {
-      "name": "password-input",
-      "type": "registry:component",
-      "title": "password-input",
-      "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A password-input component.",
-      "registryDependencies": [
-        "button",
-        "input"
-      ],
-      "files": [
-        {
-          "path": "src/registry/components/layout/form/password-input/index.tsx",
-          "type": "registry:component",
-          "target": "src/components/layout/form/password-input/index.tsx"
-        }
-      ],
-      "docs": "http://localhost:3000/docs/components/layout/form#password-input"
-    },
-    {
       "name": "hero-01",
       "type": "registry:component",
       "title": "hero",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A hero-01 component.",
-      "registryDependencies": [
-        "http://localhost:3000/r/banner.json"
-      ],
+      "registryDependencies": ["http://localhost:3000/r/banner.json"],
       "files": [
         {
           "path": "src/registry/components/layout/hero/hero-01.tsx",
@@ -685,79 +619,25 @@
       "docs": "http://localhost:3000/docs/components/layout/hero#hero-01"
     },
     {
-      "name": "icons",
+      "name": "admin-navbar",
       "type": "registry:component",
-      "title": "icons",
+      "title": "admin-navbar",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A icons component.",
+      "description": "A admin-navbar component.",
+      "registryDependencies": [
+        "sidebar",
+        "http://localhost:3000/r/container.json",
+        "http://localhost:3000/r/dropdown-user.json",
+        "http://localhost:3000/r/toggle-theme.json"
+      ],
       "files": [
         {
-          "path": "src/registry/components/layout/icons/index.tsx",
+          "path": "src/registry/components/layout/navbar/admin-navbar.tsx",
           "type": "registry:component",
-          "target": "src/components/layout/icons/index.tsx"
+          "target": "src/components/layout/navbar/admin-navbar.tsx"
         }
       ],
-      "docs": "http://localhost:3000/docs/components/layout/icons"
-    },
-    {
-      "name": "loading-spinner",
-      "type": "registry:component",
-      "title": "loading-spinner",
-      "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A loading-spinner component.",
-      "files": [
-        {
-          "path": "src/registry/components/layout/loading/loading-spinner.tsx",
-          "type": "registry:component",
-          "target": "src/components/layout/loading/loading-spinner.tsx"
-        }
-      ],
-      "docs": "http://localhost:3000/docs/components/layout/loading#loading-spinner"
-    },
-    {
-      "name": "logo-adminsys",
-      "type": "registry:component",
-      "title": "logo-adminsys",
-      "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A logo-adminsys component.",
-      "files": [
-        {
-          "path": "src/registry/components/layout/logo/logo-adminsys.tsx",
-          "type": "registry:component",
-          "target": "src/components/layout/logo/logo-adminsys.tsx"
-        }
-      ],
-      "docs": "http://localhost:3000/docs/components/layout/logo#logo-adminsys"
-    },
-    {
-      "name": "logo-docsys",
-      "type": "registry:component",
-      "title": "logo-docsys",
-      "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A logo-docsys component.",
-      "files": [
-        {
-          "path": "src/registry/components/layout/logo/logo-docsys.tsx",
-          "type": "registry:component",
-          "target": "src/components/layout/logo/logo-docsys.tsx"
-        }
-      ],
-      "docs": "http://localhost:3000/docs/components/layout/logo#logo-docsys"
-    },
-    {
-      "name": "logo-sitesys",
-      "type": "registry:component",
-      "title": "logo-sitesys",
-      "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A logo-sitesys component.",
-      "files": [
-        {
-          "path": "src/registry/components/layout/logo/logo-sitesys.tsx",
-          "type": "registry:component",
-          "target": "src/components/layout/logo/logo-sitesys.tsx"
-        }
-      ],
-      "docs": "http://localhost:3000/docs/components/layout/logo#logo-sitesys"
+      "docs": "http://localhost:3000/docs/components/layout/navbar#admin-navbar"
     },
     {
       "name": "navbar-01",
@@ -772,6 +652,16 @@
         "http://localhost:3000/r/container.json"
       ],
       "files": [
+        {
+          "path": "src/registry/components/layout/navbar/inc/part/nav-item-link.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/inc/part/nav-item-link.tsx"
+        },
+        {
+          "path": "src/registry/components/layout/navbar/inc/part/nav-logo.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/inc/part/nav-logo.tsx"
+        },
         {
           "path": "src/registry/components/layout/navbar/inc/nav-main.tsx",
           "type": "registry:component",
@@ -798,7 +688,7 @@
           "target": "src/components/layout/navbar/navbar-01.tsx"
         }
       ],
-      "docs": "http://localhost:3000/docs/components/layout/logo#navbar-01"
+      "docs": "http://localhost:3000/docs/components/layout/navbar#navbar-01"
     },
     {
       "name": "navbar-auth-01",
@@ -814,6 +704,26 @@
       ],
       "files": [
         {
+          "path": "src/registry/components/auth/button/auth-button.tsx",
+          "type": "registry:component",
+          "target": "src/components/auth/button/auth-button.tsx"
+        },
+        {
+          "path": "src/registry/components/layout/navbar/inc/part/nav-item-link.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/inc/part/nav-item-link.tsx"
+        },
+        {
+          "path": "src/registry/components/layout/navbar/inc/part/nav-logo.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/inc/part/nav-logo.tsx"
+        },
+        {
+          "path": "src/registry/components/layout/navbar/inc/part/nav-mobile-nav-user.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/inc/part/nav-mobile-nav-user.tsx"
+        },
+        {
           "path": "src/registry/components/layout/navbar/inc/nav-main-auth.tsx",
           "type": "registry:component",
           "target": "src/components/layout/navbar/inc/nav-main-auth.tsx"
@@ -824,9 +734,9 @@
           "target": "src/components/layout/navbar/inc/nav-mobile-auth.tsx"
         },
         {
-          "path": "src/registry/components/layout/navbar/inc/nav-system.tsx",
+          "path": "src/registry/components/layout/navbar/inc/nav-system-auth.tsx",
           "type": "registry:component",
-          "target": "src/components/layout/navbar/inc/nav-system.tsx"
+          "target": "src/components/layout/navbar/inc/nav-system-auth.tsx"
         },
         {
           "path": "src/registry/components/layout/navbar/types/index.ts",
@@ -834,12 +744,303 @@
           "target": "src/components/layout/navbar/types/index.ts"
         },
         {
+          "path": "src/registry/components/layout/navbar/types/session-data.ts",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/types/session-data.ts"
+        },
+        {
           "path": "src/registry/components/layout/navbar/navbar-auth-01.tsx",
           "type": "registry:component",
           "target": "src/components/layout/navbar/navbar-auth-01.tsx"
         }
       ],
-      "docs": "http://localhost:3000/docs/components/layout/logo#navbar-auth-01"
+      "docs": "http://localhost:3000/docs/components/layout/navbar#navbar-auth-01"
+    },
+    {
+      "name": "alert-error",
+      "type": "registry:component",
+      "title": "alert-error",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A alert-error component.",
+      "registryDependencies": ["alert"],
+      "files": [
+        {
+          "path": "src/registry/components/shared/alert/alert-error.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/alert/alert-error.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/alert#alert-error"
+    },
+    {
+      "name": "alert-info",
+      "type": "registry:component",
+      "title": "alert-info",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A alert-info component.",
+      "registryDependencies": ["alert"],
+      "files": [
+        {
+          "path": "src/registry/components/shared/alert/alert-info.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/alert/alert-info.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/alert#alert-info"
+    },
+    {
+      "name": "alert-success",
+      "type": "registry:component",
+      "title": "alert-success",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A alert-success component.",
+      "registryDependencies": ["alert"],
+      "files": [
+        {
+          "path": "src/registry/components/shared/alert/alert-success.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/alert/alert-success.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/alert#alert-success"
+    },
+    {
+      "name": "alert-warn",
+      "type": "registry:component",
+      "title": "alert-warn",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A alert-warn component.",
+      "registryDependencies": ["alert"],
+      "files": [
+        {
+          "path": "src/registry/components/shared/alert/alert-warn.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/alert/alert-warn.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/alert#alert-warn"
+    },
+    {
+      "name": "container",
+      "type": "registry:component",
+      "title": "container",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A container component.",
+      "files": [
+        {
+          "path": "src/registry/components/shared/container/index.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/container/index.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/container"
+    },
+    {
+      "name": "data-table",
+      "type": "registry:component",
+      "title": "data-table",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A data-table component.",
+      "dependencies": ["@tanstack/react-table"],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "command",
+        "dropdown-menu",
+        "input",
+        "select",
+        "separator",
+        "table",
+        "http://localhost:3000/r/delete-confirmation-dialog.json",
+        "http://localhost:3000/r/details-dialog.json",
+        "http://localhost:3000/r/form-dialog.json",
+        "http://localhost:3000/r/use-data-table.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/shared/data-table/index.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/data-table/index.tsx"
+        },
+        {
+          "path": "src/registry/components/shared/data-table/inc/part/data-table-faceted-filter.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/data-table/inc/part/data-table-faceted-filter.tsx"
+        },
+        {
+          "path": "src/registry/components/shared/data-table/inc/part/data-table-row-actions.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/data-table/inc/part/data-table-row-actions.tsx"
+        },
+        {
+          "path": "src/registry/components/shared/data-table/inc/part/data-table-search-input.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/data-table/inc/part/data-table-search-input.tsx"
+        },
+        {
+          "path": "src/registry/components/shared/data-table/inc/part/data-table-toggle-columns.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/data-table/inc/part/data-table-toggle-columns.tsx"
+        },
+        {
+          "path": "src/registry/components/shared/data-table/inc/part/data-table-view-options.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/data-table/inc/part/data-table-view-options.tsx"
+        },
+        {
+          "path": "src/registry/components/shared/data-table/inc/data-table-column-header.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/data-table/inc/data-table-column-header.tsx"
+        },
+        {
+          "path": "src/registry/components/shared/data-table/inc/data-table-pagination.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/data-table/inc/data-table-pagination.tsx"
+        },
+        {
+          "path": "src/registry/components/shared/data-table/inc/data-table-toolbar.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/data-table/inc/data-table-toolbar.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/data-table"
+    },
+    {
+      "name": "delete-confirmation-dialog",
+      "type": "registry:component",
+      "title": "delete-confirmation-dialog",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A delete-confirmation-dialog component.",
+      "files": [
+        {
+          "path": "src/registry/components/shared/dialog/delete-confirmation-dialog.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/dialog/delete-confirmation-dialog.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/dialog#delete-confirmation-dialog"
+    },
+    {
+      "name": "details-dialog",
+      "type": "registry:component",
+      "title": "details-dialog",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A details-dialog component.",
+      "files": [
+        {
+          "path": "src/registry/components/shared/dialog/details-dialog.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/dialog/details-dialog.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/dialog#details-dialog"
+    },
+    {
+      "name": "form-dialog",
+      "type": "registry:component",
+      "title": "form-dialog",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A form-dialog component.",
+      "files": [
+        {
+          "path": "src/registry/components/shared/dialog/form-dialog.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/dialog/form-dialog.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/dialog#form-dialog"
+    },
+    {
+      "name": "password-input",
+      "type": "registry:component",
+      "title": "password-input",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A password-input component.",
+      "registryDependencies": ["button", "input"],
+      "files": [
+        {
+          "path": "src/registry/components/shared/form/password-input/index.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/form/password-input/index.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/form#password-input"
+    },
+    {
+      "name": "icons",
+      "type": "registry:component",
+      "title": "icons",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A icons component.",
+      "files": [
+        {
+          "path": "src/registry/components/shared/icons/index.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/icons/index.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/icons"
+    },
+    {
+      "name": "loading-spinner",
+      "type": "registry:component",
+      "title": "loading-spinner",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A loading-spinner component.",
+      "registryDependencies": ["spinner"],
+      "files": [
+        {
+          "path": "src/registry/components/shared/loading/loading-spinner.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/loading/loading-spinner.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/loading#loading-spinner"
+    },
+    {
+      "name": "logo-adminsys",
+      "type": "registry:component",
+      "title": "logo-adminsys",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A logo-adminsys component.",
+      "files": [
+        {
+          "path": "src/registry/components/shared/logo/logo-adminsys.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/logo/logo-adminsys.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/logo#logo-adminsys"
+    },
+    {
+      "name": "logo-docsys",
+      "type": "registry:component",
+      "title": "logo-docsys",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A logo-docsys component.",
+      "files": [
+        {
+          "path": "src/registry/components/shared/logo/logo-docsys.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/logo/logo-docsys.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/logo#logo-docsys"
+    },
+    {
+      "name": "logo-sitesys",
+      "type": "registry:component",
+      "title": "logo-sitesys",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A logo-sitesys component.",
+      "files": [
+        {
+          "path": "src/registry/components/shared/logo/logo-sitesys.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/logo/logo-sitesys.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/logo#logo-sitesys"
     },
     {
       "name": "not-found",
@@ -849,12 +1050,12 @@
       "description": "A not-found component.",
       "files": [
         {
-          "path": "src/registry/components/layout/not-found/index.tsx",
+          "path": "src/registry/components/shared/not-found/index.tsx",
           "type": "registry:component",
-          "target": "src/components/layout/not-found/index.tsx"
+          "target": "src/components/shared/not-found/index.tsx"
         }
       ],
-      "docs": "http://localhost:3000/docs/components/layout/not-found"
+      "docs": "http://localhost:3000/docs/components/shared/not-found"
     },
     {
       "name": "theme-provider",
@@ -862,67 +1063,15 @@
       "title": "theme-provider",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A theme-provider component.",
-      "dependencies": [
-        "next-themes"
-      ],
+      "dependencies": ["next-themes"],
       "files": [
         {
-          "path": "src/registry/components/layout/provider/theme-provider.tsx",
+          "path": "src/registry/components/shared/provider/theme-provider.tsx",
           "type": "registry:component",
-          "target": "src/components/layout/provider/theme-provider.tsx"
+          "target": "src/components/shared/provider/theme-provider.tsx"
         }
       ],
-      "docs": "http://localhost:3000/docs/components/layout/provider#theme-provider"
-    },
-    {
-      "name": "auth-layout",
-      "type": "registry:component",
-      "title": "auth-layout",
-      "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A auth-layout component.",
-      "dependencies": [
-        "next-themes"
-      ],
-      "registryDependencies": [
-        "sidebar",
-        "sonner",
-        "http://localhost:3000/r/tailwind-indicator.json",
-        "http://localhost:3000/r/navbar-auth-01.json",
-        "http://localhost:3000/r/footer-01.json"
-      ],
-      "files": [
-        {
-          "path": "src/registry/components/layout/auth-layout/index.tsx",
-          "type": "registry:component",
-          "target": "src/components/layout/auth-layout/index.tsx"
-        }
-      ],
-      "docs": "http://localhost:3000/docs/components/layout/auth-layout"
-    },
-    {
-      "name": "site-layout",
-      "type": "registry:component",
-      "title": "site-layout",
-      "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A site-layout component.",
-      "dependencies": [
-        "next-themes"
-      ],
-      "registryDependencies": [
-        "sidebar",
-        "sonner",
-        "http://localhost:3000/r/tailwind-indicator.json",
-        "http://localhost:3000/r/navbar-01.json",
-        "http://localhost:3000/r/footer-01.json"
-      ],
-      "files": [
-        {
-          "path": "src/registry/components/layout/site-layout/index.tsx",
-          "type": "registry:component",
-          "target": "src/components/layout/site-layout/index.tsx"
-        }
-      ],
-      "docs": "http://localhost:3000/docs/components/layout/site-layout"
+      "docs": "http://localhost:3000/docs/components/shared/provider#theme-provider"
     },
     {
       "name": "social-icon-link",
@@ -932,27 +1081,12 @@
       "description": "A social-icon-link component.",
       "files": [
         {
-          "path": "src/registry/components/layout/social/social-icon-link.tsx",
+          "path": "src/registry/components/shared/social/social-icon-link.tsx",
           "type": "registry:component",
-          "target": "src/components/layout/social/social-icon-link.tsx"
+          "target": "src/components/shared/social/social-icon-link.tsx"
         }
       ],
-      "docs": "http://localhost:3000/docs/components/layout/social#social-icon-link"
-    },
-    {
-      "name": "tailwind-indicator",
-      "type": "registry:component",
-      "title": "tailwind-indicator",
-      "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A tailwind-indicator component.",
-      "files": [
-        {
-          "path": "src/registry/components/dev/tailwind-indicator.tsx",
-          "type": "registry:component",
-          "target": "src/components/dev/tailwind-indicator.tsx"
-        }
-      ],
-      "docs": "http://localhost:3000/docs/components/dev/tailwind-indicator"
+      "docs": "http://localhost:3000/docs/components/shared/social#social-icon-link"
     },
     {
       "name": "theme-toggle",
@@ -960,17 +1094,15 @@
       "title": "theme-toggle",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A theme-toggle component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
-      "dependencies": [
-        "next-themes"
-      ],
+      "dependencies": ["next-themes"],
       "files": [
         {
-          "path": "src/registry/components/layout/toggle/theme-toggle.tsx",
+          "path": "src/registry/components/shared/toggle/theme-toggle.tsx",
           "type": "registry:component",
-          "target": "src/components/layout/toggle/theme-toggle.tsx"
+          "target": "src/components/shared/toggle/theme-toggle.tsx"
         }
       ],
-      "docs": "http://localhost:3000/docs/components/layout/toggle#toggle-theme"
+      "docs": "http://localhost:3000/docs/components/shared/toggle#toggle-theme"
     },
     {
       "name": "toggle-theme",
@@ -978,20 +1110,16 @@
       "title": "toggle-theme",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A toggle-theme component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
-      "dependencies": [
-        "next-themes"
-      ],
-      "registryDependencies": [
-        "button"
-      ],
+      "dependencies": ["next-themes"],
+      "registryDependencies": ["button"],
       "files": [
         {
-          "path": "src/registry/components/layout/toggle/toggle-theme.tsx",
+          "path": "src/registry/components/shared/toggle/toggle-theme.tsx",
           "type": "registry:component",
-          "target": "src/components/layout/toggle/toggle-theme.tsx"
+          "target": "src/components/shared/toggle/toggle-theme.tsx"
         }
       ],
-      "docs": "http://localhost:3000/docs/components/layout/toggle#toggle-theme"
+      "docs": "http://localhost:3000/docs/components/shared/toggle#toggle-theme"
     },
     {
       "name": "typography",
@@ -1001,12 +1129,12 @@
       "description": "A typography component.",
       "files": [
         {
-          "path": "src/registry/components/layout/typography/index.tsx",
+          "path": "src/registry/components/shared/typography/index.tsx",
           "type": "registry:component",
-          "target": "src/components/layout/typography/index.tsx"
+          "target": "src/components/shared/typography/index.tsx"
         }
       ],
-      "docs": "http://localhost:3000/docs/components/layout/typography"
+      "docs": "http://localhost:3000/docs/components/shared/typography"
     }
   ]
 }

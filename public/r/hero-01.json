@@ -5,9 +5,7 @@
   "title": "hero",
   "author": "MaskSysDev <https://github.com/MaskSysDev>",
   "description": "A hero-01 component.",
-  "registryDependencies": [
-    "http://localhost:3000/r/banner.json"
-  ],
+  "registryDependencies": ["http://localhost:3000/r/banner.json"],
   "files": [
     {
       "path": "src/registry/components/layout/hero/hero-01.tsx",

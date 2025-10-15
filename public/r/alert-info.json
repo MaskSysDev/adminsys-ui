@@ -5,16 +5,14 @@
   "title": "alert-info",
   "author": "MaskSysDev <https://github.com/MaskSysDev>",
   "description": "A alert-info component.",
-  "registryDependencies": [
-    "alert"
-  ],
+  "registryDependencies": ["alert"],
   "files": [
     {
-      "path": "src/registry/components/layout/alert/alert-info.tsx",
+      "path": "src/registry/components/shared/alert/alert-info.tsx",
       "content": "import { InfoIcon } from \"lucide-react\"\n\nimport { Alert, AlertDescription, AlertTitle } from \"@/components/ui/alert\"\n\nexport type AlertInfoProps = {\n  title: string\n  description?: string\n}\n\nexport function AlertInfo({ title, description }: AlertInfoProps) {\n  return (\n    <Alert\n      className=\"border-0 bg-blue-200 text-blue-600 dark:bg-blue-950\"\n      variant=\"default\"\n    >\n      <AlertTitle className=\"flex items-center gap-2\">\n        <InfoIcon className=\"size-6\" />\n        {title}\n      </AlertTitle>\n      {description && (\n        <AlertDescription className=\"text-muted-foreground\">\n          {description}\n        </AlertDescription>\n      )}\n    </Alert>\n  )\n}\n",
       "type": "registry:component",
-      "target": "src/components/layout/alert/alert-info.tsx"
+      "target": "src/components/shared/alert/alert-info.tsx"
     }
   ],
-  "docs": "http://localhost:3000/docs/components/layout/alert#alert-info"
+  "docs": "http://localhost:3000/docs/components/shared/alert#alert-info"
 }
