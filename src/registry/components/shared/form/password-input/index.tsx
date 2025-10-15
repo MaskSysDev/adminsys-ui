@@ -26,7 +26,7 @@ const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
           autoComplete="off"
         />
         <Button
-          className="-translate-y-1/2 absolute top-1/2 right-1 size-6 rounded-md text-muted-foreground"
+          className="-translate-y-1/2 absolute top-1/2 right-1 size-6 cursor-pointer rounded-md text-muted-foreground"
           onClick={() => setShowPassword((prev) => !prev)}
           size="icon"
           type="button"
