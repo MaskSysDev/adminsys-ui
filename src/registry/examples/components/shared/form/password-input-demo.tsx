@@ -1,4 +1,4 @@
-import { PasswordInput } from "@/registry/components/layout/form/password-input"
+import { PasswordInput } from "@/registry/components/shared/form/password-input"
 
 export default function PasswordInputDemo() {
   return <PasswordInput placeholder="••••••••" />

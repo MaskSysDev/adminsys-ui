@@ -301,15 +301,6 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
-  "password-input": {
-    name: "password-input",
-    description: "A password-input component.",
-    type: "registry:component",
-    files: [{
-      path: "src/registry/components/layout/form/password-input/index.tsx",
-      type: "registry:component",
-    }],
-  },
   "hero-01": {
     name: "hero-01",
     description: "A hero-01 component.",
@@ -532,6 +523,15 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
+  "password-input": {
+    name: "password-input",
+    description: "A password-input component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/shared/form/password-input/index.tsx",
+      type: "registry:component",
+    }],
+  },
   "form-auth-demo": {
     name: "form-auth-demo",
     description: "",
@@ -585,17 +585,6 @@ export const Index: Record<string, any> = {
       type: "registry:example",
     }],
     component: React.lazy(() => import("@/registry/examples/components/layout/footer/footer-01-demo.tsx")),
-
-  },
-  "password-input-demo": {
-    name: "password-input-demo",
-    description: "",
-    type: "registry:example",
-    files: [{
-      path: "src/registry/examples/components/layout/form/password-input-demo.tsx",
-      type: "registry:example",
-    }],
-    component: React.lazy(() => import("@/registry/examples/components/layout/form/password-input-demo.tsx")),
 
   },
   "hero-01-demo": {
@@ -805,6 +794,17 @@ export const Index: Record<string, any> = {
       type: "registry:example",
     }],
     component: React.lazy(() => import("@/registry/examples/components/shared/container/container-demo.tsx")),
+
+  },
+  "password-input-demo": {
+    name: "password-input-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/shared/form/password-input-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/shared/form/password-input-demo.tsx")),
 
   },
 }

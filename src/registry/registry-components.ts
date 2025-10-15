@@ -546,26 +546,6 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/footer#footer-01",
   },
   /**
-   * Componente `password-input`:
-   * Um componente de password-input.
-   */
-  {
-    name: "password-input",
-    type: "registry:component",
-    description: "A password-input component.",
-    title: "password-input",
-    author: "<author> <<authorUrl>>",
-    registryDependencies: ["button", "input"],
-    files: [
-      {
-        path: "components/layout/form/password-input/index.tsx",
-        type: "registry:component",
-        target: "src/components/layout/form/password-input/index.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/form#password-input",
-  },
-  /**
    * Componente `hero-01`:
    * Um componente de hero-01.
    */
@@ -1044,5 +1024,21 @@ export const components: Registry["items"] = [
       },
     ],
     docs: "<baseUrl>/docs/components/shared/container",
+  },
+  {
+    name: "password-input",
+    type: "registry:component",
+    description: "A password-input component.",
+    title: "password-input",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: ["button", "input"],
+    files: [
+      {
+        path: "components/shared/form/password-input/index.tsx",
+        type: "registry:component",
+        target: "src/components/shared/form/password-input/index.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/shared/form#password-input",
   },
 ]
