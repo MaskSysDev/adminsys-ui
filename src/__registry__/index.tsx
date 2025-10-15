@@ -17,6 +17,17 @@ export const Index: Record<string, any> = {
       },
     ],
   },
+  cn: {
+    name: "cn",
+    description: "",
+    type: "registry:lib",
+    files: [
+      {
+        path: "src/registry/lib/cn.ts",
+        type: "registry:lib",
+      },
+    ],
+  },
   metadata: {
     name: "metadata",
     description: "",
@@ -34,7 +45,7 @@ export const Index: Record<string, any> = {
     type: "registry:lib",
     files: [
       {
-        path: "src/registry/src/utils/sanitize.ts",
+        path: "src/registry/utils/sanitize.ts",
         type: "registry:lib",
       },
     ],
@@ -316,52 +327,6 @@ export const Index: Record<string, any> = {
       },
     ],
   },
-  "admin-sidebar": {
-    name: "admin-sidebar",
-    description: "A admin-sidebar component.",
-    type: "registry:component",
-    files: [
-      {
-        path: "src/registry/components/layout/sidebar/inc/part/sidebar-menu-folder.tsx",
-        type: "registry:component",
-      },
-      {
-        path: "src/registry/components/layout/sidebar/inc/part/sidebar-menu-link.tsx",
-        type: "registry:component",
-      },
-      {
-        path: "src/registry/components/layout/sidebar/inc/part/sidebar-submenu-link.tsx",
-        type: "registry:component",
-      },
-      {
-        path: "src/registry/components/layout/sidebar/inc/sidebar-nav-main.tsx",
-        type: "registry:component",
-      },
-      {
-        path: "src/registry/components/layout/sidebar/inc/sidebar-nav-secondary.tsx",
-        type: "registry:component",
-      },
-      {
-        path: "src/registry/components/layout/sidebar/inc/sidebar-nav-user.tsx",
-        type: "registry:component",
-      },
-      {
-        path: "src/registry/components/layout/sidebar/admin-sidebar.tsx",
-        type: "registry:component",
-      },
-    ],
-  },
-  "site-layout": {
-    name: "site-layout",
-    description: "A site-layout component.",
-    type: "registry:component",
-    files: [
-      {
-        path: "src/registry/components/layout/site-layout/index.tsx",
-        type: "registry:component",
-      },
-    ],
-  },
   "tailwind-indicator": {
     name: "tailwind-indicator",
     description: "A tailwind-indicator component.",
@@ -517,6 +482,52 @@ export const Index: Record<string, any> = {
       },
       {
         path: "src/registry/components/layout/navbar/navbar-auth-01.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
+  "admin-sidebar": {
+    name: "admin-sidebar",
+    description: "A admin-sidebar component.",
+    type: "registry:component",
+    files: [
+      {
+        path: "src/registry/components/layout/sidebar/inc/part/sidebar-menu-folder.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "src/registry/components/layout/sidebar/inc/part/sidebar-menu-link.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "src/registry/components/layout/sidebar/inc/part/sidebar-submenu-link.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "src/registry/components/layout/sidebar/inc/sidebar-nav-main.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "src/registry/components/layout/sidebar/inc/sidebar-nav-secondary.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "src/registry/components/layout/sidebar/inc/sidebar-nav-user.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "src/registry/components/layout/sidebar/admin-sidebar.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
+  "site-layout": {
+    name: "site-layout",
+    description: "A site-layout component.",
+    type: "registry:component",
+    files: [
+      {
+        path: "src/registry/components/layout/site-layout/index.tsx",
         type: "registry:component",
       },
     ],
