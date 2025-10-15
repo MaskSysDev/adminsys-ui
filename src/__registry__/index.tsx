@@ -537,6 +537,82 @@ export const Index: Record<string, any> = {
       },
     ],
   },
+  "data-table": {
+    name: "data-table",
+    description: "A data-table component.",
+    type: "registry:component",
+    files: [
+      {
+        path: "src/registry/components/shared/data-table/index.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "src/registry/components/shared/data-table/inc/part/data-table-faceted-filter.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "src/registry/components/shared/data-table/inc/part/data-table-row-actions.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "src/registry/components/shared/data-table/inc/part/data-table-search-input.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "src/registry/components/shared/data-table/inc/part/data-table-toggle-columns.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "src/registry/components/shared/data-table/inc/part/data-table-view-options.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "src/registry/components/shared/data-table/inc/data-table-column-header.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "src/registry/components/shared/data-table/inc/data-table-pagination.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "src/registry/components/shared/data-table/inc/data-table-toolbar.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
+  "delete-confirmation-dialog": {
+    name: "delete-confirmation-dialog",
+    description: "A delete-confirmation-dialog component.",
+    type: "registry:component",
+    files: [
+      {
+        path: "src/registry/components/shared/dialog/delete-confirmation-dialog.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
+  "details-dialog": {
+    name: "details-dialog",
+    description: "A details-dialog component.",
+    type: "registry:component",
+    files: [
+      {
+        path: "src/registry/components/shared/dialog/details-dialog.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
+  "form-dialog": {
+    name: "form-dialog",
+    description: "A form-dialog component.",
+    type: "registry:component",
+    files: [
+      {
+        path: "src/registry/components/shared/dialog/form-dialog.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
   "password-input": {
     name: "password-input",
     description: "A password-input component.",

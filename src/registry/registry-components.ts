@@ -815,6 +815,131 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/shared/container",
   },
 
+  /* data-table */
+  {
+    name: "data-table",
+    type: "registry:component",
+    description: "A data-table component.",
+    title: "data-table",
+    author: "<author> <<authorUrl>>",
+    dependencies: ["@tanstack/react-table"],
+    registryDependencies: [
+      "badge",
+      "button",
+      "command",
+      "dropdown-menu",
+      "input",
+      "select",
+      "separator",
+      "table",
+      "<registryBaseUrl>/delete-confirmation-dialog.json",
+      "<registryBaseUrl>/details-dialog.json",
+      "<registryBaseUrl>/form-dialog.json",
+    ],
+    files: [
+      {
+        path: "components/shared/data-table/index.tsx",
+        type: "registry:component",
+        target: "src/components/shared/data-table/index.tsx",
+      },
+      {
+        path: "components/shared/data-table/inc/part/data-table-faceted-filter.tsx",
+        type: "registry:component",
+        target:
+          "src/components/shared/data-table/inc/part/data-table-faceted-filter.tsx",
+      },
+      {
+        path: "components/shared/data-table/inc/part/data-table-row-actions.tsx",
+        type: "registry:component",
+        target:
+          "src/components/shared/data-table/inc/part/data-table-row-actions.tsx",
+      },
+      {
+        path: "components/shared/data-table/inc/part/data-table-search-input.tsx",
+        type: "registry:component",
+        target:
+          "src/components/shared/data-table/inc/part/data-table-search-input.tsx",
+      },
+      {
+        path: "components/shared/data-table/inc/part/data-table-toggle-columns.tsx",
+        type: "registry:component",
+        target:
+          "src/components/shared/data-table/inc/part/data-table-toggle-columns.tsx",
+      },
+      {
+        path: "components/shared/data-table/inc/part/data-table-view-options.tsx",
+        type: "registry:component",
+        target:
+          "src/components/shared/data-table/inc/part/data-table-view-options.tsx",
+      },
+      {
+        path: "components/shared/data-table/inc/data-table-column-header.tsx",
+        type: "registry:component",
+        target:
+          "src/components/shared/data-table/inc/data-table-column-header.tsx",
+      },
+      {
+        path: "components/shared/data-table/inc/data-table-pagination.tsx",
+        type: "registry:component",
+        target:
+          "src/components/shared/data-table/inc/data-table-pagination.tsx",
+      },
+      {
+        path: "components/shared/data-table/inc/data-table-toolbar.tsx",
+        type: "registry:component",
+        target: "src/components/shared/data-table/inc/data-table-toolbar.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/shared/data-table",
+  },
+
+  /* dialog */
+  {
+    name: "delete-confirmation-dialog",
+    type: "registry:component",
+    description: "A delete-confirmation-dialog component.",
+    title: "delete-confirmation-dialog",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/shared/dialog/delete-confirmation-dialog.tsx",
+        type: "registry:component",
+        target: "src/components/shared/dialog/delete-confirmation-dialog.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/shared/dialog#delete-confirmation-dialog",
+  },
+  {
+    name: "details-dialog",
+    type: "registry:component",
+    description: "A details-dialog component.",
+    title: "details-dialog",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/shared/dialog/details-dialog.tsx",
+        type: "registry:component",
+        target: "src/components/shared/dialog/details-dialog.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/shared/dialog#details-dialog",
+  },
+  {
+    name: "form-dialog",
+    type: "registry:component",
+    description: "A form-dialog component.",
+    title: "form-dialog",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/shared/dialog/form-dialog.tsx",
+        type: "registry:component",
+        target: "src/components/shared/dialog/form-dialog.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/shared/dialog#form-dialog",
+  },
+
   /* form */
   {
     name: "password-input",

@@ -788,6 +788,120 @@
       "docs": "http://localhost:3000/docs/components/shared/container"
     },
     {
+      "name": "data-table",
+      "type": "registry:component",
+      "title": "data-table",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A data-table component.",
+      "dependencies": ["@tanstack/react-table"],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "command",
+        "dropdown-menu",
+        "input",
+        "select",
+        "separator",
+        "table",
+        "http://localhost:3000/r/delete-confirmation-dialog.json",
+        "http://localhost:3000/r/details-dialog.json",
+        "http://localhost:3000/r/form-dialog.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/shared/data-table/index.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/data-table/index.tsx"
+        },
+        {
+          "path": "src/registry/components/shared/data-table/inc/part/data-table-faceted-filter.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/data-table/inc/part/data-table-faceted-filter.tsx"
+        },
+        {
+          "path": "src/registry/components/shared/data-table/inc/part/data-table-row-actions.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/data-table/inc/part/data-table-row-actions.tsx"
+        },
+        {
+          "path": "src/registry/components/shared/data-table/inc/part/data-table-search-input.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/data-table/inc/part/data-table-search-input.tsx"
+        },
+        {
+          "path": "src/registry/components/shared/data-table/inc/part/data-table-toggle-columns.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/data-table/inc/part/data-table-toggle-columns.tsx"
+        },
+        {
+          "path": "src/registry/components/shared/data-table/inc/part/data-table-view-options.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/data-table/inc/part/data-table-view-options.tsx"
+        },
+        {
+          "path": "src/registry/components/shared/data-table/inc/data-table-column-header.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/data-table/inc/data-table-column-header.tsx"
+        },
+        {
+          "path": "src/registry/components/shared/data-table/inc/data-table-pagination.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/data-table/inc/data-table-pagination.tsx"
+        },
+        {
+          "path": "src/registry/components/shared/data-table/inc/data-table-toolbar.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/data-table/inc/data-table-toolbar.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/data-table"
+    },
+    {
+      "name": "delete-confirmation-dialog",
+      "type": "registry:component",
+      "title": "delete-confirmation-dialog",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A delete-confirmation-dialog component.",
+      "files": [
+        {
+          "path": "src/registry/components/shared/dialog/delete-confirmation-dialog.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/dialog/delete-confirmation-dialog.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/dialog#delete-confirmation-dialog"
+    },
+    {
+      "name": "details-dialog",
+      "type": "registry:component",
+      "title": "details-dialog",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A details-dialog component.",
+      "files": [
+        {
+          "path": "src/registry/components/shared/dialog/details-dialog.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/dialog/details-dialog.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/dialog#details-dialog"
+    },
+    {
+      "name": "form-dialog",
+      "type": "registry:component",
+      "title": "form-dialog",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A form-dialog component.",
+      "files": [
+        {
+          "path": "src/registry/components/shared/dialog/form-dialog.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/dialog/form-dialog.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/dialog#form-dialog"
+    },
+    {
       "name": "password-input",
       "type": "registry:component",
       "title": "password-input",

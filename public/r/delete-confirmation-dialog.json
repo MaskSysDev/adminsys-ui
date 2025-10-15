@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "delete-confirmation-dialog",
+  "type": "registry:component",
+  "title": "delete-confirmation-dialog",
+  "author": "MaskSysDev <https://github.com/MaskSysDev>",
+  "description": "A delete-confirmation-dialog component.",
+  "files": [
+    {
+      "path": "src/registry/components/shared/dialog/delete-confirmation-dialog.tsx",
+      "content": "import {\n  AlertDialog,\n  AlertDialogAction,\n  AlertDialogCancel,\n  AlertDialogContent,\n  AlertDialogDescription,\n  AlertDialogFooter,\n  AlertDialogHeader,\n  AlertDialogTitle,\n} from \"@/components/ui/alert-dialog\"\n\ntype DeleteConfirmationDialogProps = {\n  open: boolean\n  onOpenChange: (open: boolean) => void\n  onConfirm: () => void\n  isLoading: boolean // Nova prop para o estado de loading\n}\n\n/**\n * Um diálogo de alerta genérico para confirmar ações destrutivas.\n *\n * @param open Controla a visibilidade do diálogo.\n * @param onOpenChange Função de callback para quando o estado de abertura muda.\n * @param onConfirm Função de callback a ser executada quando o usuário confirma a ação.\n * @param isLoading Controla o estado de carregamento do botão de confirmação.\n */\nexport function DeleteConfirmationDialog({\n  open,\n  onOpenChange,\n  onConfirm,\n  isLoading,\n}: Readonly<DeleteConfirmationDialogProps>) {\n  return (\n    <AlertDialog onOpenChange={onOpenChange} open={open}>\n      <AlertDialogContent>\n        <AlertDialogHeader>\n          <AlertDialogTitle>Você tem certeza?</AlertDialogTitle>\n          <AlertDialogDescription>\n            Essa ação não pode ser desfeita. Isso irá deletar permanentemente os\n            dados.\n          </AlertDialogDescription>\n        </AlertDialogHeader>\n        <AlertDialogFooter>\n          <AlertDialogCancel className=\"cursor-pointer\">\n            Cancel\n          </AlertDialogCancel>\n          <AlertDialogAction\n            className=\"cursor-pointer bg-red-600 hover:bg-red-700\"\n            disabled={isLoading} // Desabilita o botão durante o loading\n            onClick={onConfirm}\n          >\n            {isLoading ? \"Deleting...\" : \"Delete\"}\n          </AlertDialogAction>\n        </AlertDialogFooter>\n      </AlertDialogContent>\n    </AlertDialog>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "src/components/shared/dialog/delete-confirmation-dialog.tsx"
+    }
+  ],
+  "docs": "http://localhost:3000/docs/components/shared/dialog#delete-confirmation-dialog"
+}
