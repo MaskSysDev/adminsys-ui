@@ -17,9 +17,8 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet"
 
-import { cn } from "@/lib/utils"
-
 import { Container } from "@/registry/components/shared/container"
+import { cn } from "@/registry/lib/cn"
 
 const userSettingsSidebar = {
   items: [

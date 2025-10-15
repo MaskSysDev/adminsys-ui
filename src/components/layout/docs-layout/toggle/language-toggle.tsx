@@ -10,7 +10,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/registry/lib/cn"
 
 export type LanguageSelectProps = ButtonHTMLAttributes<HTMLButtonElement>
 

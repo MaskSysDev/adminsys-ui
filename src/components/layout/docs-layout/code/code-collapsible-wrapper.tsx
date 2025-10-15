@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/collapsible"
 import { Separator } from "@/components/ui/separator"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/registry/lib/cn"
 
 export function CodeCollapsibleWrapper({
   className,

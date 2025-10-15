@@ -16,9 +16,8 @@ import {
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar"
 
-import { cn } from "@/lib/utils"
-
 import { SidebarSubmenuLink } from "@/registry/components/layout/sidebar/inc/part/sidebar-submenu-link"
+import { cn } from "@/registry/lib/cn"
 
 type SidebarMenuFolderType = {
   item: {

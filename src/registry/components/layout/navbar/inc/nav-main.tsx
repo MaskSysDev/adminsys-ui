@@ -5,10 +5,9 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu"
 
-import { cn } from "@/lib/utils"
-
 import { NavItemLink } from "@/registry/components/layout/navbar/inc/part/nav-item-link"
 import type { NavItem } from "@/registry/components/layout/navbar/types"
+import { cn } from "@/registry/lib/cn"
 
 type NavMainProps = {
   position?: string

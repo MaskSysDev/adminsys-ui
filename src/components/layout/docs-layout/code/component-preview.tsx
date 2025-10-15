@@ -11,7 +11,8 @@ import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 import { getRegistryEntry } from "@/lib/registry-utils"
-import { cn } from "@/lib/utils"
+
+import { cn } from "@/registry/lib/cn"
 
 /**
  * Componente `ComponentPreview`:

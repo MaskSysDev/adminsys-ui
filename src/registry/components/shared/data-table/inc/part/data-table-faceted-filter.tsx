@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Separator } from "@/components/ui/separator"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/registry/lib/cn"
 
 type DataTableFacetedFilterProps<TData, TValue> = {
   column?: Column<TData, TValue>

@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "src/lib/utils.ts",
-      "content": "import { type ClassValue, clsx } from \"clsx\"\nimport { twMerge } from \"tailwind-merge\"\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs))\n}\n",
+      "content": "import { type ClassValue, clsx } from \"clsx\"\nimport { twMerge } from \"tailwind-merge\"\n\n/**\n * Combina classes Tailwind CSS de forma condicional e resolve conflitos.\n * Utiliza `clsx` para combinar classes e `tailwind-merge` para resolver conflitos de forma inteligente.\n * @param inputs As classes CSS a serem combinadas.\n * @returns Uma string contendo as classes CSS combinadas e resolvidas.\n */\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs))\n}\n",
       "type": "registry:lib"
     }
   ]

@@ -5,7 +5,7 @@ import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/registry/lib/cn"
 
 export function ToggleTheme({ className }: { className?: string }) {
   const { setTheme, theme } = useTheme()

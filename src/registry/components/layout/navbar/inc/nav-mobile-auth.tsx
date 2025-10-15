@@ -20,11 +20,10 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 
-import { cn } from "@/lib/utils"
-
 import { NavMobileNavUser } from "@/registry/components/layout/navbar/inc/part/nav-mobile-nav-user"
 import type { Navbar, NavItem } from "@/registry/components/layout/navbar/types"
 import type { SessionData } from "@/registry/components/layout/navbar/types/session-data"
+import { cn } from "@/registry/lib/cn"
 
 function NavMobileItem({ label = "label", href = "#" }: NavItem) {
   const pathname = usePathname()

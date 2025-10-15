@@ -5,12 +5,11 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu"
 
-import { cn } from "@/lib/utils"
-
 import { AuthButton } from "@/registry/components/auth/button/auth-button"
 import { NavItemLink } from "@/registry/components/layout/navbar/inc/part/nav-item-link"
 import type { NavItem } from "@/registry/components/layout/navbar/types"
 import type { SessionData } from "@/registry/components/layout/navbar/types/session-data"
+import { cn } from "@/registry/lib/cn"
 
 type NavMainAuthProps = {
   position?: string

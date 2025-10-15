@@ -8,7 +8,11 @@ import type { Registry } from "shadcn/schema"
  */
 export const components: Registry["items"] = [
   /**
-   * Exemplo `adminsys-demo`:
+   * Examples
+   */
+
+  /**
+   * Exemplo `adminsys-auth`:
    * Demonstra o uso do componente `adminsys`.
    */
   {
@@ -136,7 +140,7 @@ export const components: Registry["items"] = [
     ],
   },
   /**
-   * Exemplo `adminsys-demo`:
+   * Exemplo `adminsys`:
    * Demonstra o uso do componente `adminsys`.
    */
   {
@@ -230,7 +234,7 @@ export const components: Registry["items"] = [
     ],
   },
   /**
-   * Exemplo `sitesys-demo`:
+   * Exemplo `sitesys`:
    * Demonstra o uso do componente `sitesys`.
    */
   {
@@ -678,6 +682,7 @@ export const components: Registry["items"] = [
       "scroll-area",
       "collapsible",
       "<registryBaseUrl>/logo-adminsys.json",
+      "<registryBaseUrl>/cn.json",
     ],
     files: [
       {
@@ -823,6 +828,7 @@ export const components: Registry["items"] = [
     description: "A container component.",
     title: "container",
     author: "<author> <<authorUrl>>",
+    registryDependencies: ["<registryBaseUrl>/cn.json"],
     files: [
       {
         path: "components/shared/container/index.tsx",
@@ -850,6 +856,7 @@ export const components: Registry["items"] = [
       "select",
       "separator",
       "table",
+      "<registryBaseUrl>/cn.json",
       "<registryBaseUrl>/delete-confirmation-dialog.json",
       "<registryBaseUrl>/details-dialog.json",
       "<registryBaseUrl>/form-dialog.json",
@@ -966,7 +973,7 @@ export const components: Registry["items"] = [
     description: "A password-input component.",
     title: "password-input",
     author: "<author> <<authorUrl>>",
-    registryDependencies: ["button", "input"],
+    registryDependencies: ["button", "input", "<registryBaseUrl>/cn.json"],
     files: [
       {
         path: "components/shared/form/password-input/index.tsx",
@@ -1001,7 +1008,7 @@ export const components: Registry["items"] = [
     description: "A loading-spinner component.",
     title: "loading-spinner",
     author: "<author> <<authorUrl>>",
-    registryDependencies: ["spinner"],
+    registryDependencies: ["spinner", "<registryBaseUrl>/cn.json"],
     files: [
       {
         path: "components/shared/loading/loading-spinner.tsx",
@@ -1101,6 +1108,7 @@ export const components: Registry["items"] = [
     description: "A social-icon-link component.",
     title: "social-icon-link",
     author: "<author> <<authorUrl>>",
+    registryDependencies: ["<registryBaseUrl>/cn.json"],
     files: [
       {
         path: "components/shared/social/social-icon-link.tsx",
@@ -1120,6 +1128,7 @@ export const components: Registry["items"] = [
     title: "theme-toggle",
     author: "<author> <<authorUrl>>",
     dependencies: ["next-themes"],
+    registryDependencies: ["<registryBaseUrl>/cn.json"],
     files: [
       {
         path: "components/shared/toggle/theme-toggle.tsx",
@@ -1137,7 +1146,7 @@ export const components: Registry["items"] = [
     title: "toggle-theme",
     author: "<author> <<authorUrl>>",
     dependencies: ["next-themes"],
-    registryDependencies: ["button"],
+    registryDependencies: ["button", "<registryBaseUrl>/cn.json"],
     files: [
       {
         path: "components/shared/toggle/toggle-theme.tsx",
@@ -1155,6 +1164,7 @@ export const components: Registry["items"] = [
     description: "A typography component.",
     title: "typography",
     author: "<author> <<authorUrl>>",
+    registryDependencies: ["<registryBaseUrl>/cn.json"],
     files: [
       {
         path: "components/shared/typography/index.tsx",

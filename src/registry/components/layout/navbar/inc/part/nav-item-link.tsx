@@ -9,9 +9,8 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 
-import { cn } from "@/lib/utils"
-
 import type { NavItem } from "@/registry/components/layout/navbar/types"
+import { cn } from "@/registry/lib/cn"
 
 export function NavItemLink({ label = "label", href = "#" }: NavItem) {
   const pathname = usePathname()

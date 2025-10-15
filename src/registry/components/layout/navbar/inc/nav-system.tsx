@@ -3,9 +3,8 @@
 import { Separator } from "@/components/ui/separator"
 import { SidebarTrigger } from "@/components/ui/sidebar"
 
-import { cn } from "@/lib/utils"
-
 import { ToggleTheme } from "@/registry/components/shared/toggle/toggle-theme"
+import { cn } from "@/registry/lib/cn"
 
 export function NavSystem({ className }: { className?: string }) {
   return (

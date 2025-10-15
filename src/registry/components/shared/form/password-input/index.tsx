@@ -6,7 +6,7 @@ import { forwardRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/registry/lib/cn"
 
 export type PasswordInputProps = Omit<
   React.InputHTMLAttributes<HTMLInputElement>,

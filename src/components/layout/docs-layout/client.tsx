@@ -9,7 +9,7 @@ import { SidebarCollapseTrigger } from "@/components/layout/docs-layout/sidebar"
 import { SearchToggle } from "@/components/layout/docs-layout/toggle/search-toggle"
 import { buttonVariants } from "@/components/ui/button"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/registry/lib/cn"
 
 export function Navbar(props: ComponentProps<"header">) {
   const { isTransparent } = useNav()

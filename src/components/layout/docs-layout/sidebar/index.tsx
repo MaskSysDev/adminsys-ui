@@ -34,7 +34,8 @@ import {
 import { SidebarGroupLabel } from "@/components/ui/sidebar"
 
 import { isActive } from "@/lib/is-active"
-import { cn } from "@/lib/utils"
+
+import { cn } from "@/registry/lib/cn"
 
 type CollapsibleContentProps = ComponentProps<typeof CollapsibleContent>
 

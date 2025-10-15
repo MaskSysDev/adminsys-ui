@@ -705,7 +705,8 @@
         "sidebar",
         "scroll-area",
         "collapsible",
-        "http://localhost:3000/r/logo-adminsys.json"
+        "http://localhost:3000/r/logo-adminsys.json",
+        "http://localhost:3000/r/cn.json"
       ],
       "files": [
         {
@@ -839,6 +840,7 @@
       "title": "container",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A container component.",
+      "registryDependencies": ["http://localhost:3000/r/cn.json"],
       "files": [
         {
           "path": "src/registry/components/shared/container/index.tsx",
@@ -864,6 +866,7 @@
         "select",
         "separator",
         "table",
+        "http://localhost:3000/r/cn.json",
         "http://localhost:3000/r/delete-confirmation-dialog.json",
         "http://localhost:3000/r/details-dialog.json",
         "http://localhost:3000/r/form-dialog.json",
@@ -969,7 +972,11 @@
       "title": "password-input",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A password-input component.",
-      "registryDependencies": ["button", "input"],
+      "registryDependencies": [
+        "button",
+        "input",
+        "http://localhost:3000/r/cn.json"
+      ],
       "files": [
         {
           "path": "src/registry/components/shared/form/password-input/index.tsx",
@@ -1000,7 +1007,7 @@
       "title": "loading-spinner",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A loading-spinner component.",
-      "registryDependencies": ["spinner"],
+      "registryDependencies": ["spinner", "http://localhost:3000/r/cn.json"],
       "files": [
         {
           "path": "src/registry/components/shared/loading/loading-spinner.tsx",
@@ -1092,6 +1099,7 @@
       "title": "social-icon-link",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A social-icon-link component.",
+      "registryDependencies": ["http://localhost:3000/r/cn.json"],
       "files": [
         {
           "path": "src/registry/components/shared/social/social-icon-link.tsx",
@@ -1108,6 +1116,7 @@
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A theme-toggle component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
       "dependencies": ["next-themes"],
+      "registryDependencies": ["http://localhost:3000/r/cn.json"],
       "files": [
         {
           "path": "src/registry/components/shared/toggle/theme-toggle.tsx",
@@ -1124,7 +1133,7 @@
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A toggle-theme component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
       "dependencies": ["next-themes"],
-      "registryDependencies": ["button"],
+      "registryDependencies": ["button", "http://localhost:3000/r/cn.json"],
       "files": [
         {
           "path": "src/registry/components/shared/toggle/toggle-theme.tsx",
@@ -1140,6 +1149,7 @@
       "title": "typography",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A typography component.",
+      "registryDependencies": ["http://localhost:3000/r/cn.json"],
       "files": [
         {
           "path": "src/registry/components/shared/typography/index.tsx",

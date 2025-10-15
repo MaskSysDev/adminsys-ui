@@ -59,9 +59,8 @@ import {
 } from "@/components/layout/docs-layout/toggle/search-toggle"
 import { buttonVariants } from "@/components/ui/button"
 
-import { cn } from "@/lib/utils"
-
 import { ThemeToggle } from "@/registry/components/shared/toggle/theme-toggle"
+import { cn } from "@/registry/lib/cn"
 
 export interface DocsLayoutProps extends BaseLayoutProps {
   tree: PageTree.Root

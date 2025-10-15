@@ -12,10 +12,9 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
-import { cn } from "@/lib/utils"
-
 import { TermsAndPolicyDialog } from "@/registry/components/auth/dialog/terms-and-policy-dialog"
 import { SocialLogin } from "@/registry/components/auth/form/social-login"
+import { cn } from "@/registry/lib/cn"
 
 /**
  * Propriedades do componente CardAuthWrapper

@@ -1,6 +1,6 @@
 import { Spinner } from "@/components/ui/spinner"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/registry/lib/cn"
 
 export type LoadingSpinnerProps = {
   className?: string

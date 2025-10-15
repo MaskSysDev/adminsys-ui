@@ -14,7 +14,8 @@ import {
 } from "@/components/ui/popover"
 
 import { isTabActive } from "@/lib/is-active"
-import { cn } from "@/lib/utils"
+
+import { cn } from "@/registry/lib/cn"
 
 export interface Option extends SidebarTab {
   props?: ComponentProps<"a">

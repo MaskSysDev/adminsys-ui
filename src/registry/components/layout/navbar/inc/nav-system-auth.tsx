@@ -3,11 +3,10 @@
 import { Separator } from "@/components/ui/separator"
 import { SidebarTrigger } from "@/components/ui/sidebar"
 
-import { cn } from "@/lib/utils"
-
 import { DropdownUser } from "@/registry/components/auth/dropdown/dropdown-user"
 import type { SessionData } from "@/registry/components/layout/navbar/types/session-data"
 import { ToggleTheme } from "@/registry/components/shared/toggle/toggle-theme"
+import { cn } from "@/registry/lib/cn"
 
 export function NavSystemAuth({ className }: { className?: string }) {
   const { data: session }: { data: SessionData } = {

@@ -19,9 +19,8 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 
-import { cn } from "@/lib/utils"
-
 import type { Navbar, NavItem } from "@/registry/components/layout/navbar/types"
+import { cn } from "@/registry/lib/cn"
 
 function NavMobileItem({ label = "label", href = "#" }: NavItem) {
   const pathname = usePathname()
