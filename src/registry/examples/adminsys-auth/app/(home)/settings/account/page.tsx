@@ -1,12 +1,12 @@
 "use client"
 
-import { Container } from "@/components/layout/container"
 import { Typography } from "@/components/layout/typography"
 import { Separator } from "@/components/ui/separator"
 
 import { AccountForm } from "@/registry/components/auth/form/account-form"
 import { AccountImageForm } from "@/registry/components/auth/form/account-image-form"
 import { DeleteAccountForm } from "@/registry/components/auth/form/delete-account-form"
+import { Container } from "@/registry/components/shared/container"
 
 export default function AccountPage() {
   return (

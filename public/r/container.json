@@ -7,11 +7,11 @@
   "description": "A container component.",
   "files": [
     {
-      "path": "src/registry/components/layout/container/index.tsx",
+      "path": "src/registry/components/shared/container/index.tsx",
       "content": "import { cva, type VariantProps } from \"class-variance-authority\"\nimport type * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst containerVariants = cva(\"p-4\", {\n  variants: {\n    center: {\n      true: \"mx-auto\",\n    },\n    size: {\n      sm: \"container max-w-screen-sm\",\n      md: \"container max-w-screen-md\",\n      lg: \"container max-w-screen-lg\",\n      xl: \"container max-w-screen-xl\",\n      \"2xl\": \"container max-w-screen-2xl\",\n      full: \"w-full p-0\",\n    },\n  },\n  defaultVariants: {\n    size: \"xl\",\n    center: true,\n  },\n})\n\ninterface ContainerProps extends VariantProps<typeof containerVariants> {\n  /**\n   * @default true\n   */\n  center?: boolean | null\n  /**\n   * @default \"xl\"\n   */\n  size?: \"sm\" | \"md\" | \"lg\" | \"xl\" | \"2xl\" | \"full\" | null\n}\n\nfunction Container({\n  className,\n  size,\n  center,\n  ...props\n}: ContainerProps & React.HTMLAttributes<HTMLDivElement>) {\n  return (\n    <div\n      className={cn(containerVariants({ size, center }), className)}\n      {...props}\n    />\n  )\n}\n\nexport { Container, containerVariants, type ContainerProps }\n",
       "type": "registry:component",
-      "target": "src/components/layout/container/index.tsx"
+      "target": "src/components/shared/container/index.tsx"
     }
   ],
-  "docs": "http://localhost:3000/docs/components/layout/container"
+  "docs": "http://localhost:3000/docs/components/shared/container"
 }

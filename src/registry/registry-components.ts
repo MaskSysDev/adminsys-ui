@@ -523,25 +523,6 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/banner",
   },
   /**
-   * Componente `container`:
-   * Um componente de container.
-   */
-  {
-    name: "container",
-    type: "registry:component",
-    description: "A container component.",
-    title: "container",
-    author: "<author> <<authorUrl>>",
-    files: [
-      {
-        path: "components/layout/container/index.tsx",
-        type: "registry:component",
-        target: "src/components/layout/container/index.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/container",
-  },
-  /**
    * Componente `footer-01`:
    * Um componente de footer-01.
    */
@@ -1048,5 +1029,20 @@ export const components: Registry["items"] = [
       },
     ],
     docs: "<baseUrl>/docs/components/shared/alert#alert-warn",
+  },
+  {
+    name: "container",
+    type: "registry:component",
+    description: "A container component.",
+    title: "container",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/shared/container/index.tsx",
+        type: "registry:component",
+        target: "src/components/shared/container/index.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/shared/container",
   },
 ]

@@ -292,15 +292,6 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
-  "container": {
-    name: "container",
-    description: "A container component.",
-    type: "registry:component",
-    files: [{
-      path: "src/registry/components/layout/container/index.tsx",
-      type: "registry:component",
-    }],
-  },
   "footer-01": {
     name: "footer-01",
     description: "A footer-01 component.",
@@ -532,6 +523,15 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
+  "container": {
+    name: "container",
+    description: "A container component.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/components/shared/container/index.tsx",
+      type: "registry:component",
+    }],
+  },
   "form-auth-demo": {
     name: "form-auth-demo",
     description: "",
@@ -574,17 +574,6 @@ export const Index: Record<string, any> = {
       type: "registry:example",
     }],
     component: React.lazy(() => import("@/registry/examples/components/layout/banner/banner-demo.tsx")),
-
-  },
-  "container-demo": {
-    name: "container-demo",
-    description: "",
-    type: "registry:example",
-    files: [{
-      path: "src/registry/examples/components/layout/container/container-demo.tsx",
-      type: "registry:example",
-    }],
-    component: React.lazy(() => import("@/registry/examples/components/layout/container/container-demo.tsx")),
 
   },
   "footer-01-demo": {
@@ -805,6 +794,17 @@ export const Index: Record<string, any> = {
       type: "registry:example",
     }],
     component: React.lazy(() => import("@/registry/examples/components/shared/alert/alert-warn-demo.tsx")),
+
+  },
+  "container-demo": {
+    name: "container-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/components/shared/container/container-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/components/shared/container/container-demo.tsx")),
 
   },
 }

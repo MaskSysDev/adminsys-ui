@@ -1,10 +1,11 @@
 import Link from "next/link"
 
-import { Container } from "@/components/layout/container"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 
 import { cn } from "@/lib/utils"
+
+import { Container } from "@/registry/components/shared/container"
 
 export interface BannerProps extends React.ComponentProps<"div"> {
   backgroundImage?: string

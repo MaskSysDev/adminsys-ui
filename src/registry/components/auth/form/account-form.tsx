@@ -25,10 +25,10 @@ import {
 import { Input } from "@/components/ui/input"
 import { Switch } from "@/components/ui/switch"
 
-import { AlertError } from "@/registry/components/layout/alert/alert-error"
-import { AlertSuccess } from "@/registry/components/layout/alert/alert-success"
 import { PasswordInput } from "@/registry/components/layout/form/password-input"
 import { LoadingSpinner } from "@/registry/components/layout/loading/loading-spinner"
+import { AlertError } from "@/registry/components/shared/alert/alert-error"
+import { AlertSuccess } from "@/registry/components/shared/alert/alert-success"
 import {
   type AccountFormValues,
   accountSchema,

@@ -1,11 +1,12 @@
 import Link from "next/link"
 
-import { Container } from "@/components/layout/container"
 import { NavMain } from "@/components/layout/navbar/inc/nav-main"
 import { NavSystem } from "@/components/layout/navbar/inc/nav-system"
 import type { Navbar01Type } from "@/components/layout/navbar/types"
 
 import { cn } from "@/lib/utils"
+
+import { Container } from "@/registry/components/shared/container"
 
 type Navbar01Props = {
   navbar: Navbar01Type

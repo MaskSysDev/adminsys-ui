@@ -1,8 +1,8 @@
 import type { HTMLAttributes, JSX, ReactNode } from "react"
 
-import { Container } from "@/components/layout/container"
-
 import { cn } from "@/lib/utils"
+
+import { Container } from "@/registry/components/shared/container"
 
 type SocialIconLinkProps = {
   label: string

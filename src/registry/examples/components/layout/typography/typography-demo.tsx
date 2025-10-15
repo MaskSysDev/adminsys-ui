@@ -1,5 +1,5 @@
-import { Container } from "@/registry/components/layout/container"
 import { Typography } from "@/registry/components/layout/typography"
+import { Container } from "@/registry/components/shared/container"
 
 export default function TypographyDemo() {
   return (

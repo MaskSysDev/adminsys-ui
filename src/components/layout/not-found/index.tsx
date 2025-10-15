@@ -3,9 +3,10 @@
 import { ArrowLeftIcon } from "lucide-react"
 import { useRouter } from "next/navigation"
 
-import { Container } from "@/components/layout/container"
 import { Typography } from "@/components/layout/typography"
 import { Button } from "@/components/ui/button"
+
+import { Container } from "@/registry/components/shared/container"
 
 type NotFoundProps = {
   title?: string

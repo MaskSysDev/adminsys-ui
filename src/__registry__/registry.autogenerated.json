@@ -542,21 +542,6 @@
       "docs": "http://localhost:3000/docs/components/layout/banner"
     },
     {
-      "name": "container",
-      "type": "registry:component",
-      "title": "container",
-      "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A container component.",
-      "files": [
-        {
-          "path": "src/registry/components/layout/container/index.tsx",
-          "type": "registry:component",
-          "target": "src/components/layout/container/index.tsx"
-        }
-      ],
-      "docs": "http://localhost:3000/docs/components/layout/container"
-    },
-    {
       "name": "footer-01",
       "type": "registry:component",
       "title": "footer-01",
@@ -1007,6 +992,21 @@
         }
       ],
       "docs": "http://localhost:3000/docs/components/shared/alert#alert-warn"
+    },
+    {
+      "name": "container",
+      "type": "registry:component",
+      "title": "container",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A container component.",
+      "files": [
+        {
+          "path": "src/registry/components/shared/container/index.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/container/index.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/container"
     }
   ]
 }

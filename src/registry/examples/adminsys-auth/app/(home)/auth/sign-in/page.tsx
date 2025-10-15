@@ -1,8 +1,7 @@
 import type { Metadata } from "next"
 
-import { Container } from "@/components/layout/container"
-
 import { FormAuth } from "@/registry/components/auth/form/form-auth"
+import { Container } from "@/registry/components/shared/container"
 
 export const metadata: Metadata = {
   title: "Sign in",

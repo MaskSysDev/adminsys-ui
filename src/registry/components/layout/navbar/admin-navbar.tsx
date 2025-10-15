@@ -1,8 +1,8 @@
 import { SidebarTrigger } from "@/components/ui/sidebar"
 
 import { DropdownUser } from "@/registry/components/auth/dropdown/dropdown-user"
-import { Container } from "@/registry/components/layout/container"
 import { ToggleTheme } from "@/registry/components/layout/toggle/toggle-theme"
+import { Container } from "@/registry/components/shared/container"
 
 export function AdminNavbar() {
   return (

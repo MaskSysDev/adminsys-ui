@@ -84,19 +84,19 @@
     },
     {
       "path": "src/registry/examples/adminsys/app/(admin)/admin/dashboard/page.tsx",
-      "content": "import { Container } from \"@/components/layout/container\"\nimport { Typography } from \"@/components/layout/typography\"\n\nexport default function Page() {\n  return (\n    <Container size=\"2xl\">\n      <Typography.H1 className=\"mb-4 text-start\">Dashboard</Typography.H1>\n      <Typography.Lead>Dashboard Page.</Typography.Lead>\n    </Container>\n  )\n}\n",
+      "content": "import { Typography } from \"@/components/layout/typography\"\n\nimport { Container } from \"@/registry/components/shared/container\"\n\nexport default function Page() {\n  return (\n    <Container size=\"2xl\">\n      <Typography.H1 className=\"mb-4 text-start\">Dashboard</Typography.H1>\n      <Typography.Lead>Dashboard Page.</Typography.Lead>\n    </Container>\n  )\n}\n",
       "type": "registry:file",
       "target": "src/app/(admin)/admin/dashboard/page.tsx"
     },
     {
       "path": "src/registry/examples/adminsys/app/(admin)/admin/folder-01/submenu-01/page.tsx",
-      "content": "import { Container } from \"@/components/layout/container\"\nimport { Typography } from \"@/components/layout/typography\"\n\nexport default function Page() {\n  return (\n    <Container size=\"2xl\">\n      <Typography.H1 className=\"mb-4 text-start\">Submenu 01</Typography.H1>\n      <Typography.Lead>Submenu 01 Page.</Typography.Lead>\n    </Container>\n  )\n}\n",
+      "content": "import { Typography } from \"@/components/layout/typography\"\n\nimport { Container } from \"@/registry/components/shared/container\"\n\nexport default function Page() {\n  return (\n    <Container size=\"2xl\">\n      <Typography.H1 className=\"mb-4 text-start\">Submenu 01</Typography.H1>\n      <Typography.Lead>Submenu 01 Page.</Typography.Lead>\n    </Container>\n  )\n}\n",
       "type": "registry:file",
       "target": "src/app/(admin)/admin/folder-01/submenu-01/page.tsx"
     },
     {
       "path": "src/registry/examples/adminsys/app/(admin)/admin/folder-01/submenu-02/page.tsx",
-      "content": "import { Container } from \"@/components/layout/container\"\nimport { Typography } from \"@/components/layout/typography\"\n\nexport default function Page() {\n  return (\n    <Container size=\"2xl\">\n      <Typography.H1 className=\"mb-4 text-start\">Submenu 02</Typography.H1>\n      <Typography.Lead>Submenu 02 Page.</Typography.Lead>\n    </Container>\n  )\n}\n",
+      "content": "import { Typography } from \"@/components/layout/typography\"\n\nimport { Container } from \"@/registry/components/shared/container\"\n\nexport default function Page() {\n  return (\n    <Container size=\"2xl\">\n      <Typography.H1 className=\"mb-4 text-start\">Submenu 02</Typography.H1>\n      <Typography.Lead>Submenu 02 Page.</Typography.Lead>\n    </Container>\n  )\n}\n",
       "type": "registry:file",
       "target": "src/app/(admin)/admin/folder-01/submenu-02/page.tsx"
     }

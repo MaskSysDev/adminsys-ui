@@ -65,21 +65,6 @@ export const examples: Registry["items"] = [
     ],
   },
   /**
-   * Exemplo `container-demo`:
-   * Demonstra o uso do componente `container`.
-   */
-  {
-    name: "container-demo",
-    type: "registry:example",
-    registryDependencies: ["<registryBaseUrl>/container.json"],
-    files: [
-      {
-        path: "examples/components/layout/container/container-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  /**
    * Exemplo `footer-01-demo`:
    * Demonstra o uso do componente `footer-01`.
    */
@@ -362,6 +347,17 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "examples/components/shared/alert/alert-warn-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "container-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/container.json"],
+    files: [
+      {
+        path: "examples/components/shared/container/container-demo.tsx",
         type: "registry:example",
       },
     ],

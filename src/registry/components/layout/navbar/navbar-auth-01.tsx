@@ -1,12 +1,12 @@
 import Link from "next/link"
 
-import { Container } from "@/components/layout/container"
 import { NavSystem } from "@/components/layout/navbar/inc/nav-system"
 import type { NavbarAuth01Type } from "@/components/layout/navbar/types"
 
 import { cn } from "@/lib/utils"
 
 import { NavMainAuth } from "@/registry/components/layout/navbar/inc/nav-main-auth"
+import { Container } from "@/registry/components/shared/container"
 
 export type NavbarAuth01Props = {
   navbar: NavbarAuth01Type
