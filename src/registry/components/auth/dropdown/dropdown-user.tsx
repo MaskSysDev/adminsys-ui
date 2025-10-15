@@ -16,12 +16,17 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 export type DropdownUserProps = {
-  name: string
-  email: string
-  image?: string
+  user: {
+    id: string
+    name: string
+    email: string
+    image: string | null | undefined
+    lastName: string
+    role: string
+  }
 }
 
-export function DropdownUser({ name, email, image }: DropdownUserProps) {
+export function DropdownUser({ user }: DropdownUserProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -31,15 +36,15 @@ export function DropdownUser({ name, email, image }: DropdownUserProps) {
           variant="secondary"
         >
           <Avatar className="h-8 w-8 rounded-full">
-            {image && (
+            {user.image && (
               <AvatarImage
-                alt={name}
-                className="aspect-square size-full"
-                src={image}
+                alt={user.name}
+                className="object-cover object-center"
+                src={user.image}
               />
             )}
             <AvatarFallback className="rounded-full">
-              <User2Icon />
+              <User2Icon className="text-muted-foreground" />
             </AvatarFallback>
           </Avatar>
           <span className="sr-only">User Menu</span>
@@ -49,15 +54,17 @@ export function DropdownUser({ name, email, image }: DropdownUserProps) {
         <DropdownMenuLabel className="p-0 font-normal">
           <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
             <Avatar className="h-8 w-8 rounded-lg">
-              {image && <AvatarImage alt={name} src={image} />}
+              {user.image && <AvatarImage alt={user.name} src={user.image} />}
               <AvatarFallback className="rounded-lg">
-                <User2Icon />
+                <User2Icon className="text-muted-foreground" />
               </AvatarFallback>
             </Avatar>
             <div className="grid flex-1 text-left text-sm leading-tight">
-              <span className="line-clamp-1 truncate font-medium">{name}</span>
+              <span className="line-clamp-1 truncate font-medium">
+                {user.name}
+              </span>
               <span className="line-clamp-1 truncate text-muted-foreground text-xs">
-                {email}
+                {user.email}
               </span>
             </div>
           </div>
@@ -76,6 +83,14 @@ export function DropdownUser({ name, email, image }: DropdownUserProps) {
           >
             <Link href={"/settings/account"}>Account</Link>
           </DropdownMenuItem>
+          {user.role === "admin" && (
+            <DropdownMenuItem
+              asChild
+              className="cursor-pointer transition-colors"
+            >
+              <Link href={"/admin/dashboard"}>Dashboard</Link>
+            </DropdownMenuItem>
+          )}
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem className="cursor-pointer transition-colors">

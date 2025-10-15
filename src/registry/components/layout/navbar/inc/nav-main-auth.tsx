@@ -1,47 +1,42 @@
 "use client"
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-
-import type { NavItemType } from "@/components/layout/navbar/types"
-import { Button } from "@/components/ui/button"
 import {
   NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 
 import { cn } from "@/lib/utils"
 
-function NavItem({ label = "label", href = "#" }: NavItemType) {
-  const pathname = usePathname()
-
-  return (
-    <NavigationMenuItem>
-      <NavigationMenuLink
-        asChild
-        className={navigationMenuTriggerStyle({
-          className: cn(
-            "h-8 bg-transparent px-3 text-base text-muted-foreground hover:bg-transparent hover:text-foreground focus:bg-transparent focus:text-foreground",
-            pathname === href ? "text-primary" : null
-          ),
-        })}
-      >
-        <Link href={href}>{label}</Link>
-      </NavigationMenuLink>
-    </NavigationMenuItem>
-  )
-}
+import { AuthButton } from "@/registry/components/auth/button/auth-button"
+import { NavItemLink } from "@/registry/components/layout/navbar/inc/part/nav-item-link"
+import type { NavItem } from "@/registry/components/layout/navbar/types"
+import type { SessionData } from "@/registry/components/layout/navbar/types/session-data"
 
 type NavMainAuthProps = {
   position?: string
-  items: NavItemType[]
+  items: NavItem[]
   className?: string
 }
 
 export function NavMainAuth({ position, items, className }: NavMainAuthProps) {
+  const { data: session }: { data: SessionData } = {
+    data: {
+      session: {
+        expiresAt: new Date(),
+        token: "token",
+        userAgent: null,
+      },
+      user: {
+        id: "string",
+        name: "string",
+        lastName: "string",
+        email: "string",
+        image: null,
+        role: "admin",
+      },
+    },
+  }
+
   if (items.length === null) {
     return null
   }
@@ -61,15 +56,10 @@ export function NavMainAuth({ position, items, className }: NavMainAuthProps) {
       <NavigationMenu viewport={false}>
         <NavigationMenuList>
           {items.map((item) => (
-            <NavItem href={item.href} key={item.href} label={item.label} />
+            <NavItemLink href={item.href} key={item.href} label={item.label} />
           ))}
-          <Button asChild size="sm">
-            <Link href={"/auth/sign-in"}>Sign in</Link>
-          </Button>
-          <Button asChild size="sm" variant="outline">
-            <Link href={"/auth/sign-up"}>Sign up</Link>
-          </Button>
         </NavigationMenuList>
+        {!session && <AuthButton />}
       </NavigationMenu>
     </div>
   )

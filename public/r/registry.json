@@ -428,27 +428,6 @@
       "docs": "http://localhost:3000/docs/components/auth/form#form-auth"
     },
     {
-      "name": "admin-navbar",
-      "type": "registry:component",
-      "title": "admin-navbar",
-      "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A admin-navbar component.",
-      "registryDependencies": [
-        "sidebar",
-        "http://localhost:3000/r/container.json",
-        "http://localhost:3000/r/dropdown-user.json",
-        "http://localhost:3000/r/toggle-theme.json"
-      ],
-      "files": [
-        {
-          "path": "src/registry/components/layout/navbar/admin-navbar.tsx",
-          "type": "registry:component",
-          "target": "src/components/layout/navbar/admin-navbar.tsx"
-        }
-      ],
-      "docs": "http://localhost:3000/docs/components/layout/navbar#admin-navbar"
-    },
-    {
       "name": "admin-sidebar",
       "type": "registry:component",
       "title": "admin-sidebar",
@@ -502,6 +481,44 @@
       "docs": "http://localhost:3000/docs/components/layout/sidebar#admin-sidebar"
     },
     {
+      "name": "site-layout",
+      "type": "registry:component",
+      "title": "site-layout",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A site-layout component.",
+      "dependencies": ["next-themes"],
+      "registryDependencies": [
+        "sidebar",
+        "sonner",
+        "http://localhost:3000/r/tailwind-indicator.json",
+        "http://localhost:3000/r/navbar-01.json",
+        "http://localhost:3000/r/footer-01.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/layout/site-layout/index.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/site-layout/index.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/site-layout"
+    },
+    {
+      "name": "tailwind-indicator",
+      "type": "registry:component",
+      "title": "tailwind-indicator",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A tailwind-indicator component.",
+      "files": [
+        {
+          "path": "src/registry/components/dev/tailwind-indicator.tsx",
+          "type": "registry:component",
+          "target": "src/components/dev/tailwind-indicator.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/dev/tailwind-indicator"
+    },
+    {
       "name": "admin-layout",
       "type": "registry:component",
       "title": "admin-layout",
@@ -522,6 +539,29 @@
         }
       ],
       "docs": "http://localhost:3000/docs/components/layout/admin-layout"
+    },
+    {
+      "name": "auth-layout",
+      "type": "registry:component",
+      "title": "auth-layout",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A auth-layout component.",
+      "dependencies": ["next-themes"],
+      "registryDependencies": [
+        "sidebar",
+        "sonner",
+        "http://localhost:3000/r/tailwind-indicator.json",
+        "http://localhost:3000/r/navbar-auth-01.json",
+        "http://localhost:3000/r/footer-01.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/layout/auth-layout/index.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/auth-layout/index.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/auth-layout"
     },
     {
       "name": "banner",
@@ -579,6 +619,27 @@
       "docs": "http://localhost:3000/docs/components/layout/hero#hero-01"
     },
     {
+      "name": "admin-navbar",
+      "type": "registry:component",
+      "title": "admin-navbar",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A admin-navbar component.",
+      "registryDependencies": [
+        "sidebar",
+        "http://localhost:3000/r/container.json",
+        "http://localhost:3000/r/dropdown-user.json",
+        "http://localhost:3000/r/toggle-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/layout/navbar/admin-navbar.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/admin-navbar.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/layout/navbar#admin-navbar"
+    },
+    {
       "name": "navbar-01",
       "type": "registry:component",
       "title": "navbar-01",
@@ -591,6 +652,16 @@
         "http://localhost:3000/r/container.json"
       ],
       "files": [
+        {
+          "path": "src/registry/components/layout/navbar/inc/part/nav-item-link.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/inc/part/nav-item-link.tsx"
+        },
+        {
+          "path": "src/registry/components/layout/navbar/inc/part/nav-logo.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/inc/part/nav-logo.tsx"
+        },
         {
           "path": "src/registry/components/layout/navbar/inc/nav-main.tsx",
           "type": "registry:component",
@@ -617,7 +688,7 @@
           "target": "src/components/layout/navbar/navbar-01.tsx"
         }
       ],
-      "docs": "http://localhost:3000/docs/components/layout/logo#navbar-01"
+      "docs": "http://localhost:3000/docs/components/layout/navbar#navbar-01"
     },
     {
       "name": "navbar-auth-01",
@@ -633,6 +704,26 @@
       ],
       "files": [
         {
+          "path": "src/registry/components/auth/button/auth-button.tsx",
+          "type": "registry:component",
+          "target": "src/components/auth/button/auth-button.tsx"
+        },
+        {
+          "path": "src/registry/components/layout/navbar/inc/part/nav-item-link.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/inc/part/nav-item-link.tsx"
+        },
+        {
+          "path": "src/registry/components/layout/navbar/inc/part/nav-logo.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/inc/part/nav-logo.tsx"
+        },
+        {
+          "path": "src/registry/components/layout/navbar/inc/part/nav-mobile-nav-user.tsx",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/inc/part/nav-mobile-nav-user.tsx"
+        },
+        {
           "path": "src/registry/components/layout/navbar/inc/nav-main-auth.tsx",
           "type": "registry:component",
           "target": "src/components/layout/navbar/inc/nav-main-auth.tsx"
@@ -643,9 +734,9 @@
           "target": "src/components/layout/navbar/inc/nav-mobile-auth.tsx"
         },
         {
-          "path": "src/registry/components/layout/navbar/inc/nav-system.tsx",
+          "path": "src/registry/components/layout/navbar/inc/nav-system-auth.tsx",
           "type": "registry:component",
-          "target": "src/components/layout/navbar/inc/nav-system.tsx"
+          "target": "src/components/layout/navbar/inc/nav-system-auth.tsx"
         },
         {
           "path": "src/registry/components/layout/navbar/types/index.ts",
@@ -653,73 +744,17 @@
           "target": "src/components/layout/navbar/types/index.ts"
         },
         {
+          "path": "src/registry/components/layout/navbar/types/session-data.ts",
+          "type": "registry:component",
+          "target": "src/components/layout/navbar/types/session-data.ts"
+        },
+        {
           "path": "src/registry/components/layout/navbar/navbar-auth-01.tsx",
           "type": "registry:component",
           "target": "src/components/layout/navbar/navbar-auth-01.tsx"
         }
       ],
-      "docs": "http://localhost:3000/docs/components/layout/logo#navbar-auth-01"
-    },
-    {
-      "name": "auth-layout",
-      "type": "registry:component",
-      "title": "auth-layout",
-      "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A auth-layout component.",
-      "dependencies": ["next-themes"],
-      "registryDependencies": [
-        "sidebar",
-        "sonner",
-        "http://localhost:3000/r/tailwind-indicator.json",
-        "http://localhost:3000/r/navbar-auth-01.json",
-        "http://localhost:3000/r/footer-01.json"
-      ],
-      "files": [
-        {
-          "path": "src/registry/components/layout/auth-layout/index.tsx",
-          "type": "registry:component",
-          "target": "src/components/layout/auth-layout/index.tsx"
-        }
-      ],
-      "docs": "http://localhost:3000/docs/components/layout/auth-layout"
-    },
-    {
-      "name": "site-layout",
-      "type": "registry:component",
-      "title": "site-layout",
-      "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A site-layout component.",
-      "dependencies": ["next-themes"],
-      "registryDependencies": [
-        "sidebar",
-        "sonner",
-        "http://localhost:3000/r/tailwind-indicator.json",
-        "http://localhost:3000/r/navbar-01.json",
-        "http://localhost:3000/r/footer-01.json"
-      ],
-      "files": [
-        {
-          "path": "src/registry/components/layout/site-layout/index.tsx",
-          "type": "registry:component",
-          "target": "src/components/layout/site-layout/index.tsx"
-        }
-      ],
-      "docs": "http://localhost:3000/docs/components/layout/site-layout"
-    },
-    {
-      "name": "tailwind-indicator",
-      "type": "registry:component",
-      "title": "tailwind-indicator",
-      "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A tailwind-indicator component.",
-      "files": [
-        {
-          "path": "src/registry/components/dev/tailwind-indicator.tsx",
-          "type": "registry:component",
-          "target": "src/components/dev/tailwind-indicator.tsx"
-        }
-      ],
-      "docs": "http://localhost:3000/docs/components/dev/tailwind-indicator"
+      "docs": "http://localhost:3000/docs/components/layout/navbar#navbar-auth-01"
     },
     {
       "name": "alert-error",

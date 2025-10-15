@@ -316,17 +316,6 @@ export const Index: Record<string, any> = {
       },
     ],
   },
-  "admin-navbar": {
-    name: "admin-navbar",
-    description: "A admin-navbar component.",
-    type: "registry:component",
-    files: [
-      {
-        path: "src/registry/components/layout/navbar/admin-navbar.tsx",
-        type: "registry:component",
-      },
-    ],
-  },
   "admin-sidebar": {
     name: "admin-sidebar",
     description: "A admin-sidebar component.",
@@ -362,6 +351,28 @@ export const Index: Record<string, any> = {
       },
     ],
   },
+  "site-layout": {
+    name: "site-layout",
+    description: "A site-layout component.",
+    type: "registry:component",
+    files: [
+      {
+        path: "src/registry/components/layout/site-layout/index.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
+  "tailwind-indicator": {
+    name: "tailwind-indicator",
+    description: "A tailwind-indicator component.",
+    type: "registry:component",
+    files: [
+      {
+        path: "src/registry/components/dev/tailwind-indicator.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
   "admin-layout": {
     name: "admin-layout",
     description: "A admin-layout component.",
@@ -369,6 +380,17 @@ export const Index: Record<string, any> = {
     files: [
       {
         path: "src/registry/components/layout/admin-layout/index.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
+  "auth-layout": {
+    name: "auth-layout",
+    description: "A auth-layout component.",
+    type: "registry:component",
+    files: [
+      {
+        path: "src/registry/components/layout/auth-layout/index.tsx",
         type: "registry:component",
       },
     ],
@@ -406,11 +428,30 @@ export const Index: Record<string, any> = {
       },
     ],
   },
+  "admin-navbar": {
+    name: "admin-navbar",
+    description: "A admin-navbar component.",
+    type: "registry:component",
+    files: [
+      {
+        path: "src/registry/components/layout/navbar/admin-navbar.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
   "navbar-01": {
     name: "navbar-01",
     description: "A navbar-01 component.",
     type: "registry:component",
     files: [
+      {
+        path: "src/registry/components/layout/navbar/inc/part/nav-item-link.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "src/registry/components/layout/navbar/inc/part/nav-logo.tsx",
+        type: "registry:component",
+      },
       {
         path: "src/registry/components/layout/navbar/inc/nav-main.tsx",
         type: "registry:component",
@@ -439,6 +480,22 @@ export const Index: Record<string, any> = {
     type: "registry:component",
     files: [
       {
+        path: "src/registry/components/auth/button/auth-button.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "src/registry/components/layout/navbar/inc/part/nav-item-link.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "src/registry/components/layout/navbar/inc/part/nav-logo.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "src/registry/components/layout/navbar/inc/part/nav-mobile-nav-user.tsx",
+        type: "registry:component",
+      },
+      {
         path: "src/registry/components/layout/navbar/inc/nav-main-auth.tsx",
         type: "registry:component",
       },
@@ -447,7 +504,7 @@ export const Index: Record<string, any> = {
         type: "registry:component",
       },
       {
-        path: "src/registry/components/layout/navbar/inc/nav-system.tsx",
+        path: "src/registry/components/layout/navbar/inc/nav-system-auth.tsx",
         type: "registry:component",
       },
       {
@@ -455,40 +512,11 @@ export const Index: Record<string, any> = {
         type: "registry:component",
       },
       {
+        path: "src/registry/components/layout/navbar/types/session-data.ts",
+        type: "registry:component",
+      },
+      {
         path: "src/registry/components/layout/navbar/navbar-auth-01.tsx",
-        type: "registry:component",
-      },
-    ],
-  },
-  "auth-layout": {
-    name: "auth-layout",
-    description: "A auth-layout component.",
-    type: "registry:component",
-    files: [
-      {
-        path: "src/registry/components/layout/auth-layout/index.tsx",
-        type: "registry:component",
-      },
-    ],
-  },
-  "site-layout": {
-    name: "site-layout",
-    description: "A site-layout component.",
-    type: "registry:component",
-    files: [
-      {
-        path: "src/registry/components/layout/site-layout/index.tsx",
-        type: "registry:component",
-      },
-    ],
-  },
-  "tailwind-indicator": {
-    name: "tailwind-indicator",
-    description: "A tailwind-indicator component.",
-    type: "registry:component",
-    files: [
-      {
-        path: "src/registry/components/dev/tailwind-indicator.tsx",
         type: "registry:component",
       },
     ],
@@ -790,21 +818,19 @@ export const Index: Record<string, any> = {
         )
     ),
   },
-  "admin-navbar-demo": {
-    name: "admin-navbar-demo",
+  "tailwind-indicator-demo": {
+    name: "tailwind-indicator-demo",
     description: "",
     type: "registry:example",
     files: [
       {
-        path: "src/registry/examples/components/layout/navbar/admin-navbar-demo.tsx",
+        path: "src/registry/examples/components/dev/tailwind-indicator-demo.tsx",
         type: "registry:example",
       },
     ],
     component: React.lazy(
       () =>
-        import(
-          "@/registry/examples/components/layout/navbar/admin-navbar-demo.tsx"
-        )
+        import("@/registry/examples/components/dev/tailwind-indicator-demo.tsx")
     ),
   },
   "banner-demo": {
@@ -854,6 +880,23 @@ export const Index: Record<string, any> = {
         import("@/registry/examples/components/layout/hero/hero-01-demo.tsx")
     ),
   },
+  "admin-navbar-demo": {
+    name: "admin-navbar-demo",
+    description: "",
+    type: "registry:example",
+    files: [
+      {
+        path: "src/registry/examples/components/layout/navbar/admin-navbar-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+    component: React.lazy(
+      () =>
+        import(
+          "@/registry/examples/components/layout/navbar/admin-navbar-demo.tsx"
+        )
+    ),
+  },
   "navbar-01-demo": {
     name: "navbar-01-demo",
     description: "",
@@ -886,21 +929,6 @@ export const Index: Record<string, any> = {
         import(
           "@/registry/examples/components/layout/navbar/navbar-auth-01-demo.tsx"
         )
-    ),
-  },
-  "tailwind-indicator-demo": {
-    name: "tailwind-indicator-demo",
-    description: "",
-    type: "registry:example",
-    files: [
-      {
-        path: "src/registry/examples/components/dev/tailwind-indicator-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-    component: React.lazy(
-      () =>
-        import("@/registry/examples/components/dev/tailwind-indicator-demo.tsx")
     ),
   },
   "alert-error-demo": {

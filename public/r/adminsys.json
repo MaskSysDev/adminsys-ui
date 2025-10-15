@@ -40,7 +40,7 @@
     },
     {
       "path": "src/registry/examples/adminsys/app/(home)/page.tsx",
-      "content": "import { Hero01 } from \"@/components/layout/hero/hero-01\"\n\nimport { hero01 } from \"@/config/site-config\"\n\nexport default function Home() {\n  return (\n    <section id=\"hero\">\n      <Hero01 {...hero01} />\n    </section>\n  )\n}\n",
+      "content": "import { hero01 } from \"@/config/site-config\"\nimport { Hero01 } from \"@/registry/components/layout/hero/hero-01\"\n\nexport default function Home() {\n  return (\n    <section id=\"hero\">\n      <Hero01 {...hero01} />\n    </section>\n  )\n}\n",
       "type": "registry:file",
       "target": "src/app/(home)/page.tsx"
     },
@@ -76,7 +76,7 @@
     },
     {
       "path": "src/registry/examples/adminsys/app/(admin)/admin/layout.tsx",
-      "content": "import { AdminLayout } from \"@/components/layout/admin-layout\"\n\nexport default function Layout({\n  children,\n}: Readonly<{\n  children: React.ReactNode\n}>) {\n  return <AdminLayout>{children}</AdminLayout>\n}\n",
+      "content": "import { AdminLayout } from \"@/registry/components/layout/admin-layout\"\n\nexport default function Layout({\n  children,\n}: Readonly<{\n  children: React.ReactNode\n}>) {\n  return <AdminLayout>{children}</AdminLayout>\n}\n",
       "type": "registry:file",
       "target": "src/app/(admin)/admin/layout.tsx"
     },

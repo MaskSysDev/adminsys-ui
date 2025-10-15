@@ -1,11 +1,15 @@
+"use client"
+
+import { Separator } from "@/components/ui/separator"
 import { SidebarTrigger } from "@/components/ui/sidebar"
+
+import { cn } from "@/lib/utils"
 
 import { DropdownUser } from "@/registry/components/auth/dropdown/dropdown-user"
 import type { SessionData } from "@/registry/components/layout/navbar/types/session-data"
-import { Container } from "@/registry/components/shared/container"
 import { ToggleTheme } from "@/registry/components/shared/toggle/toggle-theme"
 
-export function AdminNavbar() {
+export function NavSystemAuth({ className }: { className?: string }) {
   const { data: session }: { data: SessionData } = {
     data: {
       session: {
@@ -24,18 +28,17 @@ export function AdminNavbar() {
     },
   }
 
-  const user = session?.user
-
   return (
-    <div className="sticky top-0 flex h-16 w-full shrink-0 items-center gap-2 border-b bg-background">
-      <Container className="flex items-center gap-2" size="2xl">
-        <SidebarTrigger className="-ml-1.5 size-8 cursor-pointer text-muted-foreground" />
+    <div className={cn("flex h-5 items-center gap-1", className)}>
+      <ToggleTheme className="flex" />
 
-        <div className="ml-auto flex w-auto items-center gap-2">
-          <ToggleTheme />
-          {user && <DropdownUser user={user} />}
-        </div>
-      </Container>
+      {session && <DropdownUser user={session.user} />}
+
+      <Separator
+        className={cn("flex md:hidden", session && "ml-2")}
+        orientation="vertical"
+      />
+      <SidebarTrigger className="flex size-8 cursor-pointer text-muted-foreground md:hidden" />
     </div>
   )
 }

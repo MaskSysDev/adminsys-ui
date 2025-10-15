@@ -39,92 +39,6 @@ export const examples: Registry["items"] = [
     ],
   },
   /**
-   * Exemplo `admin-navbar-demo`:
-   * Demonstra o uso do componente `admin-navbar`.
-   */
-  {
-    name: "admin-navbar-demo",
-    type: "registry:example",
-    registryDependencies: ["<registryBaseUrl>/admin-navbar.json"],
-    files: [
-      {
-        path: "examples/components/layout/navbar/admin-navbar-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
-    name: "banner-demo",
-    type: "registry:example",
-    registryDependencies: ["<registryBaseUrl>/banner.json"],
-    files: [
-      {
-        path: "examples/components/layout/banner/banner-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  /**
-   * Exemplo `footer-01-demo`:
-   * Demonstra o uso do componente `footer-01`.
-   */
-  {
-    name: "footer-01-demo",
-    type: "registry:example",
-    registryDependencies: ["<registryBaseUrl>/footer-01.json"],
-    files: [
-      {
-        path: "examples/components/layout/footer/footer-01-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  /**
-   * Exemplo `hero-01-demo`:
-   * Demonstra o uso do componente `hero-01`.
-   */
-  {
-    name: "hero-01-demo",
-    type: "registry:example",
-    registryDependencies: ["<registryBaseUrl>/hero-01.json"],
-    files: [
-      {
-        path: "examples/components/layout/hero/hero-01-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  /**
-   * Exemplo `navbar-01-demo`:
-   * Demonstra o uso do componente `navbar-01`.
-   */
-  {
-    name: "navbar-01-demo",
-    type: "registry:example",
-    registryDependencies: ["<registryBaseUrl>/navbar-01.json"],
-    files: [
-      {
-        path: "examples/components/layout/navbar/navbar-01-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  /**
-   * Exemplo `navbar-auth-01-demo`:
-   * Demonstra o uso do componente `navbar-auth-01`.
-   */
-  {
-    name: "navbar-auth-01-demo",
-    type: "registry:example",
-    registryDependencies: ["<registryBaseUrl>/navbar-auth-01.json"],
-    files: [
-      {
-        path: "examples/components/layout/navbar/navbar-auth-01-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  /**
    * Exemplo `tailwind-indicator-demo`:
    * Demonstra o uso do componente `tailwind-indicator`.
    */
@@ -139,6 +53,84 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  /**
+   * Examples Components Layout
+   */
+
+  /* banner */
+  {
+    name: "banner-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/banner.json"],
+    files: [
+      {
+        path: "examples/components/layout/banner/banner-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+
+  /* footer */
+  {
+    name: "footer-01-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/footer-01.json"],
+    files: [
+      {
+        path: "examples/components/layout/footer/footer-01-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+
+  /* hero */
+  {
+    name: "hero-01-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/hero-01.json"],
+    files: [
+      {
+        path: "examples/components/layout/hero/hero-01-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+
+  /* navbar */
+  {
+    name: "admin-navbar-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/admin-navbar.json"],
+    files: [
+      {
+        path: "examples/components/layout/navbar/admin-navbar-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "navbar-01-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/navbar-01.json"],
+    files: [
+      {
+        path: "examples/components/layout/navbar/navbar-01-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "navbar-auth-01-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/navbar-auth-01.json"],
+    files: [
+      {
+        path: "examples/components/layout/navbar/navbar-auth-01-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+
   /**
    * Examples Components Shared
    */

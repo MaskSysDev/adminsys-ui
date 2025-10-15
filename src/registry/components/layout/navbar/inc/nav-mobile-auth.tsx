@@ -4,14 +4,11 @@ import { X } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
-import type {
-  Navbar01Type,
-  NavItemType,
-} from "@/components/layout/navbar/types"
 import { Button } from "@/components/ui/button"
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
@@ -25,7 +22,11 @@ import {
 
 import { cn } from "@/lib/utils"
 
-function NavMobileItem({ label = "label", href = "#" }: NavItemType) {
+import { NavMobileNavUser } from "@/registry/components/layout/navbar/inc/part/nav-mobile-nav-user"
+import type { Navbar, NavItem } from "@/registry/components/layout/navbar/types"
+import type { SessionData } from "@/registry/components/layout/navbar/types/session-data"
+
+function NavMobileItem({ label = "label", href = "#" }: NavItem) {
   const pathname = usePathname()
   const { setOpenMobile } = useSidebar()
 
@@ -49,7 +50,7 @@ function NavMobileItem({ label = "label", href = "#" }: NavItemType) {
 
 interface NavMobileAuthProps
   extends React.ComponentProps<typeof Sidebar>,
-    Navbar01Type {}
+    Navbar {}
 
 export function NavMobileAuth({
   label,
@@ -60,6 +61,24 @@ export function NavMobileAuth({
   ...props
 }: NavMobileAuthProps) {
   const { setOpenMobile } = useSidebar()
+
+  const { data: session }: { data: SessionData } = {
+    data: {
+      session: {
+        expiresAt: new Date(),
+        token: "token",
+        userAgent: null,
+      },
+      user: {
+        id: "string",
+        name: "string",
+        lastName: "string",
+        email: "string",
+        image: null,
+        role: "admin",
+      },
+    },
+  }
 
   return (
     <Sidebar {...props}>
@@ -113,21 +132,33 @@ export function NavMobileAuth({
                   label={item.label}
                 />
               ))}
-              <Button asChild onClick={() => setOpenMobile(false)} size="sm">
-                <Link href={"/auth/sign-in"}>Sign in</Link>
-              </Button>
-              <Button
-                asChild
-                onClick={() => setOpenMobile(false)}
-                size="sm"
-                variant="outline"
-              >
-                <Link href={"/auth/sign-up"}>Sign up</Link>
-              </Button>
+
+              {!session && (
+                <>
+                  <Button
+                    asChild
+                    onClick={() => setOpenMobile(false)}
+                    size="sm"
+                  >
+                    <Link href={"/auth/sign-in"}>Sign in</Link>
+                  </Button>
+                  <Button
+                    asChild
+                    onClick={() => setOpenMobile(false)}
+                    size="sm"
+                    variant="outline"
+                  >
+                    <Link href={"/auth/sign-up"}>Sign up</Link>
+                  </Button>
+                </>
+              )}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter>
+        {session && <NavMobileNavUser user={session?.user} />}
+      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   )

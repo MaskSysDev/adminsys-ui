@@ -20,14 +20,23 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 
-type SidebarNavUserType = {
-  name: string
-  email: string
-  image?: string
+type NavMobileNavUserProps = {
+  user?: {
+    id: string
+    name: string
+    email: string
+    image: string | null | undefined
+    lastName: string
+    role: "user" | "admin"
+  }
 }
 
-export function SidebarNavUser({ name, email, image }: SidebarNavUserType) {
-  const { isMobile } = useSidebar()
+export function NavMobileNavUser({ user }: NavMobileNavUserProps) {
+  const { isMobile, setOpenMobile } = useSidebar()
+
+  const handleLogout = () => {
+    setOpenMobile(false)
+  }
 
   return (
     <SidebarMenu>
@@ -39,16 +48,20 @@ export function SidebarNavUser({ name, email, image }: SidebarNavUserType) {
               size="lg"
             >
               <Avatar className="h-8 w-8 rounded-lg">
-                {image && <AvatarImage alt={name} src={image} />}
+                {user?.image && (
+                  <AvatarImage alt={user.name} src={user.image} />
+                )}
                 <AvatarFallback className="rounded-lg">
-                  <User2Icon />
+                  <User2Icon className="text-muted-foreground" />
                 </AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tights">
                 <span className="line-clamp-1 truncate font-medium">
-                  {name}
+                  {user?.name}
                 </span>
-                <span className="line-clamp-1 truncate text-xs">{email}</span>
+                <span className="line-clamp-1 truncate text-xs">
+                  {user?.email}
+                </span>
               </div>
               <ChevronsUpDown className="ml-auto size-4" />
             </SidebarMenuButton>
@@ -62,17 +75,19 @@ export function SidebarNavUser({ name, email, image }: SidebarNavUserType) {
             <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
-                  {image && <AvatarImage alt={name} src={image} />}
+                  {user?.image && (
+                    <AvatarImage alt={user.name} src={user.image} />
+                  )}
                   <AvatarFallback className="rounded-lg">
-                    <User2Icon />
+                    <User2Icon className="text-muted-foreground" />
                   </AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="line-clamp-1 truncate font-medium">
-                    {name}
+                    {user?.name}
                   </span>
                   <span className="line-clamp-1 truncate text-muted-foreground text-xs">
-                    {email}
+                    {user?.email}
                   </span>
                 </div>
               </div>
@@ -82,18 +97,32 @@ export function SidebarNavUser({ name, email, image }: SidebarNavUserType) {
               <DropdownMenuItem
                 asChild
                 className="cursor-pointer transition-colors"
+                onClick={() => setOpenMobile(false)}
               >
                 <Link href="/settings/profile">Profile</Link>
               </DropdownMenuItem>
               <DropdownMenuItem
                 asChild
                 className="cursor-pointer transition-colors"
+                onClick={() => setOpenMobile(false)}
               >
                 <Link href="/settings/account">Account</Link>
               </DropdownMenuItem>
+              {user?.role === "admin" && (
+                <DropdownMenuItem
+                  asChild
+                  className="cursor-pointer transition-colors"
+                  onClick={() => setOpenMobile(false)}
+                >
+                  <Link href={"/admin/dashboard"}>Dashboard</Link>
+                </DropdownMenuItem>
+              )}
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="cursor-pointer transition-colors">
+            <DropdownMenuItem
+              className="cursor-pointer transition-colors"
+              onClick={handleLogout}
+            >
               <LogOut />
               Log out
             </DropdownMenuItem>

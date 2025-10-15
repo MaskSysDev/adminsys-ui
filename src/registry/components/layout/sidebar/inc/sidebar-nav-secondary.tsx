@@ -1,12 +1,13 @@
 import type * as React from "react"
 
-import { SidebarMenuLink } from "@/components/layout/sidebar/inc/part/sidebar-menu-link"
 import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarMenu,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
+
+import { SidebarMenuLink } from "@/registry/components/layout/sidebar/inc/part/sidebar-menu-link"
 
 export function SidebarNavSecondary({
   items,

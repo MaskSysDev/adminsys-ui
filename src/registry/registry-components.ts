@@ -389,31 +389,6 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/auth/form#form-auth",
   },
   /**
-   * Componente `admin-navbar`:
-   * Um componente de admin-navbar.
-   */
-  {
-    name: "admin-navbar",
-    type: "registry:component",
-    description: "A admin-navbar component.",
-    title: "admin-navbar",
-    author: "<author> <<authorUrl>>",
-    registryDependencies: [
-      "sidebar",
-      "<registryBaseUrl>/container.json",
-      "<registryBaseUrl>/dropdown-user.json",
-      "<registryBaseUrl>/toggle-theme.json",
-    ],
-    files: [
-      {
-        path: "components/layout/navbar/admin-navbar.tsx",
-        type: "registry:component",
-        target: "src/components/layout/navbar/admin-navbar.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/navbar#admin-navbar",
-  },
-  /**
    * Componente `admin-sidebar`:
    * Um componente de admin-sidebar.
    */
@@ -473,216 +448,6 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/sidebar#admin-sidebar",
   },
   /**
-   * Componente `admin-layout`:
-   * Um componente de admin-layout.
-   */
-  {
-    name: "admin-layout",
-    type: "registry:component",
-    description: "A admin-layout component.",
-    title: "admin-layout",
-    author: "<author> <<authorUrl>>",
-    registryDependencies: [
-      "sidebar",
-      "sonner",
-      "<registryBaseUrl>/tailwind-indicator.json",
-      "<registryBaseUrl>/admin-navbar.json",
-      "<registryBaseUrl>/admin-sidebar.json",
-    ],
-    files: [
-      {
-        path: "components/layout/admin-layout/index.tsx",
-        type: "registry:component",
-        target: "src/components/layout/admin-layout/index.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/admin-layout",
-  },
-  /**
-   * Componente `banner`:
-   * Um componente de banner.
-   */
-  {
-    name: "banner",
-    type: "registry:component",
-    description: "A banner component.",
-    title: "banner",
-    author: "<author> <<authorUrl>>",
-    registryDependencies: [
-      "badge",
-      "button",
-      "<registryBaseUrl>/container.json",
-    ],
-    files: [
-      {
-        path: "components/layout/banner/index.tsx",
-        type: "registry:component",
-        target: "src/components/layout/banner/index.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/banner",
-  },
-  /**
-   * Componente `footer-01`:
-   * Um componente de footer-01.
-   */
-  {
-    name: "footer-01",
-    type: "registry:component",
-    description: "A footer-01 component.",
-    title: "footer-01",
-    author: "<author> <<authorUrl>>",
-    registryDependencies: [
-      "<registryBaseUrl>/container.json",
-      "<registryBaseUrl>/social-icon-link.json",
-    ],
-    files: [
-      {
-        path: "components/layout/footer/footer-01.tsx",
-        type: "registry:component",
-        target: "src/components/layout/footer/footer-01.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/footer#footer-01",
-  },
-  /**
-   * Componente `hero-01`:
-   * Um componente de hero-01.
-   */
-  {
-    name: "hero-01",
-    type: "registry:component",
-    description: "A hero-01 component.",
-    title: "hero",
-    author: "<author> <<authorUrl>>",
-    registryDependencies: ["<registryBaseUrl>/banner.json"],
-    files: [
-      {
-        path: "components/layout/hero/hero-01.tsx",
-        type: "registry:component",
-        target: "src/components/layout/hero/hero-01.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/hero#hero-01",
-  },
-  /**
-   * Componente `navbar-01`:
-   * Um componente de navbar-01.
-   */
-  {
-    name: "navbar-01",
-    type: "registry:component",
-    description: "A navbar-01 component.",
-    title: "navbar-01",
-    author: "<author> <<authorUrl>>",
-    registryDependencies: [
-      "button",
-      "sidebar",
-      "navigation-menu",
-      "<registryBaseUrl>/container.json",
-    ],
-    files: [
-      {
-        path: "components/layout/navbar/inc/nav-main.tsx",
-        type: "registry:component",
-        target: "src/components/layout/navbar/inc/nav-main.tsx",
-      },
-      {
-        path: "components/layout/navbar/inc/nav-mobile.tsx",
-        type: "registry:component",
-        target: "src/components/layout/navbar/inc/nav-mobile.tsx",
-      },
-      {
-        path: "components/layout/navbar/inc/nav-system.tsx",
-        type: "registry:component",
-        target: "src/components/layout/navbar/inc/nav-system.tsx",
-      },
-      {
-        path: "components/layout/navbar/types/index.ts",
-        type: "registry:component",
-        target: "src/components/layout/navbar/types/index.ts",
-      },
-      {
-        path: "components/layout/navbar/navbar-01.tsx",
-        type: "registry:component",
-        target: "src/components/layout/navbar/navbar-01.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/logo#navbar-01",
-  },
-  /**
-   * Componente `navbar-auth-01`:
-   * Um componente de navbar-auth-01.
-   */
-  {
-    name: "navbar-auth-01",
-    type: "registry:component",
-    description: "A navbar-auth-01 component.",
-    title: "navbar-auth-01",
-    author: "<author> <<authorUrl>>",
-    registryDependencies: [
-      "button",
-      "sidebar",
-      "navigation-menu",
-      "<registryBaseUrl>/container.json",
-    ],
-    files: [
-      {
-        path: "components/layout/navbar/inc/nav-main-auth.tsx",
-        type: "registry:component",
-        target: "src/components/layout/navbar/inc/nav-main-auth.tsx",
-      },
-      {
-        path: "components/layout/navbar/inc/nav-mobile-auth.tsx",
-        type: "registry:component",
-        target: "src/components/layout/navbar/inc/nav-mobile-auth.tsx",
-      },
-      {
-        path: "components/layout/navbar/inc/nav-system.tsx",
-        type: "registry:component",
-        target: "src/components/layout/navbar/inc/nav-system.tsx",
-      },
-      {
-        path: "components/layout/navbar/types/index.ts",
-        type: "registry:component",
-        target: "src/components/layout/navbar/types/index.ts",
-      },
-      {
-        path: "components/layout/navbar/navbar-auth-01.tsx",
-        type: "registry:component",
-        target: "src/components/layout/navbar/navbar-auth-01.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/logo#navbar-auth-01",
-  },
-  /**
-   * Componente `auth-layout`:
-   * Um componente de auth-layout.
-   */
-  {
-    name: "auth-layout",
-    type: "registry:component",
-    description: "A auth-layout component.",
-    title: "auth-layout",
-    author: "<author> <<authorUrl>>",
-    dependencies: ["next-themes"],
-    registryDependencies: [
-      "sidebar",
-      "sonner",
-      "<registryBaseUrl>/tailwind-indicator.json",
-      "<registryBaseUrl>/navbar-auth-01.json",
-      "<registryBaseUrl>/footer-01.json",
-    ],
-    files: [
-      {
-        path: "components/layout/auth-layout/index.tsx",
-        type: "registry:component",
-        target: "src/components/layout/auth-layout/index.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/auth-layout",
-  },
-  /**
    * Componente `site-layout`:
    * Um componente de site-layout.
    */
@@ -728,6 +493,264 @@ export const components: Registry["items"] = [
     ],
     docs: "<baseUrl>/docs/components/dev/tailwind-indicator",
   },
+  /**
+   * Components Layout
+   */
+
+  /* admin-layout */
+  {
+    name: "admin-layout",
+    type: "registry:component",
+    description: "A admin-layout component.",
+    title: "admin-layout",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: [
+      "sidebar",
+      "sonner",
+      "<registryBaseUrl>/tailwind-indicator.json",
+      "<registryBaseUrl>/admin-navbar.json",
+      "<registryBaseUrl>/admin-sidebar.json",
+    ],
+    files: [
+      {
+        path: "components/layout/admin-layout/index.tsx",
+        type: "registry:component",
+        target: "src/components/layout/admin-layout/index.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/admin-layout",
+  },
+
+  /* auth-layout */
+  {
+    name: "auth-layout",
+    type: "registry:component",
+    description: "A auth-layout component.",
+    title: "auth-layout",
+    author: "<author> <<authorUrl>>",
+    dependencies: ["next-themes"],
+    registryDependencies: [
+      "sidebar",
+      "sonner",
+      "<registryBaseUrl>/tailwind-indicator.json",
+      "<registryBaseUrl>/navbar-auth-01.json",
+      "<registryBaseUrl>/footer-01.json",
+    ],
+    files: [
+      {
+        path: "components/layout/auth-layout/index.tsx",
+        type: "registry:component",
+        target: "src/components/layout/auth-layout/index.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/auth-layout",
+  },
+
+  /* banner */
+  {
+    name: "banner",
+    type: "registry:component",
+    description: "A banner component.",
+    title: "banner",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: [
+      "badge",
+      "button",
+      "<registryBaseUrl>/container.json",
+    ],
+    files: [
+      {
+        path: "components/layout/banner/index.tsx",
+        type: "registry:component",
+        target: "src/components/layout/banner/index.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/banner",
+  },
+
+  /* footer-01 */
+  {
+    name: "footer-01",
+    type: "registry:component",
+    description: "A footer-01 component.",
+    title: "footer-01",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: [
+      "<registryBaseUrl>/container.json",
+      "<registryBaseUrl>/social-icon-link.json",
+    ],
+    files: [
+      {
+        path: "components/layout/footer/footer-01.tsx",
+        type: "registry:component",
+        target: "src/components/layout/footer/footer-01.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/footer#footer-01",
+  },
+
+  /* hero-01 */
+  {
+    name: "hero-01",
+    type: "registry:component",
+    description: "A hero-01 component.",
+    title: "hero",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: ["<registryBaseUrl>/banner.json"],
+    files: [
+      {
+        path: "components/layout/hero/hero-01.tsx",
+        type: "registry:component",
+        target: "src/components/layout/hero/hero-01.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/hero#hero-01",
+  },
+
+  /* admin-navbar */
+  {
+    name: "admin-navbar",
+    type: "registry:component",
+    description: "A admin-navbar component.",
+    title: "admin-navbar",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: [
+      "sidebar",
+      "<registryBaseUrl>/container.json",
+      "<registryBaseUrl>/dropdown-user.json",
+      "<registryBaseUrl>/toggle-theme.json",
+    ],
+    files: [
+      {
+        path: "components/layout/navbar/admin-navbar.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/admin-navbar.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/navbar#admin-navbar",
+  },
+
+  /* navbar-01 */
+  {
+    name: "navbar-01",
+    type: "registry:component",
+    description: "A navbar-01 component.",
+    title: "navbar-01",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: [
+      "button",
+      "sidebar",
+      "navigation-menu",
+      "<registryBaseUrl>/container.json",
+    ],
+    files: [
+      {
+        path: "components/layout/navbar/inc/part/nav-item-link.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/inc/part/nav-item-link.tsx",
+      },
+      {
+        path: "components/layout/navbar/inc/part/nav-logo.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/inc/part/nav-logo.tsx",
+      },
+      {
+        path: "components/layout/navbar/inc/nav-main.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/inc/nav-main.tsx",
+      },
+      {
+        path: "components/layout/navbar/inc/nav-mobile.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/inc/nav-mobile.tsx",
+      },
+      {
+        path: "components/layout/navbar/inc/nav-system.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/inc/nav-system.tsx",
+      },
+      {
+        path: "components/layout/navbar/types/index.ts",
+        type: "registry:component",
+        target: "src/components/layout/navbar/types/index.ts",
+      },
+      {
+        path: "components/layout/navbar/navbar-01.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/navbar-01.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/navbar#navbar-01",
+  },
+
+  /* navbar-auth-01 */
+  {
+    name: "navbar-auth-01",
+    type: "registry:component",
+    description: "A navbar-auth-01 component.",
+    title: "navbar-auth-01",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: [
+      "button",
+      "sidebar",
+      "navigation-menu",
+      "<registryBaseUrl>/container.json",
+    ],
+    files: [
+      {
+        path: "components/auth/button/auth-button.tsx",
+        type: "registry:component",
+        target: "src/components/auth/button/auth-button.tsx",
+      },
+      {
+        path: "components/layout/navbar/inc/part/nav-item-link.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/inc/part/nav-item-link.tsx",
+      },
+      {
+        path: "components/layout/navbar/inc/part/nav-logo.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/inc/part/nav-logo.tsx",
+      },
+      {
+        path: "components/layout/navbar/inc/part/nav-mobile-nav-user.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/inc/part/nav-mobile-nav-user.tsx",
+      },
+      {
+        path: "components/layout/navbar/inc/nav-main-auth.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/inc/nav-main-auth.tsx",
+      },
+      {
+        path: "components/layout/navbar/inc/nav-mobile-auth.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/inc/nav-mobile-auth.tsx",
+      },
+      {
+        path: "components/layout/navbar/inc/nav-system-auth.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/inc/nav-system-auth.tsx",
+      },
+      {
+        path: "components/layout/navbar/types/index.ts",
+        type: "registry:component",
+        target: "src/components/layout/navbar/types/index.ts",
+      },
+      {
+        path: "components/layout/navbar/types/session-data.ts",
+        type: "registry:component",
+        target: "src/components/layout/navbar/types/session-data.ts",
+      },
+      {
+        path: "components/layout/navbar/navbar-auth-01.tsx",
+        type: "registry:component",
+        target: "src/components/layout/navbar/navbar-auth-01.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/navbar#navbar-auth-01",
+  },
+
   /**
    * Components Shared
    */
