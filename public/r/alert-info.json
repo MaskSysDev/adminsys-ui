@@ -5,9 +5,7 @@
   "title": "alert-info",
   "author": "MaskSysDev <https://github.com/MaskSysDev>",
   "description": "A alert-info component.",
-  "registryDependencies": [
-    "alert"
-  ],
+  "registryDependencies": ["alert"],
   "files": [
     {
       "path": "src/registry/components/shared/alert/alert-info.tsx",

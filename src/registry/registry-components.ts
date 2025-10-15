@@ -585,25 +585,6 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/icons",
   },
   /**
-   * Componente `loading-spinner`:
-   * Um componente de loading-spinner.
-   */
-  {
-    name: "loading-spinner",
-    type: "registry:component",
-    description: "A loading-spinner component.",
-    title: "loading-spinner",
-    author: "<author> <<authorUrl>>",
-    files: [
-      {
-        path: "components/layout/loading/loading-spinner.tsx",
-        type: "registry:component",
-        target: "src/components/layout/loading/loading-spinner.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/loading#loading-spinner",
-  },
-  /**
    * Componente `logo-adminsys`:
    * Um componente de logo-adminsys.
    */
@@ -1040,5 +1021,21 @@ export const components: Registry["items"] = [
       },
     ],
     docs: "<baseUrl>/docs/components/shared/form#password-input",
+  },
+  {
+    name: "loading-spinner",
+    type: "registry:component",
+    description: "A loading-spinner component.",
+    title: "loading-spinner",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: ["spinner"],
+    files: [
+      {
+        path: "components/shared/loading/loading-spinner.tsx",
+        type: "registry:component",
+        target: "src/components/shared/loading/loading-spinner.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/shared/loading#loading-spinner",
   },
 ]

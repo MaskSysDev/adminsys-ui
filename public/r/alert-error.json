@@ -5,9 +5,7 @@
   "title": "alert-error",
   "author": "MaskSysDev <https://github.com/MaskSysDev>",
   "description": "A alert-error component.",
-  "registryDependencies": [
-    "alert"
-  ],
+  "registryDependencies": ["alert"],
   "files": [
     {
       "path": "src/registry/components/shared/alert/alert-error.tsx",

@@ -5,9 +5,7 @@
   "title": "theme-toggle",
   "author": "MaskSysDev <https://github.com/MaskSysDev>",
   "description": "A theme-toggle component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
-  "dependencies": [
-    "next-themes"
-  ],
+  "dependencies": ["next-themes"],
   "files": [
     {
       "path": "src/registry/components/layout/toggle/theme-toggle.tsx",

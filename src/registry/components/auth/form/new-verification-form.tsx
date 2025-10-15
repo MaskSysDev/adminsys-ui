@@ -4,9 +4,9 @@
 import { useCallback, useEffect, useState } from "react"
 import { toast } from "sonner"
 
-import { LoadingSpinner } from "@/registry/components/layout/loading/loading-spinner"
 import { AlertError } from "@/registry/components/shared/alert/alert-error"
 import { AlertSuccess } from "@/registry/components/shared/alert/alert-success"
+import { LoadingSpinner } from "@/registry/components/shared/loading/loading-spinner"
 
 /**
  * Estado do formulário de verificação

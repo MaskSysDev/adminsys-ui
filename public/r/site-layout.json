@@ -5,9 +5,7 @@
   "title": "site-layout",
   "author": "MaskSysDev <https://github.com/MaskSysDev>",
   "description": "A site-layout component.",
-  "dependencies": [
-    "next-themes"
-  ],
+  "dependencies": ["next-themes"],
   "registryDependencies": [
     "sidebar",
     "sonner",

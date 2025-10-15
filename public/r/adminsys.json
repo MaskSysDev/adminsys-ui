@@ -2,9 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "adminsys",
   "type": "registry:block",
-  "dependencies": [
-    "zod"
-  ],
+  "dependencies": ["zod"],
   "registryDependencies": [
     "http://localhost:3000/r/admin-layout.json",
     "http://localhost:3000/r/typography.json",

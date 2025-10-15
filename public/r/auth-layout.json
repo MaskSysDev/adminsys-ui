@@ -5,9 +5,7 @@
   "title": "auth-layout",
   "author": "MaskSysDev <https://github.com/MaskSysDev>",
   "description": "A auth-layout component.",
-  "dependencies": [
-    "next-themes"
-  ],
+  "dependencies": ["next-themes"],
   "registryDependencies": [
     "sidebar",
     "sonner",

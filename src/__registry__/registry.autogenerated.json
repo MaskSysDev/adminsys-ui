@@ -8,10 +8,7 @@
       "type": "registry:lib",
       "title": "Utility Functions",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "dependencies": [
-        "clsx",
-        "tailwind-merge"
-      ],
+      "dependencies": ["clsx", "tailwind-merge"],
       "files": [
         {
           "path": "src/lib/utils.ts",
@@ -36,9 +33,7 @@
       "type": "registry:lib",
       "title": "Sanitize Functions",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "dependencies": [
-        "zod"
-      ],
+      "dependencies": ["zod"],
       "files": [
         {
           "path": "src/utils/sanitize.ts",
@@ -61,9 +56,7 @@
     {
       "name": "adminsys-auth",
       "type": "registry:block",
-      "dependencies": [
-        "zod"
-      ],
+      "dependencies": ["zod"],
       "registryDependencies": [
         "alert-dialog",
         "switch",
@@ -187,9 +180,7 @@
     {
       "name": "adminsys",
       "type": "registry:block",
-      "dependencies": [
-        "zod"
-      ],
+      "dependencies": ["zod"],
       "registryDependencies": [
         "http://localhost:3000/r/admin-layout.json",
         "http://localhost:3000/r/typography.json",
@@ -279,9 +270,7 @@
     {
       "name": "sitesys",
       "type": "registry:block",
-      "dependencies": [
-        "zod"
-      ],
+      "dependencies": ["zod"],
       "registryDependencies": [
         "http://localhost:3000/r/site-layout.json",
         "http://localhost:3000/r/hero-01.json",
@@ -566,9 +555,7 @@
       "title": "hero",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A hero-01 component.",
-      "registryDependencies": [
-        "http://localhost:3000/r/banner.json"
-      ],
+      "registryDependencies": ["http://localhost:3000/r/banner.json"],
       "files": [
         {
           "path": "src/registry/components/layout/hero/hero-01.tsx",
@@ -592,21 +579,6 @@
         }
       ],
       "docs": "http://localhost:3000/docs/components/layout/icons"
-    },
-    {
-      "name": "loading-spinner",
-      "type": "registry:component",
-      "title": "loading-spinner",
-      "author": "MaskSysDev <https://github.com/MaskSysDev>",
-      "description": "A loading-spinner component.",
-      "files": [
-        {
-          "path": "src/registry/components/layout/loading/loading-spinner.tsx",
-          "type": "registry:component",
-          "target": "src/components/layout/loading/loading-spinner.tsx"
-        }
-      ],
-      "docs": "http://localhost:3000/docs/components/layout/loading#loading-spinner"
     },
     {
       "name": "logo-adminsys",
@@ -756,9 +728,7 @@
       "title": "theme-provider",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A theme-provider component.",
-      "dependencies": [
-        "next-themes"
-      ],
+      "dependencies": ["next-themes"],
       "files": [
         {
           "path": "src/registry/components/layout/provider/theme-provider.tsx",
@@ -774,9 +744,7 @@
       "title": "auth-layout",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A auth-layout component.",
-      "dependencies": [
-        "next-themes"
-      ],
+      "dependencies": ["next-themes"],
       "registryDependencies": [
         "sidebar",
         "sonner",
@@ -799,9 +767,7 @@
       "title": "site-layout",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A site-layout component.",
-      "dependencies": [
-        "next-themes"
-      ],
+      "dependencies": ["next-themes"],
       "registryDependencies": [
         "sidebar",
         "sonner",
@@ -854,9 +820,7 @@
       "title": "theme-toggle",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A theme-toggle component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
-      "dependencies": [
-        "next-themes"
-      ],
+      "dependencies": ["next-themes"],
       "files": [
         {
           "path": "src/registry/components/layout/toggle/theme-toggle.tsx",
@@ -872,12 +836,8 @@
       "title": "toggle-theme",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A toggle-theme component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
-      "dependencies": [
-        "next-themes"
-      ],
-      "registryDependencies": [
-        "button"
-      ],
+      "dependencies": ["next-themes"],
+      "registryDependencies": ["button"],
       "files": [
         {
           "path": "src/registry/components/layout/toggle/toggle-theme.tsx",
@@ -908,9 +868,7 @@
       "title": "alert-error",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A alert-error component.",
-      "registryDependencies": [
-        "alert"
-      ],
+      "registryDependencies": ["alert"],
       "files": [
         {
           "path": "src/registry/components/shared/alert/alert-error.tsx",
@@ -926,9 +884,7 @@
       "title": "alert-info",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A alert-info component.",
-      "registryDependencies": [
-        "alert"
-      ],
+      "registryDependencies": ["alert"],
       "files": [
         {
           "path": "src/registry/components/shared/alert/alert-info.tsx",
@@ -944,9 +900,7 @@
       "title": "alert-success",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A alert-success component.",
-      "registryDependencies": [
-        "alert"
-      ],
+      "registryDependencies": ["alert"],
       "files": [
         {
           "path": "src/registry/components/shared/alert/alert-success.tsx",
@@ -962,9 +916,7 @@
       "title": "alert-warn",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A alert-warn component.",
-      "registryDependencies": [
-        "alert"
-      ],
+      "registryDependencies": ["alert"],
       "files": [
         {
           "path": "src/registry/components/shared/alert/alert-warn.tsx",
@@ -995,10 +947,7 @@
       "title": "password-input",
       "author": "MaskSysDev <https://github.com/MaskSysDev>",
       "description": "A password-input component.",
-      "registryDependencies": [
-        "button",
-        "input"
-      ],
+      "registryDependencies": ["button", "input"],
       "files": [
         {
           "path": "src/registry/components/shared/form/password-input/index.tsx",
@@ -1007,6 +956,22 @@
         }
       ],
       "docs": "http://localhost:3000/docs/components/shared/form#password-input"
+    },
+    {
+      "name": "loading-spinner",
+      "type": "registry:component",
+      "title": "loading-spinner",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A loading-spinner component.",
+      "registryDependencies": ["spinner"],
+      "files": [
+        {
+          "path": "src/registry/components/shared/loading/loading-spinner.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/loading/loading-spinner.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/loading#loading-spinner"
     }
   ]
 }

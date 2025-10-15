@@ -110,21 +110,6 @@ export const examples: Registry["items"] = [
     ],
   },
   /**
-   * Exemplo `loading-spinner-demo`:
-   * Demonstra o uso do componente `loading-spinner`.
-   */
-  {
-    name: "loading-spinner-demo",
-    type: "registry:example",
-    registryDependencies: ["<registryBaseUrl>/loading-spinner.json"],
-    files: [
-      {
-        path: "examples/components/layout/loading/loading-spinner-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  /**
    * Exemplo `logo-adminsys-demo`:
    * Demonstra o uso do componente `logo-adminsys`.
    */
@@ -354,6 +339,17 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "examples/components/shared/form/password-input-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "loading-spinner-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/loading-spinner.json"],
+    files: [
+      {
+        path: "examples/components/shared/loading/loading-spinner-demo.tsx",
         type: "registry:example",
       },
     ],

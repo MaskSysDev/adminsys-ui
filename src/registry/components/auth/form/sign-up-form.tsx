@@ -19,10 +19,10 @@ import { Input } from "@/components/ui/input"
 
 import { sanitizeData } from "@/utils/sanitize"
 
-import { LoadingSpinner } from "@/registry/components/layout/loading/loading-spinner"
 import { AlertError } from "@/registry/components/shared/alert/alert-error"
 import { AlertSuccess } from "@/registry/components/shared/alert/alert-success"
 import { PasswordInput } from "@/registry/components/shared/form/password-input"
+import { LoadingSpinner } from "@/registry/components/shared/loading/loading-spinner"
 import {
   type SignUpFormValues,
   signUpSchema,

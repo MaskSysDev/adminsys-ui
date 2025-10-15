@@ -5,9 +5,7 @@
   "title": "theme-provider",
   "author": "MaskSysDev <https://github.com/MaskSysDev>",
   "description": "A theme-provider component.",
-  "dependencies": [
-    "next-themes"
-  ],
+  "dependencies": ["next-themes"],
   "files": [
     {
       "path": "src/registry/components/layout/provider/theme-provider.tsx",

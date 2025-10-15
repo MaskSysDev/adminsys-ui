@@ -5,9 +5,7 @@
   "title": "alert-warn",
   "author": "MaskSysDev <https://github.com/MaskSysDev>",
   "description": "A alert-warn component.",
-  "registryDependencies": [
-    "alert"
-  ],
+  "registryDependencies": ["alert"],
   "files": [
     {
       "path": "src/registry/components/shared/alert/alert-warn.tsx",

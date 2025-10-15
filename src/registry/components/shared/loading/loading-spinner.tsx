@@ -1,3 +1,5 @@
+import { Spinner } from "@/components/ui/spinner"
+
 import { cn } from "@/lib/utils"
 
 export type LoadingSpinnerProps = {
@@ -8,10 +10,11 @@ export function LoadingSpinner({ className }: LoadingSpinnerProps) {
   return (
     <span
       className={cn(
-        "absolute inline-block size-6 min-w-max animate-spin rounded-full border-[3px] border-current border-t-transparent text-muted-foreground",
+        "absolute inline-block min-w-max text-muted-foreground",
         className
       )}
     >
+      <Spinner className="size-6" />
       <span className="sr-only">Loading...</span>
     </span>
   )
