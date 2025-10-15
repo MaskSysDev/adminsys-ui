@@ -1157,6 +1157,25 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/shared/toggle#toggle-theme",
   },
 
+  /* tooltip */
+  {
+    name: "simple-tooltip",
+    type: "registry:component",
+    description:
+      "A simple-tooltip component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
+    title: "simple-tooltip",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: ["tooltip"],
+    files: [
+      {
+        path: "components/shared/tooltip/simple-tooltip.tsx",
+        type: "registry:component",
+        target: "src/components/shared/tooltip/simple-tooltip.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/shared/tooltip#simple-tooltip",
+  },
+
   /* typography */
   {
     name: "typography",

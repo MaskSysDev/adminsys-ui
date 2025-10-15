@@ -1,6 +1,5 @@
 import { ChevronsDownUpIcon, ChevronsUpDownIcon } from "lucide-react"
 
-import { SimpleTooltip } from "@/components/layout/tooltip/simple-tooltip"
 import { Button } from "@/components/ui/button"
 import {
   Collapsible,
@@ -9,6 +8,7 @@ import {
 } from "@/components/ui/collapsible"
 import { Separator } from "@/components/ui/separator"
 
+import { SimpleTooltip } from "@/registry/components/shared/tooltip/simple-tooltip"
 import { cn } from "@/registry/lib/cn"
 
 export function CodeCollapsibleWrapper({
@@ -48,9 +48,11 @@ export function CodeCollapsibleWrapper({
         {children}
       </CollapsibleContent>
 
-      <CollapsibleTrigger className="absolute inset-x-0 bottom-0 flex h-24 cursor-pointer items-end justify-center rounded-b-lg bg-linear-to-t from-25% from-background to-transparent pb-4 font-medium text-muted-foreground text-sm group-data-[state=open]/collapsible:hidden">
-        Expand
-      </CollapsibleTrigger>
+      <SimpleTooltip content="Expand Code">
+        <CollapsibleTrigger className="absolute inset-x-0 bottom-0 flex h-24 cursor-pointer items-end justify-center rounded-b-lg bg-linear-to-t from-25% from-background to-transparent pb-4 font-medium text-muted-foreground text-sm group-data-[state=open]/collapsible:hidden">
+          Expand
+        </CollapsibleTrigger>
+      </SimpleTooltip>
     </Collapsible>
   )
 }

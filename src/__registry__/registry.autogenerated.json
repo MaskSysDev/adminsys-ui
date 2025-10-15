@@ -1144,6 +1144,22 @@
       "docs": "http://localhost:3000/docs/components/shared/toggle#toggle-theme"
     },
     {
+      "name": "simple-tooltip",
+      "type": "registry:component",
+      "title": "simple-tooltip",
+      "author": "MaskSysDev <https://github.com/MaskSysDev>",
+      "description": "A simple-tooltip component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
+      "registryDependencies": ["tooltip"],
+      "files": [
+        {
+          "path": "src/registry/components/shared/tooltip/simple-tooltip.tsx",
+          "type": "registry:component",
+          "target": "src/components/shared/tooltip/simple-tooltip.tsx"
+        }
+      ],
+      "docs": "http://localhost:3000/docs/components/shared/tooltip#simple-tooltip"
+    },
+    {
       "name": "typography",
       "type": "registry:component",
       "title": "typography",

@@ -1,14 +1,13 @@
 "use client"
 
+import { SidebarMenuFolder } from "@/registry/components/layout/sidebar/inc/part/sidebar-menu-folder"
+import { SidebarMenuLink } from "@/registry/components/layout/sidebar/inc/part/sidebar-menu-link"
 import {
   SidebarGroup,
   SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuItem,
-} from "@/components/ui/sidebar"
-
-import { SidebarMenuFolder } from "@/registry/components/layout/sidebar/inc/part/sidebar-menu-folder"
-import { SidebarMenuLink } from "@/registry/components/layout/sidebar/inc/part/sidebar-menu-link"
+} from "@/registry/components/shared/sidebar"
 
 type SidebarNavMainType = {
   sections: {

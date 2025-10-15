@@ -3,8 +3,10 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
-import { SidebarMenuSubButton, useSidebar } from "@/components/ui/sidebar"
-
+import {
+  SidebarMenuSubButton,
+  useSidebar,
+} from "@/registry/components/shared/sidebar"
 import { cn } from "@/registry/lib/cn"
 
 type SidebarSubmenuLinkType = {

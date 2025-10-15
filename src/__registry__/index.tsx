@@ -786,6 +786,18 @@ export const Index: Record<string, any> = {
       },
     ],
   },
+  "simple-tooltip": {
+    name: "simple-tooltip",
+    description:
+      "A simple-tooltip component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
+    type: "registry:component",
+    files: [
+      {
+        path: "src/registry/components/shared/tooltip/simple-tooltip.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
   typography: {
     name: "typography",
     description: "A typography component.",
@@ -1191,6 +1203,23 @@ export const Index: Record<string, any> = {
       () =>
         import(
           "@/registry/examples/components/shared/toggle/toggle-theme-demo.tsx"
+        )
+    ),
+  },
+  "simple-tooltip-demo": {
+    name: "simple-tooltip-demo",
+    description: "",
+    type: "registry:example",
+    files: [
+      {
+        path: "src/registry/examples/components/shared/tooltip/simple-tooltip-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+    component: React.lazy(
+      () =>
+        import(
+          "@/registry/examples/components/shared/tooltip/simple-tooltip-demo.tsx"
         )
     ),
   },

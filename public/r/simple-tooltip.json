@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "simple-tooltip",
+  "type": "registry:component",
+  "title": "simple-tooltip",
+  "author": "MaskSysDev <https://github.com/MaskSysDev>",
+  "description": "A simple-tooltip component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
+  "registryDependencies": ["tooltip"],
+  "files": [
+    {
+      "path": "src/registry/components/shared/tooltip/simple-tooltip.tsx",
+      "content": "import type { ReactNode } from \"react\"\n\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipTrigger,\n} from \"@/components/ui/tooltip\"\n\nexport function SimpleTooltip({\n  children,\n  content,\n}: {\n  children: ReactNode\n  content: ReactNode\n}) {\n  return (\n    <Tooltip>\n      <TooltipTrigger asChild>{children}</TooltipTrigger>\n      <TooltipContent>{content}</TooltipContent>\n    </Tooltip>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "src/components/shared/tooltip/simple-tooltip.tsx"
+    }
+  ],
+  "docs": "http://localhost:3000/docs/components/shared/tooltip#simple-tooltip"
+}

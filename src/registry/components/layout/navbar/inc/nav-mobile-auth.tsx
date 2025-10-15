@@ -5,6 +5,10 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import { Button } from "@/components/ui/button"
+
+import { NavMobileNavUser } from "@/registry/components/layout/navbar/inc/part/nav-mobile-nav-user"
+import type { Navbar, NavItem } from "@/registry/components/layout/navbar/types"
+import type { SessionData } from "@/registry/components/layout/navbar/types/session-data"
 import {
   Sidebar,
   SidebarContent,
@@ -18,11 +22,7 @@ import {
   SidebarMenuItem,
   SidebarRail,
   useSidebar,
-} from "@/components/ui/sidebar"
-
-import { NavMobileNavUser } from "@/registry/components/layout/navbar/inc/part/nav-mobile-nav-user"
-import type { Navbar, NavItem } from "@/registry/components/layout/navbar/types"
-import type { SessionData } from "@/registry/components/layout/navbar/types/session-data"
+} from "@/registry/components/shared/sidebar"
 import { cn } from "@/registry/lib/cn"
 
 function NavMobileItem({ label = "label", href = "#" }: NavItem) {

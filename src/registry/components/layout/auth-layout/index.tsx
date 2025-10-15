@@ -1,6 +1,5 @@
 import type { ReactNode } from "react"
 
-import { SidebarProvider } from "@/components/ui/sidebar"
 import { Toaster } from "@/components/ui/sonner"
 
 import { TailwindIndicator } from "@/registry/components/dev/tailwind-indicator"
@@ -11,6 +10,7 @@ import {
 import { NavMobileAuth } from "@/registry/components/layout/navbar/inc/nav-mobile-auth"
 import { NavbarAuth01 } from "@/registry/components/layout/navbar/navbar-auth-01"
 import type { Navbar } from "@/registry/components/layout/navbar/types"
+import { SidebarProvider } from "@/registry/components/shared/sidebar"
 
 export type AuthLayoutProps = {
   navbar?: Navbar

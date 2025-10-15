@@ -6,6 +6,7 @@ export function OpenInV0Button({ url }: { url: string }) {
       aria-label="Open in v0"
       asChild
       className="h-8 gap-1 rounded-[6px] bg-black px-3 text-white text-xs hover:bg-black hover:text-white dark:bg-white dark:text-black"
+      size="sm"
     >
       <a
         href={`https://v0.dev/chat/api/open?url=${url}`}

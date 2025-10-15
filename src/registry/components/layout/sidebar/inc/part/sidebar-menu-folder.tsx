@@ -9,14 +9,14 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
+
+import { SidebarSubmenuLink } from "@/registry/components/layout/sidebar/inc/part/sidebar-submenu-link"
 import {
   SidebarGroup,
   SidebarGroupLabel,
   SidebarMenuSub,
   SidebarMenuSubItem,
-} from "@/components/ui/sidebar"
-
-import { SidebarSubmenuLink } from "@/registry/components/layout/sidebar/inc/part/sidebar-submenu-link"
+} from "@/registry/components/shared/sidebar"
 import { cn } from "@/registry/lib/cn"
 
 type SidebarMenuFolderType = {

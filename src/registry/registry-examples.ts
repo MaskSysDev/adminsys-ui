@@ -320,6 +320,19 @@ export const examples: Registry["items"] = [
     ],
   },
 
+  /* tooltip */
+  {
+    name: "simple-tooltip-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/simple-tooltip-demo.json"],
+    files: [
+      {
+        path: "examples/components/shared/tooltip/simple-tooltip-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+
   /* typography */
   {
     name: "typography-demo",
