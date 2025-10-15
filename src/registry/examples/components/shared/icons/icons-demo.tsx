@@ -1,4 +1,4 @@
-import { Icons } from "@/registry/components/layout/icons"
+import { Icons } from "@/registry/components/shared/icons"
 
 export default function IconsDemo() {
   return <Icons.google />

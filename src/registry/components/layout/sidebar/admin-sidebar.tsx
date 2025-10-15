@@ -14,7 +14,7 @@ import {
   SidebarHeader,
 } from "@/components/ui/sidebar"
 
-import { Logo } from "@/registry/components/layout/logo/logo-adminsys"
+import { Logo } from "@/registry/components/shared/logo/logo-adminsys"
 
 /**
  * Configuração da barra lateral de administração (AdminSidebar)

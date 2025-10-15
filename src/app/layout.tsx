@@ -1,7 +1,5 @@
 import type { Metadata, Viewport } from "next"
 
-import { ThemeProvider } from "@/components/layout/provider/theme-provider"
-
 import { geistMono, geistSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 
@@ -10,6 +8,8 @@ import { siteConfig } from "@/config/site-config"
 import "@/styles/globals.css"
 
 import { createMetadata } from "@/lib/metadata"
+
+import { ThemeProvider } from "@/registry/components/shared/provider/theme-provider"
 
 export const metadata: Metadata = createMetadata({
   // URL base para geração de links absolutos em Open Graph e Twitter

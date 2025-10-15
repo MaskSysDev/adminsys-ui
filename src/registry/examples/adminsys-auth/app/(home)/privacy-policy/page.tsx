@@ -1,8 +1,7 @@
 import type { Metadata } from "next"
 
-import { Typography } from "@/components/layout/typography"
-
 import { Container } from "@/registry/components/shared/container"
+import { Typography } from "@/registry/components/shared/typography"
 
 export const metadata: Metadata = {
   title: "Privacy Policy",

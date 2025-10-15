@@ -1,5 +1,5 @@
 import { Footer01 } from "@/registry/components/layout/footer/footer-01"
-import { Icons } from "@/registry/components/layout/icons"
+import { Icons } from "@/registry/components/shared/icons"
 
 export default function Footer01Demo() {
   return (

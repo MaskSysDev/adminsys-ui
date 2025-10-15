@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation"
 
 import { Button } from "@/components/ui/button"
 
-import { Typography } from "@/registry/components/layout/typography"
 import { Container } from "@/registry/components/shared/container"
+import { Typography } from "@/registry/components/shared/typography"
 
 export type NotFoundProps = {
   /**

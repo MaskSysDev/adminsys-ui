@@ -1,8 +1,9 @@
-import { ToggleTheme } from "@/components/layout/toggle/toggle-theme"
 import { Separator } from "@/components/ui/separator"
 import { SidebarTrigger } from "@/components/ui/sidebar"
 
 import { cn } from "@/lib/utils"
+
+import { ToggleTheme } from "@/registry/components/shared/toggle/toggle-theme"
 
 export function NavSystem({ className }: { className?: string }) {
   return (

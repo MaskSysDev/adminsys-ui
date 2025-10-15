@@ -3,7 +3,6 @@
 import Link from "next/link"
 import type * as React from "react"
 
-import { Logo } from "@/components/layout/logo/logo-adminsys"
 import { SidebarNavMain } from "@/components/layout/sidebar/inc/sidebar-nav-main"
 import { SidebarNavSecondary } from "@/components/layout/sidebar/inc/sidebar-nav-secondary"
 import { SidebarNavUser } from "@/components/layout/sidebar/inc/sidebar-nav-user"
@@ -14,6 +13,8 @@ import {
   SidebarFooter,
   SidebarHeader,
 } from "@/components/ui/sidebar"
+
+import { Logo } from "@/registry/components/shared/logo/logo-adminsys"
 
 const adminSidebar = {
   id: "1",

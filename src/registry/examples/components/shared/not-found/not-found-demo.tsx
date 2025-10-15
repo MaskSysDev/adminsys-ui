@@ -1,4 +1,4 @@
-import { NotFound } from "@/registry/components/layout/not-found"
+import { NotFound } from "@/registry/components/shared/not-found"
 
 export default function NotFoundDemo() {
   return (

@@ -1,5 +1,3 @@
-import { Icons } from "@/components/layout/icons"
-
 import { env } from "@/config/env"
 import type {
   Assets,
@@ -10,7 +8,8 @@ import type {
   SocialLink,
 } from "@/config/types"
 import { siteConfigSchema } from "@/config/validation/site-config.schema"
-import { Logo } from "@/registry/components/layout/logo/logo-sitesys"
+import { Icons } from "@/registry/components/shared/icons"
+import { Logo } from "@/registry/components/shared/logo/logo-sitesys"
 
 /**
  * Metadados principais do site

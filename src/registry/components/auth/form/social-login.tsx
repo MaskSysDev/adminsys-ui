@@ -2,8 +2,9 @@
 
 import { toast } from "sonner"
 
-import { Icons } from "@/components/layout/icons"
 import { Button } from "@/components/ui/button"
+
+import { Icons } from "@/registry/components/shared/icons"
 
 /**
  * Componente de login social

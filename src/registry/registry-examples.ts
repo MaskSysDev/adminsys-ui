@@ -95,66 +95,6 @@ export const examples: Registry["items"] = [
     ],
   },
   /**
-   * Exemplo `icons-demo`:
-   * Demonstra o uso do componente `icons`.
-   */
-  {
-    name: "icons-demo",
-    type: "registry:example",
-    registryDependencies: ["<registryBaseUrl>/icons.json"],
-    files: [
-      {
-        path: "examples/components/layout/icons/icons-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  /**
-   * Exemplo `logo-adminsys-demo`:
-   * Demonstra o uso do componente `logo-adminsys`.
-   */
-  {
-    name: "logo-adminsys-demo",
-    type: "registry:example",
-    registryDependencies: ["<registryBaseUrl>/logo-adminsys.json"],
-    files: [
-      {
-        path: "examples/components/layout/logo/logo-adminsys-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  /**
-   * Exemplo `logo-docsys-demo`:
-   * Demonstra o uso do componente `logo-docsys`.
-   */
-  {
-    name: "logo-docsys-demo",
-    type: "registry:example",
-    registryDependencies: ["<registryBaseUrl>/logo-docsys.json"],
-    files: [
-      {
-        path: "examples/components/layout/logo/logo-docsys-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  /**
-   * Exemplo `logo-sitesys-demo`:
-   * Demonstra o uso do componente `logo-sitesys`.
-   */
-  {
-    name: "logo-sitesys-demo",
-    type: "registry:example",
-    registryDependencies: ["<registryBaseUrl>/logo-sitesys.json"],
-    files: [
-      {
-        path: "examples/components/layout/logo/logo-sitesys-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  /**
    * Exemplo `navbar-01-demo`:
    * Demonstra o uso do componente `navbar-01`.
    */
@@ -185,51 +125,6 @@ export const examples: Registry["items"] = [
     ],
   },
   /**
-   * Exemplo `not-found-demo`:
-   * Demonstra o uso do componente `not-found`.
-   */
-  {
-    name: "not-found-demo",
-    type: "registry:example",
-    registryDependencies: ["<registryBaseUrl>/not-found.json"],
-    files: [
-      {
-        path: "examples/components/layout/not-found/not-found-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  /**
-   * Exemplo `typography-demo`:
-   * Demonstra o uso do componente `typography`.
-   */
-  {
-    name: "typography-demo",
-    type: "registry:example",
-    registryDependencies: ["<registryBaseUrl>/typography.json"],
-    files: [
-      {
-        path: "examples/components/layout/typography/typography-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  /**
-   * Exemplo `social-icon-link-demo`:
-   * Demonstra o uso do componente `social-icon-link`.
-   */
-  {
-    name: "social-icon-link-demo",
-    type: "registry:example",
-    registryDependencies: ["<registryBaseUrl>/social-icon-link.json"],
-    files: [
-      {
-        path: "examples/components/layout/social/social-icon-link-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  /**
    * Exemplo `tailwind-indicator-demo`:
    * Demonstra o uso do componente `tailwind-indicator`.
    */
@@ -245,38 +140,10 @@ export const examples: Registry["items"] = [
     ],
   },
   /**
-   * Exemplo `theme-toggle-demo`:
-   * Demonstra o uso do componente `theme-toggle` para alternância de temas.
-   */
-  {
-    name: "theme-toggle-demo",
-    type: "registry:example",
-    registryDependencies: ["<registryBaseUrl>/theme-toggle.json"],
-    files: [
-      {
-        path: "examples/components/layout/toggle/theme-toggle-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  /**
-   * Exemplo `toggle-theme-demo`:
-   * Demonstra o uso do componente `toggle-theme` para alternância de temas.
-   */
-  {
-    name: "toggle-theme-demo",
-    type: "registry:example",
-    registryDependencies: ["<registryBaseUrl>/toggle-theme.json"],
-    files: [
-      {
-        path: "examples/components/layout/toggle/toggle-theme-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  /**
    * Examples Components Shared
    */
+
+  /* alert */
   {
     name: "alert-error-demo",
     type: "registry:example",
@@ -321,6 +188,8 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+
+  /* container */
   {
     name: "container-demo",
     type: "registry:example",
@@ -332,6 +201,8 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+
+  /* form */
   {
     name: "password-input-demo",
     type: "registry:example",
@@ -343,6 +214,8 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+
+  /* loading */
   {
     name: "loading-spinner-demo",
     type: "registry:example",
@@ -350,6 +223,117 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "examples/components/shared/loading/loading-spinner-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+
+  /* icons */
+  {
+    name: "icons-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/icons.json"],
+    files: [
+      {
+        path: "examples/components/shared/icons/icons-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+
+  /* logo */
+  {
+    name: "logo-adminsys-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/logo-adminsys.json"],
+    files: [
+      {
+        path: "examples/components/shared/logo/logo-adminsys-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "logo-docsys-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/logo-docsys.json"],
+    files: [
+      {
+        path: "examples/components/shared/logo/logo-docsys-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "logo-sitesys-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/logo-sitesys.json"],
+    files: [
+      {
+        path: "examples/components/shared/logo/logo-sitesys-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+
+  /* not-found */
+  {
+    name: "not-found-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/not-found.json"],
+    files: [
+      {
+        path: "examples/components/shared/not-found/not-found-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+
+  /* social */
+  {
+    name: "social-icon-link-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/social-icon-link.json"],
+    files: [
+      {
+        path: "examples/components/shared/social/social-icon-link-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+
+  /* toggle */
+  {
+    name: "theme-toggle-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/theme-toggle.json"],
+    files: [
+      {
+        path: "examples/components/shared/toggle/theme-toggle-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toggle-theme-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/toggle-theme.json"],
+    files: [
+      {
+        path: "examples/components/shared/toggle/toggle-theme-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+
+  /* typography */
+  {
+    name: "typography-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/typography.json"],
+    files: [
+      {
+        path: "examples/components/shared/typography/typography-demo.tsx",
         type: "registry:example",
       },
     ],

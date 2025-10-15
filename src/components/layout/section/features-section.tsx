@@ -1,6 +1,5 @@
 import type { HTMLAttributes, JSX } from "react"
 
-import { Typography } from "@/components/layout/typography"
 import {
   Card,
   CardContent,
@@ -10,6 +9,7 @@ import {
 } from "@/components/ui/card"
 
 import { Container } from "@/registry/components/shared/container"
+import { Typography } from "@/registry/components/shared/typography"
 
 type FeaturesSectionProps = {
   title?: string

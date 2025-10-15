@@ -566,82 +566,6 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/hero#hero-01",
   },
   /**
-   * Componente `icons`:
-   * Um componente de icons.
-   */
-  {
-    name: "icons",
-    type: "registry:component",
-    description: "A icons component.",
-    title: "icons",
-    author: "<author> <<authorUrl>>",
-    files: [
-      {
-        path: "components/layout/icons/index.tsx",
-        type: "registry:component",
-        target: "src/components/layout/icons/index.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/icons",
-  },
-  /**
-   * Componente `logo-adminsys`:
-   * Um componente de logo-adminsys.
-   */
-  {
-    name: "logo-adminsys",
-    type: "registry:component",
-    description: "A logo-adminsys component.",
-    title: "logo-adminsys",
-    author: "<author> <<authorUrl>>",
-    files: [
-      {
-        path: "components/layout/logo/logo-adminsys.tsx",
-        type: "registry:component",
-        target: "src/components/layout/logo/logo-adminsys.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/logo#logo-adminsys",
-  },
-  /**
-   * Componente `logo-docsys`:
-   * Um componente de logo-docsys.
-   */
-  {
-    name: "logo-docsys",
-    type: "registry:component",
-    description: "A logo-docsys component.",
-    title: "logo-docsys",
-    author: "<author> <<authorUrl>>",
-    files: [
-      {
-        path: "components/layout/logo/logo-docsys.tsx",
-        type: "registry:component",
-        target: "src/components/layout/logo/logo-docsys.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/logo#logo-docsys",
-  },
-  /**
-   * Componente `logo-sitesys`:
-   * Um componente de logo-sitesys.
-   */
-  {
-    name: "logo-sitesys",
-    type: "registry:component",
-    description: "A logo-sitesys component.",
-    title: "logo-sitesys",
-    author: "<author> <<authorUrl>>",
-    files: [
-      {
-        path: "components/layout/logo/logo-sitesys.tsx",
-        type: "registry:component",
-        target: "src/components/layout/logo/logo-sitesys.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/logo#logo-sitesys",
-  },
-  /**
    * Componente `navbar-01`:
    * Um componente de navbar-01.
    */
@@ -732,45 +656,6 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/logo#navbar-auth-01",
   },
   /**
-   * Componente `not-found`:
-   * Um componente de not-found.
-   */
-  {
-    name: "not-found",
-    type: "registry:component",
-    description: "A not-found component.",
-    title: "not-found",
-    author: "<author> <<authorUrl>>",
-    files: [
-      {
-        path: "components/layout/not-found/index.tsx",
-        type: "registry:component",
-        target: "src/components/layout/not-found/index.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/not-found",
-  },
-  /**
-   * Componente `theme-provider`:
-   * Um componente de theme-provider.
-   */
-  {
-    name: "theme-provider",
-    type: "registry:component",
-    description: "A theme-provider component.",
-    title: "theme-provider",
-    author: "<author> <<authorUrl>>",
-    dependencies: ["next-themes"],
-    files: [
-      {
-        path: "components/layout/provider/theme-provider.tsx",
-        type: "registry:component",
-        target: "src/components/layout/provider/theme-provider.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/provider#theme-provider",
-  },
-  /**
    * Componente `auth-layout`:
    * Um componente de auth-layout.
    */
@@ -825,25 +710,6 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/site-layout",
   },
   /**
-   * Componente `social-icon-link`:
-   * Um componente de social-icon-link.
-   */
-  {
-    name: "social-icon-link",
-    type: "registry:component",
-    description: "A social-icon-link component.",
-    title: "social-icon-link",
-    author: "<author> <<authorUrl>>",
-    files: [
-      {
-        path: "components/layout/social/social-icon-link.tsx",
-        type: "registry:component",
-        target: "src/components/layout/social/social-icon-link.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/social#social-icon-link",
-  },
-  /**
    * Componente `tailwind-indicator`:
    * Um indicador visual para ambientes de desenvolvimento que mostra o breakpoint atual do Tailwind CSS.
    */
@@ -863,70 +729,10 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/dev/tailwind-indicator",
   },
   /**
-   * Componente `theme-toggle`:
-   * Um botão para alternar entre os temas claro, escuro e do sistema, utilizando `next-themes` e Tailwind CSS.
-   */
-  {
-    name: "theme-toggle",
-    type: "registry:component",
-    description:
-      "A theme-toggle component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
-    title: "theme-toggle",
-    author: "<author> <<authorUrl>>",
-    dependencies: ["next-themes"],
-    files: [
-      {
-        path: "components/layout/toggle/theme-toggle.tsx",
-        type: "registry:component",
-        target: "src/components/layout/toggle/theme-toggle.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/toggle#toggle-theme",
-  },
-  /**
-   * Componente `toggle-theme`:
-   * Similar ao `theme-toggle`, oferece funcionalidade de alternância de tema com um design ligeiramente diferente.
-   */
-  {
-    name: "toggle-theme",
-    type: "registry:component",
-    description:
-      "A toggle-theme component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
-    title: "toggle-theme",
-    author: "<author> <<authorUrl>>",
-    dependencies: ["next-themes"],
-    registryDependencies: ["button"],
-    files: [
-      {
-        path: "components/layout/toggle/toggle-theme.tsx",
-        type: "registry:component",
-        target: "src/components/layout/toggle/toggle-theme.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/toggle#toggle-theme",
-  },
-  /**
-   * Componente `typography`:
-   * Um componente de typography.
-   */
-  {
-    name: "typography",
-    type: "registry:component",
-    description: "A typography component.",
-    title: "typography",
-    author: "<author> <<authorUrl>>",
-    files: [
-      {
-        path: "components/layout/typography/index.tsx",
-        type: "registry:component",
-        target: "src/components/layout/typography/index.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/typography",
-  },
-  /**
    * Components Shared
    */
+
+  /* alert */
   {
     name: "alert-error",
     type: "registry:component",
@@ -991,6 +797,8 @@ export const components: Registry["items"] = [
     ],
     docs: "<baseUrl>/docs/components/shared/alert#alert-warn",
   },
+
+  /* container */
   {
     name: "container",
     type: "registry:component",
@@ -1006,6 +814,8 @@ export const components: Registry["items"] = [
     ],
     docs: "<baseUrl>/docs/components/shared/container",
   },
+
+  /* form */
   {
     name: "password-input",
     type: "registry:component",
@@ -1022,6 +832,25 @@ export const components: Registry["items"] = [
     ],
     docs: "<baseUrl>/docs/components/shared/form#password-input",
   },
+
+  /* icons */
+  {
+    name: "icons",
+    type: "registry:component",
+    description: "A icons component.",
+    title: "icons",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/shared/icons/index.tsx",
+        type: "registry:component",
+        target: "src/components/shared/icons/index.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/shared/icons",
+  },
+
+  /* loading */
   {
     name: "loading-spinner",
     type: "registry:component",
@@ -1037,5 +866,158 @@ export const components: Registry["items"] = [
       },
     ],
     docs: "<baseUrl>/docs/components/shared/loading#loading-spinner",
+  },
+
+  /* logo */
+  {
+    name: "logo-adminsys",
+    type: "registry:component",
+    description: "A logo-adminsys component.",
+    title: "logo-adminsys",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/shared/logo/logo-adminsys.tsx",
+        type: "registry:component",
+        target: "src/components/shared/logo/logo-adminsys.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/shared/logo#logo-adminsys",
+  },
+  {
+    name: "logo-docsys",
+    type: "registry:component",
+    description: "A logo-docsys component.",
+    title: "logo-docsys",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/shared/logo/logo-docsys.tsx",
+        type: "registry:component",
+        target: "src/components/shared/logo/logo-docsys.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/shared/logo#logo-docsys",
+  },
+  {
+    name: "logo-sitesys",
+    type: "registry:component",
+    description: "A logo-sitesys component.",
+    title: "logo-sitesys",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/shared/logo/logo-sitesys.tsx",
+        type: "registry:component",
+        target: "src/components/shared/logo/logo-sitesys.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/shared/logo#logo-sitesys",
+  },
+
+  /* not-found */
+  {
+    name: "not-found",
+    type: "registry:component",
+    description: "A not-found component.",
+    title: "not-found",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/shared/not-found/index.tsx",
+        type: "registry:component",
+        target: "src/components/shared/not-found/index.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/shared/not-found",
+  },
+
+  /* provider */
+  {
+    name: "theme-provider",
+    type: "registry:component",
+    description: "A theme-provider component.",
+    title: "theme-provider",
+    author: "<author> <<authorUrl>>",
+    dependencies: ["next-themes"],
+    files: [
+      {
+        path: "components/shared/provider/theme-provider.tsx",
+        type: "registry:component",
+        target: "src/components/shared/provider/theme-provider.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/shared/provider#theme-provider",
+  },
+
+  /* social */
+  {
+    name: "social-icon-link",
+    type: "registry:component",
+    description: "A social-icon-link component.",
+    title: "social-icon-link",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/shared/social/social-icon-link.tsx",
+        type: "registry:component",
+        target: "src/components/shared/social/social-icon-link.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/shared/social#social-icon-link",
+  },
+
+  /* toggle */
+  {
+    name: "theme-toggle",
+    type: "registry:component",
+    description:
+      "A theme-toggle component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
+    title: "theme-toggle",
+    author: "<author> <<authorUrl>>",
+    dependencies: ["next-themes"],
+    files: [
+      {
+        path: "components/shared/toggle/theme-toggle.tsx",
+        type: "registry:component",
+        target: "src/components/shared/toggle/theme-toggle.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/shared/toggle#toggle-theme",
+  },
+  {
+    name: "toggle-theme",
+    type: "registry:component",
+    description:
+      "A toggle-theme component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
+    title: "toggle-theme",
+    author: "<author> <<authorUrl>>",
+    dependencies: ["next-themes"],
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "components/shared/toggle/toggle-theme.tsx",
+        type: "registry:component",
+        target: "src/components/shared/toggle/toggle-theme.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/shared/toggle#toggle-theme",
+  },
+
+  /* typography */
+  {
+    name: "typography",
+    type: "registry:component",
+    description: "A typography component.",
+    title: "typography",
+    author: "<author> <<authorUrl>>",
+    files: [
+      {
+        path: "components/shared/typography/index.tsx",
+        type: "registry:component",
+        target: "src/components/shared/typography/index.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/shared/typography",
   },
 ]

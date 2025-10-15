@@ -26,7 +26,7 @@
     },
     {
       "path": "src/registry/components/layout/navbar/inc/nav-system.tsx",
-      "content": "import { ToggleTheme } from \"@/components/layout/toggle/toggle-theme\"\nimport { Separator } from \"@/components/ui/separator\"\nimport { SidebarTrigger } from \"@/components/ui/sidebar\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport function NavSystem({ className }: { className?: string }) {\n  return (\n    <div className={cn(\"flex h-5 items-center gap-1\", className)}>\n      <ToggleTheme className=\"flex\" />\n      <Separator className=\"flex md:hidden\" orientation=\"vertical\" />\n      <SidebarTrigger className=\"flex size-8 cursor-pointer text-muted-foreground md:hidden\" />\n    </div>\n  )\n}\n",
+      "content": "import { Separator } from \"@/components/ui/separator\"\nimport { SidebarTrigger } from \"@/components/ui/sidebar\"\n\nimport { cn } from \"@/lib/utils\"\n\nimport { ToggleTheme } from \"@/registry/components/shared/toggle/toggle-theme\"\n\nexport function NavSystem({ className }: { className?: string }) {\n  return (\n    <div className={cn(\"flex h-5 items-center gap-1\", className)}>\n      <ToggleTheme className=\"flex\" />\n      <Separator className=\"flex md:hidden\" orientation=\"vertical\" />\n      <SidebarTrigger className=\"flex size-8 cursor-pointer text-muted-foreground md:hidden\" />\n    </div>\n  )\n}\n",
       "type": "registry:component",
       "target": "src/components/layout/navbar/inc/nav-system.tsx"
     },

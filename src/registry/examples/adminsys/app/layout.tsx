@@ -1,7 +1,5 @@
 import type { Metadata, Viewport } from "next"
 
-import { ThemeProvider } from "@/components/layout/provider/theme-provider"
-
 import { geistMono, geistSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 
@@ -9,6 +7,7 @@ import { siteConfig } from "@/config/site-config"
 
 import "@/styles/globals.css"
 
+import { ThemeProvider } from "@/registry/components/shared/provider/theme-provider"
 import { createMetadata } from "@/registry/lib/metadata"
 
 export const metadata: Metadata = createMetadata({
