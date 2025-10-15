@@ -16,12 +16,11 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 
-import { sanitizeData } from "@/utils/sanitize"
-
 import { AlertError } from "@/registry/components/shared/alert/alert-error"
 import { AlertSuccess } from "@/registry/components/shared/alert/alert-success"
 import { PasswordInput } from "@/registry/components/shared/form/password-input"
 import { LoadingSpinner } from "@/registry/components/shared/loading/loading-spinner"
+import { sanitizeData } from "@/registry/utils/sanitize"
 import {
   type ResetPasswordFormValues,
   resetPasswordSchema,

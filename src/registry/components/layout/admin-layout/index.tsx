@@ -1,11 +1,14 @@
 import type { ReactNode } from "react"
 
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { Toaster } from "@/components/ui/sonner"
 
 import { TailwindIndicator } from "@/registry/components/dev/tailwind-indicator"
 import { AdminNavbar } from "@/registry/components/layout/navbar/admin-navbar"
 import { AdminSidebar } from "@/registry/components/layout/sidebar/admin-sidebar"
+import {
+  SidebarInset,
+  SidebarProvider,
+} from "@/registry/components/shared/sidebar"
 
 export type AdminLayoutProps = {
   children: ReactNode

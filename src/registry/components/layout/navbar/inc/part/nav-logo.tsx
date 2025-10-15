@@ -1,9 +1,8 @@
 import Link from "next/link"
 import type { MouseEventHandler } from "react"
 
-import { cn } from "@/lib/utils"
-
 import type { Navbar } from "@/registry/components/layout/navbar/types"
+import { cn } from "@/registry/lib/cn"
 
 type NavLogoProps = {
   navbar: Navbar

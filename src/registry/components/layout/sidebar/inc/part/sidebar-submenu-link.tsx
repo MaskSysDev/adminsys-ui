@@ -3,9 +3,11 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
-import { SidebarMenuSubButton, useSidebar } from "@/components/ui/sidebar"
-
-import { cn } from "@/lib/utils"
+import {
+  SidebarMenuSubButton,
+  useSidebar,
+} from "@/registry/components/shared/sidebar"
+import { cn } from "@/registry/lib/cn"
 
 type SidebarSubmenuLinkType = {
   label: string

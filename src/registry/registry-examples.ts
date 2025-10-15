@@ -9,9 +9,10 @@ import type { Registry } from "shadcn/schema"
  */
 export const examples: Registry["items"] = [
   /**
-   * Exemplo `form-auth-demo`:
-   * Demonstra o uso do componente `form-auth`.
+   * Examples Components Auth
    */
+
+  /* form */
   {
     name: "form-auth-demo",
     type: "registry:example",
@@ -23,10 +24,8 @@ export const examples: Registry["items"] = [
       },
     ],
   },
-  /**
-   * Exemplo `dropdown-user-demo`:
-   * Demonstra o uso do componente `dropdown-user`.
-   */
+
+  /* dropdown */
   {
     name: "dropdown-user-demo",
     type: "registry:example",
@@ -38,10 +37,12 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+
   /**
-   * Exemplo `tailwind-indicator-demo`:
-   * Demonstra o uso do componente `tailwind-indicator`.
+   * Examples Components Dev
    */
+
+  /* tailwind-indicator */
   {
     name: "tailwind-indicator-demo",
     type: "registry:example",
@@ -53,6 +54,7 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+
   /**
    * Examples Components Layout
    */
@@ -313,6 +315,19 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "examples/components/shared/toggle/toggle-theme-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+
+  /* tooltip */
+  {
+    name: "simple-tooltip-demo",
+    type: "registry:example",
+    registryDependencies: ["<registryBaseUrl>/simple-tooltip-demo.json"],
+    files: [
+      {
+        path: "examples/components/shared/tooltip/simple-tooltip-demo.tsx",
         type: "registry:example",
       },
     ],

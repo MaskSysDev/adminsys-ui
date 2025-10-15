@@ -5,6 +5,8 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import { Button } from "@/components/ui/button"
+
+import type { Navbar, NavItem } from "@/registry/components/layout/navbar/types"
 import {
   Sidebar,
   SidebarContent,
@@ -17,11 +19,8 @@ import {
   SidebarMenuItem,
   SidebarRail,
   useSidebar,
-} from "@/components/ui/sidebar"
-
-import { cn } from "@/lib/utils"
-
-import type { Navbar, NavItem } from "@/registry/components/layout/navbar/types"
+} from "@/registry/components/shared/sidebar"
+import { cn } from "@/registry/lib/cn"
 
 function NavMobileItem({ label = "label", href = "#" }: NavItem) {
   const pathname = usePathname()

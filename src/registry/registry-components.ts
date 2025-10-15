@@ -8,7 +8,11 @@ import type { Registry } from "shadcn/schema"
  */
 export const components: Registry["items"] = [
   /**
-   * Exemplo `adminsys-demo`:
+   * Examples
+   */
+
+  /**
+   * Exemplo `adminsys-auth`:
    * Demonstra o uso do componente `adminsys`.
    */
   {
@@ -136,7 +140,7 @@ export const components: Registry["items"] = [
     ],
   },
   /**
-   * Exemplo `adminsys-demo`:
+   * Exemplo `adminsys`:
    * Demonstra o uso do componente `adminsys`.
    */
   {
@@ -230,7 +234,7 @@ export const components: Registry["items"] = [
     ],
   },
   /**
-   * Exemplo `sitesys-demo`:
+   * Exemplo `sitesys`:
    * Demonstra o uso do componente `sitesys`.
    */
   {
@@ -295,10 +299,12 @@ export const components: Registry["items"] = [
       },
     ],
   },
+
   /**
-   * Componente `dropdown-user`:
-   * Um componente de dropdown-user.
+   * Components Auth
    */
+
+  /* dropdown */
   {
     name: "dropdown-user",
     type: "registry:component",
@@ -314,10 +320,8 @@ export const components: Registry["items"] = [
     ],
     docs: "<baseUrl>/docs/components/auth/dropdown#dropdown-user",
   },
-  /**
-   * Componente `form-auth`:
-   * Um componente de form-auth.
-   */
+
+  /* form */
   {
     name: "form-auth",
     type: "registry:component",
@@ -388,96 +392,12 @@ export const components: Registry["items"] = [
     ],
     docs: "<baseUrl>/docs/components/auth/form#form-auth",
   },
+
   /**
-   * Componente `admin-sidebar`:
-   * Um componente de admin-sidebar.
+   * Components Dev
    */
-  {
-    name: "admin-sidebar",
-    type: "registry:component",
-    description: "A admin-sidebar component.",
-    title: "admin-sidebar",
-    author: "<author> <<authorUrl>>",
-    registryDependencies: [
-      "avatar",
-      "dropdown-menu",
-      "sidebar",
-      "scroll-area",
-      "collapsible",
-      "<registryBaseUrl>/logo-adminsys.json",
-    ],
-    files: [
-      {
-        path: "components/layout/sidebar/inc/part/sidebar-menu-folder.tsx",
-        type: "registry:component",
-        target:
-          "src/components/layout/sidebar/inc/part/sidebar-menu-folder.tsx",
-      },
-      {
-        path: "components/layout/sidebar/inc/part/sidebar-menu-link.tsx",
-        type: "registry:component",
-        target: "src/components/layout/sidebar/inc/part/sidebar-menu-link.tsx",
-      },
-      {
-        path: "components/layout/sidebar/inc/part/sidebar-submenu-link.tsx",
-        type: "registry:component",
-        target:
-          "src/components/layout/sidebar/inc/part/sidebar-submenu-link.tsx",
-      },
-      {
-        path: "components/layout/sidebar/inc/sidebar-nav-main.tsx",
-        type: "registry:component",
-        target: "src/components/layout/sidebar/inc/sidebar-nav-main.tsx",
-      },
-      {
-        path: "components/layout/sidebar/inc/sidebar-nav-secondary.tsx",
-        type: "registry:component",
-        target: "src/components/layout/sidebar/inc/sidebar-nav-secondary.tsx",
-      },
-      {
-        path: "components/layout/sidebar/inc/sidebar-nav-user.tsx",
-        type: "registry:component",
-        target: "src/components/layout/sidebar/inc/sidebar-nav-user.tsx",
-      },
-      {
-        path: "components/layout/sidebar/admin-sidebar.tsx",
-        type: "registry:component",
-        target: "src/components/layout/sidebar/admin-sidebar.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/sidebar#admin-sidebar",
-  },
-  /**
-   * Componente `site-layout`:
-   * Um componente de site-layout.
-   */
-  {
-    name: "site-layout",
-    type: "registry:component",
-    description: "A site-layout component.",
-    title: "site-layout",
-    author: "<author> <<authorUrl>>",
-    dependencies: ["next-themes"],
-    registryDependencies: [
-      "sidebar",
-      "sonner",
-      "<registryBaseUrl>/tailwind-indicator.json",
-      "<registryBaseUrl>/navbar-01.json",
-      "<registryBaseUrl>/footer-01.json",
-    ],
-    files: [
-      {
-        path: "components/layout/site-layout/index.tsx",
-        type: "registry:component",
-        target: "src/components/layout/site-layout/index.tsx",
-      },
-    ],
-    docs: "<baseUrl>/docs/components/layout/site-layout",
-  },
-  /**
-   * Componente `tailwind-indicator`:
-   * Um indicador visual para ambientes de desenvolvimento que mostra o breakpoint atual do Tailwind CSS.
-   */
+
+  /* tailwind-indicator */
   {
     name: "tailwind-indicator",
     type: "registry:component",
@@ -493,6 +413,7 @@ export const components: Registry["items"] = [
     ],
     docs: "<baseUrl>/docs/components/dev/tailwind-indicator",
   },
+
   /**
    * Components Layout
    */
@@ -568,7 +489,7 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/banner",
   },
 
-  /* footer-01 */
+  /* footer */
   {
     name: "footer-01",
     type: "registry:component",
@@ -589,7 +510,7 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/footer#footer-01",
   },
 
-  /* hero-01 */
+  /* hero */
   {
     name: "hero-01",
     type: "registry:component",
@@ -607,7 +528,7 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/layout/hero#hero-01",
   },
 
-  /* admin-navbar */
+  /* navbar */
   {
     name: "admin-navbar",
     type: "registry:component",
@@ -629,8 +550,6 @@ export const components: Registry["items"] = [
     ],
     docs: "<baseUrl>/docs/components/layout/navbar#admin-navbar",
   },
-
-  /* navbar-01 */
   {
     name: "navbar-01",
     type: "registry:component",
@@ -682,8 +601,6 @@ export const components: Registry["items"] = [
     ],
     docs: "<baseUrl>/docs/components/layout/navbar#navbar-01",
   },
-
-  /* navbar-auth-01 */
   {
     name: "navbar-auth-01",
     type: "registry:component",
@@ -749,6 +666,89 @@ export const components: Registry["items"] = [
       },
     ],
     docs: "<baseUrl>/docs/components/layout/navbar#navbar-auth-01",
+  },
+
+  /* sidebar */
+  {
+    name: "admin-sidebar",
+    type: "registry:component",
+    description: "A admin-sidebar component.",
+    title: "admin-sidebar",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: [
+      "avatar",
+      "dropdown-menu",
+      "sidebar",
+      "scroll-area",
+      "collapsible",
+      "<registryBaseUrl>/logo-adminsys.json",
+      "<registryBaseUrl>/cn.json",
+    ],
+    files: [
+      {
+        path: "components/layout/sidebar/inc/part/sidebar-menu-folder.tsx",
+        type: "registry:component",
+        target:
+          "src/components/layout/sidebar/inc/part/sidebar-menu-folder.tsx",
+      },
+      {
+        path: "components/layout/sidebar/inc/part/sidebar-menu-link.tsx",
+        type: "registry:component",
+        target: "src/components/layout/sidebar/inc/part/sidebar-menu-link.tsx",
+      },
+      {
+        path: "components/layout/sidebar/inc/part/sidebar-submenu-link.tsx",
+        type: "registry:component",
+        target:
+          "src/components/layout/sidebar/inc/part/sidebar-submenu-link.tsx",
+      },
+      {
+        path: "components/layout/sidebar/inc/sidebar-nav-main.tsx",
+        type: "registry:component",
+        target: "src/components/layout/sidebar/inc/sidebar-nav-main.tsx",
+      },
+      {
+        path: "components/layout/sidebar/inc/sidebar-nav-secondary.tsx",
+        type: "registry:component",
+        target: "src/components/layout/sidebar/inc/sidebar-nav-secondary.tsx",
+      },
+      {
+        path: "components/layout/sidebar/inc/sidebar-nav-user.tsx",
+        type: "registry:component",
+        target: "src/components/layout/sidebar/inc/sidebar-nav-user.tsx",
+      },
+      {
+        path: "components/layout/sidebar/admin-sidebar.tsx",
+        type: "registry:component",
+        target: "src/components/layout/sidebar/admin-sidebar.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/sidebar#admin-sidebar",
+  },
+
+  /* site-layout */
+  {
+    name: "site-layout",
+    type: "registry:component",
+    description: "A site-layout component.",
+    title: "site-layout",
+    author: "<author> <<authorUrl>>",
+    dependencies: ["next-themes"],
+    registryDependencies: [
+      "sidebar",
+      "sonner",
+      "<registryBaseUrl>/tailwind-indicator.json",
+      "<registryBaseUrl>/navbar-01.json",
+      "<registryBaseUrl>/footer-01.json",
+    ],
+    files: [
+      {
+        path: "components/layout/site-layout/index.tsx",
+        type: "registry:component",
+        target: "src/components/layout/site-layout/index.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/layout/site-layout",
   },
 
   /**
@@ -828,6 +828,7 @@ export const components: Registry["items"] = [
     description: "A container component.",
     title: "container",
     author: "<author> <<authorUrl>>",
+    registryDependencies: ["<registryBaseUrl>/cn.json"],
     files: [
       {
         path: "components/shared/container/index.tsx",
@@ -855,6 +856,7 @@ export const components: Registry["items"] = [
       "select",
       "separator",
       "table",
+      "<registryBaseUrl>/cn.json",
       "<registryBaseUrl>/delete-confirmation-dialog.json",
       "<registryBaseUrl>/details-dialog.json",
       "<registryBaseUrl>/form-dialog.json",
@@ -971,7 +973,7 @@ export const components: Registry["items"] = [
     description: "A password-input component.",
     title: "password-input",
     author: "<author> <<authorUrl>>",
-    registryDependencies: ["button", "input"],
+    registryDependencies: ["button", "input", "<registryBaseUrl>/cn.json"],
     files: [
       {
         path: "components/shared/form/password-input/index.tsx",
@@ -1006,7 +1008,7 @@ export const components: Registry["items"] = [
     description: "A loading-spinner component.",
     title: "loading-spinner",
     author: "<author> <<authorUrl>>",
-    registryDependencies: ["spinner"],
+    registryDependencies: ["spinner", "<registryBaseUrl>/cn.json"],
     files: [
       {
         path: "components/shared/loading/loading-spinner.tsx",
@@ -1106,6 +1108,7 @@ export const components: Registry["items"] = [
     description: "A social-icon-link component.",
     title: "social-icon-link",
     author: "<author> <<authorUrl>>",
+    registryDependencies: ["<registryBaseUrl>/cn.json"],
     files: [
       {
         path: "components/shared/social/social-icon-link.tsx",
@@ -1125,6 +1128,7 @@ export const components: Registry["items"] = [
     title: "theme-toggle",
     author: "<author> <<authorUrl>>",
     dependencies: ["next-themes"],
+    registryDependencies: ["<registryBaseUrl>/cn.json"],
     files: [
       {
         path: "components/shared/toggle/theme-toggle.tsx",
@@ -1142,7 +1146,7 @@ export const components: Registry["items"] = [
     title: "toggle-theme",
     author: "<author> <<authorUrl>>",
     dependencies: ["next-themes"],
-    registryDependencies: ["button"],
+    registryDependencies: ["button", "<registryBaseUrl>/cn.json"],
     files: [
       {
         path: "components/shared/toggle/toggle-theme.tsx",
@@ -1153,6 +1157,25 @@ export const components: Registry["items"] = [
     docs: "<baseUrl>/docs/components/shared/toggle#toggle-theme",
   },
 
+  /* tooltip */
+  {
+    name: "simple-tooltip",
+    type: "registry:component",
+    description:
+      "A simple-tooltip component with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
+    title: "simple-tooltip",
+    author: "<author> <<authorUrl>>",
+    registryDependencies: ["tooltip"],
+    files: [
+      {
+        path: "components/shared/tooltip/simple-tooltip.tsx",
+        type: "registry:component",
+        target: "src/components/shared/tooltip/simple-tooltip.tsx",
+      },
+    ],
+    docs: "<baseUrl>/docs/components/shared/tooltip#simple-tooltip",
+  },
+
   /* typography */
   {
     name: "typography",
@@ -1160,6 +1183,7 @@ export const components: Registry["items"] = [
     description: "A typography component.",
     title: "typography",
     author: "<author> <<authorUrl>>",
+    registryDependencies: ["<registryBaseUrl>/cn.json"],
     files: [
       {
         path: "components/shared/typography/index.tsx",

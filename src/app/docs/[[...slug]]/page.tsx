@@ -10,8 +10,9 @@ import { notFound } from "next/navigation"
 
 import { getMDXComponents } from "@/components/layout/docs-layout/mdx/mdx-components"
 
-import { createMetadata } from "@/lib/metadata"
 import { source } from "@/lib/source"
+
+import { createMetadata } from "@/registry/lib/metadata"
 
 export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
   const params = await props.params

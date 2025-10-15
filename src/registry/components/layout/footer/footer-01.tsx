@@ -1,12 +1,11 @@
 import type { ReactNode } from "react"
 
-import { cn } from "@/lib/utils"
-
 import { Container } from "@/registry/components/shared/container"
 import {
   SocialIconLink,
   type SocialIconLinkProps,
 } from "@/registry/components/shared/social/social-icon-link"
+import { cn } from "@/registry/lib/cn"
 
 type Footer01Props = {
   title: string

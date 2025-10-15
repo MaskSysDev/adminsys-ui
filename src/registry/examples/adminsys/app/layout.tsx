@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next"
 
 import { geistMono, geistSans } from "@/lib/fonts"
-import { cn } from "@/lib/utils"
 
 import { siteConfig } from "@/config/site-config"
+import { cn } from "@/registry/lib/cn"
 
 import "@/styles/globals.css"
 

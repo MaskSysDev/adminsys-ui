@@ -1,6 +1,5 @@
-import { SidebarProvider } from "@/components/ui/sidebar"
-
 import { AdminNavbar } from "@/registry/components/layout/navbar/admin-navbar"
+import { SidebarProvider } from "@/registry/components/shared/sidebar"
 
 export default function AdminNavbarDemo() {
   return (

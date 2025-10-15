@@ -6,12 +6,13 @@ import React, { useMemo, useState } from "react"
 import { OpenInV0Button } from "@/components/layout/docs-layout/button/open-in-v0-button"
 import { CollapsibleCodeContainer } from "@/components/layout/docs-layout/code/collapsible-code-container"
 import { Code as CodeInline } from "@/components/layout/docs-layout/typography/mdx-typography"
-import { SimpleTooltip } from "@/components/layout/tooltip/simple-tooltip"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 import { getRegistryEntry } from "@/lib/registry-utils"
-import { cn } from "@/lib/utils"
+
+import { SimpleTooltip } from "@/registry/components/shared/tooltip/simple-tooltip"
+import { cn } from "@/registry/lib/cn"
 
 /**
  * Componente `ComponentPreview`:
@@ -88,7 +89,7 @@ export function ComponentPreview({
                     <Button
                       className="size-8 cursor-pointer"
                       onClick={() => setReplay((v) => v + 1)}
-                      size="icon"
+                      size="icon-sm"
                       variant="outline"
                     >
                       <RepeatIcon />

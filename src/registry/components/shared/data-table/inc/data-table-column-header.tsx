@@ -17,7 +17,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/registry/lib/cn"
 
 interface DataTableColumnHeaderProps<TData>
   extends Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {

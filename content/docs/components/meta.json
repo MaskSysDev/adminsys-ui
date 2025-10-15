@@ -5,12 +5,12 @@
   "root": true,
   "pages": [
     "index",
-    "--- Registry Components ---",
-    "registry",
     "---Component Library---",
     "auth",
     "dev",
     "layout",
-    "shared"
+    "shared",
+    "--- Registry ---",
+    "registry"
   ]
 }

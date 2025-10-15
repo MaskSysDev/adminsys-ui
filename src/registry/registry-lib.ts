@@ -26,6 +26,23 @@ export const lib: Registry["items"] = [
     ],
   },
   /**
+   * Biblioteca `cn`:
+   * Contém funções utilitárias gerais, como `cn` para manipulação de classes CSS com `clsx` e `tailwind-merge`.
+   */
+  {
+    name: "cn",
+    type: "registry:lib",
+    title: "Utility Functions",
+    author: "<author> <<authorUrl>>",
+    dependencies: ["clsx", "tailwind-merge"],
+    files: [
+      {
+        path: "lib/cn.ts",
+        type: "registry:lib",
+      },
+    ],
+  },
+  /**
    * Biblioteca `metadata`:
    * Contém funções para gerar os metadados.
    */
@@ -53,7 +70,7 @@ export const lib: Registry["items"] = [
     dependencies: ["zod"],
     files: [
       {
-        path: "src/utils/sanitize.ts",
+        path: "utils/sanitize.ts",
         type: "registry:lib",
         target: "src/utils/sanitize.ts",
       },

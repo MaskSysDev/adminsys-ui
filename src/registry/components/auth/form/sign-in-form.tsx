@@ -18,13 +18,12 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 
-import { cn } from "@/lib/utils"
-import { sanitizeData } from "@/utils/sanitize"
-
 import { AlertError } from "@/registry/components/shared/alert/alert-error"
 import { AlertSuccess } from "@/registry/components/shared/alert/alert-success"
 import { PasswordInput } from "@/registry/components/shared/form/password-input"
 import { LoadingSpinner } from "@/registry/components/shared/loading/loading-spinner"
+import { cn } from "@/registry/lib/cn"
+import { sanitizeData } from "@/registry/utils/sanitize"
 import {
   type SignInFormValues,
   signInSchema,

@@ -4,17 +4,17 @@ import Link from "next/link"
 import type * as React from "react"
 
 import { ScrollArea } from "@/components/ui/scroll-area"
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarHeader,
-} from "@/components/ui/sidebar"
 
 import { SidebarNavMain } from "@/registry/components/layout/sidebar/inc/sidebar-nav-main"
 import { SidebarNavSecondary } from "@/registry/components/layout/sidebar/inc/sidebar-nav-secondary"
 import { SidebarNavUser } from "@/registry/components/layout/sidebar/inc/sidebar-nav-user"
 import { Logo } from "@/registry/components/shared/logo/logo-adminsys"
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+} from "@/registry/components/shared/sidebar"
 
 /**
  * Configuração da barra lateral de administração (AdminSidebar)

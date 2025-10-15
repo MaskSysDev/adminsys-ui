@@ -31,10 +31,11 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
-import { SidebarGroupLabel } from "@/components/ui/sidebar"
 
 import { isActive } from "@/lib/is-active"
-import { cn } from "@/lib/utils"
+
+import { SidebarGroupLabel } from "@/registry/components/shared/sidebar"
+import { cn } from "@/registry/lib/cn"
 
 type CollapsibleContentProps = ComponentProps<typeof CollapsibleContent>
 

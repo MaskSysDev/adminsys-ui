@@ -7,9 +7,8 @@ import {
   SidebarGroup,
   SidebarMenuButton,
   useSidebar,
-} from "@/components/ui/sidebar"
-
-import { cn } from "@/lib/utils"
+} from "@/registry/components/shared/sidebar"
+import { cn } from "@/registry/lib/cn"
 
 type SidebarMenuLinkType = {
   label: string

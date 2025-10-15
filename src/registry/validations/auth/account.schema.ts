@@ -1,7 +1,6 @@
 import { z } from "zod"
 
-import { sanitizePassword } from "@/utils/sanitize"
-
+import { sanitizePassword } from "@/registry/utils/sanitize"
 import { authBaseSchema } from "@/validations/auth/auth-base.schema"
 
 const IMAGE_SIZE = 1024

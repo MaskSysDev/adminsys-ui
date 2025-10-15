@@ -1,6 +1,10 @@
 import { z } from "zod"
 
-import { sanitizeEmail, sanitizeName, sanitizePassword } from "@/utils/sanitize"
+import {
+  sanitizeEmail,
+  sanitizeName,
+  sanitizePassword,
+} from "@/registry/utils/sanitize"
 
 /**
  * Constantes de validação
