@@ -1,0 +1,539 @@
+---
+title: Install
+description: Install Description.
+---
+
+[Fumadocs](https://fumadocs.dev) is a beautiful documentation framework for developers, flexible, performant, running on your React framework..
+
+## Version Control
+
+Create new Branch(version).
+
+```sh
+git checkout -b 06-fumadocs
+```
+
+## Apps Directory
+
+Create a folder called `apps` in the project root.
+
+```sh
+cd apps
+```
+
+## Install Fomadocs
+
+<Steps>
+  <Step>
+    ### Install
+
+    ```package-install
+    npm create fumadocs-app
+    ```
+
+  </Step>
+  <Step>
+    ### Initial Settings
+
+    ```sh
+    ◇  Project name
+    │  fumadocs
+    │
+    ◇  Choose a template
+    │  Next.js: Fumadocs MDX
+    │
+    ◇  Use `/src` directory?
+    │  Yes
+    │
+    ◇  Configure linter?
+    │  Disabled
+    │
+    ◇  Do you want to install packages automatically? (detected as pnpm)
+    │  No
+
+    ```
+
+  </Step>
+</Steps>
+
+## Files
+
+<Steps>
+  <Step>
+    ### package.json
+
+    Use the same versions of dependencies installed in the packages.
+
+    ```tsx title="apps/fumadocs/package.json"
+    {
+      "name": "fumadocs",
+      "version": "0.1.0",// [!code ++]
+      "type": "module",// [!code ++]
+      "private": true,
+      "scripts": {
+        "dev": "next dev --turbopack --port=4000",// [!code ++]
+        "build": "next build --turbopack",// [!code ++]
+        "start": "next start",// [!code ++]
+        "check-types": "tsc -b",// [!code ++]
+        "postinstall": "fumadocs-mdx"
+      },
+      "dependencies": {
+        "fumadocs-core": "15.8.5",
+        "fumadocs-mdx": "12.0.3",
+        "fumadocs-ui": "15.8.5",
+        "lucide-react": "^0.544.0",
+        "next": "15.5.6",// [!code ++]
+        "react": "19.1.0",// [!code ++]
+        "react-dom": "19.1.0"// [!code ++]
+      },
+      "devDependencies": {
+        "@tailwindcss/postcss": "^4.1.14",
+        "@types/mdx": "^2.0.13",
+        "@types/node": "catalog:",// [!code ++]
+        "@types/react": "^19.2.2",// [!code ++]
+        "@types/react-dom": "^19.2.2",// [!code ++]
+        "postcss": "^8.5.6",
+        "tailwindcss": "^4.1.14",
+        "typescript": "catalog:"// [!code ++]
+      }
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### next.config.ts
+
+    ```ts title="apps/fumadocs/next.config.ts"
+    import { createMDX } from "fumadocs-mdx/next"
+
+    const withMDX = createMDX()
+
+    /** @type {import('next').NextConfig} */
+    const config = {
+      typedRoutes: true,// [!code ++]
+      reactStrictMode: true,
+    }
+
+    export default withMDX(config)
+
+    ```
+
+  </Step>
+  <Step>
+    ### postcss.config.mjs
+
+    ```js title="apps/fumadocs/postcss.config.mjs"
+    export default {
+      plugins: {
+        "@tailwindcss/postcss": {},
+      },
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### tsconfig.json
+
+    ```js title="apps/fumadocs/tsconfig.json"
+    {
+      "compilerOptions": {
+        "target": "ESNext",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "preserve",
+        "incremental": true,
+        "verbatimModuleSyntax": true,// [!code ++]
+        "strictNullChecks": true,// [!code ++]
+        "forceConsistentCasingInFileNames": true,// [!code ++]
+        "baseUrl": ".",// [!code ++]
+        "paths": {
+          "@/.source": ["./.source/index.ts"],
+          "@/*": ["./src/*"]
+        },
+        "plugins": [
+          {
+            "name": "next"
+          }
+        ]
+      },
+      "include": [
+        "./**/*.ts",// [!code ++]
+        "./**/*.tsx",// [!code ++]
+        "./.next/types/**/*.ts",// [!code ++]
+        "./next-env.d.ts",// [!code ++]
+        ".next/types/**/*.ts"// [!code ++]
+      ],
+      "exclude": ["./node_modules"]
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### Globals CSS
+
+    - Remove `apps/fumadocs/src/app/global.css`
+
+    Create a folder called `styles` in the `src` directory and inside it create the file `globals.css`.
+
+    ```css title="apps/fumadocs/src/styles/globals.css"
+    @import "tailwindcss";
+    @import "fumadocs-ui/css/neutral.css";
+    @import "fumadocs-ui/css/preset.css";
+
+    ```
+
+  </Step>
+  <Step>
+    ### Update Layout
+
+    ```tsx title="apps/fumadocs/src/app/layout.tsx"
+    // [!code ++]
+    import "@/styles/globals.css"
+
+    import { RootProvider } from "fumadocs-ui/provider/next"
+    import { Inter } from "next/font/google"
+
+    const inter = Inter({
+      subsets: ["latin"],
+    })
+
+    export default function Layout({ children }: LayoutProps<"/">) {
+      return (
+        <html className={inter.className} lang="en" suppressHydrationWarning>
+          <body className="flex min-h-screen flex-col">
+            <RootProvider>{children}</RootProvider>
+          </body>
+        </html>
+      )
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### MDX Components
+
+    Create a folder called `components` in the `src` directory and inside it create new folder `docs` and move `apps/fumadocs/src/mdx-components.tsx` inside to folder `docs`.
+
+  </Step>
+  <Step>
+    ### Update Page
+
+    ```tsx title="apps/fumadocs/src/app/docs/[[slug]]/page.tsx"
+    import { createRelativeLink } from "fumadocs-ui/mdx"
+    import {
+      DocsBody,
+      DocsDescription,
+      DocsPage,
+      DocsTitle,
+    } from "fumadocs-ui/page"
+    import type { Metadata } from "next"
+    import { notFound } from "next/navigation"
+
+    import { getPageImage, source } from "@/lib/source"
+
+    import { getMDXComponents } from "@/components/docs/mdx-components"// [!code ++]
+
+    export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
+      const params = await props.params
+      const page = source.getPage(params.slug)
+      if (!page) {
+        notFound()
+      }
+
+      const MDX = page.data.body
+
+      return (
+        <DocsPage full={page.data.full} toc={page.data.toc}>
+          <DocsTitle>{page.data.title}</DocsTitle>
+          <DocsDescription>{page.data.description}</DocsDescription>
+          <DocsBody>
+            <MDX
+              components={getMDXComponents({
+                // this allows you to link to other pages with relative file paths
+                a: createRelativeLink(source, page),
+              })}
+            />
+          </DocsBody>
+        </DocsPage>
+      )
+    }
+
+    export function generateStaticParams() {
+      return source.generateParams()
+    }
+
+    export async function generateMetadata(
+      props: PageProps<"/docs/[[...slug]]">
+    ): Promise<Metadata> {
+      const params = await props.params
+      const page = source.getPage(params.slug)
+      if (!page) {
+        notFound()
+      }
+
+      return {
+        title: page.data.title,
+        description: page.data.description,
+        openGraph: {
+          images: getPageImage(page).url,
+        },
+      }
+    }
+
+    ```
+
+  </Step>
+</Steps>
+
+## Run
+
+<Steps>
+  <Step>
+    Back To Root Directory.
+
+    ```sh
+    cd ../
+    ```
+
+  </Step>
+  <Step>
+    ### Run Taze
+
+    To ensure all dependencies are up to date and correctly installed, run the following command:
+
+    ```sh
+    pnpm dlx taze -r -w
+    ```
+
+  </Step>
+  <Step>
+    ### Run Install
+
+    ```sh
+    pnpm i
+    ```
+
+  </Step>
+  <Step>
+    ### Run Dev
+
+    ```sh
+    pnpm dev
+    ```
+
+  </Step>
+</Steps>
+
+## Install Design System
+
+<Steps>
+  <Step>
+    ### Update package.json
+
+    ```json title="apps/fumadocs/package.json"
+    {
+      "name": "fumadocs",
+      "version": "0.1.0",
+      "type": "module",
+      "private": true,
+      "scripts": {
+        "dev": "next dev --turbopack --port=4000",
+        "build": "next build --turbopack",
+        "start": "next start",
+        "check-types": "tsc -b",
+        "postinstall": "fumadocs-mdx"
+      },
+      "dependencies": {
+        "@adminsys/ds": "workspace:*",// [!code ++]
+        "fumadocs-core": "15.8.5",
+        "fumadocs-mdx": "12.0.3",
+        "fumadocs-ui": "15.8.5",
+        "lucide-react": "^0.544.0",
+        "next": "15.5.6",
+        "react": "19.1.0",
+        "react-dom": "19.1.0"
+      },
+      "devDependencies": {
+        "@tailwindcss/postcss": "^4.1.14",
+        "@types/mdx": "^2.0.13",
+        "@types/node": "catalog:",
+        "@types/react": "^19.2.2",
+        "@types/react-dom": "^19.2.2",
+        "postcss": "^8.5.6",
+        "tailwindcss": "^4.1.14",
+        "typescript": "catalog:"
+      }
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### Update next.config.ts
+
+    ```ts title="apps/fumadocs/next.config.ts"
+    import { createMDX } from "fumadocs-mdx/next"
+
+    const withMDX = createMDX()
+
+    /** @type {import('next').NextConfig} */
+    const config = {
+      typedRoutes: true,
+      reactStrictMode: true,
+      transpilePackages: ["@adminsys/ds"],// [!code ++]
+    }
+
+    export default withMDX(config)
+
+    ```
+
+  </Step>
+  <Step>
+    ### Update tsconfig.json
+
+    ```js title="apps/fumadocs/tsconfig.json"
+    {
+      "compilerOptions": {
+        "target": "ESNext",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "preserve",
+        "incremental": true,
+        "verbatimModuleSyntax": true,
+        "strictNullChecks": true,
+        "forceConsistentCasingInFileNames": true,
+        "baseUrl": ".",
+        "paths": {
+          "@/.source": ["./.source/index.ts"],
+          "@/*": ["./src/*"],
+          "@adminsys/ds/*": ["../../packages/ds/src/*"]// [!code ++]
+        },
+        "plugins": [
+          {
+            "name": "next"
+          }
+        ]
+      },
+      "include": [
+        "./**/*.ts",
+        "./**/*.tsx",
+        "./.next/types/**/*.ts",
+        "./next-env.d.ts",
+        ".next/types/**/*.ts"
+      ],
+      "exclude": ["./node_modules"]
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### Install Package
+
+    ```sh
+    pnpm i
+    ```
+  </Step>
+  <Step>
+    ### Update Globals CSS
+
+    ```css title="apps/fumadocs/src/styles/globals.css"
+    @import "tailwindcss";
+    // [!code ++]
+    @import "fumadocs-ui/css/shadcn.css";
+    @import "fumadocs-ui/css/preset.css";
+
+    ```
+
+  </Step>
+  <Step>
+    ### Update Layout
+
+    ```tsx title="apps/fumadocs/src/app/layout.tsx"
+    // [!code ++]
+    import "@adminsys/ds/globals.css"
+    import "@/styles/globals.css"
+
+    import { RootProvider } from "fumadocs-ui/provider/next"
+    import { Inter } from "next/font/google"
+
+    const inter = Inter({
+      subsets: ["latin"],
+    })
+
+    export default function Layout({ children }: LayoutProps<"/">) {
+      return (
+        <html className={inter.className} lang="en" suppressHydrationWarning>
+          <body className="flex min-h-screen flex-col">
+            <RootProvider>{children}</RootProvider>
+          </body>
+        </html>
+      )
+    }
+
+    ```
+
+  </Step>
+</Steps>
+
+## Run
+
+<Steps>
+  <Step>
+    ### Run Dev
+
+    ```sh
+    pnpm dev
+    ```
+
+  </Step>
+</Steps>
+
+## Version Control
+
+<Steps>
+  <Step>
+    Send all data to stage.
+
+    ```sh
+    git add .
+    ```
+
+  </Step>
+  <Step>
+    Copy data with Commit.
+
+    ```sh
+    git commit -m "feat: 06-fumadocs"
+    ```
+
+  </Step>
+  <Step>
+  Send Branch.
+
+    ```sh
+    git push --set-upstream origin 06-fumadocs
+    ```
+
+  </Step>
+</Steps>
