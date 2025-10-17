@@ -1,4 +1,4 @@
 {
   "title": "Documentation",
-  "pages": ["apps", "components", "integration"]
+  "pages": ["apps", "components", "integration", "monorepo"]
 }

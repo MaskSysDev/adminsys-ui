@@ -1,0 +1,13 @@
+{
+  "title": "Monorepo",
+  "icon": "AppWindow",
+  "description": "Applications",
+  "root": true,
+  "pages": [
+    "installation",
+    "---Applications---",
+    "turbostack-2025",
+    "---Packages---",
+    "packages"
+  ]
+}
