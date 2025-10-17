@@ -10,15 +10,15 @@ description: Install Description.
 Create new Branch(version).
 
 ```sh
-git checkout -b 04-install-nextjs
+git checkout -b 05-design-system
 ```
 
-## Apps Directory
+## Packages Directory
 
-Create a folder called `apps` in the project root.
+Create a folder called `packages` in the project root.
 
 ```sh
-cd apps
+cd packages
 ```
 
 ## Install Nextjs
@@ -36,7 +36,7 @@ cd apps
     ### Initial Settings
 
     ```sh
-    √ What is your project named? ... nextjs15-clean-start
+    √ What is your project named? ... ds
     √ Would you like to use TypeScript? ... Yes
     √ Which linter would you like to use? » None
     √ Would you like to use Tailwind CSS? ... Yes
@@ -53,9 +53,9 @@ cd apps
 
 ### Delete Folder
 
-- `apps/nextjs15-clean-start/node_modules`.
-- `apps/nextjs15-clean-start/public`.
-- `apps/nextjs15-clean-start/src`.
+- `packages/ds/node_modules`.
+- `packages/ds/public`.
+- `packages/ds/src`.
 
 ## Files
 
@@ -65,14 +65,14 @@ cd apps
 
     Use the same versions of dependencies installed in the packages.
 
-    ```tsx title="apps/nextjs15-clean-start/package.json"
+    ```tsx title="packages/ds/package.json"
     {
-      "name": "nextjs15-clean-start",
+      "name": "@adminsys/ds",// [!code ++]
       "version": "0.1.0",
       "type": "module",// [!code ++]
       "private": true,
       "scripts": {
-        "dev": "next dev --turbopack --port=3001",// [!code ++]
+        "dev": "next dev --turbopack --port=3006",// [!code ++]
         "build": "next build --turbopack",
         "start": "next start",
         "check-types": "tsc -b"// [!code ++]
@@ -98,7 +98,7 @@ cd apps
   <Step>
     ### next.config.ts
 
-    ```ts title="apps/nextjs15-clean-start/next.config.ts"
+    ```ts title="packages/ds/next.config.ts"
     import type { NextConfig } from "next"
 
     const nextConfig: NextConfig = {
@@ -113,7 +113,7 @@ cd apps
   <Step>
     ### postcss.config.mjs
 
-    ```js title="apps/nextjs15-clean-start/postcss.config.mjs"
+    ```js title="packages/ds/postcss.config.mjs"
     const config = {
       plugins: ["@tailwindcss/postcss"],
     }
@@ -126,7 +126,7 @@ cd apps
   <Step>
     ### tsconfig.json
 
-    ```js title="apps/nextjs15-clean-start/tsconfig.json"
+    ```js title="packages/ds/tsconfig.json"
     {
       "compilerOptions": {
         "target": "ES2017",
@@ -149,18 +149,20 @@ cd apps
             "name": "next"
           }
         ],
+        "baseUrl": ".",// [!code ++]
         "paths": {
-          "@/*": ["./src/*"]
+          "@adminsys/ds/*": ["./src/*"]// [!code ++]
         }
       },
       "include": [
+        ".",// [!code ++]
         "./**/*.ts",// [!code ++]
         "./**/*.tsx",// [!code ++]
         "./.next/types/**/*.ts",// [!code ++]
         "./next-env.d.ts",// [!code ++]
         ".next/types/**/*.ts"// [!code ++]
       ],
-      "exclude": ["./node_modules"]// [!code ++]
+      "exclude": ["./node_modules", "./dist"]// [!code ++]
     }
 
     ```
@@ -169,7 +171,7 @@ cd apps
   <Step>
     ### Styles
 
-    ```css title="apps/nextjs15-clean-start/src/styles/globals.css"
+    ```css title="packages/ds/src/styles/globals.css"
     @import "tailwindcss";
 
     ```
@@ -178,7 +180,7 @@ cd apps
   <Step>
     ### layout.tsx
 
-    ```tsx title="apps/nextjs15-clean-start/src/app/layout.tsx"
+    ```tsx title="packages/ds/src/app/layout.tsx"
     import type { Metadata } from "next"
     import { Geist, Geist_Mono } from "next/font/google"
 
@@ -226,11 +228,11 @@ cd apps
   <Step>
     ### page.tsx
 
-    ```tsx title="apps/nextjs15-clean-start/src/app/(home)/page.tsx"
+    ```tsx title="packages/ds/src/app/(home)/page.tsx"
     export default function Home() {
       return (
         <main className="flex flex-col items-center gap-2 p-24">
-          <h1 className="font-bold text-3xl">NextJS 15 Clean Start</h1>
+          <h1 className="font-bold text-3xl">AdminSys Design System</h1>
         </main>
       )
     }
@@ -252,7 +254,7 @@ cd apps
 
   </Step>
   <Step>
-    ### Run Taze
+    #### Run Taze
 
     To ensure all dependencies are up to date and correctly installed, run the following command:
 
@@ -262,7 +264,7 @@ cd apps
 
   </Step>
   <Step>
-    ### Run Install
+    #### Run Install
 
     ```sh
     pnpm i
@@ -270,39 +272,18 @@ cd apps
 
   </Step>
   <Step>
-    ### Run Dev
+    Run Check.
+
+    ```sh
+    pnpm check
+    ```
+
+  </Step>
+  <Step>
+    Run Dev.
 
     ```sh
     pnpm dev
-    ```
-
-  </Step>
-</Steps>
-
-## Version Control
-
-<Steps>
-  <Step>
-    Send all data to stage.
-
-    ```sh
-    git add .
-    ```
-
-  </Step>
-  <Step>
-    Copy data with Commit.
-
-    ```sh
-    git commit -m "feat: 04-install-nextjs"
-    ```
-
-  </Step>
-  <Step>
-  Send Branch.
-
-    ```sh
-    git push --set-upstream origin 04-install-nextjs
     ```
 
   </Step>

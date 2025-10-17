@@ -27,6 +27,19 @@ git checkout -b 02-clean-project
 
   </Step>
   <Step>
+    ### pnpm-workspace
+
+    ```yaml title="pnpm-workspace.yaml"
+    packages:
+      - "apps/*"
+      - "packages/*"
+    catalog: #[!code ++]
+      typescript: ^5.9.3 #[!code ++]
+      "@types/node": ^22.18.11 #[!code ++]
+
+    ```
+  </Step>
+  <Step>
     ### package.json
 
     In `package.json`, update dependencies and scripts.
@@ -45,7 +58,7 @@ git checkout -b 02-clean-project
       "devDependencies": {
         "prettier": "^3.6.2",// [!code --]
         "turbo": "^2.5.8",
-        "typescript": "5.9.2"// [!code --]
+        "typescript": "catalog:"// [!code ++]
       },
       "packageManager": "pnpm@10.18.3",
       "engines": {
