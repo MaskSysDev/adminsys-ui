@@ -1,0 +1,174 @@
+---
+title: Clean Project
+description: Clean Project Description.
+---
+
+Nextjs App with Typescript, ESLint, Prettier, Tailwind CSS, Shadcn/ui, and more.
+
+## Version Control
+
+Create new Branch(version).
+
+```sh
+git checkout -b 02-clean-project
+```
+
+## Clean Start
+
+<Steps>
+  <Step>
+    ### Delete
+
+    - .vscode
+    - apps
+    - node_modules
+    - packages
+    - pnpm-lock.yaml
+
+  </Step>
+  <Step>
+    ### package.json
+
+    In `package.json`, update dependencies and scripts.
+
+    ```json title="package.json"
+    {
+      "name": "turbostack-2025",
+      "private": true,
+      "scripts": {
+        "dev": "turbo dev",// [!code ++]
+        "build": "turbo build",// [!code ++]
+        "lint": "turbo lint",// [!code --]
+        "format": "prettier --write \"**/*.{ts,tsx,md}\"",// [!code --]
+        "check-types": "turbo check-types"// [!code ++]
+      },
+      "devDependencies": {
+        "prettier": "^3.6.2",// [!code --]
+        "turbo": "^2.5.8",
+        "typescript": "5.9.2"// [!code --]
+      },
+      "packageManager": "pnpm@10.18.3",
+      "engines": {
+        "node": ">=18"
+      }
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### tsconfig.json
+
+    Create `tsconfig.base.json`.
+
+    ```json title="tsconfig.base.json"
+    {
+      "$schema": "https://json.schemastore.org/tsconfig",
+      "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "lib": ["ESNext"],
+        "verbatimModuleSyntax": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "isolatedModules": true,
+        "noUncheckedIndexedAccess": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        "types": ["node"]
+      }
+    }
+
+    ```
+
+    Create `tsconfig.json`.
+
+    ```json title="tsconfig.json"
+    {
+      "extends": "./tsconfig.base.json",
+      "compilerOptions": {
+        "strictNullChecks": true
+      }
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### turbo.json
+
+    ```json title="turbo.json"
+    {
+      "$schema": "https://turborepo.com/schema.json",
+      "ui": "tui",
+      "tasks": {
+        "build": {
+          "dependsOn": ["^build"],
+          "inputs": ["$TURBO_DEFAULT$", ".env*"],
+          "outputs": [".next/**", "!.next/cache/**", "dist/**"]// [!code ++]
+        },
+        "lint": {
+          "dependsOn": ["^lint"]
+        },
+        "check-types": {
+          "dependsOn": ["^check-types"]
+        },
+        "dev": {
+          "cache": false,
+          "persistent": true
+        }
+      }
+    }
+
+    ```
+
+  </Step>
+</Steps>
+
+## Run
+
+<Steps>
+  <Step>
+    ### Run Install
+
+    ```sh
+    pnpm i
+    ```
+
+  </Step>
+</Steps>
+
+## Version Control
+
+<Steps>
+  <Step>
+    Send all data to stage.
+
+    ```sh
+    git add .
+    ```
+
+  </Step>
+  <Step>
+    Copy data with Commit.
+
+    ```sh
+    git commit -m "chore: 02-clean-project"
+    ```
+
+  </Step>
+  <Step>
+  Send Branch.
+
+    ```sh
+    git push --set-upstream origin 02-clean-project
+    ```
+
+  </Step>
+</Steps>

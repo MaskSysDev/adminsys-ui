@@ -1,0 +1,150 @@
+---
+title: Installation
+description: Installation Description.
+---
+
+[Turborepo](https://turbo.build/repo/docs) is a high-performance build system for JavaScript and TypeScript codebases. It is designed for scaling monorepos and also makes workflows in single-package workspaces faster, too.
+
+## Install Turborepo
+
+<Steps>
+  <Step>
+    ### Install
+
+    ```package-install
+    npx create-turbo@latest
+    ```
+
+  </Step>
+  <Step>
+    ### Initial Settings
+
+    ```sh
+    ? Where would you like to create your Turborepo? project-name
+    ? Which package manager do you want to use? pnpm
+    ```
+
+  </Step>
+  <Step>
+    ### Global Install
+
+    A global install of turbo brings flexibility and speed to your local workflows.
+
+    ```package-install
+    npm install turbo --global
+    ```
+
+  </Step>
+</Steps>
+
+## Post-Installation
+
+<Steps>
+  <Step>
+    ### Enter the Directory
+
+    ```sh
+    cd project-name
+    ```
+
+  </Step>
+  <Step>
+    ### Delete Folder
+
+    Delete the `.git` folder from the project or run the command:
+
+    ```sh
+    rm -rf .git
+    # or
+    Remove-Item -Force .git
+    ```
+
+  </Step>
+  <Step>
+    ### Open with VS Code.
+
+    Open the project with your preferred IDE.
+
+    ```sh
+    code .
+    ```
+
+  </Step>
+  <Step>
+    ### Run Dev
+
+    ```sh
+    pnpm dev
+    ```
+
+  </Step>
+</Steps>
+
+## Version Control
+
+<Steps>
+  <Step>
+    Initialize the local Git repository.
+
+    ```sh
+    git init
+    ```
+
+  </Step>
+  <Step>
+    Send all data to stage.
+
+    ```sh
+    git add .
+    ```
+
+  </Step>
+  <Step>
+    Copy data with Commit.
+
+    ```sh
+    git commit -m "chore: 01-create-turbo"
+    ```
+
+  </Step>
+  <Step>
+    Change branch name from (master) to (main).
+
+    ```sh
+    git branch -M main
+    ```
+
+  </Step>
+  <Step>
+    Add Remote GitHub Repository.
+
+    ```sh
+    git remote add origin https://github.com/username/project-name.git
+    ```
+
+  </Step>
+  <Step>
+    Send to Remote Repository.
+
+    ```sh
+    git push -u origin main
+    ```
+
+  </Step>
+  <Step>
+    Create new Branch(version).
+
+    ```sh
+    git checkout -b 01-create-turbo
+    ```
+
+  </Step>
+  <Step>
+    Send Branch.
+
+    ```sh
+    git push --set-upstream origin 01-create-turbo
+    ```
+
+  </Step>
+</Steps>
