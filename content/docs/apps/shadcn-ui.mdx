@@ -43,12 +43,20 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
 
 <Steps>
   <Step>
-    ### Utils
+    ### Cn
 
-    ```ts title="src/lib/utils.ts"
+    Create `cn.ts`
+
+    ```ts title="src/lib/cn.ts"
     import { clsx, type ClassValue } from "clsx"
     import { twMerge } from "tailwind-merge"
 
+    /**
+     * Combina classes Tailwind CSS de forma condicional e resolve conflitos.
+     * Utiliza `clsx` para combinar classes e `tailwind-merge` para resolver conflitos de forma inteligente.
+     * @param inputs As classes CSS a serem combinadas.
+     * @returns Uma string contendo as classes CSS combinadas e resolvidas.
+     */
     export function cn(...inputs: ClassValue[]) {
       return twMerge(clsx(inputs))
     }
@@ -67,37 +75,37 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
 
     :root {
       --background: oklch(1 0 0);
-      --foreground: oklch(0.1450 0 0);
+      --foreground: oklch(0.145 0 0);
       --card: oklch(1 0 0);
-      --card-foreground: oklch(0.1450 0 0);
+      --card-foreground: oklch(0.145 0 0);
       --popover: oklch(1 0 0);
-      --popover-foreground: oklch(0.1450 0 0);
-      --primary: oklch(0.5460 0.2450 262.8810);
-      --primary-foreground: oklch(0.9850 0 0);
-      --secondary: oklch(0.9700 0 0);
-      --secondary-foreground: oklch(0.2050 0 0);
-      --muted: oklch(0.9700 0 0);
-      --muted-foreground: oklch(0.5560 0 0);
-      --accent: oklch(0.9700 0 0);
-      --accent-foreground: oklch(0.2050 0 0);
-      --destructive: oklch(0.5770 0.2450 27.3250);
+      --popover-foreground: oklch(0.145 0 0);
+      --primary: oklch(0.546 0.245 262.881);
+      --primary-foreground: oklch(0.985 0 0);
+      --secondary: oklch(0.97 0 0);
+      --secondary-foreground: oklch(0.205 0 0);
+      --muted: oklch(0.97 0 0);
+      --muted-foreground: oklch(0.556 0 0);
+      --accent: oklch(0.97 0 0);
+      --accent-foreground: oklch(0.205 0 0);
+      --destructive: oklch(0.577 0.245 27.325);
       --destructive-foreground: oklch(1 0 0);
-      --border: oklch(0.9220 0 0);
-      --input: oklch(0.9220 0 0);
-      --ring: oklch(0.7080 0 0);
-      --chart-1: oklch(0.5460 0.2450 262.8810);
-      --chart-2: oklch(0.7230 0.2190 149.5790);
-      --chart-3: oklch(0.7950 0.1840 86.0470);
-      --chart-4: oklch(0.6060 0.2500 292.7170);
-      --chart-5: oklch(0.6370 0.2370 25.3310);
-      --sidebar: oklch(0.9850 0 0);
-      --sidebar-foreground: oklch(0.1450 0 0);
-      --sidebar-primary: oklch(0.5460 0.2450 262.8810);
-      --sidebar-primary-foreground: oklch(0.9850 0 0);
-      --sidebar-accent: oklch(0.9700 0 0);
-      --sidebar-accent-foreground: oklch(0.2050 0 0);
-      --sidebar-border: oklch(0.9220 0 0);
-      --sidebar-ring: oklch(0.7080 0 0);
+      --border: oklch(0.922 0 0);
+      --input: oklch(0.922 0 0);
+      --ring: oklch(0.708 0 0);
+      --chart-1: oklch(0.546 0.245 262.881);
+      --chart-2: oklch(0.723 0.219 149.579);
+      --chart-3: oklch(0.795 0.184 86.047);
+      --chart-4: oklch(0.606 0.25 292.717);
+      --chart-5: oklch(0.637 0.237 25.331);
+      --sidebar: oklch(0.985 0 0);
+      --sidebar-foreground: oklch(0.145 0 0);
+      --sidebar-primary: oklch(0.546 0.245 262.881);
+      --sidebar-primary-foreground: oklch(0.985 0 0);
+      --sidebar-accent: oklch(0.97 0 0);
+      --sidebar-accent-foreground: oklch(0.205 0 0);
+      --sidebar-border: oklch(0.922 0 0);
+      --sidebar-ring: oklch(0.708 0 0);
       --font-sans: Geist, ui-sans-serif, sans-serif, system-ui;
       --font-serif: Roboto Serif, ui-serif, serif;
       --font-mono: Geist Mono, ui-monospace, monospace;
@@ -110,49 +118,53 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
       --shadow-color: oklch(0 0 0);
       --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
       --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-      --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
-      --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
-      --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 2px 4px -1px hsl(0 0% 0% / 0.10);
-      --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 4px 6px -1px hsl(0 0% 0% / 0.10);
-      --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 8px 10px -1px hsl(0 0% 0% / 0.10);
+      --shadow-sm:
+        0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+      --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+      --shadow-md:
+        0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+      --shadow-lg:
+        0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+      --shadow-xl:
+        0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
       --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
       --tracking-normal: 0em;
       --spacing: 0.25rem;
     }
 
     .dark {
-      --background: oklch(0.1450 0 0);
-      --foreground: oklch(0.9850 0 0);
-      --card: oklch(0.2050 0 0);
-      --card-foreground: oklch(0.9850 0 0);
-      --popover: oklch(0.2050 0 0);
-      --popover-foreground: oklch(0.9850 0 0);
-      --primary: oklch(0.5460 0.2450 262.8810);
-      --primary-foreground: oklch(0.9850 0 0);
-      --secondary: oklch(0.2690 0 0);
-      --secondary-foreground: oklch(0.9850 0 0);
-      --muted: oklch(0.2690 0 0);
-      --muted-foreground: oklch(0.7080 0 0);
-      --accent: oklch(0.2690 0 0);
-      --accent-foreground: oklch(0.9850 0 0);
-      --destructive: oklch(0.5770 0.2450 27.3250);
-      --destructive-foreground: oklch(0.9850 0 0);
-      --border: oklch(0.2750 0 0);
-      --input: oklch(0.3250 0 0);
-      --ring: oklch(0.5560 0 0);
-      --chart-1: oklch(0.5460 0.2450 262.8810);
-      --chart-2: oklch(0.7230 0.2190 149.5790);
-      --chart-3: oklch(0.7950 0.1840 86.0470);
-      --chart-4: oklch(0.6060 0.2500 292.7170);
-      --chart-5: oklch(0.6370 0.2370 25.3310);
-      --sidebar: oklch(0.2050 0 0);
-      --sidebar-foreground: oklch(0.9850 0 0);
-      --sidebar-primary: oklch(0.5460 0.2450 262.8810);
-      --sidebar-primary-foreground: oklch(0.9850 0 0);
-      --sidebar-accent: oklch(0.2690 0 0);
-      --sidebar-accent-foreground: oklch(0.9850 0 0);
-      --sidebar-border: oklch(0.2750 0 0);
-      --sidebar-ring: oklch(0.5560 0 0);
+      --background: oklch(0.145 0 0);
+      --foreground: oklch(0.985 0 0);
+      --card: oklch(0.205 0 0);
+      --card-foreground: oklch(0.985 0 0);
+      --popover: oklch(0.205 0 0);
+      --popover-foreground: oklch(0.985 0 0);
+      --primary: oklch(0.546 0.245 262.881);
+      --primary-foreground: oklch(0.985 0 0);
+      --secondary: oklch(0.269 0 0);
+      --secondary-foreground: oklch(0.985 0 0);
+      --muted: oklch(0.269 0 0);
+      --muted-foreground: oklch(0.708 0 0);
+      --accent: oklch(0.269 0 0);
+      --accent-foreground: oklch(0.985 0 0);
+      --destructive: oklch(0.577 0.245 27.325);
+      --destructive-foreground: oklch(0.985 0 0);
+      --border: oklch(0.275 0 0);
+      --input: oklch(0.325 0 0);
+      --ring: oklch(0.556 0 0);
+      --chart-1: oklch(0.546 0.245 262.881);
+      --chart-2: oklch(0.723 0.219 149.579);
+      --chart-3: oklch(0.795 0.184 86.047);
+      --chart-4: oklch(0.606 0.25 292.717);
+      --chart-5: oklch(0.637 0.237 25.331);
+      --sidebar: oklch(0.205 0 0);
+      --sidebar-foreground: oklch(0.985 0 0);
+      --sidebar-primary: oklch(0.546 0.245 262.881);
+      --sidebar-primary-foreground: oklch(0.985 0 0);
+      --sidebar-accent: oklch(0.269 0 0);
+      --sidebar-accent-foreground: oklch(0.985 0 0);
+      --sidebar-border: oklch(0.275 0 0);
+      --sidebar-ring: oklch(0.556 0 0);
       --font-sans: Geist, ui-sans-serif, sans-serif, system-ui;
       --font-serif: Roboto Serif, ui-serif, serif;
       --font-mono: Geist Mono, ui-monospace, monospace;
@@ -165,11 +177,15 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
       --shadow-color: oklch(0 0 0);
       --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
       --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-      --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
-      --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
-      --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 2px 4px -1px hsl(0 0% 0% / 0.10);
-      --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 4px 6px -1px hsl(0 0% 0% / 0.10);
-      --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 8px 10px -1px hsl(0 0% 0% / 0.10);
+      --shadow-sm:
+        0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+      --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+      --shadow-md:
+        0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+      --shadow-lg:
+        0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+      --shadow-xl:
+        0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
       --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
     }
 
@@ -206,16 +222,13 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
       --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
       --color-sidebar-border: var(--sidebar-border);
       --color-sidebar-ring: var(--sidebar-ring);
-
       --font-sans: var(--font-sans);
       --font-mono: var(--font-mono);
       --font-serif: var(--font-serif);
-
       --radius-sm: calc(var(--radius) - 4px);
       --radius-md: calc(var(--radius) - 2px);
       --radius-lg: var(--radius);
       --radius-xl: calc(var(--radius) + 4px);
-
       --shadow-2xs: var(--shadow-2xs);
       --shadow-xs: var(--shadow-xs);
       --shadow-sm: var(--shadow-sm);
@@ -229,7 +242,6 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
     @utility no-scrollbar {
       -ms-overflow-style: none; /* IE and Edge */
       scrollbar-width: none; /* Firefox */
-
       /* Hide scrollbar for Chrome, Safari and Opera */
       &::-webkit-scrollbar {
         display: none;
@@ -248,7 +260,6 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
         font-synthesis-weight: none;
         text-rendering: optimizeLegibility;
       }
-
       /* Custom scrollbar styling */
       ::-webkit-scrollbar {
         width: 5px;
@@ -264,9 +275,12 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
         scrollbar-width: thin;
         scrollbar-color: var(--border) transparent;
       }
-
       [id] {
         @apply scroll-mt-22;
+      }
+      a,
+      button {
+        @apply cursor-pointer;
       }
     }
 
@@ -298,7 +312,7 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
         "hooks": "@/hooks"
       },
       "registries": {
-        "@adminsys": "https://adminsys-ui.vercel.app/r/{name}.json"// [!code ++]
+        "@adminsys-ui": "https://adminsys-ui.vercel.app/r/{name}.json"// [!code ++]
       }
     }
 
@@ -310,7 +324,7 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
 
     ```json title="package.json"
     {
-      "name": "sitesys-started",
+      "name": "nextjs16-started",
       "version": "0.1.0",
       "type": "module",
       "private": true,
@@ -318,82 +332,43 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
         "dev": "next dev --turbopack",
         "build": "next build --turbopack",
         "start": "next start",
-        "preview": "next build && next start",
-        "clean": "rm -rf node_modules && rm -rf .next",
         "lint": "biome check",
         "format": "biome format --write",
         "check": "biome check --write",
-        "typecheck": "tsc --noEmit",
+        "check-types": "tsc -b",
         "ui:add": "pnpm dlx shadcn@latest add",// [!code ++]
         "prepare": "husky"
       },
       "dependencies": {
         "class-variance-authority": "0.7.1",
         "clsx": "2.1.1",
-        "lucide-react": "0.542.0",
-        "next": "15.5.2",
-        "react": "19.1.0",
-        "react-dom": "19.1.0",
+        "lucide-react": "0.546.0",
+        "next": "16.0.0",
+        "next-themes": "0.4.6",
+        "radix-ui": "latest",
+        "react": "19.2.0",
+        "react-dom": "19.2.0",
         "tailwind-merge": "3.3.1"
       },
       "devDependencies": {
-        "@biomejs/biome": "2.2.2",
-        "@commitlint/cli": "19.8.1",
-        "@commitlint/config-conventional": "19.8.1",
-        "@tailwindcss/postcss": "^4.1.12",
-        "@types/node": "^20.19.11",
-        "@types/react": "^19.1.12",
-        "@types/react-dom": "^19.1.9",
+        "@biomejs/biome": "2.2.6",
+        "@tailwindcss/postcss": "^4.1.16",
+        "@types/node": "^20.19.23",
+        "@types/react": "^19.2.2",
+        "@types/react-dom": "^19.2.2",
+        "babel-plugin-react-compiler": "1.0.0",
         "husky": "9.1.7",
-        "tailwindcss": "^4.1.12",
-        "tw-animate-css": "1.3.7",
-        "typescript": "^5.9.2",
-        "ultracite": "5.2.17"
+        "lint-staged": "16.2.6",
+        "tailwindcss": "^4.1.16",
+        "tw-animate-css": "1.4.0",
+        "typescript": "^5.9.3",
+        "ultracite": "5.6.4"
+      },
+      "lint-staged": {
+        "*.{js,jsx,ts,tsx,json,jsonc,css,scss,md,mdx}": [
+          "pnpm dlx ultracite fix"
+        ]
       }
-    }
-
-    ```
-
-  </Step>
-  <Step>
-    ### Update Layout
-
-    ```tsx title="src/app/layout.tsx"
-    import type { Metadata } from "next"
-
-    import { geistMono, geistSans } from "@/lib/fonts"
-    import { cn } from "@/lib/cn"// [!code ++]
-
-    import "@/styles/globals.css"
-
-    export const metadata: Metadata = {
-      title: "NextJS 15 Started",
-      description: "Generated by create next app",
-    }
-
-    export default function RootLayout({
-      children,
-    }: Readonly<{
-      children: React.ReactNode
-    }>) {
-      return (
-        <html
-          className="scroll-smooth"
-          data-scroll-behavior="smooth"
-          dir="ltr"
-          lang="en"
-        >
-          <body
-            className={cn(// [!code ++]
-              geistSans.variable,// [!code ++]
-              geistMono.variable,// [!code ++]
-              "font-sans antialiased"// [!code ++]
-            )}// [!code ++]
-          >
-            {children}
-          </body>
-        </html>
-      )
     }
 
     ```
@@ -464,24 +439,20 @@ An abstraction for themes in your React app.
     ### Update Layout
 
     ```tsx title="src/app/layout.tsx"
-    import type { Metadata } from "next"
-
-    import { ThemeProvider } from "@/components/layout/provider/theme-provider"// [!code ++]
-
-    import { geistMono, geistSans } from "@/lib/fonts"
-    import { cn } from "@/lib/utils"
-
-    import "@/styles/globals.css"
+    import type { Metadata } from "next";
+    import { geistMono, geistSans } from "@/lib/fonts";
+    import "@/styles/globals.css";
+    import { ThemeProvider } from "@/components/shared/provider/theme-provider";// [!code ++]
 
     export const metadata: Metadata = {
-      title: "NextJS 15 Started",
+      title: "Create Next App",
       description: "Generated by create next app",
-    }
+    };
 
     export default function RootLayout({
       children,
     }: Readonly<{
-      children: React.ReactNode
+      children: React.ReactNode;
     }>) {
       return (
         <html
@@ -492,11 +463,7 @@ An abstraction for themes in your React app.
           suppressHydrationWarning// [!code ++]
         >
           <body
-            className={cn(
-              geistSans.variable,
-              geistMono.variable,
-              "font-sans antialiased"
-            )}
+            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
           >
             // [!code ++]
             <ThemeProvider
@@ -515,7 +482,7 @@ An abstraction for themes in your React app.
             </ThemeProvider>
           </body>
         </html>
-      )
+      );
     }
 
     ```

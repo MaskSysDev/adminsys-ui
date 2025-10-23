@@ -57,8 +57,8 @@ export function SidebarMenuFolder({ item }: SidebarMenuFolderType) {
         <SidebarGroupLabel
           asChild
           className={cn(
-            "group/label h-9 cursor-pointer text-base text-muted-foreground transition-colors hover:bg-sidebar-accent/40 hover:text-sidebar-accent-foreground",
-            { "text-sidebar-accent-foreground": isOpen }
+            "group/label mb-0.5 h-9 cursor-pointer text-base text-muted-foreground transition-colors hover:bg-sidebar-accent/50 hover:text-accent-foreground/80",
+            { "": isOpen }
           )}
         >
           <CollapsibleTrigger>
@@ -67,7 +67,7 @@ export function SidebarMenuFolder({ item }: SidebarMenuFolderType) {
           </CollapsibleTrigger>
         </SidebarGroupLabel>
         <CollapsibleContent className="rounded-b-md">
-          <SidebarMenuSub className="mx-2 gap-0">
+          <SidebarMenuSub className="mx-[9px] gap-1">
             {item.subItems.map((subItem) => (
               <SidebarMenuSubItem key={subItem.label}>
                 <SidebarSubmenuLink label={subItem.label} url={subItem.url} />

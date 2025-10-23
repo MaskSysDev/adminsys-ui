@@ -25,7 +25,7 @@ export function SidebarMenuLink({ label, url }: SidebarMenuLinkType) {
       <SidebarMenuButton
         asChild
         className={cn(
-          "h-9 font-medium text-base text-muted-foreground transition-colors hover:bg-sidebar-accent/40 hover:text-sidebar-accent-foreground active:bg-sidebar-accent/40",
+          "h-9 font-medium text-base text-muted-foreground transition-colors hover:bg-accent/50 hover:text-accent-foreground/80 active:bg-accent/50",
           isActive && "bg-primary/10 text-primary"
         )}
         onClick={() => setOpenMobile(false)}
