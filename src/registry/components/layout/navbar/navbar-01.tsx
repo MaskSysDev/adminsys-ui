@@ -16,7 +16,7 @@ export function Navbar01({ navbar }: Navbar01Props) {
   )
 
   return (
-    <div className="fixed top-0 z-50 flex h-16 w-full shrink-0 items-center border-border/60 border-b backdrop-blur supports-[backdrop-filter]:bg-background/90">
+    <div className="fixed top-0 z-50 flex h-16 w-full shrink-0 items-center border-border/60 border-b backdrop-blur supports-backdrop-filter:bg-background/90">
       <Container className="flex items-center justify-center" size="2xl">
         <div className="relative flex w-full items-center justify-between gap-2">
           <NavLogo navbar={navbar} />

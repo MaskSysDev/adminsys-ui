@@ -5,73 +5,16 @@ import type * as React from "react"
 
 import { ScrollArea } from "@/components/ui/scroll-area"
 
+import { adminSidebar } from "@/config/site-config"
 import { SidebarNavMain } from "@/registry/components/layout/sidebar/inc/sidebar-nav-main"
 import { SidebarNavSecondary } from "@/registry/components/layout/sidebar/inc/sidebar-nav-secondary"
 import { SidebarNavUser } from "@/registry/components/layout/sidebar/inc/sidebar-nav-user"
-import { Logo } from "@/registry/components/shared/logo/logo-adminsys"
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
 } from "@/registry/components/shared/sidebar"
-
-/**
- * Configuração da barra lateral de administração (AdminSidebar)
- *
- * Responsabilidades:
- * - Definir a estrutura de navegação da área administrativa.
- * - Centralizar os itens de menu, seções e links secundários.
- *
- * Retorno:
- * - Objeto contendo a configuração da barra lateral.
- */
-export const adminSidebar = {
-  id: "1",
-  label: "AdminSys",
-  logo: <Logo.Theme />,
-  logoIcon: <Logo.Icon className="size-6" />,
-  sections: [
-    {
-      id: "2",
-      label: "Admin",
-      items: [
-        {
-          id: "3",
-          label: "Dashboard",
-          url: "/admin/dashboard",
-          path: "",
-          subItems: [],
-        },
-        {
-          id: "4",
-          label: "Folder 01",
-          url: "",
-          path: "/folder-01",
-          subItems: [
-            {
-              id: "5",
-              label: "Submenu-01",
-              url: "/admin/folder-01/submenu-01",
-            },
-            {
-              id: "6",
-              label: "Submenu-02",
-              url: "/admin/folder-01/submenu-02",
-            },
-          ],
-        },
-      ],
-    },
-  ],
-  navSecondary: [
-    {
-      id: "1",
-      label: "Documentation",
-      url: "/docs",
-    },
-  ],
-}
 
 export function AdminSidebar({
   ...props
@@ -100,8 +43,8 @@ export function AdminSidebar({
           </div>
         </Link>
       </SidebarHeader>
-      <SidebarContent className="gap-0 overflow-hidden py-4 pl-1">
-        <ScrollArea className="h-2/3">
+      <SidebarContent className="overflow-hidden">
+        <ScrollArea className="h-2/3 p-4">
           <SidebarNavMain sections={adminSidebar.sections} />
         </ScrollArea>
         <SidebarNavSecondary

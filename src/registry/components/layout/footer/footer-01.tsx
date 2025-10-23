@@ -58,7 +58,7 @@ function AuthorLink({ href, children, className }: AuthorLinkProps) {
         "font-semibold text-sm transition ease-in-out",
         "focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0",
         "disabled:pointer-events-none disabled:opacity-50",
-        "data-[active]:bg-accent/50 data-[state=open]:bg-accent/50",
+        "data-[state=open]:bg-accent/50 data-active:bg-accent/50",
         "hover:bg-transparent hover:text-accent-foreground focus-visible:text-accent-foreground",
         className
       )}

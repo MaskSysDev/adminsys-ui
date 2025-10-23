@@ -23,7 +23,7 @@ export function SidebarSubmenuLink({ label, url }: SidebarSubmenuLinkType) {
     <SidebarMenuSubButton
       asChild
       className={cn(
-        "h-9 font-medium text-base text-muted-foreground transition-colors hover:bg-transparent hover:text-sidebar-accent-foreground active:bg-transparent",
+        "h-9 px-1 font-medium text-base text-muted-foreground transition-colors hover:bg-transparent hover:text-accent-foreground/80 active:bg-transparent",
         isActive && "text-primary"
       )}
       onClick={() => setOpenMobile(false)}

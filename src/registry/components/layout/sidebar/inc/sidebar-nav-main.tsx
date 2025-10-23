@@ -31,7 +31,7 @@ export function SidebarNavMain({ sections }: SidebarNavMainType) {
   return (
     <>
       {sections.map((section) => (
-        <SidebarGroup key={section.id}>
+        <SidebarGroup className="p-0" key={section.id}>
           {section.label.length ? (
             <SidebarGroupLabel className="text-muted-foreground/60">
               {section.label}

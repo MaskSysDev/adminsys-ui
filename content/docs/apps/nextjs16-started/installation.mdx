@@ -1,0 +1,146 @@
+---
+title: Installation
+description: Nextjs is a React framework for building full-stack web applications. You use React Components to build user interfaces, and Nextjs for additional features and optimizations.
+---
+
+## Install Nextjs
+
+<Steps>
+  <Step>
+    ### Install
+
+    ```sh
+    pnpm create next-app@latest
+    ```
+
+  </Step>
+  <Step>
+    ### Initial Settings
+
+    ```sh
+    √ What is your project named? ... nextjs16-started
+    √ Would you like to use the recommended Next.js defaults? » No, customize settings
+    √ Would you like to use TypeScript? ... Yes
+    √ Which linter would you like to use? » Biome
+    √ Would you like to use React Compiler? ... Yes
+    √ Would you like to use Tailwind CSS? ... Yes
+    √ Would you like your code inside a `src/` directory? ... Yes
+    √ Would you like to use App Router? (recommended) ... Yes
+    √ Would you like to use Turbopack? (recommended) ... Yes
+    √ Would you like to customize the import alias (`@/*` by default)? ... No
+    ```
+
+  </Step>
+</Steps>
+
+## Post-Installation
+
+<Steps>
+  <Step>
+    ### Enter the Directory
+
+    ```sh
+    cd nextjs16-started
+    ```
+
+  </Step>
+  <Step>
+    ### Delete Folder
+
+    Delete the `.git` folder from the project or run the command:
+
+    ```sh
+    rm -rf .git
+    # or
+    Remove-Item -Force .git
+    ```
+
+  </Step>
+  <Step>
+    ### Open with VS Code.
+
+    Open the project with your preferred IDE.
+
+    ```sh
+    code .
+    ```
+
+  </Step>
+  <Step>
+    ### Run Dev
+
+    ```sh
+    pnpm dev
+    ```
+
+  </Step>
+</Steps>
+
+## Version Control
+
+<Steps>
+  <Step>
+    Initialize the local Git repository.
+
+    ```sh
+    git init
+    ```
+
+  </Step>
+  <Step>
+    Send all data to stage.
+
+    ```sh
+    git add .
+    ```
+
+  </Step>
+  <Step>
+    Copy data with Commit.
+
+    ```sh
+    git commit -m "chore: 01-create-next-app"
+    ```
+
+  </Step>
+  <Step>
+    Change branch name from (master) to (main).
+
+    ```sh
+    git branch -M main
+    ```
+
+  </Step>
+  <Step>
+    Add Remote GitHub Repository.
+
+    ```sh
+    git remote add origin https://github.com/username/project-name.git
+    ```
+
+  </Step>
+  <Step>
+    Send to Remote Repository.
+
+    ```sh
+    git push -u origin main
+    ```
+
+  </Step>
+  <Step>
+    Create new Branch(version).
+
+    ```sh
+    git checkout -b 01-create-next-app
+    ```
+
+  </Step>
+  <Step>
+    Send Branch.
+
+    ```sh
+    git push --set-upstream origin 01-create-next-app
+    ```
+
+  </Step>
+</Steps>

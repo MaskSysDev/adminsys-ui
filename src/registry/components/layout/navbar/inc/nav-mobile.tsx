@@ -44,7 +44,9 @@ function NavMobileItem({ label = "label", href = "#" }: NavItem) {
   )
 }
 
-interface NavMobileProps extends React.ComponentProps<typeof Sidebar>, Navbar {}
+interface NavMobileProps extends React.ComponentProps<typeof Sidebar>, Navbar {
+  className: string
+}
 
 export function NavMobile({
   label,
@@ -52,12 +54,13 @@ export function NavMobile({
   logoIcon,
   logoResponsive,
   navItems,
+  className,
   ...props
 }: NavMobileProps) {
   const { setOpenMobile } = useSidebar()
 
   return (
-    <Sidebar {...props}>
+    <Sidebar {...props} className={className}>
       <SidebarHeader className="relative">
         <div className="flex items-center gap-2 px-2 py-2">
           <Link
