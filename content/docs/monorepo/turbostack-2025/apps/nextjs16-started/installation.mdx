@@ -1,6 +1,6 @@
 ---
-title: Install
-description: Install Description.
+title: installation
+description: installation Description.
 ---
 
 [Nextjs](https://nextjs.org/docs) is a React framework for building full-stack web applications. You use React Components to build user interfaces, and [Nextjs](https://nextjs.org/docs) for additional features and optimizations.
@@ -27,8 +27,8 @@ cd apps
   <Step>
     ### Install
 
-    ```package-install
-    npx create-next-app@latest
+    ```sh
+    pnpm create next-app@latest
     ```
 
   </Step>
@@ -36,9 +36,11 @@ cd apps
     ### Initial Settings
 
     ```sh
-    √ What is your project named? ... nextjs15-clean-start
+    √ What is your project named? ... nextjs16-started
+    √ Would you like to use the recommended Next.js defaults? » No, customize settings
     √ Would you like to use TypeScript? ... Yes
     √ Which linter would you like to use? » None
+    √ Would you like to use React Compiler? ... Yes
     √ Would you like to use Tailwind CSS? ... Yes
     √ Would you like your code inside a `src/` directory? ... Yes
     √ Would you like to use App Router? (recommended) ... Yes
@@ -53,9 +55,9 @@ cd apps
 
 ### Delete Folder
 
-- `apps/nextjs15-clean-start/node_modules`.
-- `apps/nextjs15-clean-start/public`.
-- `apps/nextjs15-clean-start/src`.
+- `apps/nextjs16-started/node_modules`.
+- `apps/nextjs16-started/public`.
+- `apps/nextjs16-started/src`.
 
 ## Files
 
@@ -65,9 +67,9 @@ cd apps
 
     Use the same versions of dependencies installed in the packages.
 
-    ```tsx title="apps/nextjs15-clean-start/package.json"
+    ```tsx title="apps/nextjs16-started/package.json"
     {
-      "name": "nextjs15-clean-start",
+      "name": "nextjs16-started",
       "version": "0.1.0",
       "type": "module",// [!code ++]
       "private": true,
@@ -78,16 +80,17 @@ cd apps
         "check-types": "tsc -b"// [!code ++]
       },
       "dependencies": {
-        "next": "15.5.6",
-        "react": "19.1.0",
-        "react-dom": "19.1.0"
+        "next": "catalog:",// [!code ++]
+        "react": "catalog:",// [!code ++]
+        "react-dom": "catalog:"// [!code ++]
       },
       "devDependencies": {
-        "@tailwindcss/postcss": "^4.1.14",
+        "@tailwindcss/postcss": "catalog:",// [!code ++]
         "@types/node": "catalog:",// [!code ++]
-        "@types/react": "^19.2.2",
-        "@types/react-dom": "^19.2.2",
-        "tailwindcss": "^4.1.14",
+        "@types/react": "catalog:",// [!code ++]
+        "@types/react-dom": "catalog:",// [!code ++]
+        "babel-plugin-react-compiler": "1.0.0",
+        "tailwindcss": "catalog:",// [!code ++]
         "typescript": "catalog:"// [!code ++]
       }
     }
@@ -98,14 +101,16 @@ cd apps
   <Step>
     ### next.config.ts
 
-    ```ts title="apps/nextjs15-clean-start/next.config.ts"
-    import type { NextConfig } from "next"
+    ```ts title="apps/nextjs16-started/next.config.ts"
+    import type { NextConfig } from "next";
 
     const nextConfig: NextConfig = {
+      /* config options here */
+      reactCompiler: true,
       typedRoutes: true,// [!code ++]
-    }
+    };
 
-    export default nextConfig
+    export default nextConfig;
 
     ```
 
@@ -113,12 +118,14 @@ cd apps
   <Step>
     ### postcss.config.mjs
 
-    ```js title="apps/nextjs15-clean-start/postcss.config.mjs"
+    ```js title="apps/nextjs16-started/postcss.config.mjs"
     const config = {
-      plugins: ["@tailwindcss/postcss"],
-    }
+      plugins: {
+        "@tailwindcss/postcss": {},
+      },
+    };
 
-    export default config
+    export default config;
 
     ```
 
@@ -126,7 +133,7 @@ cd apps
   <Step>
     ### tsconfig.json
 
-    ```js title="apps/nextjs15-clean-start/tsconfig.json"
+    ```js title="apps/nextjs16-started/tsconfig.json"
     {
       "compilerOptions": {
         "target": "ES2017",
@@ -140,7 +147,7 @@ cd apps
         "moduleResolution": "bundler",
         "resolveJsonModule": true,
         "isolatedModules": true,
-        "jsx": "preserve",
+        "jsx": "react-jsx",
         "incremental": true,
         "verbatimModuleSyntax": true,// [!code ++]
         "strictNullChecks": true,// [!code ++]
@@ -156,11 +163,16 @@ cd apps
         }
       },
       "include": [
+        "./next-env.d.ts",// [!code ++]
         "./**/*.ts",// [!code ++]
         "./**/*.tsx",// [!code ++]
         "./.next/types/**/*.ts",// [!code ++]
-        "./next-env.d.ts",// [!code ++]
-        ".next/types/**/*.ts"// [!code ++]
+        "./.next/dev/types/**/*.ts",// [!code ++]
+        "./**/*.mts",// [!code ++]
+        "./.next\\dev/types/**/*.ts",// [!code ++]
+        "./.next\\dev/types/**/*.ts",// [!code ++]
+        ".next\\dev/types/**/*.ts",// [!code ++]
+        ".next\\dev/types/**/*.ts"// [!code ++]
       ],
       "exclude": ["./node_modules"]// [!code ++]
     }
@@ -171,7 +183,7 @@ cd apps
   <Step>
     ### Styles
 
-    ```css title="apps/nextjs15-clean-start/src/styles/globals.css"
+    ```css title="apps/nextjs16-started/src/styles/globals.css"
     @import "tailwindcss";
 
     ```
@@ -180,31 +192,20 @@ cd apps
   <Step>
     ### layout.tsx
 
-    ```tsx title="apps/nextjs15-clean-start/src/app/layout.tsx"
-    import type { Metadata } from "next"
-    import { Geist, Geist_Mono } from "next/font/google"
-
-    import "@/styles/globals.css"
-
-    const geistSans = Geist({
-      variable: "--font-geist-sans",
-      subsets: ["latin"],
-    })
-
-    const geistMono = Geist_Mono({
-      variable: "--font-geist-mono",
-      subsets: ["latin"],
-    })
+    ```tsx title="apps/nextjs16-started/src/app/layout.tsx"
+    import type { Metadata } from "next";
+    import { geistMono, geistSans } from "@/lib/fonts";
+    import "@/styles/globals.css";
 
     export const metadata: Metadata = {
       title: "Create Next App",
       description: "Generated by create next app",
-    }
+    };
 
     export default function RootLayout({
       children,
     }: Readonly<{
-      children: React.ReactNode
+      children: React.ReactNode;
     }>) {
       return (
         <html
@@ -219,7 +220,7 @@ cd apps
             {children}
           </body>
         </html>
-      )
+      );
     }
 
     ```
@@ -228,13 +229,13 @@ cd apps
   <Step>
     ### page.tsx
 
-    ```tsx title="apps/nextjs15-clean-start/src/app/(home)/page.tsx"
+    ```tsx title="apps/nextjs16-started/src/app/(home)/page.tsx"
     export default function Home() {
       return (
         <main className="flex flex-col items-center gap-2 p-24">
-          <h1 className="font-bold text-3xl">NextJS 15 Clean Start</h1>
+          <h1 className="font-bold text-3xl">NextJS 16 Started</h1>
         </main>
-      )
+      );
     }
 
     ```

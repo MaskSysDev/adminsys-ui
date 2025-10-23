@@ -34,8 +34,15 @@ git checkout -b 02-clean-project
       - "apps/*"
       - "packages/*"
     catalog: #[!code ++]
+      next: ^16.0.0 #[!code ++]
+      react: ^19.2.0 #[!code ++]
+      "react-dom": ^19.2.0 #[!code ++]
+      "@tailwindcss/postcss": ^4.1.16 #[!code ++]
+      "@types/node": ^22.18.12 #[!code ++]
+      "@types/react": ^19.2.2 #[!code ++]
+      "@types/react-dom": ^19.2.2 #[!code ++]
+      tailwindcss: ^4.1.16 #[!code ++]
       typescript: ^5.9.3 #[!code ++]
-      "@types/node": ^22.18.11 #[!code ++]
 
     ```
   </Step>
@@ -57,6 +64,7 @@ git checkout -b 02-clean-project
       },
       "devDependencies": {
         "prettier": "^3.6.2",// [!code --]
+        "@types/node": "catalog:",// [!code ++]
         "turbo": "^2.5.8",
         "typescript": "catalog:"// [!code ++]
       },
