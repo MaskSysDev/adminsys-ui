@@ -51,12 +51,10 @@ description: See documentation Biome and Ultracite.
     ```json title="biome.json"
     {
       "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-      "extends": ["ultracite"],
       "vcs": {
         "enabled": true,
         "clientKind": "git",
-        "useIgnoreFile": true,
-        "defaultBranch": "main"
+        "useIgnoreFile": true
       },
       "files": {
         "ignoreUnknown": false,
@@ -82,6 +80,11 @@ description: See documentation Biome and Ultracite.
           "!packages-examples"
         ]
       },
+      "formatter": {
+        "enabled": true,
+        "indentStyle": "space",
+        "indentWidth": 2
+      },
       "linter": {
         "enabled": true,
         "rules": {
@@ -95,42 +98,14 @@ description: See documentation Biome and Ultracite.
           "react": "recommended"
         }
       },
-      "javascript": {
-        "formatter": {
-          "quoteStyle": "double",
-          "jsxQuoteStyle": "double",
-          "trailingCommas": "es5",
-          "bracketSpacing": true,
-          "bracketSameLine": false,
-          "arrowParentheses": "always",
-          "semicolons": "asNeeded",
-          "quoteProperties": "asNeeded"
-        }
-      },
       "assist": {
         "actions": {
           "source": {
-            "organizeImports": {
-              "level": "on",
-              "options": {
-                "groups": [
-                  [":URL:", ":NODE:"],
-                  ":BLANK_LINE:",
-                  [":PACKAGE:"],
-                  ":BLANK_LINE:",
-                  ["@/components/**"],
-                  ":BLANK_LINE:",
-                  ["@/lib/**", "@/utils/**"],
-                  ":BLANK_LINE:",
-                  ["@/**"],
-                  ":BLANK_LINE:",
-                  [":PATH:"]
-                ]
-              }
-            }
+            "organizeImports": "on"
           }
         }
-      }
+      },
+      "extends": ["ultracite"]
     }
 
     ```
@@ -152,20 +127,22 @@ description: See documentation Biome and Ultracite.
       },
       "devDependencies": {
         "@biomejs/biome": "2.2.6",
+        "@types/node": "catalog:",
         "husky": "9.1.7",
-        "lint-staged": "16.2.4",
+        "lint-staged": "16.2.6",
         "turbo": "^2.5.8",
+        "typescript": "catalog:",
         "ultracite": "5.6.4"
       },
-      "packageManager": "pnpm@10.18.3",
+      "packageManager": "pnpm@10.19.0",
       "engines": {
         "node": ">=18"
       },
-      "lint-staged": {
-        "*.{js,jsx,ts,tsx,json,jsonc,css,scss,md,mdx}": [
-          "pnpm dlx ultracite fix"
-        ]
-      }
+      "lint-staged": {// [!code ++]
+        "*.{js,jsx,ts,tsx,json,jsonc,css,scss,md,mdx}": [// [!code ++]
+          "pnpm dlx ultracite fix"// [!code ++]
+        ]// [!code ++]
+      }// [!code ++]
     }
 
     ```
