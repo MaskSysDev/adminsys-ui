@@ -14,7 +14,7 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
     Create new Branch(version).
 
     ```sh
-    git checkout -b 05-shadcn-ui
+    git checkout -b 04-shadcn-ui
     ```
 
   </Step>
@@ -48,8 +48,8 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
     Create `cn.ts`
 
     ```ts title="src/lib/cn.ts"
-    import { clsx, type ClassValue } from "clsx"
-    import { twMerge } from "tailwind-merge"
+    import { type ClassValue, clsx } from "clsx";
+    import { twMerge } from "tailwind-merge";
 
     /**
      * Combina classes Tailwind CSS de forma condicional e resolve conflitos.
@@ -58,7 +58,7 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
      * @returns Uma string contendo as classes CSS combinadas e resolvidas.
      */
     export function cn(...inputs: ClassValue[]) {
-      return twMerge(clsx(inputs))
+      return twMerge(clsx(inputs));
     }
 
     ```
@@ -409,18 +409,18 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
 
   </Step>
   <Step>
-    ### Run Lint
-
-    ```sh
-    pnpm lint
-    ```
-
-  </Step>
-  <Step>
     ### Run Format
 
     ```sh
     pnpm format
+    ```
+
+  </Step>
+  <Step>
+    ### Run Lint
+
+    ```sh
+    pnpm lint
     ```
 
   </Step>
@@ -545,18 +545,18 @@ An abstraction for themes in your React app.
 
   </Step>
   <Step>
-    ### Run Lint
-
-    ```sh
-    pnpm lint
-    ```
-
-  </Step>
-  <Step>
     ### Run Format
 
     ```sh
     pnpm format
+    ```
+
+  </Step>
+  <Step>
+    ### Run Lint
+
+    ```sh
+    pnpm lint
     ```
 
   </Step>
@@ -593,7 +593,7 @@ An abstraction for themes in your React app.
     Copy data with Commit.
 
     ```sh
-    git commit -m "feat: 05-shadcn-ui"
+    git commit -m "feat: 04-shadcn-ui"
     ```
 
   </Step>
@@ -601,7 +601,7 @@ An abstraction for themes in your React app.
     Send Branch.
 
     ```sh
-    git push --set-upstream origin 05-shadcn-ui
+    git push --set-upstream origin 04-shadcn-ui
     ```
 
   </Step>

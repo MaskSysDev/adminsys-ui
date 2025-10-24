@@ -33,14 +33,12 @@ description: This section describes how to set up a clean start for your Next.js
     {
       "name": "nextjs16-started",
       "version": "0.1.0",
+      "type": "module",// [!code ++]
       "private": true,
       "scripts": {
         "dev": "next dev --turbopack",// [!code ++]
         "build": "next build --turbopack",// [!code ++]
         "start": "next start",
-        "lint": "biome check",
-        "format": "biome format --write",
-        "check": "biome check --write",// [!code ++]
         "check-types": "tsc -b"// [!code ++]
       },
       "dependencies": {
@@ -55,8 +53,7 @@ description: This section describes how to set up a clean start for your Next.js
         "@types/react": "^19",
         "@types/react-dom": "^19",
         "@tailwindcss/postcss": "^4",
-        "tailwindcss": "^4",
-        "@biomejs/biome": "2.2.0"
+        "tailwindcss": "^4"
       }
     }
 
@@ -172,8 +169,8 @@ description: This section describes how to set up a clean start for your Next.js
     ```tsx title="src/app/layout.tsx"
     import type { Metadata } from "next";
 
-    import { geistMono, geistSans } from "@/lib/fonts";// [!code ++]
-    import "@/styles/globals.css";// [!code ++]
+    import { geistMono, geistSans } from "@/lib/fonts";
+    import "@/styles/globals.css";
 
     export const metadata: Metadata = {
       title: "Create Next App",
@@ -187,9 +184,9 @@ description: This section describes how to set up a clean start for your Next.js
     }>) {
       return (
         <html
-          className="scroll-smooth"// [!code ++]
-          data-scroll-behavior="smooth"// [!code ++]
-          dir="ltr"// [!code ++]
+          className="scroll-smooth"
+          data-scroll-behavior="smooth"
+          dir="ltr"
           lang="en"
         >
           <body

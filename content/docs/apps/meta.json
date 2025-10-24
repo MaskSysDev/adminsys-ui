@@ -6,7 +6,6 @@
   "pages": [
     "get-started",
     "---Applications---",
-    "nextjs15-started",
     "nextjs16-started",
     "shadcn-ui"
   ]
