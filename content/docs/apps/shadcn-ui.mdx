@@ -14,7 +14,7 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
     Create new Branch(version).
 
     ```sh
-    git checkout -b 05-shadcn-ui
+    git checkout -b 04-shadcn-ui
     ```
 
   </Step>
@@ -48,8 +48,8 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
     Create `cn.ts`
 
     ```ts title="src/lib/cn.ts"
-    import { clsx, type ClassValue } from "clsx"
-    import { twMerge } from "tailwind-merge"
+    import { type ClassValue, clsx } from "clsx";
+    import { twMerge } from "tailwind-merge";
 
     /**
      * Combina classes Tailwind CSS de forma condicional e resolve conflitos.
@@ -58,7 +58,7 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
      * @returns Uma string contendo as classes CSS combinadas e resolvidas.
      */
     export function cn(...inputs: ClassValue[]) {
-      return twMerge(clsx(inputs))
+      return twMerge(clsx(inputs));
     }
 
     ```
@@ -375,7 +375,41 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
 
   </Step>
   <Step>
-    Run Format.
+    ### Add Component
+
+    ```sh
+    pnpm ui:add button
+
+    ```
+
+    Command to migrate to the new radix-ui package. This command will replace all @radix-ui/react-* imports with radix-ui.
+
+    ```package-install
+    npx shadcn@latest migrate radix
+    ```
+
+  </Step>
+  <Step>
+    #### Update Page
+
+    ```tsx title="packages/ds/src/app/(home)/page.tsx"
+    import { Button } from "@adminsys/ds/components/ui/button";// [!code ++]
+
+    export default function Home() {
+      return (
+        <main className="flex flex-col items-center gap-2 p-24">
+          <h1 className="font-bold text-3xl">AdminSys Design System</h1>
+          // [!code ++]
+          <Button>Button</Button>
+        </main>
+      );
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### Run Format
 
     ```sh
     pnpm format
@@ -383,7 +417,7 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
 
   </Step>
   <Step>
-    Run Lint.
+    ### Run Lint
 
     ```sh
     pnpm lint
@@ -391,7 +425,7 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
 
   </Step>
   <Step>
-    Run Check.
+    ### Run Check
 
     ```sh
     pnpm check
@@ -399,7 +433,7 @@ Shadcn/ui beautifully designed components that you can copy and paste into your 
 
   </Step>
   <Step>
-    Run Dev.
+    ### Run Dev
 
     ```sh
     pnpm dev
@@ -416,16 +450,12 @@ An abstraction for themes in your React app.
   <Step>
     ### Add Components
 
-    - [ThemeProvider](../../components/layout/provider.mdx#themeprovider)
+    - [ThemeProvider](../../../components/shared/provider.mdx#themeprovider)
+
+    - [ToggleTheme](../../../components/shared/toggle.mdx#toggletheme)
 
     ```sh
-    pnpm ui:add https://adminsys-ui.vercel.app/r/theme-provider.json
-    ```
-
-    - [ToggleTheme](../../components/layout/toggle.mdx#toggletheme)
-
-    ```sh
-    pnpm ui:add https://adminsys-ui.vercel.app/r/toggle-theme.json
+    pnpm ui:add @adminsys-ui/theme-provider @adminsys-ui/toggle-theme
     ```
 
     Command to migrate to the new radix-ui package. This command will replace all @radix-ui/react-* imports with radix-ui.
@@ -438,10 +468,13 @@ An abstraction for themes in your React app.
   <Step>
     ### Update Layout
 
-    ```tsx title="src/app/layout.tsx"
+    ```tsx title="packages/ds/src/app/layout.tsx"
     import type { Metadata } from "next";
+
     import { geistMono, geistSans } from "@/lib/fonts";
+
     import "@/styles/globals.css";
+
     import { ThemeProvider } from "@/components/shared/provider/theme-provider";// [!code ++]
 
     export const metadata: Metadata = {
@@ -460,7 +493,8 @@ An abstraction for themes in your React app.
           data-scroll-behavior="smooth"
           dir="ltr"
           lang="en"
-          suppressHydrationWarning// [!code ++]
+          // [!code ++]
+          suppressHydrationWarning
         >
           <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -489,7 +523,29 @@ An abstraction for themes in your React app.
 
   </Step>
   <Step>
-    Run Format.
+    ### Update Page
+
+    ```tsx title="packages/ds/src/app/(home)/page.tsx"
+    // [!code ++]
+    import { ToggleTheme } from "@/components/shared/toggle/toggle-theme";
+    import { Button } from "@/components/ui/button";
+
+    export default function Home() {
+      return (
+        <main className="flex flex-col items-center gap-2 p-24">
+          <h1 className="font-bold text-3xl">NextJS 16 Started</h1>
+          <Button>Button</Button>
+          // [!code ++]
+          <ToggleTheme />
+        </main>
+      );
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### Run Format
 
     ```sh
     pnpm format
@@ -497,7 +553,7 @@ An abstraction for themes in your React app.
 
   </Step>
   <Step>
-    Run Lint.
+    ### Run Lint
 
     ```sh
     pnpm lint
@@ -505,7 +561,7 @@ An abstraction for themes in your React app.
 
   </Step>
   <Step>
-    Run Check.
+    ### Run Check
 
     ```sh
     pnpm check
@@ -513,7 +569,7 @@ An abstraction for themes in your React app.
 
   </Step>
   <Step>
-    Run Dev.
+    ### Run Dev
 
     ```sh
     pnpm dev
@@ -537,7 +593,7 @@ An abstraction for themes in your React app.
     Copy data with Commit.
 
     ```sh
-    git commit -m "feat: 05-shadcn-ui"
+    git commit -m "feat: 04-shadcn-ui"
     ```
 
   </Step>
@@ -545,7 +601,7 @@ An abstraction for themes in your React app.
     Send Branch.
 
     ```sh
-    git push --set-upstream origin 05-shadcn-ui
+    git push --set-upstream origin 04-shadcn-ui
     ```
 
   </Step>

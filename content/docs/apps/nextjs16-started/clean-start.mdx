@@ -33,15 +33,13 @@ description: This section describes how to set up a clean start for your Next.js
     {
       "name": "nextjs16-started",
       "version": "0.1.0",
+      "type": "module",// [!code ++]
       "private": true,
       "scripts": {
         "dev": "next dev --turbopack",// [!code ++]
         "build": "next build --turbopack",// [!code ++]
         "start": "next start",
-        "lint": "biome check",
-        "format": "biome format --write",
-        "check": "biome check --write",// [!code ++]
-        "check-type": "tsc -b"// [!code ++]
+        "check-types": "tsc -b"// [!code ++]
       },
       "dependencies": {
         "react": "19.2.0",
@@ -55,8 +53,7 @@ description: This section describes how to set up a clean start for your Next.js
         "@types/react": "^19",
         "@types/react-dom": "^19",
         "@tailwindcss/postcss": "^4",
-        "tailwindcss": "^4",
-        "@biomejs/biome": "2.2.0"
+        "tailwindcss": "^4"
       }
     }
 
@@ -66,7 +63,7 @@ description: This section describes how to set up a clean start for your Next.js
   <Step>
     ### Update tsconfig.json
 
-    ```js title="apps/nextjs15-clean-start/tsconfig.json"
+    ```js title="tsconfig.json"
     {
       "compilerOptions": {
         "target": "ES2017",
@@ -171,8 +168,9 @@ description: This section describes how to set up a clean start for your Next.js
 
     ```tsx title="src/app/layout.tsx"
     import type { Metadata } from "next";
-    import { geistMono, geistSans } from "@/lib/fonts";// [!code ++]
-    import "@/styles/globals.css";// [!code ++]
+
+    import { geistMono, geistSans } from "@/lib/fonts";
+    import "@/styles/globals.css";
 
     export const metadata: Metadata = {
       title: "Create Next App",
@@ -186,9 +184,9 @@ description: This section describes how to set up a clean start for your Next.js
     }>) {
       return (
         <html
-          className="scroll-smooth"// [!code ++]
-          data-scroll-behavior="smooth"// [!code ++]
-          dir="ltr"// [!code ++]
+          className="scroll-smooth"
+          data-scroll-behavior="smooth"
+          dir="ltr"
           lang="en"
         >
           <body
@@ -222,13 +220,13 @@ description: This section describes how to set up a clean start for your Next.js
     ### Update Readme
 
     ````markdown title="README.md"
-    # NextJS 15 Started
+    # NextJS 16 Started
 
-    This project is a minimalist starter template for building modern applications using [Next.js 15](https://nextjs.org/), [React 19](https://react.dev/), and [Tailwind CSS 4](https://tailwindcss.com/). It comes pre-configured with best practices, TypeScript, automatic formatting, and linting.
+    This project is a minimalist starter template for building modern applications using [Next.js 16](https://nextjs.org/), [React 19](https://react.dev/), and [Tailwind CSS 4](https://tailwindcss.com/). It comes pre-configured with best practices, TypeScript, automatic formatting, and linting.
 
     ## ✨ Features
 
-    - Ready-to-use structure with Next.js 15 (App Router)
+    - Ready-to-use structure with Next.js 16 (App Router)
     - TypeScript support
     - Styling with Tailwind CSS 4
     - Optimized fonts using `next/font` (Geist and Geist Mono)
@@ -271,12 +269,10 @@ description: This section describes how to set up a clean start for your Next.js
     - `dev`: Starts the development server
     - `build`: Builds the application for production
     - `start`: Starts the production server
-    - `preview`: Builds and starts the application (production preview)
-    - `clean`: Removes node_modules and .next folders
     - `lint`: Runs the linter
     - `format`: Formats code
     - `check`: Checks if code is properly formatted without making changes
-    - `typecheck`: Runs TypeScript to check for type errors
+    - `check-types`: Runs TypeScript to check for type errors
 
     ## ☁️ Deployment
 

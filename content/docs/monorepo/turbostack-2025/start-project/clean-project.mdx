@@ -78,6 +78,14 @@ git checkout -b 02-clean-project
 
   </Step>
   <Step>
+
+    ### PNPM Self update
+
+    ```sh
+    pnpm self-update
+    ```
+  </Step>
+  <Step>
     ### tsconfig.json
 
     Create `tsconfig.base.json`.
@@ -155,6 +163,16 @@ git checkout -b 02-clean-project
 ## Run
 
 <Steps>
+  <Step>
+    ### Run Taze
+
+    To ensure all dependencies are up to date and correctly installed, run the following command:
+
+    ```sh
+    pnpm dlx taze -r -w
+    ```
+
+  </Step>
   <Step>
     ### Run Install
 

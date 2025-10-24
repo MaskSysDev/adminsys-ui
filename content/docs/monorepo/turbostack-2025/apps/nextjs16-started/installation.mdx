@@ -55,6 +55,7 @@ cd apps
 
 ### Delete Folder
 
+- `apps/nextjs16-started/.next`.
 - `apps/nextjs16-started/node_modules`.
 - `apps/nextjs16-started/public`.
 - `apps/nextjs16-started/src`.
@@ -181,7 +182,36 @@ cd apps
 
   </Step>
   <Step>
-    ### Styles
+    ### Public Folder
+
+    Create a folder called `public` in the project root and place your `favicon.ico` inside it.
+
+  </Step>
+  <Step>
+    ### Lib Fonts
+
+    Create a folder called `lib` in the `src` directory and inside it create a file called `fonts.ts`. Use the `next/font` package to import and configure the fonts. This allows you to use these fonts throughout your application with optimized loading.
+
+    ```ts title="apps/nextjs16-started/src/lib/fonts.ts"
+    import { Geist, Geist_Mono } from "next/font/google"
+
+    export const geistSans = Geist({
+      variable: "--font-geist-sans",
+      subsets: ["latin"],
+    })
+
+    export const geistMono = Geist_Mono({
+      variable: "--font-geist-mono",
+      subsets: ["latin"],
+    })
+
+    ```
+
+  </Step>
+  <Step>
+    ### Globals CSS
+
+    Create a folder called `styles` in the `src` directory and inside it create the file `globals.css`.
 
     ```css title="apps/nextjs16-started/src/styles/globals.css"
     @import "tailwindcss";
@@ -190,7 +220,7 @@ cd apps
 
   </Step>
   <Step>
-    ### layout.tsx
+    ### Root Layout
 
     ```tsx title="apps/nextjs16-started/src/app/layout.tsx"
     import type { Metadata } from "next";
@@ -227,7 +257,7 @@ cd apps
 
   </Step>
   <Step>
-    ### page.tsx
+    ### Home Page
 
     ```tsx title="apps/nextjs16-started/src/app/(home)/page.tsx"
     export default function Home() {
@@ -239,6 +269,71 @@ cd apps
     }
 
     ```
+
+  </Step>
+  <Step>
+    ### Update Readme
+
+    ````markdown title="README.md"
+    # NextJS 16 Started
+
+    This project is a minimalist starter template for building modern applications using [Next.js 16](https://nextjs.org/), [React 19](https://react.dev/), and [Tailwind CSS 4](https://tailwindcss.com/). It comes pre-configured with best practices, TypeScript, automatic formatting, and linting.
+
+    ## ✨ Features
+
+    - Ready-to-use structure with Next.js 16 (App Router)
+    - TypeScript support
+    - Styling with Tailwind CSS 4
+    - Optimized fonts using `next/font` (Geist and Geist Mono)
+    - Linting with Biome
+
+    ## 🚀 Getting Started
+
+    Install the dependencies:
+
+    ```bash
+    pnpm install
+    # or
+    npm install
+    # or
+    yarn install
+    ```
+
+    Start the development server:
+
+    ```bash
+    pnpm dev
+    # or
+    npm run dev
+    # or
+    yarn dev
+    ```
+
+    Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+
+    ## 📁 Project Structure
+
+    - `src/app/`: Application pages and layouts
+    - `src/app/layout.tsx`: Root layout component (applies to all pages)
+    - `src/app/(home)/page.tsx`: Home page component
+    - `src/lib/fonts.ts`: Geist font configuration
+    - `src/styles/globals.css`: Global styles with Tailwind CSS
+
+    ## 🛠️ Useful Scripts
+
+    - `dev`: Starts the development server
+    - `build`: Builds the application for production
+    - `start`: Starts the production server
+    - `lint`: Runs the linter
+    - `format`: Formats code
+    - `check`: Checks if code is properly formatted without making changes
+    - `check-types`: Runs TypeScript to check for type errors
+
+    ## ☁️ Deployment
+
+    The easiest way to deploy is using [Vercel](https://vercel.com/), but you can use any Node.js-compatible service.
+
+    ````
 
   </Step>
 </Steps>

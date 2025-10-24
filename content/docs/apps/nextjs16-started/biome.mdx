@@ -28,10 +28,13 @@ description: See documentation Biome and Ultracite.
     ```
 
     ```sh
-    Which editors do you want to configure (recommended)?
+    Which frameworks are you using (optional)?
+    │  React, Next.js
+    │
+    ◇  Which editors do you want to configure (recommended)?
     │  VSCode / Cursor / Windsurf
     │
-    ◇  Which editor rules do you want to enable (optional)?
+    ◇  Which agents do you want to enable (optional)?
     │  GitHub Copilot (VSCode), Cursor, Gemini CLI
     │
     ◇  Would you like any of the following (optional)?
@@ -51,16 +54,16 @@ description: See documentation Biome and Ultracite.
     {
       "name": "nextjs16-started",
       "version": "0.1.0",
-      "type": "module",// [!code ++]
+      "type": "module",
       "private": true,
       "scripts": {
         "dev": "next dev --turbopack",
         "build": "next build --turbopack",
         "start": "next start",
-        "lint": "biome check",
-        "format": "biome format --write",
-        "check": "biome check --write",
-        "check-type": "tsc -b",
+        "lint": "biome check",// [!code ++]
+        "format": "biome format --write",// [!code ++]
+        "check": "biome check --write",// [!code ++]
+        "check-types": "tsc -b",
         "prepare": "husky"// [!code ++]
       },
       "dependencies": {
@@ -69,7 +72,7 @@ description: See documentation Biome and Ultracite.
         "react-dom": "19.2.0"
       },
       "devDependencies": {
-        "@biomejs/biome": "2.2.6",
+        "@biomejs/biome": "2.3.0",
         "@tailwindcss/postcss": "^4.1.16",
         "@types/node": "^20.19.23",
         "@types/react": "^19.2.2",
@@ -79,7 +82,7 @@ description: See documentation Biome and Ultracite.
         "lint-staged": "16.2.6",
         "tailwindcss": "^4.1.16",
         "typescript": "^5.9.3",
-        "ultracite": "5.6.4"
+        "ultracite": "6.0.0"
       },
       "lint-staged": {// [!code ++]
         "*.{js,jsx,ts,tsx,json,jsonc,css,scss,md,mdx}": [// [!code ++]
@@ -94,44 +97,10 @@ description: See documentation Biome and Ultracite.
   <Step>
     ### biome.json
 
-    ```json title="biome.json"
+    ```json title="biome.jsonc"
     {
-      "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",// [!code ++]
-      "vcs": {
-        "enabled": true,
-        "clientKind": "git",
-        "useIgnoreFile": true
-      },
-      "files": {
-        "ignoreUnknown": true,
-        "includes": ["**", "!node_modules", "!.next", "!dist", "!build"]
-      },
-      "formatter": {
-        "enabled": true,
-        "indentStyle": "space",
-        "indentWidth": 2
-      },
-      "linter": {
-        "enabled": true,
-        "rules": {
-          "recommended": true,
-          "suspicious": {
-            "noUnknownAtRules": "off"
-          }
-        },
-        "domains": {
-          "next": "recommended",
-          "react": "recommended"
-        }
-      },
-      "assist": {
-        "actions": {
-          "source": {
-            "organizeImports": "on"
-          }
-        }
-      },
-      "extends": ["ultracite"]// [!code ++]
+      "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+      "extends": ["ultracite/core", "ultracite/react", "ultracite/next"]
     }
 
     ```

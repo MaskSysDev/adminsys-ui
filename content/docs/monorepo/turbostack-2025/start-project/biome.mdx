@@ -101,7 +101,24 @@ description: See documentation Biome and Ultracite.
       "assist": {
         "actions": {
           "source": {
-            "organizeImports": "on"
+            "organizeImports": {// [!code ++]
+              "level": "on",// [!code ++]
+              "options": {// [!code ++]
+                "groups": [// [!code ++]
+                  [":URL:", ":NODE:"],// [!code ++]
+                  ":BLANK_LINE:",// [!code ++]
+                  [":PACKAGE:"],// [!code ++]
+                  ":BLANK_LINE:",// [!code ++]
+                  ["@/components/**"],// [!code ++]
+                  ":BLANK_LINE:",// [!code ++]
+                  ["@/lib/**", "@/utils/**"],// [!code ++]
+                  ":BLANK_LINE:",// [!code ++]
+                  ["@/**"],// [!code ++]
+                  ":BLANK_LINE:",// [!code ++]
+                  [":PATH:"]// [!code ++]
+                ]// [!code ++]
+              }// [!code ++]
+            }// [!code ++]
           }
         }
       },
