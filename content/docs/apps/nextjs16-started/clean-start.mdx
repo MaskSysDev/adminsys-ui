@@ -41,7 +41,7 @@ description: This section describes how to set up a clean start for your Next.js
         "lint": "biome check",
         "format": "biome format --write",
         "check": "biome check --write",// [!code ++]
-        "check-type": "tsc -b"// [!code ++]
+        "check-types": "tsc -b"// [!code ++]
       },
       "dependencies": {
         "react": "19.2.0",
@@ -66,7 +66,7 @@ description: This section describes how to set up a clean start for your Next.js
   <Step>
     ### Update tsconfig.json
 
-    ```js title="apps/nextjs15-clean-start/tsconfig.json"
+    ```js title="tsconfig.json"
     {
       "compilerOptions": {
         "target": "ES2017",
@@ -171,6 +171,7 @@ description: This section describes how to set up a clean start for your Next.js
 
     ```tsx title="src/app/layout.tsx"
     import type { Metadata } from "next";
+
     import { geistMono, geistSans } from "@/lib/fonts";// [!code ++]
     import "@/styles/globals.css";// [!code ++]
 
@@ -222,13 +223,13 @@ description: This section describes how to set up a clean start for your Next.js
     ### Update Readme
 
     ````markdown title="README.md"
-    # NextJS 15 Started
+    # NextJS 16 Started
 
-    This project is a minimalist starter template for building modern applications using [Next.js 15](https://nextjs.org/), [React 19](https://react.dev/), and [Tailwind CSS 4](https://tailwindcss.com/). It comes pre-configured with best practices, TypeScript, automatic formatting, and linting.
+    This project is a minimalist starter template for building modern applications using [Next.js 16](https://nextjs.org/), [React 19](https://react.dev/), and [Tailwind CSS 4](https://tailwindcss.com/). It comes pre-configured with best practices, TypeScript, automatic formatting, and linting.
 
     ## ✨ Features
 
-    - Ready-to-use structure with Next.js 15 (App Router)
+    - Ready-to-use structure with Next.js 16 (App Router)
     - TypeScript support
     - Styling with Tailwind CSS 4
     - Optimized fonts using `next/font` (Geist and Geist Mono)
@@ -271,12 +272,10 @@ description: This section describes how to set up a clean start for your Next.js
     - `dev`: Starts the development server
     - `build`: Builds the application for production
     - `start`: Starts the production server
-    - `preview`: Builds and starts the application (production preview)
-    - `clean`: Removes node_modules and .next folders
     - `lint`: Runs the linter
     - `format`: Formats code
     - `check`: Checks if code is properly formatted without making changes
-    - `typecheck`: Runs TypeScript to check for type errors
+    - `check-types`: Runs TypeScript to check for type errors
 
     ## ☁️ Deployment
 
