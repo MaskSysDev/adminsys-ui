@@ -1,0 +1,715 @@
+---
+title: Install
+description: Install Description.
+---
+
+[Fumadocs](https://fumadocs.dev) is a beautiful documentation framework for developers, flexible, performant, running on your React framework..
+
+## Version Control
+
+Create new Branch(version).
+
+```sh
+git checkout -b 04-fumadocs
+```
+
+## Apps Directory
+
+Create a folder called `apps` in the project root.
+
+```sh
+cd apps
+```
+
+## Install Fumadocs
+
+<Steps>
+  <Step>
+    ### Install
+
+    ```package-install
+    npm create fumadocs-app
+    ```
+
+  </Step>
+  <Step>
+    ### Initial Settings
+
+    ```sh
+    ◇  Project name
+    │  docs
+    │
+    ◇  Choose a template
+    │  Next.js: Fumadocs MDX
+    │
+    ◇  Use `/src` directory?
+    │  Yes
+    │
+    ◇  Configure linter?
+    │  Disabled
+    │
+    ◇  Do you want to install packages automatically? (detected as pnpm)
+    │  No
+
+    ```
+
+  </Step>
+</Steps>
+
+## Files
+
+<Steps>
+  <Step>
+    ### package.json
+
+    Use the same versions of dependencies installed in the packages.
+
+    ```tsx title="apps/docs/package.json"
+    {
+      "name": "docs",
+      "version": "0.1.0",// [!code ++]
+      "type": "module",// [!code ++]
+      "private": true,
+      "scripts": {
+        "dev": "next dev --port=4000",// [!code ++]
+        "build": "next build",
+        "start": "next start",
+        "check-types": "tsc -b",// [!code ++]
+        "postinstall": "fumadocs-mdx"
+      },
+      "dependencies": {
+        "fumadocs-core": "16.0.7",
+        "fumadocs-mdx": "13.0.5",
+        "fumadocs-ui": "16.0.7",
+        "lucide-react": "^0.548.0",
+        "next": "catalog:",// [!code ++]
+        "react": "catalog:",// [!code ++]
+        "react-dom": "catalog:"// [!code ++]
+      },
+      "devDependencies": {
+        "@tailwindcss/postcss": "catalog:",// [!code ++]
+        "@types/mdx": "^2.0.13",
+        "@types/node": "catalog:",// [!code ++]
+        "@types/react": "catalog:",// [!code ++]
+        "@types/react-dom": "catalog:",// [!code ++]
+        "babel-plugin-react-compiler": "1.0.0",// [!code ++]
+        "postcss": "^8.5.6",
+        "tailwindcss": "catalog:",// [!code ++]
+        "typescript": "catalog:"// [!code ++]
+      }
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### next.config.mjs
+
+    ```js title="apps/docs/next.config.mjs"
+    import { createMDX } from "fumadocs-mdx/next"
+
+    const withMDX = createMDX()
+
+    /** @type {import('next').NextConfig} */
+    const config = {
+      reactCompiler: true,// [!code ++]
+      reactStrictMode: true,
+    }
+
+    export default withMDX(config)
+
+    ```
+
+  </Step>
+  <Step>
+    ### tsconfig.json
+
+    ```js title="apps/docs/tsconfig.json"
+    {
+      "compilerOptions": {
+        "target": "ESNext",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "react-jsx",
+        "incremental": true,
+        "verbatimModuleSyntax": true,// [!code ++]
+        "strictNullChecks": true,// [!code ++]
+        "forceConsistentCasingInFileNames": true,// [!code ++]
+        "baseUrl": ".",// [!code ++]
+        "paths": {
+          "@/*": ["./src/*"],
+          "@/.source": [".source"]
+        },
+        "plugins": [
+          {
+            "name": "next"
+          }
+        ]
+      },
+      "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        ".next/types/**/*.ts",
+        ".next/dev/types/**/*.ts",
+        "**/*.mts",
+        "./next-env.d.ts",// [!code ++]
+        "./**/*.ts",// [!code ++]
+        "./**/*.tsx",// [!code ++]
+        "./.next/types/**/*.ts",// [!code ++]
+        "./.next/dev/types/**/*.ts",// [!code ++]
+        "./**/*.mts"// [!code ++]
+      ],
+      "exclude": ["./node_modules", "node_modules"]
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### Globals CSS
+
+    - Remove `apps/docs/src/app/global.css`
+
+    Create a folder called `styles` in the `src` directory and inside it create the file `globals.css`.
+
+    ```css title="apps/docs/src/styles/globals.css"
+    @import "tailwindcss";
+    @import "fumadocs-ui/css/neutral.css";
+    @import "fumadocs-ui/css/preset.css";
+
+    ```
+
+  </Step>
+  <Step>
+    ### Lib Fonts
+
+    Create a folder called `lib` in the `src` directory and inside it create a file called `fonts.ts`. Use the `next/font` package to import and configure the fonts. This allows you to use these fonts throughout your application with optimized loading.
+
+    ```ts title="apps/docs/src/lib/fonts.ts"
+    import { Geist, Geist_Mono } from "next/font/google"
+
+    export const geistSans = Geist({
+      variable: "--font-geist-sans",
+      subsets: ["latin"],
+    })
+
+    export const geistMono = Geist_Mono({
+      variable: "--font-geist-mono",
+      subsets: ["latin"],
+    })
+
+    ```
+
+  </Step>
+  <Step>
+    ### Config
+
+    Create a folder named `config` in the `src` directory and move the `layout.shared.tsx` file from the `lib` directory to the newly created directory.
+
+    ```ts title="apps/docs/src/config/layout.shared.tsx"
+    import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
+
+    export function baseOptions(): BaseLayoutProps {
+      return {
+        nav: {
+          title: 'Docs',// [!code ++]
+        },
+      };
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### Update Root Layout
+
+    ```tsx title="apps/docs/src/app/layout.tsx"
+    import type { Metadata } from "next";
+
+    import { geistMono, geistSans } from "@/lib/fonts";
+    import "@/styles/globals.css";
+
+    export const metadata: Metadata = {
+      title: "Create Fumadocs App",
+      description: "Generated by create fumadocs app",
+    };
+
+    export default function RootLayout({
+      children,
+    }: Readonly<{
+      children: React.ReactNode;
+    }>) {
+      return (
+        <html
+          className="scroll-smooth"
+          data-scroll-behavior="smooth"
+          dir="ltr"
+          lang="en"
+          suppressHydrationWarning
+        >
+          <body
+            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          >
+            {children}
+          </body>
+        </html>
+      );
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### Update Home Layout
+
+    ```tsx title="apps/docs/src/app/(home)/layout.tsx"
+    import { HomeLayout } from "fumadocs-ui/layouts/home";
+    import { RootProvider } from "fumadocs-ui/provider/next";
+
+    import { baseOptions } from "@/config/layout.shared";
+
+    export default function Layout({ children }: LayoutProps<"/">) {
+      return (
+        <div className="flex min-h-screen flex-col">
+          <RootProvider>
+            <HomeLayout {...baseOptions()}>{children}</HomeLayout>
+          </RootProvider>
+        </div>
+      );
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### Update Docs Layout
+
+    ```tsx title="apps/docs/src/app/docs/layout.tsx"
+    import { DocsLayout } from "fumadocs-ui/layouts/docs";
+    import { RootProvider } from "fumadocs-ui/provider/next";
+
+    import { source } from "@/lib/source";
+
+    import { baseOptions } from "@/config/layout.shared";
+
+    export default function Layout({ children }: LayoutProps<"/docs">) {
+      return (
+        <div className="flex min-h-screen flex-col">
+          <RootProvider>
+            <DocsLayout tree={source.pageTree} {...baseOptions()}>
+              {children}
+            </DocsLayout>
+          </RootProvider>
+        </div>
+      );
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### MDX Components
+
+    Create a folder called `components` in the `src` directory, inside it create a new folder called `docs`, and inside this, create a new folder called `mdx` and move the file `apps/docs/src/mdx-components.tsx` into the `mdx` folder.
+
+  </Step>
+  <Step>
+    ### Update Page
+
+    ```tsx title="apps/docs/src/app/docs/[[slug]]/page.tsx"
+    import { createRelativeLink } from "fumadocs-ui/mdx";
+    import {
+      DocsBody,
+      DocsDescription,
+      DocsPage,
+      DocsTitle,
+    } from "fumadocs-ui/page";
+    import type { Metadata } from "next";
+    import { notFound } from "next/navigation";
+
+    import { getMDXComponents } from "@/components/docs/mdx/mdx-components";// [!code ++]
+
+    import { getPageImage, source } from "@/lib/source";
+
+    export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
+      const params = await props.params;
+      const page = source.getPage(params.slug);
+      if (!page) {
+        notFound();
+      }
+
+      const MDX = page.data.body;
+
+      return (
+        <DocsPage full={page.data.full} toc={page.data.toc}>
+          <DocsTitle>{page.data.title}</DocsTitle>
+          <DocsDescription>{page.data.description}</DocsDescription>
+          <DocsBody>
+            <MDX
+              components={getMDXComponents({
+                // this allows you to link to other pages with relative file paths
+                a: createRelativeLink(source, page),
+              })}
+            />
+          </DocsBody>
+        </DocsPage>
+      );
+    }
+
+    export async function generateStaticParams() {
+      return source.generateParams();
+    }
+
+    export async function generateMetadata(
+      props: PageProps<"/docs/[[...slug]]">
+    ): Promise<Metadata> {
+      const params = await props.params;
+      const page = source.getPage(params.slug);
+      if (!page) {
+        notFound();
+      }
+
+      return {
+        title: page.data.title,
+        description: page.data.description,
+        openGraph: {
+          images: getPageImage(page).url,
+        },
+      };
+    }
+
+    ```
+
+  </Step>
+</Steps>
+
+## Run
+
+<Steps>
+  <Step>
+    Back To Root Directory.
+
+    ```sh
+    cd ../
+    ```
+
+  </Step>
+  <Step>
+    ### Run Taze
+
+    To ensure all dependencies are up to date and correctly installed, run the following command:
+
+    ```sh
+    pnpm dlx taze -r -w
+    ```
+
+  </Step>
+  <Step>
+    ### Run Install
+
+    ```sh
+    pnpm i
+    ```
+
+  </Step>
+  <Step>
+    ### Run Dev
+
+    ```sh
+    pnpm dev
+    ```
+
+  </Step>
+</Steps>
+
+## Update Docs
+
+<Steps>
+  <Step>
+    ### Install Dependencies
+
+    ```sh
+    pnpm add fumadocs-core fumadocs-mdx fumadocs-ui fumadocs-openapi fumadocs-twoslash fumadocs-typescript d3-force react-force-graph-2d twoslash zod
+    ```
+
+  </Step>
+  <Step>
+    ### Install devDependencies
+
+    ```sh
+    pnpm add -D @types/mdx @types/d3-force shiki ts-morph
+    ```
+
+  </Step>
+  <Step>
+    ### source.config.ts
+
+    ```ts title="apps/docs/source.config.ts"
+    import { rehypeCodeDefaultOptions } from "fumadocs-core/mdx-plugins";
+    import {
+      defineConfig,
+      defineDocs,
+      frontmatterSchema,
+      metaSchema,
+    } from "fumadocs-mdx/config";
+    import { transformerTwoslash } from "fumadocs-twoslash";
+    import { createFileSystemTypesCache } from "fumadocs-twoslash/cache-fs";
+    import { createGenerator, remarkAutoTypeTable } from "fumadocs-typescript";
+    import { z } from "zod";
+
+    const generator = createGenerator();
+
+    // You can customise Zod schemas for frontmatter and `meta.json` here
+    // see https://fumadocs.dev/docs/mdx/collections
+    export const docs = defineDocs({
+      docs: {
+        schema: frontmatterSchema.extend({
+          preview: z.string().optional(),
+          index: z.boolean().default(false),
+          /**
+          * API routes only
+          */
+          method: z.string().optional(),
+        }),
+        postprocess: {
+          includeProcessedMarkdown: true,
+        },
+      },
+      meta: {
+        schema: metaSchema,
+      },
+    });
+
+    export default defineConfig({
+      mdxOptions: {
+        // Opções do MDX
+        remarkPlugins: [[remarkAutoTypeTable, { generator }]],
+        rehypeCodeOptions: {
+          langs: ["ts", "js", "html", "tsx", "mdx"],
+          themes: {
+            light: "github-light",
+            dark: "github-dark",
+          },
+          transformers: [
+            ...(rehypeCodeDefaultOptions.transformers ?? []),
+            transformerTwoslash({
+              typesCache: createFileSystemTypesCache(),
+            }),
+          ],
+        },
+        remarkCodeTabOptions: {
+          parseMdx: true,
+        },
+        remarkNpmOptions: {
+          persist: {
+            id: "package-manager",
+          },
+        },
+      },
+    });
+
+    ```
+  </Step>
+  <Step>
+    ### next.config.mjs
+
+    ```js title="apps/docs/next.config.mjs"
+    import { createMDX } from "fumadocs-mdx/next"
+
+    const withMDX = createMDX()
+
+    /** @type {import('next').NextConfig} */
+    const config = {
+      reactCompiler: true,
+      reactStrictMode: true,
+      serverExternalPackages: ["typescript", "twoslash"],// [!code ++]
+    }
+
+    export default withMDX(config)
+
+    ```
+
+  </Step>
+  <Step>
+    ### globals.css
+
+    ```css title="apps/docs/src/styles/globals.css"
+    @import "tailwindcss";
+    @import "fumadocs-ui/css/neutral.css";
+    @import "fumadocs-ui/css/preset.css";
+    @import "fumadocs-twoslash/twoslash.css";
+    @import "fumadocs-openapi/css/preset.css";
+
+    ```
+  </Step>
+  <Step>
+    ### build-graph.ts
+
+    ```ts title="apps/docs/src/lib/build-graph.ts"
+    import type { Graph } from "@/components/docs/shared/graph/graph-view";
+
+    import { source } from "@/lib/source";
+
+    export function buildGraph(): Graph {
+      const pages = source.getPages();
+      const graph: Graph = { links: [], nodes: [] };
+
+      for (const page of pages) {
+        graph.nodes.push({
+          id: page.url,
+          url: page.url,
+          text: page.data.title,
+          description: page.data.description,
+        });
+
+        const { extractedReferences = [] } = page.data;
+        for (const ref of extractedReferences) {
+          const refPage = source.getPageByHref(ref.href);
+          if (!refPage) {
+            continue;
+          }
+
+          graph.links.push({
+            source: page.url,
+            target: refPage.page.url,
+          });
+        }
+      }
+
+      return graph;
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### mdx-components.tsx
+
+    ```tsx title="apps/docs/src/components/docs/mdx/mdx-components.tsx"
+    import { Popup, PopupContent, PopupTrigger } from "fumadocs-twoslash/ui";
+    import { createGenerator } from "fumadocs-typescript";
+    import { AutoTypeTable } from "fumadocs-typescript/ui";
+    import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+    import { Banner } from "fumadocs-ui/components/banner";
+    import { Callout } from "fumadocs-ui/components/callout";
+    import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
+    import { File, Files, Folder } from "fumadocs-ui/components/files";
+    import { ImageZoom } from "fumadocs-ui/components/image-zoom";
+    import { InlineTOC } from "fumadocs-ui/components/inline-toc";
+    import { Step, Steps } from "fumadocs-ui/components/steps";
+    import {
+      Tab,
+      Tabs,
+      TabsContent,
+      TabsList,
+      TabsTrigger,
+    } from "fumadocs-ui/components/tabs";
+    import { TypeTable } from "fumadocs-ui/components/type-table";
+    import defaultMdxComponents from "fumadocs-ui/mdx";
+    // biome-ignore lint/performance/noNamespaceImport: Avoid namespace imports, it can prevent efficient tree shaking and increase bundle size.
+    import * as icons from "lucide-react";
+    import type { MDXComponents } from "mdx/types";
+    import type { ComponentProps, FC } from "react";
+
+    import { DocsCategory } from "@/components/docs/shared/category/docs-category";
+    import { Wrapper } from "@/components/docs/shared/preview/wrapper";
+
+    const generator = createGenerator({
+      tsconfigPath: "./tsconfig.json",
+      // where to resolve relative paths (normally cwd)
+      basePath: "./",
+      // disable file system cache
+      cache: false,
+    });
+
+    export function getMDXComponents(components?: MDXComponents): MDXComponents {
+      return {
+        ...defaultMdxComponents,
+        Accordion,
+        Accordions,
+        AutoTypeTable: (props) => (
+          <AutoTypeTable {...props} generator={generator} />
+        ),
+        Banner,
+        blockquote: Callout as unknown as FC<ComponentProps<"blockquote">>,
+        DocsCategory,
+        DynamicCodeBlock,
+        ...(icons as unknown as MDXComponents),
+        File,
+        Files,
+        Folder,
+        img: (props) => <ImageZoom {...props} />,
+        InlineTOC,
+        Step,
+        Steps,
+        Tab,
+        Tabs,
+        TabsTrigger,
+        TabsContent,
+        TabsList,
+        TabsTriggerShadcnCLI: () => (
+          <TabsTrigger className="cursor-pointer" value="cli">
+            <svg aria-label="Logo Shadcn" role="img" viewBox="0 0 256 256">
+              <path
+                d="m208 128-80 80M192 40 40 192"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="32"
+              />
+            </svg>
+            shadcn CLI
+          </TabsTrigger>
+        ),
+        TypeTable,
+        Popup,
+        PopupContent,
+        PopupTrigger,
+        Wrapper,
+        ...components,
+      };
+    }
+
+    ```
+
+  </Step>
+</Steps>
+
+## Version Control
+
+<Steps>
+  <Step>
+    Send all data to stage.
+
+    ```sh
+    git add .
+    ```
+
+  </Step>
+  <Step>
+    Copy data with Commit.
+
+    ```sh
+    git commit -m "feat: 04-fumadocs"
+    ```
+
+  </Step>
+  <Step>
+  Send Branch.
+
+    ```sh
+    git push --set-upstream origin 04-fumadocs
+    ```
+
+  </Step>
+</Steps>

@@ -1,0 +1,381 @@
+---
+title: installation
+description: installation Description.
+---
+
+[Nextjs](https://nextjs.org/docs) is a React framework for building full-stack web applications. You use React Components to build user interfaces, and [Nextjs](https://nextjs.org/docs) for additional features and optimizations.
+
+## Version Control
+
+Create new Branch(version).
+
+```sh
+git checkout -b 03-nextjs16-started
+```
+
+## Apps Directory
+
+Create a folder called `apps` in the project root.
+
+```sh
+cd apps
+```
+
+## Install Nextjs
+
+<Steps>
+  <Step>
+    ### Install
+
+    ```sh
+    pnpm create next-app@latest
+    ```
+
+  </Step>
+  <Step>
+    ### Initial Settings
+
+    ```sh
+    √ What is your project named? ... nextjs16-started
+    √ Would you like to use the recommended Next.js defaults? » No, customize settings
+    √ Would you like to use TypeScript? ... Yes
+    √ Which linter would you like to use? » None
+    √ Would you like to use React Compiler? ... Yes
+    √ Would you like to use Tailwind CSS? ... Yes
+    √ Would you like your code inside a `src/` directory? ... Yes
+    √ Would you like to use App Router? (recommended) ... Yes
+    √ Would you like to use Turbopack? (recommended) ... Yes
+    √ Would you like to customize the import alias (`@/*` by default)? ... No
+    ```
+
+  </Step>
+</Steps>
+
+## Post-Installation
+
+### Delete Folder
+
+- `apps/nextjs16-started/.next`.
+- `apps/nextjs16-started/node_modules`.
+- `apps/nextjs16-started/public`.
+- `apps/nextjs16-started/src`.
+
+## Files
+
+<Steps>
+  <Step>
+    ### package.json
+
+    Use the same versions of dependencies installed in the packages.
+
+    ```tsx title="apps/nextjs16-started/package.json"
+    {
+      "name": "nextjs16-started",
+      "version": "0.1.0",
+      "type": "module",// [!code ++]
+      "private": true,
+      "scripts": {
+        "dev": "next dev --port=3001",// [!code ++]
+        "build": "next build",
+        "start": "next start",
+        "check-types": "tsc -b"// [!code ++]
+      },
+      "dependencies": {
+        "next": "catalog:",// [!code ++]
+        "react": "catalog:",// [!code ++]
+        "react-dom": "catalog:"// [!code ++]
+      },
+      "devDependencies": {
+        "@tailwindcss/postcss": "catalog:",// [!code ++]
+        "@types/node": "catalog:",// [!code ++]
+        "@types/react": "catalog:",// [!code ++]
+        "@types/react-dom": "catalog:",// [!code ++]
+        "babel-plugin-react-compiler": "1.0.0",
+        "tailwindcss": "catalog:",// [!code ++]
+        "typescript": "catalog:"// [!code ++]
+      }
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### tsconfig.json
+
+    ```js title="apps/nextjs16-started/tsconfig.json"
+    {
+      "compilerOptions": {
+        "target": "ES2017",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "react-jsx",
+        "incremental": true,
+        "verbatimModuleSyntax": true,// [!code ++]
+        "strictNullChecks": true,// [!code ++]
+        "forceConsistentCasingInFileNames": true,// [!code ++]
+        "baseUrl": ".",// [!code ++]
+        "plugins": [
+          {
+            "name": "next"
+          }
+        ],
+        "paths": {
+          "@/*": ["./src/*"]
+        }
+      },
+      "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        ".next/types/**/*.ts",
+        ".next/dev/types/**/*.ts",
+        "**/*.mts",
+        "./next-env.d.ts",// [!code ++]
+        "./**/*.ts",// [!code ++]
+        "./**/*.tsx",// [!code ++]
+        "./.next/types/**/*.ts",// [!code ++]
+        "./.next/dev/types/**/*.ts",// [!code ++]
+        "./**/*.mts"// [!code ++]
+      ],
+      "exclude": ["./node_modules", "node_modules"]// [!code ++]
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### Public Folder
+
+    Create a folder called `public` in the project root and place your `favicon.ico` inside it.
+
+  </Step>
+  <Step>
+    ### Lib Fonts
+
+    Create a folder called `lib` in the `src` directory and inside it create a file called `fonts.ts`. Use the `next/font` package to import and configure the fonts. This allows you to use these fonts throughout your application with optimized loading.
+
+    ```ts title="apps/nextjs16-started/src/lib/fonts.ts"
+    import { Geist, Geist_Mono } from "next/font/google"
+
+    export const geistSans = Geist({
+      variable: "--font-geist-sans",
+      subsets: ["latin"],
+    })
+
+    export const geistMono = Geist_Mono({
+      variable: "--font-geist-mono",
+      subsets: ["latin"],
+    })
+
+    ```
+
+  </Step>
+  <Step>
+    ### Globals CSS
+
+    Create a folder called `styles` in the `src` directory and inside it create the file `globals.css`.
+
+    ```css title="apps/nextjs16-started/src/styles/globals.css"
+    @import "tailwindcss";
+
+    ```
+
+  </Step>
+  <Step>
+    ### Root Layout
+
+    ```tsx title="apps/nextjs16-started/src/app/layout.tsx"
+    import type { Metadata } from "next";
+    import { geistMono, geistSans } from "@/lib/fonts";
+    import "@/styles/globals.css";
+
+    export const metadata: Metadata = {
+      title: "Create Next App",
+      description: "Generated by create next app",
+    };
+
+    export default function RootLayout({
+      children,
+    }: Readonly<{
+      children: React.ReactNode;
+    }>) {
+      return (
+        <html
+          className="scroll-smooth"
+          data-scroll-behavior="smooth"
+          dir="ltr"
+          lang="en"
+        >
+          <body
+            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          >
+            {children}
+          </body>
+        </html>
+      );
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### Home Page
+
+    ```tsx title="apps/nextjs16-started/src/app/(home)/page.tsx"
+    export default function Home() {
+      return (
+        <main className="flex flex-col items-center gap-2 p-24">
+          <h1 className="font-bold text-3xl">NextJS 16 Started</h1>
+        </main>
+      );
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### Update Readme
+
+    ````markdown title="README.md"
+    # NextJS 16 Started
+
+    This project is a minimalist starter template for building modern applications using [Next.js 16](https://nextjs.org/), [React 19](https://react.dev/), and [Tailwind CSS 4](https://tailwindcss.com/). It comes pre-configured with best practices, TypeScript, automatic formatting, and linting.
+
+    ## ✨ Features
+
+    - Ready-to-use structure with Next.js 16 (App Router)
+    - TypeScript support
+    - Styling with Tailwind CSS 4
+    - Optimized fonts using `next/font` (Geist and Geist Mono)
+
+    ## 🚀 Getting Started
+
+    Install the dependencies:
+
+    ```bash
+    pnpm install
+    # or
+    npm run install
+    # or
+    yarn install
+    ```
+
+    Start the development server:
+
+    ```bash
+    pnpm dev
+    # or
+    npm run dev
+    # or
+    yarn dev
+    ```
+
+    Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+
+    ## 📁 Project Structure
+
+    - `src/app/`: Application pages and layouts
+    - `src/app/layout.tsx`: Root layout component (applies to all pages)
+    - `src/app/(home)/page.tsx`: Home page component
+    - `src/lib/fonts.ts`: Geist font configuration
+    - `src/styles/globals.css`: Global styles with Tailwind CSS
+
+    ## 🛠️ Useful Scripts
+
+    - `dev`: Starts the development server
+    - `build`: Builds the application for production
+    - `start`: Starts the production server
+    - `check-types`: Runs TypeScript to check for type errors
+
+    ## ☁️ Deployment
+
+    The easiest way to deploy is using [Vercel](https://vercel.com/), but you can use any Node.js-compatible service.
+
+    ````
+
+  </Step>
+</Steps>
+
+## Run
+
+<Steps>
+  <Step>
+    Back To Root Directory.
+
+    ```sh
+    cd ../
+    ```
+
+  </Step>
+  <Step>
+    ### Run Taze
+
+    To ensure all dependencies are up to date and correctly installed, run the following command:
+
+    ```sh
+    pnpm dlx taze -r -w
+    ```
+
+  </Step>
+  <Step>
+    ### Run Install
+
+    ```sh
+    pnpm i
+    ```
+
+  </Step>
+  <Step>
+    ### Run Check
+
+    ```sh
+    pnpm check
+    ```
+
+  </Step>
+  <Step>
+    ### Run Dev
+
+    ```sh
+    pnpm dev
+    ```
+
+  </Step>
+</Steps>
+
+## Version Control
+
+<Steps>
+  <Step>
+    Send all data to stage.
+
+    ```sh
+    git add .
+    ```
+
+  </Step>
+  <Step>
+    Copy data with Commit.
+
+    ```sh
+    git commit -m "feat: 03-nextjs16-started"
+    ```
+
+  </Step>
+  <Step>
+  Send Branch.
+
+    ```sh
+    git push --set-upstream origin 03-nextjs16-started
+    ```
+
+  </Step>
+</Steps>
