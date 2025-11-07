@@ -1,0 +1,131 @@
+---
+title: Installation
+description: Installation Description.
+---
+
+[better-t-stack](https://www.better-t-stack.dev/new?fe-w=next&be=fastify&rt=node&db=postgres&pm=pnpm&add=fumadocs,husky,ruler,turborepo,ultracite&ex=todo&name=stack) Modern CLI for scaffolding end-to-end type-safe TypeScript projects.
+
+## Install
+
+<Steps>
+  <Step>
+    ### Install
+
+    ```sh
+    pnpm create better-t-stack@latest stack --frontend next --backend fastify --runtime node --api trpc --auth better-auth --payments none --database postgres --orm drizzle --db-setup none --package-manager pnpm --git --web-deploy none --server-deploy none --install --addons fumadocs husky ruler turborepo ultracite --examples todo
+    ```
+
+  </Step>
+</Steps>
+
+## Post-Installation
+
+<Steps>
+  <Step>
+    ### Enter the Directory
+
+    ```sh
+    cd stack
+    ```
+
+  </Step>
+  <Step>
+    ### Delete Folder
+
+    Delete the `.git` folder from the project or run the command:
+
+    ```sh
+    rm -rf .git
+    # or
+    Remove-Item -Force .git
+    ```
+
+  </Step>
+  <Step>
+    ### Open with VS Code.
+
+    Open the project with your preferred IDE.
+
+    ```sh
+    code .
+    ```
+
+  </Step>
+  <Step>
+    ### Run Dev
+
+    ```sh
+    pnpm dev
+    ```
+
+  </Step>
+</Steps>
+
+## Version Control
+
+<Steps>
+  <Step>
+    Initialize the local Git repository.
+
+    ```sh
+    git init
+    ```
+
+  </Step>
+  <Step>
+    Send all data to stage.
+
+    ```sh
+    git add .
+    ```
+
+  </Step>
+  <Step>
+    Copy data with Commit.
+
+    ```sh
+    git commit -m "chore: 01-better-t-stack"
+    ```
+
+  </Step>
+  <Step>
+    Change branch name from (master) to (main).
+
+    ```sh
+    git branch -M main
+    ```
+
+  </Step>
+  <Step>
+    Add Remote GitHub Repository.
+
+    ```sh
+    git remote add origin https://github.com/username/stack.git
+    ```
+
+  </Step>
+  <Step>
+    Send to Remote Repository.
+
+    ```sh
+    git push -u origin main
+    ```
+
+  </Step>
+  <Step>
+    Create new Branch(version).
+
+    ```sh
+    git checkout -b 01-better-t-stack
+    ```
+
+  </Step>
+  <Step>
+    Send Branch.
+
+    ```sh
+    git push --set-upstream origin 01-better-t-stack
+    ```
+
+  </Step>
+</Steps>

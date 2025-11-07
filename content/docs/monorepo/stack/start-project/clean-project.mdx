@@ -1,0 +1,327 @@
+---
+title: Clean Project
+description: Clean Project Description.
+---
+
+## Version Control
+
+Create new Branch(version).
+
+```sh
+git checkout -b 02-clean-project
+```
+
+## Clean Start
+
+<Steps>
+  <Step>
+    ### biome.json
+
+    ```json title="biome.json"
+    {
+      "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+      "files": {
+        "ignoreUnknown": false,
+        "includes": [
+          "**",
+          "!**/.next",
+          "!**/dist",
+          "!**/.turbo",
+          "!**/dev-dist",
+          "!**/.zed",
+          "!**/.vscode",
+          "!**/routeTree.gen.ts",
+          "!**/src-tauri",
+          "!**/.nuxt",
+          "!bts.jsonc",
+          "!**/.expo",
+          "!**/.wrangler",
+          "!**/.alchemy",
+          "!**/.svelte-kit",
+          "!**/wrangler.jsonc",
+          "!**/.source",
+          "!apps-examples",// [!code ++]
+          "!packages-examples"// [!code ++]
+        ]
+      },
+      "extends": ["ultracite/core", "ultracite/next"],
+      "assist": {// [!code ++]
+        "actions": {// [!code ++]
+          "source": {// [!code ++]
+            "organizeImports": {// [!code ++]
+              "level": "on",// [!code ++]
+              "options": {// [!code ++]
+                "groups": [// [!code ++]
+                  [":URL:", ":NODE:"],// [!code ++]
+                  ":BLANK_LINE:",// [!code ++]
+                  [":PACKAGE:"],// [!code ++]
+                  ":BLANK_LINE:",// [!code ++]
+                  ["@/components/**"],// [!code ++]
+                  ":BLANK_LINE:",// [!code ++]
+                  ["@/lib/**", "@/utils/**"],// [!code ++]
+                  ":BLANK_LINE:",// [!code ++]
+                  ["@/**"],// [!code ++]
+                  ":BLANK_LINE:",// [!code ++]
+                  [":PATH:"]// [!code ++]
+                ]// [!code ++]
+              }// [!code ++]
+            }// [!code ++]
+          }// [!code ++]
+        }// [!code ++]
+      }// [!code ++]
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### Delete
+
+    Delete the following folders and files from the project:
+
+    - apps
+    - node_modules
+    - packages
+    - pnpm-lock.yaml
+
+  </Step>
+  <Step>
+    ### Run Taze
+
+    To ensure all dependencies are up to date and correctly installed, run the following command:
+
+    ```sh
+    pnpm dlx taze -r -w
+    ```
+
+  </Step>
+  <Step>
+    ### Run Install
+
+    ```sh
+    pnpm i
+    ```
+
+  </Step>
+  <Step>
+    ### pnpm-workspace
+
+    ```yaml title="pnpm-workspace.yaml"
+    packages:
+      - apps/*
+      - packages/*
+    catalog:
+      "@trpc/server": ^11.7.1
+      better-auth: ^1.3.34
+      dotenv: ^17.2.3
+      zod: ^4.1.12
+      typescript: ^5.9.3
+      "@types/node": ^22.19.0
+      tsdown: ^0.15.12
+      lucide-react: ^0.546.0
+      next: ^16.0.1 #[!code ++]
+      react: ^19.2.0 #[!code ++]
+      react-dom: ^19.2.0 #[!code ++]
+      "@trpc/client": ^11.7.1
+      "@tailwindcss/postcss": ^4.1.17
+      "@types/react": 19.2.2
+      "@types/react-dom": 19.2.2
+      tailwindcss: ^4.1.17
+      drizzle-orm: ^0.44.7
+
+    ```
+  </Step>
+  <Step>
+    ### package.json
+
+    In `package.json`, update dependencies and scripts.
+
+    ```json title="package.json"
+    {
+      "name": "stack",
+      "private": true,
+      "type": "module",
+      "workspaces": [
+        "apps/*",
+        "packages/*"
+      ],
+      "scripts": {
+        "check": "biome check --write .",
+        "prepare": "husky",
+        "ruler:apply": "pnpm dlx @intellectronica/ruler@latest apply --local-only",
+        "dev": "turbo dev",
+        "build": "turbo build",
+        "check-types": "turbo check-types",
+        "dev:native": "turbo -F native dev",
+        "dev:docs": "turbo -F docs dev",// [!code ++]
+        "dev:web": "turbo -F web dev",
+        "dev:server": "turbo -F server dev",
+        "db:push": "turbo -F @stack/db db:push",
+        "db:studio": "turbo -F @stack/db db:studio",
+        "db:generate": "turbo -F @stack/db db:generate",
+        "db:migrate": "turbo -F @stack/db db:migrate"
+      },
+      "dependencies": {
+        "dotenv": "^17.2.3",
+        "zod": "^4.1.12"
+      },
+      "devDependencies": {
+        "@biomejs/biome": "2.3.4",
+        "@types/node": "^22.19.0",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.2.6",
+        "tsdown": "^0.15.12",
+        "turbo": "^2.6.0",
+        "typescript": "^5.9.3",// [!code ++]
+        "ultracite": "6.3.2"
+      },
+      "lint-staged": {
+        "*.{js,jsx,ts,tsx,json,jsonc,css,scss,md,mdx}": [
+          "pnpm dlx ultracite fix"
+        ]
+      },
+      "packageManager": "pnpm@10.20.0"
+    }
+
+    ```
+
+  </Step>
+  <Step>
+    ### pre-commit
+
+    ```sh title=".husky/pre-commit"
+    pnpm test #[!code --]
+
+    #!/bin/sh
+    # Exit on any error
+    set -e
+
+    # Check if there are any staged files
+    if [ -z "$(git diff --cached --name-only)" ]; then
+      echo "No staged files to format"
+      exit 0
+    fi
+
+    # Store the hash of staged changes to detect modifications
+    STAGED_HASH=$(git diff --cached | sha256sum | cut -d' ' -f1)
+
+    # Save list of staged files (handling all file states)
+    STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACMR)
+    PARTIALLY_STAGED=$(git diff --name-only)
+
+    # Stash unstaged changes to preserve working directory
+    # --keep-index keeps staged changes in working tree
+    git stash push --quiet --keep-index --message "pre-commit-stash" || true
+    STASHED=$?
+
+    # Run formatter on the staged files
+    pnpm dlx ultracite fix
+    FORMAT_EXIT_CODE=$?
+
+    # Restore working directory state
+    if [ $STASHED -eq 0 ]; then
+      # Re-stage the formatted files
+      if [ -n "$STAGED_FILES" ]; then
+        echo "$STAGED_FILES" | while IFS= read -r file; do
+          if [ -f "$file" ]; then
+            git add "$file"
+          fi
+        done
+      fi
+
+      # Restore unstaged changes
+      git stash pop --quiet || true
+
+      # Restore partial staging if files were partially staged
+      if [ -n "$PARTIALLY_STAGED" ]; then
+        for file in $PARTIALLY_STAGED; do
+          if [ -f "$file" ] && echo "$STAGED_FILES" | grep -q "^$file$"; then
+            # File was partially staged - need to unstage the unstaged parts
+            git restore --staged "$file" 2>/dev/null || true
+            git add -p "$file" < /dev/null 2>/dev/null || git add "$file"
+          fi
+        done
+      fi
+    else
+      # No stash was created, just re-add the formatted files
+      if [ -n "$STAGED_FILES" ]; then
+        echo "$STAGED_FILES" | while IFS= read -r file; do
+          if [ -f "$file" ]; then
+            git add "$file"
+          fi
+        done
+      fi
+    fi
+
+    # Check if staged files actually changed
+    NEW_STAGED_HASH=$(git diff --cached | sha256sum | cut -d' ' -f1)
+    if [ "$STAGED_HASH" != "$NEW_STAGED_HASH" ]; then
+      echo "✨ Files formatted by Ultracite"
+    fi
+
+    exit $FORMAT_EXIT_CODE
+
+    ```
+
+  </Step>
+</Steps>
+
+## Run
+
+<Steps>
+  <Step>
+    ### Run Taze
+
+    To ensure all dependencies are up to date and correctly installed, run the following command:
+
+    ```sh
+    pnpm dlx taze -r -w
+    ```
+
+  </Step>
+  <Step>
+    ### Run Install
+
+    ```sh
+    pnpm i
+    ```
+
+  </Step>
+  <Step>
+    ### Run Check
+
+    ```sh
+    pnpm check
+    ```
+
+  </Step>
+</Steps>
+
+## Version Control
+
+<Steps>
+  <Step>
+    Send all data to stage.
+
+    ```sh
+    git add .
+    ```
+
+  </Step>
+  <Step>
+    Copy data with Commit.
+
+    ```sh
+    git commit -m "chore: 02-clean-project"
+    ```
+
+  </Step>
+  <Step>
+  Send Branch.
+
+    ```sh
+    git push --set-upstream origin 02-clean-project
+    ```
+
+  </Step>
+</Steps>
