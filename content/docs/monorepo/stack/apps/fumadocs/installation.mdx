@@ -317,6 +317,53 @@ cd apps
 
   </Step>
   <Step>
+    ### Update Og Route
+
+    ```tsx title="apps/docs/src/app/og/docs/[...slug]/route.tsx"
+    import { generate as DefaultImage } from "fumadocs-ui/og";
+    import { notFound } from "next/navigation";
+    import { ImageResponse } from "next/og";
+
+    import { getPageImage, source } from "@/lib/source";
+
+    export const revalidate = false;
+
+    export async function GET(
+      _req: Request,
+      { params }: RouteContext<"/og/docs/[...slug]">
+    ) {
+      const { slug } = await params;
+      const page = source.getPage(slug.slice(0, -1));
+      if (!page) {
+        notFound();
+      }
+
+      return new ImageResponse(
+        <DefaultImage
+          description={page.data.description}
+          primaryColor="rgba(21, 93, 252, 0.1)"// [!code ++]
+          primaryTextColor="#fafafa"// [!code ++]
+          site="Docs"// [!code ++]
+          title={page.data.title}
+        />,
+        {
+          width: 1200,
+          height: 630,
+        }
+      );
+    }
+
+    export function generateStaticParams() {
+      return source.getPages().map((page) => ({
+        lang: page.locale,
+        slug: getPageImage(page).segments,
+      }));
+    }
+
+    ```
+
+  </Step>
+  <Step>
     ### MDX Components
 
     Create a folder called `components` in the `src` directory, inside it create a new folder called `docs`, and inside this, create a new folder called `mdx` and move the file `apps/docs/src/mdx-components.tsx` into the `mdx` folder.
